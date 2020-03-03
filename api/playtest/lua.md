@@ -1,4 +1,4 @@
-This is an automatically generated listing of the new Lua map scripting API, generated for {DEV_VERSION} of OpenRA.
+This is an automatically generated listing of the new Lua map scripting API, generated for playtest-20200301 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -144,7 +144,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 <table>
 <tr><td align="right" width="50%"><strong>void Debug(string text)</strong></td><td>Displays a debug message to the player, if "Show Map Debug Messages" is checked in the settings.</td></tr>
 <tr><td align="right" width="50%"><strong>void DisplayMessage(string text, string prefix = Mission, Nullable`1 color = nil)</strong></td><td>Display a text message to the player.</td></tr>
-<tr><td align="right" width="50%"><strong>void DisplaySystemMessage(string text, string prefix = Mission)</strong></td><td>Display a system message to the player.</td></tr>
+<tr><td align="right" width="50%"><strong>void DisplaySystemMessage(string text, string prefix = nil)</strong></td><td>Display a system message to the player. If 'prefix' is nil the default system prefix is used.</td></tr>
 <tr><td align="right" width="50%"><strong>void FloatingText(string text, WPos position, int duration = 30, Nullable`1 color = nil)</strong></td><td>Display a text message at the specified location.</td></tr>
 <tr><td align="right" width="50%"><strong>void PlayMovieFullscreen(string movie, LuaFunction func = nil)</strong></td><td>Play a VQA video fullscreen. File name has to include the file extension.</td></tr>
 <tr><td align="right" width="50%"><strong>bool PlayMovieInRadar(string movie, LuaFunction playComplete = nil)</strong></td><td>Play a VQA video in the radar window. File name has to include the file extension. Returns true on success, if the movie wasn't found the function returns false and the callback is executed.</td></tr>
@@ -368,12 +368,6 @@ Check whether this actor accepts a specific external condition.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
-<tr><td width="50%" align="right"><strong>bool AcceptsUpgrade(string upgrade)</strong>
-</td><td>
-Check whether this actor accepts a specific upgrade. DEPRECATED! Will be removed.
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
 <tr><td width="50%" align="right"><strong>bool AddTag(string tag)</strong>
 </td><td>
 Add a tag to the actor. Returns true on success, false otherwise (for example the actor may already have the given tag).
@@ -417,18 +411,6 @@ defines which player palette to use. Duration is in ticks.
 Grant an external condition on this actor and return the revocation token.
 Conditions must be defined on an ExternalConditions trait on the actor.
 If duration > 0 the condition will be automatically revoked after the defined number of ticks
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
-<tr><td width="50%" align="right"><strong>void GrantTimedUpgrade(string upgrade, int duration)</strong>
-</td><td>
-Grant a limited-time upgrade to this actor. DEPRECATED! Will be removed.
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
-<tr><td width="50%" align="right"><strong>void GrantUpgrade(string upgrade)</strong>
-</td><td>
-Grant an upgrade to this actor. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
@@ -492,12 +474,6 @@ Revoke a condition using the token returned by GrantCondition.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
-<tr><td width="50%" align="right"><strong>void RevokeUpgrade(string upgrade)</strong>
-</td><td>
-Revoke an upgrade that was previously granted using GrantUpgrade. DEPRECATED! Will be removed.
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
 <tr><td width="50%" align="right"><strong>void Sell()</strong>
 </td><td>
 Start selling the actor.
@@ -528,6 +504,10 @@ Stop repairs on this building. `repairer` can be an allied player.
 <br /><em>Queued Activity</em>
 </td><td>
 Instantly moves the actor to the specified cell.
+</td></tr>
+<tr><td width="50%" align="right"><strong>string TooltipName { get; }</strong>
+</td><td>
+The actor's tooltip name. Returns nil if the actor has no tooltip.
 </td></tr>
 <tr><td width="50%" align="right"><strong>string Type { get; }</strong>
 </td><td>
@@ -651,7 +631,8 @@ Check whether the factory's production queue that builds this type of actor is c
 <br /><em>Queued Activity</em>
 </td><td>
 Build a unit, ignoring the production queue. The activity will wait if the exit is blocked.
-If productionType is nil or unavailable, then an exit will be selected based on Buildable info.
+If productionType is nil or unavailable, then an exit will be selected based on 'Buildable.BuildAtProductionType'.
+If 'Buildable.BuildAtProductionType' is not set either, a random exit will be selected.
 <br />
 <b>Requires Trait:</b> Production
 </td></tr>
@@ -676,6 +657,12 @@ Activate the actor's NukePower.
 <br />
 <b>Requires Trait:</b> NukePower
 </td></tr>
+<tr><td width="50%" align="right"><strong>Actor[] ActivateParatroopers(WPos target, int facing = -1)</strong>
+</td><td>
+Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
+<br />
+<b>Requires Trait:</b> ParatroopersPower
+</td></tr>
 <tr><td width="50%" align="right"><strong>void Chronoshift(LuaTable unitLocationPairs, int duration = 0, bool killCargo = False)</strong>
 </td><td>
 Chronoshift a group of actors. A duration of 0 will teleport the actors permanently.
@@ -696,13 +683,13 @@ Activate the actor's Airstrike Power.
 </td></tr>
 <tr><td width="50%" align="right"><strong>Actor[] SendParatroopers(WPos target, bool randomize = True, int facing = 0)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units.
+Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
 <tr><td width="50%" align="right"><strong>Actor[] SendParatroopersFrom(CPos from, CPos to)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units.
+Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
