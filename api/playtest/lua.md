@@ -1,4 +1,4 @@
-This is an automatically generated listing of the new Lua map scripting API, generated for playtest-20200301 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version playtest-20200303 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.

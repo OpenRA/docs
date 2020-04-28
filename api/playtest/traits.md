@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version playtest-20200301 of OpenRA.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version playtest-20200303 of OpenRA.
 
 * [OpenRA.Mods.Cnc.Traits](#openramodscnctraits)
   * [AttackLeap](#attackleap)
@@ -8,6 +8,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ClonesProducedUnits](#clonesproducedunits)
   * [TiberianSunRefinery](#tiberiansunrefinery)
   * [Chronoshiftable](#chronoshiftable)
+  * [ClassicFacingBodyOrientation](#classicfacingbodyorientation)
   * [Cloneable](#cloneable)
   * [ConyardChronoReturn](#conyardchronoreturn)
   * [DisguiseTooltip](#disguisetooltip)
@@ -24,6 +25,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [InfiltrateForExploration](#infiltrateforexploration)
   * [InfiltrateForPowerOutage](#infiltrateforpoweroutage)
   * [InfiltrateForSupportPower](#infiltrateforsupportpower)
+  * [InfiltrateForSupportPowerReset](#infiltrateforsupportpowerreset)
   * [InfiltrateForTransform](#infiltratefortransform)
   * [Infiltrates](#infiltrates)
   * [MadTank](#madtank)
@@ -33,8 +35,6 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ChronoshiftPaletteEffect](#chronoshiftpaletteeffect)
   * [LightPaletteRotator](#lightpaletterotator)
   * [PortableChrono](#portablechrono)
-  * [RenderJammerCircle](#renderjammercircle)
-  * [RenderShroudCircle](#rendershroudcircle)
   * [WithBuildingBib](#withbuildingbib)
   * [ResourcePurifier](#resourcepurifier)
   * [AttackOrderPower](#attackorderpower)
@@ -226,6 +226,8 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ScaredyCat](#scaredycat)
   * [TakeCover](#takecover)
   * [TerrainModifiesDamage](#terrainmodifiesdamage)
+  * [Interactable](#interactable)
+  * [IsometricSelectable](#isometricselectable)
   * [JamsMissiles](#jamsmissiles)
   * [KillsSelf](#killsself)
   * [MapEditorData](#mapeditordata)
@@ -265,6 +267,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [Passenger](#passenger)
   * [AllyRepair](#allyrepair)
   * [BaseAttackNotifier](#baseattacknotifier)
+  * [ClassicParallelProductionQueue](#classicparallelproductionqueue)
   * [ClassicProductionQueue](#classicproductionqueue)
   * [ConquestVictoryConditions](#conquestvictoryconditions)
   * [DeveloperMode](#developermode)
@@ -311,6 +314,8 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ReloadAmmoPool](#reloadammopool)
   * [CustomTerrainDebugOverlay](#customterraindebugoverlay)
   * [DrawLineToTarget](#drawlinetotarget)
+  * [RenderJammerCircle](#renderjammercircle)
+  * [RenderShroudCircle](#rendershroudcircle)
   * [Repairable](#repairable)
   * [RepairableNear](#repairablenear)
   * [RepairsBridges](#repairsbridges)
@@ -320,9 +325,11 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [RequiresSpecificOwners](#requiresspecificowners)
   * [RevealOnDeath](#revealondeath)
   * [RevealOnFire](#revealonfire)
+  * [RevealsMap](#revealsmap)
   * [RevealsShroud](#revealsshroud)
   * [ScriptTags](#scripttags)
   * [SeedsResource](#seedsresource)
+  * [Selectable](#selectable)
   * [SelfHealing](#selfhealing)
   * [Sellable](#sellable)
   * [ShakeOnDeath](#shakeondeath)
@@ -420,12 +427,12 @@ This documentation is aimed at modders. It displays all traits with default valu
 * [OpenRA.Mods.Common.Traits.Render](#openramodscommontraitsrender)
   * [CashTricklerBar](#cashtricklerbar)
   * [Hovers](#hovers)
+  * [IsometricSelectionDecorations](#isometricselectiondecorations)
   * [LeavesTrails](#leavestrails)
   * [ProductionBar](#productionbar)
   * [ReloadArmamentsBar](#reloadarmamentsbar)
   * [RenderDebugState](#renderdebugstate)
   * [RenderDetectionCircle](#renderdetectioncircle)
-  * [RenderNameTag](#rendernametag)
   * [RenderRangeCircle](#renderrangecircle)
   * [RenderSprites](#rendersprites)
   * [RenderSpritesEditorOnly](#renderspriteseditoronly)
@@ -436,12 +443,14 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [VeteranProductionIconOverlay](#veteranproductioniconoverlay)
   * [WithAcceptDeliveredCashAnimation](#withacceptdeliveredcashanimation)
   * [WithAimAnimation](#withaimanimation)
+  * [WithAmmoPipsDecoration](#withammopipsdecoration)
   * [WithAttackAnimation](#withattackanimation)
   * [WithAttackOverlay](#withattackoverlay)
   * [WithBridgeSpriteBody](#withbridgespritebody)
   * [WithBuildingPlacedAnimation](#withbuildingplacedanimation)
   * [WithBuildingPlacedOverlay](#withbuildingplacedoverlay)
   * [WithBuildingRepairDecoration](#withbuildingrepairdecoration)
+  * [WithCargoPipsDecoration](#withcargopipsdecoration)
   * [WithChargeOverlay](#withchargeoverlay)
   * [WithChargeSpriteBody](#withchargespritebody)
   * [WithCrateBody](#withcratebody)
@@ -455,6 +464,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [WithFacingSpriteBody](#withfacingspritebody)
   * [WithGateSpriteBody](#withgatespritebody)
   * [WithHarvestAnimation](#withharvestanimation)
+  * [WithHarvesterPipsDecoration](#withharvesterpipsdecoration)
   * [WithHarvestOverlay](#withharvestoverlay)
   * [WithIdleAnimation](#withidleanimation)
   * [WithIdleOverlay](#withidleoverlay)
@@ -462,6 +472,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [WithMakeAnimation](#withmakeanimation)
   * [WithMoveAnimation](#withmoveanimation)
   * [WithMuzzleOverlay](#withmuzzleoverlay)
+  * [WithNameTagDecoration](#withnametagdecoration)
   * [WithNukeLaunchAnimation](#withnukelaunchanimation)
   * [WithNukeLaunchOverlay](#withnukelaunchoverlay)
   * [WithParachute](#withparachute)
@@ -471,6 +482,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [WithRepairOverlay](#withrepairoverlay)
   * [WithResourceLevelOverlay](#withresourceleveloverlay)
   * [WithResourceLevelSpriteBody](#withresourcelevelspritebody)
+  * [WithResourceStoragePipsDecoration](#withresourcestoragepipsdecoration)
   * [WithResupplyAnimation](#withresupplyanimation)
   * [WithShadow](#withshadow)
   * [WithSpriteBarrel](#withspritebarrel)
@@ -513,14 +525,12 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [WithDeliveryOverlay](#withdeliveryoverlay)
 * [OpenRA.Traits](#openratraits)
   * [DebugPauseState](#debugpausestate)
-  * [Interactable](#interactable)
   * [FixedColorPalette](#fixedcolorpalette)
   * [FrozenActorLayer](#frozenactorlayer)
   * [IndexedPlayerPalette](#indexedplayerpalette)
   * [PlayerColorPalette](#playercolorpalette)
   * [PlayerHighlightPalette](#playerhighlightpalette)
   * [Shroud](#shroud)
-  * [Selectable](#selectable)
   * [DebugVisualizations](#debugvisualizations)
   * [Faction](#faction)
   * [ScreenMap](#screenmap)
@@ -667,6 +677,15 @@ Can be teleported via Chronoshift power.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### ClassicFacingBodyOrientation
+Fudge the coordinate system angles like the early games (for sprite sequences that use classic facing fudge).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>QuantizedFacings</td><td>-1</td><td>Integer</td><td>Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. </td></tr>
+<tr><td>CameraPitch</td><td>113</td><td>1D World Angle</td><td>Camera pitch for rotation calculations. </td></tr>
+<tr><td>UseClassicPerspectiveFudge</td><td>True</td><td>Boolean</td><td>Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. </td></tr>
+</table>
+
 ### Cloneable
 Actors with the "ClonesProducedUnits" trait will produce a free duplicate of me.
 <table>
@@ -748,6 +767,7 @@ Will open and be passable for actors that appear friendly when there are no enem
 <tr><td>LocalCenterOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Shift center of the actor by this offset. </td></tr>
 <tr><td>RequiresBaseProvider</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>AllowInvalidPlacement</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowPlacementOnResources</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>RemoveSmudgesOnBuild</td><td>True</td><td>Boolean</td><td>Clear smudges from underneath the building footprint. </td></tr>
 <tr><td>RemoveSmudgesOnSell</td><td>True</td><td>Boolean</td><td>Clear smudges from underneath the building footprint on sell. </td></tr>
 <tr><td>RemoveSmudgesOnTransform</td><td>True</td><td>Boolean</td><td>Clear smudges from underneath the building footprint on transform. </td></tr>
@@ -784,11 +804,12 @@ Requires trait: [`Harvester`](#harvester).
 Funds are transferred from the owner to the infiltrator.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
 <tr><td>Percentage</td><td>100</td><td>Integer</td><td>Percentage of the victim's resources that will be stolen. </td></tr>
 <tr><td>Minimum</td><td>-1</td><td>Integer</td><td>Amount of guaranteed funds to claim when the victim does not have enough resources. When negative, the production price of the infiltrating actor will be used instead. </td></tr>
 <tr><td>Maximum</td><td>2147483647</td><td>Integer</td><td>Maximum amount of funds which will be stolen. </td></tr>
-<tr><td>Notification</td><td></td><td>String</td><td>Sound the victim will hear when they get robbed. </td></tr>
+<tr><td>InfiltratedNotification</td><td></td><td>String</td><td>Sound the victim will hear when they get robbed. </td></tr>
+<tr><td>InfiltrationNotification</td><td></td><td>String</td><td>Sound the perpetrator will hear after successful infiltration. </td></tr>
 <tr><td>ShowTicks</td><td>True</td><td>Boolean</td><td>Whether to show the cash tick indicators rising from the actor. </td></tr>
 </table>
 
@@ -796,15 +817,15 @@ Funds are transferred from the owner to the infiltrator.
 Reveals a decoration sprite to the indicated players when infiltrated.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
-<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
-<tr><td>Sequence</td><td></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
+<tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>ReferencePoint</td><td>Top, Left</td><td>ReferencePoints</td><td>Point in the actor's selection box used as reference for offsetting the decoration image. Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
-<tr><td>ZOffset</td><td>1</td><td>Integer</td><td>The Z offset to apply when rendering this decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
@@ -816,21 +837,33 @@ Reveals a decoration sprite to the indicated players when infiltrated.
 Steal and reset the owner's exploration.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
+<tr><td>InfiltratedNotification</td><td></td><td>String</td><td>Sound the victim will hear when they get sabotaged. </td></tr>
+<tr><td>InfiltrationNotification</td><td></td><td>String</td><td>Sound the perpetrator will hear after successful infiltration. </td></tr>
 </table>
 
 ### InfiltrateForPowerOutage
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
-<tr><td>Duration</td><td>500</td><td>Integer</td><td></td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
+<tr><td>Duration</td><td>500</td><td>Integer</td><td>Measured in ticks. </td></tr>
+<tr><td>InfiltratedNotification</td><td></td><td>String</td><td>Sound the victim will hear when they get sabotaged. </td></tr>
+<tr><td>InfiltrationNotification</td><td></td><td>String</td><td>Sound the perpetrator will hear after successful infiltration. </td></tr>
 </table>
 
 ### InfiltrateForSupportPower
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Proxy</td><td><em>(required)</em></td><td>String</td><td></td></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
+<tr><td>InfiltratedNotification</td><td></td><td>String</td><td>Sound the victim will hear when technology gets stolen. </td></tr>
+<tr><td>InfiltrationNotification</td><td></td><td>String</td><td>Sound the perpetrator will hear after successful infiltration. </td></tr>
+</table>
+
+### InfiltrateForSupportPowerReset
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
 </table>
 
 ### InfiltrateForTransform
@@ -840,13 +873,13 @@ Transform into a different actor type.
 <tr><td>IntoActor</td><td><em>(required)</em></td><td>String</td><td></td></tr>
 <tr><td>ForceHealthPercentage</td><td>0</td><td>Integer</td><td></td></tr>
 <tr><td>SkipMakeAnims</td><td>True</td><td>Boolean</td><td></td></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
 </table>
 
 ### Infiltrates
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td></td></tr>
+<tr><td>Types</td><td></td><td>Collection of TargetableType</td><td>The `TargetTypes` from `Targetable` that are allowed to enter. </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral</td><td>Stance</td><td>What diplomatic stances can be infiltrated by this actor. </td></tr>
 <tr><td>EnterBehaviour</td><td>Dispose</td><td>EnterBehaviour</td><td>Behaviour when entering the target. Possible values are Exit, Suicide, Dispose. </td></tr>
@@ -932,15 +965,6 @@ Palette effect used for blinking "animations" on actors.
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 </table>
 
-### RenderJammerCircle
-
-### RenderShroudCircle
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Color</td><td>00FFFF80</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the circle. </td></tr>
-<tr><td>ContrastColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Contrast color of the circle. </td></tr>
-</table>
-
 ### WithBuildingBib
 Requires traits: [`Building`](#building), [`RenderSprites`](#rendersprites).
 <table>
@@ -966,11 +990,13 @@ Requires trait: [`AttackBase`](#attackbase).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -987,7 +1013,6 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -1022,11 +1047,13 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><td>TargetCursor</td><td>chrono-target</td><td>String</td><td>Cursor sequence to use when targeting an area for the chronoshift. </td></tr>
 <tr><td>TargetBlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor sequence to use when the targeted area is blocked. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -1043,7 +1070,6 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -1078,11 +1104,13 @@ Requires `GpsWatcher` on the player actor.
 <tr><td>SatellitePaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
 <tr><td>RequiresActiveRadar</td><td>True</td><td>Boolean</td><td>Requires an actor with an online `ProvidesRadar` to show GPS dots. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -1099,7 +1127,6 @@ Requires `GpsWatcher` on the player actor.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -1128,11 +1155,13 @@ Grants a prerequisite while discharging at a configurable rate.
 <tr><td>ActiveText</td><td>ACTIVE</td><td>String</td><td>Label to display over the support power icon and in its tooltip while the power is active. </td></tr>
 <tr><td>AvailableText</td><td>READY</td><td>String</td><td>Label to display over the support power icon and in its tooltip while the power is available but not active. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -1149,7 +1178,6 @@ Grants a prerequisite while discharging at a configurable rate.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -1181,11 +1209,13 @@ Grants a prerequisite while discharging at a configurable rate.
 <tr><td>WeaponDelay</td><td>7</td><td>Integer</td><td>Apply the weapon impact this many ticks into the effect </td></tr>
 <tr><td>OnFireSound</td><td></td><td>String</td><td>Sound to instantly play at the targeted area. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -1202,7 +1232,6 @@ Grants a prerequisite while discharging at a configurable rate.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -1573,9 +1602,6 @@ Actor has a limited amount of ammo, after using it all the actor must reload in 
 <tr><td>Armaments</td><td>primary, secondary</td><td>Collection of String</td><td>Name(s) of armament(s) that use this pool. </td></tr>
 <tr><td>Ammo</td><td>1</td><td>Integer</td><td>How much ammo does this pool contain when fully loaded. </td></tr>
 <tr><td>InitialAmmo</td><td>-1</td><td>Integer</td><td>Initial ammo the actor is created with. Defaults to Ammo. </td></tr>
-<tr><td>PipCount</td><td>-1</td><td>Integer</td><td>Defaults to value in Ammo. 0 means no visible pips. </td></tr>
-<tr><td>PipType</td><td>Green</td><td>PipType</td><td>PipType to use for loaded ammo. </td></tr>
-<tr><td>PipTypeEmpty</td><td>Transparent</td><td>PipType</td><td>PipType to use for empty ammo. </td></tr>
 <tr><td>ReloadCount</td><td>1</td><td>Integer</td><td>How much ammo is reloaded after a certain period. </td></tr>
 <tr><td>RearmSound</td><td></td><td>String</td><td>Sound to play for each reloaded ammo magazine. </td></tr>
 <tr><td>ReloadDelay</td><td>50</td><td>Integer</td><td>Time to reload per ReloadCount on airfield etc. </td></tr>
@@ -1813,6 +1839,7 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>AllowMovement</td><td>True</td><td>Boolean</td><td>It will try to hunt down the enemy if it is set to AttackAnything. </td></tr>
 <tr><td>AllowTurning</td><td>True</td><td>Boolean</td><td>It will try to pivot to face the enemy if stance is not HoldFire. </td></tr>
+<tr><td>ScanOnIdle</td><td>True</td><td>Boolean</td><td>Scan for new targets when idle. </td></tr>
 <tr><td>ScanRadius</td><td>-1</td><td>Integer</td><td>Set to a value >1 to override weapons maximum range for this. </td></tr>
 <tr><td>InitialStanceAI</td><td>AttackAnything</td><td>UnitStance</td><td>Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for computer-controlled players, both Lua-scripted and regular Skirmish AI alike. </td></tr>
 <tr><td>InitialStance</td><td>Defend</td><td>UnitStance</td><td>Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for human players. </td></tr>
@@ -1851,10 +1878,9 @@ This actor blocks bullets and missiles with 'Blockable' property.
 ### BodyOrientation
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>QuantizedFacings</td><td>-1</td><td>Integer</td><td>Number of facings for gameplay calculations. -1 indicates auto-detection from another trait </td></tr>
-<tr><td>CameraPitch</td><td>113</td><td>1D World Angle</td><td>Camera pitch for rotation calculations </td></tr>
-<tr><td>UseClassicPerspectiveFudge</td><td>True</td><td>Boolean</td><td>Fudge the coordinate system angles like the early games. </td></tr>
-<tr><td>UseClassicFacingFudge</td><td>False</td><td>Boolean</td><td>Fudge the coordinate system angles like the early games. </td></tr>
+<tr><td>QuantizedFacings</td><td>-1</td><td>Integer</td><td>Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. </td></tr>
+<tr><td>CameraPitch</td><td>113</td><td>1D World Angle</td><td>Camera pitch for rotation calculations. </td></tr>
+<tr><td>UseClassicPerspectiveFudge</td><td>True</td><td>Boolean</td><td>Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. </td></tr>
 </table>
 
 ### BaseBuilderBotModule
@@ -1999,6 +2025,7 @@ Controls AI unit production.
 <tr><td>ForceFaction</td><td></td><td>String</td><td>Force a specific faction variant, overriding the faction of the producing actor. </td></tr>
 <tr><td>Icon</td><td>icon</td><td>String</td><td>Sequence of the actor that contains the icon. </td></tr>
 <tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the production icon. </td></tr>
+<tr><td>IconPaletteIsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
 <tr><td>BuildDuration</td><td>-1</td><td>Integer</td><td>Base build time in frames (-1 indicates to use the unit's Value). </td></tr>
 <tr><td>BuildDurationModifier</td><td>60</td><td>Integer</td><td>Percentage modifier to apply to the build duration. </td></tr>
 <tr><td>BuildPaletteOrder</td><td>9999</td><td>Integer</td><td>Sort order for the production palette. Smaller numbers are presented earlier. </td></tr>
@@ -2081,6 +2108,7 @@ Placeholder actor used for dead segments and bridge end ramps.
 <tr><td>LocalCenterOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Shift center of the actor by this offset. </td></tr>
 <tr><td>RequiresBaseProvider</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>AllowInvalidPlacement</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowPlacementOnResources</td><td>False</td><td>Boolean</td><td></td></tr>
 <tr><td>RemoveSmudgesOnBuild</td><td>True</td><td>Boolean</td><td>Clear smudges from underneath the building footprint. </td></tr>
 <tr><td>RemoveSmudgesOnSell</td><td>True</td><td>Boolean</td><td>Clear smudges from underneath the building footprint on sell. </td></tr>
 <tr><td>RemoveSmudgesOnTransform</td><td>True</td><td>Boolean</td><td>Clear smudges from underneath the building footprint on transform. </td></tr>
@@ -2270,6 +2298,7 @@ Building can be repaired by the repair button.
 <tr><td>RepairPercent</td><td>20</td><td>Integer</td><td>Cost to fully repair the actor as a percent of its value. </td></tr>
 <tr><td>RepairInterval</td><td>24</td><td>Integer</td><td>Number of ticks between each repair step. </td></tr>
 <tr><td>RepairStep</td><td>7</td><td>Integer</td><td>The maximum amount of HP to repair each step. </td></tr>
+<tr><td>RepairDamageTypes</td><td></td><td>Collection of DamageType</td><td>Damage types used for the repair. </td></tr>
 <tr><td>RepairBonuses</td><td>100, 150, 175, 200, 220, 240, 260, 280, 300</td><td>Collection of Integer</td><td>The percentage repair bonus applied with increasing numbers of repairers. </td></tr>
 <tr><td>CancelWhenDisabled</td><td>False</td><td>Boolean</td><td>Cancel the repair state when the trait is disabled. </td></tr>
 <tr><td>PlayerExperience</td><td>0</td><td>Integer</td><td>Experience gained by a player for repairing structures of allied players. </td></tr>
@@ -2470,7 +2499,6 @@ This actor can transport Passenger actors.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>MaxWeight</td><td>0</td><td>Integer</td><td>The maximum sum of Passenger.Weight that this actor can support. </td></tr>
-<tr><td>PipCount</td><td>0</td><td>Integer</td><td>Number of pips to display when this actor is selected. </td></tr>
 <tr><td>Types</td><td></td><td>Set of String</td><td>`Passenger.CargoType`s that can be loaded into this actor. </td></tr>
 <tr><td>InitialUnits</td><td></td><td>Collection of String</td><td>A list of actor types that are initially spawned into this actor. </td></tr>
 <tr><td>EjectOnSell</td><td>True</td><td>Boolean</td><td>When this actor is sold should all of its passengers be unloaded? </td></tr>
@@ -3191,6 +3219,7 @@ Eligible for instant repair.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Types</td><td></td><td>Collection of EngineerRepairType</td><td>Actors with these Types under EngineerRepair trait can repair me. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### EntersTunnels
@@ -3321,7 +3350,6 @@ Requires trait: [`Mobile`](#mobile).
 <tr><td>BaleLoadDelay</td><td>4</td><td>Integer</td><td></td></tr>
 <tr><td>BaleUnloadDelay</td><td>4</td><td>Integer</td><td>How fast it can dump it's carryage. </td></tr>
 <tr><td>BaleUnloadAmount</td><td>1</td><td>Integer</td><td>How many bales can it dump at once. </td></tr>
-<tr><td>PipCount</td><td>7</td><td>Integer</td><td>How many squares to show the fill level. </td></tr>
 <tr><td>HarvestFacings</td><td>0</td><td>Integer</td><td></td></tr>
 <tr><td>Resources</td><td></td><td>Set of String</td><td>Which resources it can harvest. </td></tr>
 <tr><td>FullyLoadedSpeed</td><td>85</td><td>Integer</td><td>Percentage of maximum speed when fully loaded. </td></tr>
@@ -3389,9 +3417,10 @@ Makes the unit automatically run around when taking damage.
 Requires trait: [`Mobile`](#mobile).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>PanicChance</td><td>100</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacked. </td></tr>
 <tr><td>PanicLength</td><td>250</td><td>Integer</td><td>How long (in ticks) the actor should panic for. </td></tr>
 <tr><td>PanicSpeedModifier</td><td>200</td><td>Integer</td><td>Panic movement speed as a percentage of the normal speed. </td></tr>
-<tr><td>AttackPanicChance</td><td>20</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacked. </td></tr>
+<tr><td>AttackPanicChance</td><td>20</td><td>Integer</td><td>Chance (out of 100) the unit has to enter panic mode when attacking. </td></tr>
 <tr><td>PanicSequencePrefix</td><td>panic-</td><td>String</td><td></td></tr>
 </table>
 
@@ -3423,6 +3452,30 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>TerrainModifier</td><td><em>(required)</em></td><td>Mapping of String to Integer</td><td>Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. </td></tr>
 <tr><td>ModifyHealing</td><td>False</td><td>Boolean</td><td>Modify healing damage? For example: A friendly medic. </td></tr>
+</table>
+
+### Interactable
+Used to enable mouse interaction on actors that are not Selectable.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Bounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle. The (optional) second two numbers define an x and y offset from the actor center. </td></tr>
+<tr><td>DecorationBounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead </td></tr>
+</table>
+
+### IsometricSelectable
+This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.
+
+Requires trait: [`Building`](#building).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Bounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the building's footprint. The first two numbers define the width and depth of the footprint rectangle. The (optional) second two numbers define an x and y offset from the actor center. </td></tr>
+<tr><td>Height</td><td>24</td><td>Integer</td><td>Height above the footprint for the top of the interaction rectangle. </td></tr>
+<tr><td>DecorationBounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead. </td></tr>
+<tr><td>DecorationHeight</td><td>-1</td><td>Integer</td><td>Defines a custom height for Decorations (e.g. the selection box). If < 0, Height will be used instead. If Height is 0, this must be defined with a value greater than 0. </td></tr>
+<tr><td>Priority</td><td>10</td><td>Integer</td><td></td></tr>
+<tr><td>PriorityModifiers</td><td>None</td><td>SelectionPriorityModifiers</td><td>Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). </td></tr>
+<tr><td>Class</td><td></td><td>String</td><td>All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click).  Defaults to the actor name when not defined or inherited. </td></tr>
+<tr><td>Voice</td><td>Select</td><td>String</td><td></td></tr>
 </table>
 
 ### JamsMissiles
@@ -3754,7 +3807,7 @@ This actor can enter Cargo actors.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>CargoType</td><td></td><td>String</td><td></td></tr>
-<tr><td>PipType</td><td>Green</td><td>PipType</td><td></td></tr>
+<tr><td>CustomPipType</td><td></td><td>String</td><td>If defined, use a custom pip type defined on the transport's WithCargoPipsDecoration.CustomPipSequences list. </td></tr>
 <tr><td>Weight</td><td>1</td><td>Integer</td><td></td></tr>
 <tr><td>CargoCondition</td><td></td><td>String</td><td>The condition to grant to when this actor is loaded inside any transport. </td></tr>
 <tr><td>CargoConditions</td><td></td><td>Mapping of String to String</td><td>Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor id]: [condition]. </td></tr>
@@ -3775,6 +3828,37 @@ Attach this to the player actor.
 <tr><td>RadarPingDuration</td><td>250</td><td>Integer</td><td>Length of time (in ticks) to display a location ping in the minimap. </td></tr>
 <tr><td>Notification</td><td>BaseAttack</td><td>String</td><td>The audio notification type to play. </td></tr>
 <tr><td>AllyNotification</td><td></td><td>String</td><td>The audio notification to play to allies when under attack. Won't play a notification to allies if this is null. </td></tr>
+</table>
+
+### ClassicParallelProductionQueue
+Attach this to the player actor (not a building!) to define a new shared build queue.
+Will only work together with the Production: trait on the actor that actually does the production.
+You will also want to add PrimaryBuildings: to let the user choose where new units should exit.
+The production speed depends on the number of production buildings and units queued at the same time.
+
+Requires traits: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>SpeedUp</td><td>False</td><td>Boolean</td><td>If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. </td></tr>
+<tr><td>BuildingCountBuildTimeMultipliers</td><td>100, 85, 75, 65, 60, 55, 50</td><td>Collection of Integer</td><td>Every time another production building of the same queue is constructed, the build times of all actors in the queue modified by a percentage of the original time. </td></tr>
+<tr><td>ParallelPenaltyBuildTimeMultipliers</td><td>100, 116, 133, 150, 166, 183, 200, 216, 233, 250</td><td>Collection of Integer</td><td>Build time modifier multiplied by the number of parallel production for producing different actors at the same time. </td></tr>
+<tr><td>Type</td><td><em>(required)</em></td><td>String</td><td>What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) </td></tr>
+<tr><td>DisplayOrder</td><td>0</td><td>Integer</td><td>The value used when ordering this for display (e.g. in the Spectator UI). </td></tr>
+<tr><td>Group</td><td></td><td>String</td><td>Group queues from separate buildings together into the same tab. </td></tr>
+<tr><td>Factions</td><td></td><td>Set of String</td><td>Only enable this queue for certain factions. </td></tr>
+<tr><td>Sticky</td><td>True</td><td>Boolean</td><td>Should the prerequisite remain enabled if the owner changes? </td></tr>
+<tr><td>DisallowPaused</td><td>False</td><td>Boolean</td><td>Should right clicking on the icon instantly cancel the production instead of putting it on hold? </td></tr>
+<tr><td>BuildDurationModifier</td><td>100</td><td>Integer</td><td>This percentage value is multiplied with actor cost to translate into build time (lower means faster). </td></tr>
+<tr><td>ItemLimit</td><td>999</td><td>Integer</td><td>Maximum number of a single actor type that can be queued (0 = infinite). </td></tr>
+<tr><td>QueueLimit</td><td>0</td><td>Integer</td><td>Maximum number of items that can be queued across all actor types (0 = infinite). </td></tr>
+<tr><td>LowPowerModifier</td><td>100</td><td>Integer</td><td>The build time is multiplied with this percentage on low power. </td></tr>
+<tr><td>InfiniteBuildLimit</td><td>-1</td><td>Integer</td><td>Production items that have more than this many items in the queue will be produced in a loop. </td></tr>
+<tr><td>ReadyAudio</td><td></td><td>String</td><td>Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
+<tr><td>BlockedAudio</td><td></td><td>String</td><td>Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
+<tr><td>LimitedAudio</td><td></td><td>String</td><td>Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
+<tr><td>QueuedAudio</td><td></td><td>String</td><td>Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
+<tr><td>OnHoldAudio</td><td></td><td>String</td><td>Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
+<tr><td>CancelledAudio</td><td></td><td>String</td><td>Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
 </table>
 
 ### ClassicProductionQueue
@@ -4255,6 +4339,15 @@ Renders target lines between order waypoints.
 <tr><td>QueuedMarkerWidth</td><td>2</td><td>Integer</td><td>Width (in pixels) of the queued end node markers. </td></tr>
 </table>
 
+### RenderJammerCircle
+
+### RenderShroudCircle
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Color</td><td>00FFFF80</td><td>Color (RRGGBB[AA] notation)</td><td>Color of the circle. </td></tr>
+<tr><td>ContrastColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Contrast color of the circle. </td></tr>
+</table>
+
 ### Repairable
 This actor can be sent to a structure for repairs.
 <table>
@@ -4291,6 +4384,7 @@ Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.
 <tr><td>ValuePercentage</td><td>20</td><td>Integer</td><td>Cost in % of the unit value to fully repair the unit. </td></tr>
 <tr><td>HpPerStep</td><td>10</td><td>Integer</td><td></td></tr>
 <tr><td>Interval</td><td>24</td><td>Integer</td><td>Time (in ticks) between two repair steps. </td></tr>
+<tr><td>RepairDamageTypes</td><td></td><td>Collection of DamageType</td><td>Damage types used for the repair. </td></tr>
 <tr><td>StartRepairingNotification</td><td></td><td>String</td><td>The sound played when starting to repair a unit. </td></tr>
 <tr><td>FinishRepairingNotification</td><td></td><td>String</td><td>The sound played when repairing a unit is done. </td></tr>
 <tr><td>PlayerExperience</td><td>0</td><td>Integer</td><td>Experience gained by the player owning this actor for repairing an allied unit. </td></tr>
@@ -4342,6 +4436,15 @@ Reveal this actor to the target's owner when attacking.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### RevealsMap
+Reveals shroud and fog across the whole map while active.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Stance the watching player needs to see the shroud removed. </td></tr>
+<tr><td>RevealGeneratedShroud</td><td>True</td><td>Boolean</td><td>Can this actor reveal shroud generated by the `GeneratesShroud` trait? </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### RevealsShroud
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
@@ -4366,6 +4469,18 @@ Lets the actor spread resources around it in a circle.
 <tr><td>ResourceType</td><td>Ore</td><td>String</td><td></td></tr>
 <tr><td>MaxRange</td><td>100</td><td>Integer</td><td></td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### Selectable
+This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Priority</td><td>10</td><td>Integer</td><td></td></tr>
+<tr><td>PriorityModifiers</td><td>None</td><td>SelectionPriorityModifiers</td><td>Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). </td></tr>
+<tr><td>Class</td><td></td><td>String</td><td>All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click). Defaults to the actor name when not defined or inherited. </td></tr>
+<tr><td>Voice</td><td>Select</td><td>String</td><td></td></tr>
+<tr><td>Bounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle. The (optional) second two numbers define an x and y offset from the actor center. </td></tr>
+<tr><td>DecorationBounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead </td></tr>
 </table>
 
 ### SelfHealing
@@ -4446,8 +4561,6 @@ Adds capacity to a player's harvested resource limit.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Capacity</td><td><em>(required)</em></td><td>Integer</td><td></td></tr>
-<tr><td>PipCount</td><td><em>(required)</em></td><td>Integer</td><td>Number of little squares used to display how filled unit is. </td></tr>
-<tr><td>PipColor</td><td>Yellow</td><td>PipType</td><td></td></tr>
 </table>
 
 ### AirstrikePower
@@ -4465,11 +4578,13 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>DirectionArrowPalette</td><td>chrome</td><td>String</td><td>Palette for direction cursor animation. </td></tr>
 <tr><td>BeaconDistanceOffset</td><td>6c0</td><td>1D World Distance</td><td>Weapon range offset to apply during the beacon clock calculation </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -4486,7 +4601,6 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -4517,11 +4631,13 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>Sequence</td><td>active</td><td>String</td><td>Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. </td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td>Cursor to display when there are no units to apply the condition in range. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -4538,7 +4654,6 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -4587,11 +4702,13 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>CameraRemoveDelay</td><td>25</td><td>Integer</td><td>Amount of time after detonation to remove the camera. </td></tr>
 <tr><td>FlashType</td><td></td><td>String</td><td>Corresponds to `Type` from `FlashPaletteEffect` on the world actor. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -4608,7 +4725,6 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -4646,11 +4762,13 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>DirectionArrowPalette</td><td>chrome</td><td>String</td><td>Palette for direction cursor animation. </td></tr>
 <tr><td>BeaconDistanceOffset</td><td>4c0</td><td>1D World Distance</td><td>Weapon range offset to apply during the beacon clock calculation. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -4667,7 +4785,6 @@ Adds capacity to a player's harvested resource limit.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -4696,11 +4813,13 @@ Produces an actor without using the standard production queue.
 <tr><td>ReadyAudio</td><td></td><td>String</td><td>Notification played when production is activated. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
 <tr><td>BlockedAudio</td><td></td><td>String</td><td>Notification played when the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. </td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -4717,7 +4836,6 @@ Produces an actor without using the standard production queue.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -4748,11 +4866,13 @@ Spawns an actor that stays for a limited amount of time.
 <tr><td>EffectSequence</td><td>idle</td><td>String</td><td></td></tr>
 <tr><td>EffectPalette</td><td></td><td>String</td><td></td></tr>
 <tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
-<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>IconImage</td><td>icon</td><td>String</td><td></td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td>Icon sprite displayed in the support power palette. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>Description</td><td></td><td>String</td><td></td></tr>
 <tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
-<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td>Allow multiple instances of the same support power. </td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td>Allow this to be used only once. </td></tr>
 <tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
 <tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
 <tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
@@ -4769,7 +4889,6 @@ Spawns an actor that stays for a limited amount of time.
 <tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
 <tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
 <tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
-<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
 <tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
 <tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
@@ -5395,7 +5514,6 @@ Requires trait: [`ResourceLayer`](#resourcelayer).
 <tr><td>AllowUnderActors</td><td>False</td><td>Boolean</td><td>Allow resource to spawn under Mobile actors. </td></tr>
 <tr><td>AllowUnderBuildings</td><td>False</td><td>Boolean</td><td>Allow resource to spawn under Buildings. </td></tr>
 <tr><td>AllowOnRamps</td><td>False</td><td>Boolean</td><td>Allow resource to spawn on ramp tiles. </td></tr>
-<tr><td>PipColor</td><td>Yellow</td><td>PipType</td><td>Harvester content pip color. </td></tr>
 </table>
 
 ### ScriptLobbyDropdown
@@ -5609,6 +5727,13 @@ Changes the visual Z position periodically.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### IsometricSelectionDecorations
+Requires trait: [`IsometricSelectable`](#isometricselectable).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>SelectionBoxColor</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
+</table>
+
 ### LeavesTrails
 Renders a sprite effect when leaving a cell.
 <table>
@@ -5665,14 +5790,6 @@ Requires trait: [`DetectCloaked`](#detectcloaked).
 <tr><td>ContrastColor</td><td>00000060</td><td>Color (RRGGBB[AA] notation)</td><td>Contrast color of the circle and scanner update line. </td></tr>
 </table>
 
-### RenderNameTag
-Displays the player name above the unit
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>MaxLength</td><td>10</td><td>Integer</td><td></td></tr>
-<tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
-</table>
-
 ### RenderRangeCircle
 Draw a circle indicating my weapon's range.
 
@@ -5725,13 +5842,10 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 </table>
 
 ### SelectionDecorations
+Requires trait: [`Interactable`](#interactable).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
-<tr><td>RenderSelectionBars</td><td>True</td><td>Boolean</td><td>Health bar, production progress bar etc. </td></tr>
-<tr><td>RenderSelectionBox</td><td>True</td><td>Boolean</td><td></td></tr>
 <tr><td>SelectionBoxColor</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td></td></tr>
-<tr><td>Image</td><td>pips</td><td>String</td><td></td></tr>
 </table>
 
 ### SupportPowerChargeBar
@@ -5764,7 +5878,6 @@ Requires trait: [`TechTree`](#techtree).
 <tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Image used for the overlay. </td></tr>
 <tr><td>Sequence</td><td></td><td>String</td><td>Sequence used for the overlay (cannot be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
-<tr><td>ReferencePoint</td><td>Top, Left</td><td>ReferencePoints</td><td>Point on the production icon's used as reference for offsetting the overlay.  Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
 </table>
 
 ### WithAcceptDeliveredCashAnimation
@@ -5785,6 +5898,27 @@ Requires traits: [`AttackBase`](#attackbase), [`WithSpriteBody`](#withspritebody
 <tr><td>Armament</td><td>primary</td><td>String</td><td>Armament name </td></tr>
 <tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Displayed while targeting. </td></tr>
 <tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to modify. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### WithAmmoPipsDecoration
+Requires trait: [`AmmoPool`](#ammopool).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>PipCount</td><td>-1</td><td>Integer</td><td>Number of pips to display. Defaults to the sum of the enabled AmmoPool.Ammo. </td></tr>
+<tr><td>PipStride</td><td>0,0</td><td>2D Integer</td><td>If non-zero, override the spacing between adjacent pips. </td></tr>
+<tr><td>Image</td><td>pips</td><td>String</td><td>Image that defines the pip sequences. </td></tr>
+<tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
+<tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
+<tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
+<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
+<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5863,14 +5997,36 @@ Displays a custom UI overlay relative to the actor's mouseover bounds.
 Requires trait: [`RepairableBuilding`](#repairablebuilding).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
-<tr><td>Sequence</td><td></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
+<tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>ReferencePoint</td><td>Top, Left</td><td>ReferencePoints</td><td>Point in the actor's selection box used as reference for offsetting the decoration image. Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
-<tr><td>ZOffset</td><td>1</td><td>Integer</td><td>The Z offset to apply when rendering this decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
+<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
+<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### WithCargoPipsDecoration
+Requires trait: [`Cargo`](#cargo).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>PipCount</td><td>-1</td><td>Integer</td><td>Number of pips to display. Defaults to Cargo.MaxWeight. </td></tr>
+<tr><td>PipStride</td><td>0,0</td><td>2D Integer</td><td>If non-zero, override the spacing between adjacent pips. </td></tr>
+<tr><td>Image</td><td>pips</td><td>String</td><td>Image that defines the pip sequences. </td></tr>
+<tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
+<tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips that aren't defined in CustomPipSequences. </td></tr>
+<tr><td>CustomPipSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific passenger actors. </td></tr>
+<tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
@@ -5979,14 +6135,14 @@ Requires trait: [`RenderSprites`](#rendersprites).
 Displays a custom UI overlay relative to the actor's mouseover bounds.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Image</td><td></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
-<tr><td>Sequence</td><td></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
+<tr><td>Image</td><td><em>(required)</em></td><td>String</td><td>Image used for this decoration. Defaults to the actor's type. </td></tr>
+<tr><td>Sequence</td><td><em>(required)</em></td><td>String</td><td>Sequence used for this decoration (can be animated). </td></tr>
 <tr><td>Palette</td><td>chrome</td><td>String</td><td>Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. </td></tr>
 <tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>ReferencePoint</td><td>Top, Left</td><td>ReferencePoints</td><td>Point in the actor's selection box used as reference for offsetting the decoration image. Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
-<tr><td>ZOffset</td><td>1</td><td>Integer</td><td>The Z offset to apply when rendering this decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 <tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
@@ -6062,6 +6218,28 @@ Requires traits: [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>HarvestSequence</td><td>harvest</td><td>String</td><td>Displayed while harvesting. </td></tr>
 <tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
+</table>
+
+### WithHarvesterPipsDecoration
+Requires trait: [`Harvester`](#harvester).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>PipCount</td><td><em>(required)</em></td><td>Integer</td><td>Number of pips to display how filled unit is. </td></tr>
+<tr><td>PipStride</td><td>0,0</td><td>2D Integer</td><td>If non-zero, override the spacing between adjacent pips. </td></tr>
+<tr><td>Image</td><td>pips</td><td>String</td><td>Image that defines the pip sequences. </td></tr>
+<tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
+<tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips that aren't defined in ResourceSequences. </td></tr>
+<tr><td>ResourceSequences</td><td></td><td>Mapping of String to String</td><td>Pip sequence to use for specific resource types. </td></tr>
+<tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
+<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
+<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### WithHarvestOverlay
@@ -6144,6 +6322,25 @@ Requires traits: [`Armament`](#armament), [`AttackBase`](#attackbase), [`RenderS
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>IgnoreOffset</td><td>False</td><td>Boolean</td><td>Ignore the weapon position, and always draw relative to the center of the actor </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### WithNameTagDecoration
+Displays the player name above the unit
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>MaxLength</td><td>10</td><td>Integer</td><td></td></tr>
+<tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
+<tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
+<tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
+<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
+<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -6274,6 +6471,26 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### WithResourceStoragePipsDecoration
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>PipCount</td><td><em>(required)</em></td><td>Integer</td><td>Number of pips to display how filled unit is. </td></tr>
+<tr><td>PipStride</td><td>0,0</td><td>2D Integer</td><td>If non-zero, override the spacing between adjacing pips. </td></tr>
+<tr><td>Image</td><td>pips</td><td>String</td><td>Image that defines the pip sequences. </td></tr>
+<tr><td>EmptySequence</td><td>pip-empty</td><td>String</td><td>Sequence used for empty pips. </td></tr>
+<tr><td>FullSequence</td><td>pip-green</td><td>String</td><td>Sequence used for full pips. </td></tr>
+<tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
+<tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
+<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
+<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### WithResupplyAnimation
 Replaces the default animation when actor resupplies a unit.
 
@@ -6329,7 +6546,8 @@ Renders Ctrl groups using pixel art.
 <tr><td>Palette</td><td>chrome</td><td>String</td><td></td></tr>
 <tr><td>Image</td><td>pips</td><td>String</td><td></td></tr>
 <tr><td>GroupSequence</td><td>groups</td><td>String</td><td>Sprite sequence used to render the control group 0-9 numbers. </td></tr>
-<tr><td>ReferencePoint</td><td>Top, Left</td><td>ReferencePoints</td><td>Point in the actor's selection box used as reference for offsetting the decoration image. Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
 </table>
 
 ### WithSpriteTurret
@@ -6353,9 +6571,8 @@ Renders Ctrl groups using typeface.
 <tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
-<tr><td>ZOffset</td><td>1</td><td>Integer</td><td>The Z offset to apply when rendering this decoration. </td></tr>
-<tr><td>ReferencePoint</td><td>Bottom, Left</td><td>ReferencePoints</td><td>Point in the actor's selection box used as reference for offsetting the decoration image. Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
-<tr><td>ScreenOffset</td><td>2,-2</td><td>2D Integer</td><td>Manual offset in screen pixel. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset text center position from the selection box edge. </td></tr>
 </table>
 
 ### WithTextDecoration
@@ -6366,10 +6583,14 @@ Displays a text overlay relative to the selection box.
 <tr><td>Font</td><td>TinyBold</td><td>String</td><td></td></tr>
 <tr><td>Color</td><td>FFFFFF</td><td>Color (RRGGBB[AA] notation)</td><td>Display in this color when not using the player color. </td></tr>
 <tr><td>UsePlayerColor</td><td>False</td><td>Boolean</td><td>Use the player color of the current owner. </td></tr>
-<tr><td>ReferencePoint</td><td>Top, Left</td><td>ReferencePoints</td><td>Point in the actor's selection box used as reference for offsetting the decoration image. Possible values are combinations of Center, Top, Bottom, Left, Right. </td></tr>
-<tr><td>ZOffset</td><td>1</td><td>Integer</td><td>The Z offset to apply when rendering this decoration. </td></tr>
+<tr><td>Position</td><td>TopLeft</td><td>DecorationPosition</td><td>Position in the actor's selection box to draw the decoration. </td></tr>
 <tr><td>ValidStances</td><td>Ally</td><td>Stance</td><td>Player stances who can view the decoration. </td></tr>
 <tr><td>RequiresSelection</td><td>False</td><td>Boolean</td><td>Should this be visible only when selected? </td></tr>
+<tr><td>Margin</td><td>0,0</td><td>2D Integer</td><td>Offset sprite center position from the selection box edge. </td></tr>
+<tr><td>Offsets</td><td></td><td>Mapping of BooleanExpression to 2D Integer</td><td>Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. </td></tr>
+<tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
+<tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
+<tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -6697,14 +6918,6 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rende
 ### DebugPauseState
 Checks for pause related desyncs. Attach this to the world actor.
 
-### Interactable
-Used to enable mouse interaction on actors that are not Selectable.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Bounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle. The (optional) second two numbers define an x and y offset from the actor center. </td></tr>
-<tr><td>DecorationBounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead </td></tr>
-</table>
-
 ### FixedColorPalette
 Add this to the World actor definition.
 <table>
@@ -6771,18 +6984,6 @@ Required for shroud and fog visibility checks. Add this to the player actor.
 <tr><td>ExploredMapCheckboxLocked</td><td>False</td><td>Boolean</td><td>Prevent the explore map enabled state from being changed in the lobby. </td></tr>
 <tr><td>ExploredMapCheckboxVisible</td><td>True</td><td>Boolean</td><td>Whether to display the explore map checkbox in the lobby. </td></tr>
 <tr><td>ExploredMapCheckboxDisplayOrder</td><td>0</td><td>Integer</td><td>Display order for the explore map checkbox in the lobby. </td></tr>
-</table>
-
-### Selectable
-This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Priority</td><td>10</td><td>Integer</td><td></td></tr>
-<tr><td>PriorityModifiers</td><td>None</td><td>SelectionPriorityModifiers</td><td>Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). </td></tr>
-<tr><td>Class</td><td></td><td>String</td><td>All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click). Defaults to the actor name when not defined or inherited. </td></tr>
-<tr><td>Voice</td><td>Select</td><td>String</td><td></td></tr>
-<tr><td>Bounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle. The (optional) second two numbers define an x and y offset from the actor center. </td></tr>
-<tr><td>DecorationBounds</td><td></td><td>Collection of Integer</td><td>Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead </td></tr>
 </table>
 
 ### DebugVisualizations
