@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version playtest-20200329 of OpenRA.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version playtest-20200418 of OpenRA.
 
 * [OpenRA.Mods.Cnc.Traits](#openramodscnctraits)
   * [AttackLeap](#attackleap)
