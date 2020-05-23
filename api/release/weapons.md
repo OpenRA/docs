@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version release-20200202 of OpenRA.
+This documentation is aimed at modders. It displays a template for weapon definitions as well as its contained types (warheads and projectiles) with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version release-20200503 of OpenRA.
 
 * [OpenRA.Mods.Cnc.Projectiles](#openramodscncprojectiles)
   * [TeslaZap](#teslazap)
@@ -19,6 +19,7 @@ This documentation is aimed at modders. It displays a template for weapon defini
   * [GrantExternalConditionWarhead](#grantexternalconditionwarhead)
   * [HealthPercentageDamageWarhead](#healthpercentagedamagewarhead)
   * [LeaveSmudgeWarhead](#leavesmudgewarhead)
+  * [ShakeScreenWarhead](#shakescreenwarhead)
   * [SpreadDamageWarhead](#spreaddamagewarhead)
   * [TargetDamageWarhead](#targetdamagewarhead)
 * [OpenRA.Mods.D2k.Warheads](#openramodsd2kwarheads)
@@ -335,6 +336,21 @@ Interacts with the TemporaryOwnerManager trait.
 <tr><td>SmudgeType</td><td></td><td>Set of String</td><td>Type of smudge to apply to terrain. </td></tr>
 <tr><td>AirThreshold</td><td>0c128</td><td>1D World Distance</td><td>How close to ground must the impact happen to spawn smudges. </td></tr>
 <tr><td>Chance</td><td>100</td><td>Integer</td><td>Percentual chance the smudge is created. </td></tr>
+<tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
+<tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
+<tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>
+<tr><td>AffectsParent</td><td>False</td><td>Boolean</td><td>Can this warhead affect the actor that fired it. </td></tr>
+<tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay in ticks before applying the warhead effect. 0 = instant (old model). </td></tr>
+<tr><td>DebugOverlayColor</td><td>FF0000</td><td>Color (RRGGBB[AA] notation)</td><td>The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. </td></tr>
+</table>
+
+### ShakeScreenWarhead
+Makes the screen shake.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Duration</td><td>0</td><td>Integer</td><td>Duration of the shaking. </td></tr>
+<tr><td>Intensity</td><td>0</td><td>Integer</td><td>Shake intensity. </td></tr>
+<tr><td>Multiplier</td><td>0,0</td><td>2D Real Number</td><td>Shake multipliers by the X and Y axis, comma-separated. </td></tr>
 <tr><td>ValidTargets</td><td>Ground, Water</td><td>Collection of TargetableType</td><td>What types of targets are affected. </td></tr>
 <tr><td>InvalidTargets</td><td></td><td>Collection of TargetableType</td><td>What types of targets are unaffected. Overrules ValidTargets. </td></tr>
 <tr><td>ValidStances</td><td>Enemy, Neutral, Ally</td><td>Stance</td><td>What diplomatic stances are affected. </td></tr>

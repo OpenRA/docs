@@ -1,4 +1,4 @@
-This is an automatically generated listing of the new Lua map scripting API, generated for release-20200202 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version release-20200503 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -22,8 +22,8 @@ The properties and commands available on each actor depends on the traits that t
 
 For a basic guide about map scripts see the [`Map Scripting` wiki page](https://github.com/OpenRA/OpenRA/wiki/Map-scripting).
 
-### Global Tables
-#### Actor
+## Global Tables
+### Actor
 <table>
 <tr><td align="right" width="50%"><strong>int BuildTime(string type, string queue = nil)</strong></td><td>Returns the build time (in ticks) of the requested unit type.
 An optional second value can be used to exactly specify the producing queue type.</td></tr>
@@ -31,15 +31,15 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>Actor Create(string type, bool addToWorld, LuaTable initTable)</strong></td><td>Create a new actor. initTable specifies a list of key-value pairs that defines the initial parameters for the actor's traits.</td></tr>
 <tr><td align="right" width="50%"><strong>int CruiseAltitude(string type)</strong></td><td>Returns the cruise altitude of the requested unit type (zero if it is ground-based).</td></tr>
 </table>
-#### Beacon
+### Beacon
 <table>
 <tr><td align="right" width="50%"><strong>void New(Player owner, WPos position, int duration = 750, bool showRadarPings = True)</strong></td><td>Creates a new beacon that stays for the specified time at the specified WPos. Does not remove player set beacons, nor gets removed by placing them. Requires the 'PlaceBeacon' trait on the player actor.</td></tr>
 </table>
-#### Camera
+### Camera
 <table>
 <tr><td align="right" width="50%"><strong>WPos Position { get; set; }</strong></td><td>The center of the visible viewport.</td></tr>
 </table>
-#### HSLColor
+### HSLColor
 <table>
 <tr><td align="right" width="50%"><strong>Color Aqua { get; }</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>Color Black { get; }</strong></td><td></td></tr>
@@ -81,17 +81,17 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>Color White { get; }</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>Color Yellow { get; }</strong></td><td></td></tr>
 </table>
-#### CPos
+### CPos
 <table>
 <tr><td align="right" width="50%"><strong>CPos New(int x, int y)</strong></td><td>Create a new CPos with the specified coordinates.</td></tr>
 <tr><td align="right" width="50%"><strong>CPos Zero { get; }</strong></td><td>The cell coordinate origin.</td></tr>
 </table>
-#### CVec
+### CVec
 <table>
 <tr><td align="right" width="50%"><strong>CVec New(int x, int y)</strong></td><td>Create a new CVec with the specified coordinates.</td></tr>
 <tr><td align="right" width="50%"><strong>CVec Zero { get; }</strong></td><td>The cell zero-vector.</td></tr>
 </table>
-#### DateTime
+### DateTime
 <table>
 <tr><td align="right" width="50%"><strong>int GameTime { get; }</strong></td><td>Get the current game time (in ticks).</td></tr>
 <tr><td align="right" width="50%"><strong>bool IsHalloween { get; }</strong></td><td>True on the 31st of October.</td></tr>
@@ -100,7 +100,7 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>int TimeLimit { get; set; }</strong></td><td>Return or set the time limit (in ticks). When setting, the time limit will count from now. Setting the time limit to 0 will disable it.</td></tr>
 <tr><td align="right" width="50%"><strong>string TimeLimitNotification { get; set; }</strong></td><td>The notification string used for custom time limit warnings. See the TimeLimitManager trait documentation for details.</td></tr>
 </table>
-#### Facing
+### Facing
 <table>
 <tr><td align="right" width="50%"><strong>int East { get; }</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>int North { get; }</strong></td><td></td></tr>
@@ -111,7 +111,7 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>int SouthWest { get; }</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>int West { get; }</strong></td><td></td></tr>
 </table>
-#### Lighting
+### Lighting
 <table>
 <tr><td align="right" width="50%"><strong>Double Ambient { get; set; }</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>Double Blue { get; set; }</strong></td><td></td></tr>
@@ -119,7 +119,7 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>Double Green { get; set; }</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>Double Red { get; set; }</strong></td><td></td></tr>
 </table>
-#### Map
+### Map
 <table>
 <tr><td align="right" width="50%"><strong>Actor[] ActorsInBox(WPos topLeft, WPos bottomRight, LuaFunction filter = nil)</strong></td><td>Returns a table of all actors within the requested rectangle, filtered using the specified function.</td></tr>
 <tr><td align="right" width="50%"><strong>Actor[] ActorsInCircle(WPos location, WDist radius, LuaFunction filter = nil)</strong></td><td>Returns a table of all actors within the requested region, filtered using the specified function.</td></tr>
@@ -140,11 +140,11 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>string TerrainType(CPos cell)</strong></td><td>Returns the type of the terrain at the target cell.</td></tr>
 <tr><td align="right" width="50%"><strong>WPos TopLeft { get; }</strong></td><td>Returns the location of the top-left corner of the map (assuming zero terrain height).</td></tr>
 </table>
-#### Media
+### Media
 <table>
 <tr><td align="right" width="50%"><strong>void Debug(string text)</strong></td><td>Displays a debug message to the player, if "Show Map Debug Messages" is checked in the settings.</td></tr>
 <tr><td align="right" width="50%"><strong>void DisplayMessage(string text, string prefix = Mission, Nullable`1 color = nil)</strong></td><td>Display a text message to the player.</td></tr>
-<tr><td align="right" width="50%"><strong>void DisplaySystemMessage(string text, string prefix = Mission)</strong></td><td>Display a system message to the player.</td></tr>
+<tr><td align="right" width="50%"><strong>void DisplaySystemMessage(string text, string prefix = nil)</strong></td><td>Display a system message to the player. If 'prefix' is nil the default system prefix is used.</td></tr>
 <tr><td align="right" width="50%"><strong>void FloatingText(string text, WPos position, int duration = 30, Nullable`1 color = nil)</strong></td><td>Display a text message at the specified location.</td></tr>
 <tr><td align="right" width="50%"><strong>void PlayMovieFullscreen(string movie, LuaFunction func = nil)</strong></td><td>Play a VQA video fullscreen. File name has to include the file extension.</td></tr>
 <tr><td align="right" width="50%"><strong>bool PlayMovieInRadar(string movie, LuaFunction playComplete = nil)</strong></td><td>Play a VQA video in the radar window. File name has to include the file extension. Returns true on success, if the movie wasn't found the function returns false and the callback is executed.</td></tr>
@@ -155,21 +155,21 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>void SetBackgroundMusic(string track = nil)</strong></td><td>Play track defined in music.yaml or map.yaml as background music. If music is already playing use Media.StopMusic() to stop it and the background music will start automatically. Keep the track empty to disable background music.</td></tr>
 <tr><td align="right" width="50%"><strong>void StopMusic()</strong></td><td>Stop the current song.</td></tr>
 </table>
-#### Player
+### Player
 <table>
 <tr><td align="right" width="50%"><strong>Player GetPlayer(string name)</strong></td><td>Returns the player with the specified internal name, or nil if a match is not found.</td></tr>
 <tr><td align="right" width="50%"><strong>Player[] GetPlayers(LuaFunction filter)</strong></td><td>Returns a table of players filtered by the specified function.</td></tr>
 </table>
-#### Radar
+### Radar
 <table>
 <tr><td align="right" width="50%"><strong>void Ping(Player player, WPos position, Color color, int duration = 750)</strong></td><td>Creates a new radar ping that stays for the specified time at the specified WPos.</td></tr>
 </table>
-#### Reinforcements
+### Reinforcements
 <table>
 <tr><td align="right" width="50%"><strong>Actor[] Reinforce(Player owner, String[] actorTypes, CPos[] entryPath, int interval = 25, LuaFunction actionFunc = nil)</strong></td><td>Send reinforcements consisting of multiple units. Supports ground-based, naval and air units. The first member of the entryPath array will be the units' spawnpoint, while the last one will be their destination. If actionFunc is given, it will be executed once a unit has reached its destination. actionFunc will be called as actionFunc(Actor actor). Returns a table containing the deployed units.</td></tr>
 <tr><td align="right" width="50%"><strong>LuaTable ReinforceWithTransport(Player owner, string actorType, String[] cargoTypes, CPos[] entryPath, CPos[] exitPath = nil, LuaFunction actionFunc = nil, LuaFunction exitFunc = nil, int dropRange = 3)</strong></td><td>Send reinforcements in a transport. A transport can be a ground unit (APC etc.), ships and aircraft. The first member of the entryPath array will be the spawnpoint for the transport, while the last one will be its destination. The last member of the exitPath array is be the place where the transport will be removed from the game. When the transport has reached the destination, it will unload its cargo unless a custom actionFunc has been supplied. Afterwards, the transport will follow the exitPath and leave the map, unless a custom exitFunc has been supplied. actionFunc will be called as actionFunc(Actor transport, Actor[] cargo). exitFunc will be called as exitFunc(Actor transport). dropRange determines how many cells away the transport will try to land if the actual destination is blocked (if the transport is an aircraft). Returns a table in which the first value is the transport, and the second a table containing the deployed units.</td></tr>
 </table>
-#### Trigger
+### Trigger
 <table>
 <tr><td align="right" width="50%"><strong>void AfterDelay(int delay, LuaFunction func)</strong></td><td>Call a function after a specified delay. The callback function will be called as func().</td></tr>
 <tr><td align="right" width="50%"><strong>void Clear(Actor a, string triggerName)</strong></td><td>Removes the specified trigger from this actor. Note that the removal will only take effect at the end of a tick, so you must not add new triggers at the same time that you are calling this function.</td></tr>
@@ -206,11 +206,11 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>void RemoveFootprintTrigger(int id)</strong></td><td>Removes a previously created footprint trigger.</td></tr>
 <tr><td align="right" width="50%"><strong>void RemoveProximityTrigger(int id)</strong></td><td>Removes a previously created proximity trigger.</td></tr>
 </table>
-#### UserInterface
+### UserInterface
 <table>
 <tr><td align="right" width="50%"><strong>void SetMissionText(string text, Nullable`1 color = nil)</strong></td><td>Displays a text message at the top center of the screen.</td></tr>
 </table>
-#### Utils
+### Utils
 <table>
 <tr><td align="right" width="50%"><strong>bool All(LuaValue[] collection, LuaFunction func)</strong></td><td>Returns true if func returns true for all elements in a collection.</td></tr>
 <tr><td align="right" width="50%"><strong>bool Any(LuaValue[] collection, LuaFunction func)</strong></td><td>Returns true if func returns true for any element in a collection.</td></tr>
@@ -224,23 +224,23 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>LuaValue[] Take(int n, LuaValue[] source)</strong></td><td>Returns the first n values from a collection.</td></tr>
 <tr><td align="right" width="50%"><strong>LuaTable Where(LuaValue[] collection, LuaFunction func)</strong></td><td>Returns the original collection filtered with the func.</td></tr>
 </table>
-#### WDist
+### WDist
 <table>
 <tr><td align="right" width="50%"><strong>WDist FromCells(int numCells)</strong></td><td>Create a new WDist by cell distance.</td></tr>
 <tr><td align="right" width="50%"><strong>WDist New(int r)</strong></td><td>Create a new WDist.</td></tr>
 </table>
-#### WPos
+### WPos
 <table>
 <tr><td align="right" width="50%"><strong>WPos New(int x, int y, int z)</strong></td><td>Create a new WPos with the specified coordinates.</td></tr>
 <tr><td align="right" width="50%"><strong>WPos Zero { get; }</strong></td><td>The world coordinate origin.</td></tr>
 </table>
-#### WVec
+### WVec
 <table>
 <tr><td align="right" width="50%"><strong>WVec New(int x, int y, int z)</strong></td><td>Create a new WVec with the specified coordinates.</td></tr>
 <tr><td align="right" width="50%"><strong>WVec Zero { get; }</strong></td><td>The world zero-vector.</td></tr>
 </table>
-### Actor Properties / Commands
-#### Ability
+## Actor Properties / Commands
+### Ability
 <table>
 <tr><td width="50%" align="right"><strong>void Capture(Actor target)</strong>
 </td><td>
@@ -281,7 +281,7 @@ Infiltrate the target actor.
 <b>Requires Trait:</b> Infiltrates
 </td></tr>
 </table>
-#### AmmoPool
+### AmmoPool
 <table>
 <tr><td width="50%" align="right"><strong>int AmmoCount(string poolName = primary)</strong>
 </td><td>
@@ -303,7 +303,7 @@ Adds the specified amount of ammo to the specified ammopool.
 <b>Requires Trait:</b> AmmoPool
 </td></tr>
 </table>
-#### Combat
+### Combat
 <table>
 <tr><td width="50%" align="right"><strong>void Attack(Actor targetActor, bool allowMove = True, bool forceAttack = False)</strong>
 </td><td>
@@ -360,17 +360,11 @@ Patrol along a set of given waypoints until a condition becomes true. The actor 
 <b>Requires Traits:</b> IMove, AttackBase
 </td></tr>
 </table>
-#### General
+### General
 <table>
 <tr><td width="50%" align="right"><strong>bool AcceptsCondition(string condition)</strong>
 </td><td>
 Check whether this actor accepts a specific external condition.
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
-<tr><td width="50%" align="right"><strong>bool AcceptsUpgrade(string upgrade)</strong>
-</td><td>
-Check whether this actor accepts a specific upgrade. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
@@ -417,18 +411,6 @@ defines which player palette to use. Duration is in ticks.
 Grant an external condition on this actor and return the revocation token.
 Conditions must be defined on an ExternalConditions trait on the actor.
 If duration > 0 the condition will be automatically revoked after the defined number of ticks
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
-<tr><td width="50%" align="right"><strong>void GrantTimedUpgrade(string upgrade, int duration)</strong>
-</td><td>
-Grant a limited-time upgrade to this actor. DEPRECATED! Will be removed.
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
-<tr><td width="50%" align="right"><strong>void GrantUpgrade(string upgrade)</strong>
-</td><td>
-Grant an upgrade to this actor. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
@@ -492,12 +474,6 @@ Revoke a condition using the token returned by GrantCondition.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
-<tr><td width="50%" align="right"><strong>void RevokeUpgrade(string upgrade)</strong>
-</td><td>
-Revoke an upgrade that was previously granted using GrantUpgrade. DEPRECATED! Will be removed.
-<br />
-<b>Requires Trait:</b> ExternalCondition
-</td></tr>
 <tr><td width="50%" align="right"><strong>void Sell()</strong>
 </td><td>
 Start selling the actor.
@@ -529,6 +505,10 @@ Stop repairs on this building. `repairer` can be an allied player.
 </td><td>
 Instantly moves the actor to the specified cell.
 </td></tr>
+<tr><td width="50%" align="right"><strong>string TooltipName { get; }</strong>
+</td><td>
+The actor's tooltip name. Returns nil if the actor has no tooltip.
+</td></tr>
 <tr><td width="50%" align="right"><strong>string Type { get; }</strong>
 </td><td>
 The type of the actor (e.g. "e1").
@@ -539,7 +519,7 @@ The type of the actor (e.g. "e1").
 Wait for a specified number of game ticks (25 ticks = 1 second).
 </td></tr>
 </table>
-#### Movement
+### Movement
 <table>
 <tr><td width="50%" align="right"><strong>void EnterTransport(Actor transport)</strong>
 <br /><em>Queued Activity</em>
@@ -618,7 +598,7 @@ Moves within the cell grid, ignoring lane biases.
 <b>Requires Trait:</b> Mobile
 </td></tr>
 </table>
-#### Power
+### Power
 <table>
 <tr><td width="50%" align="right"><strong>int Power { get; }</strong>
 </td><td>
@@ -627,7 +607,7 @@ Returns the power drained/provided by this actor.
 <b>Requires Trait:</b> Power
 </td></tr>
 </table>
-#### Production
+### Production
 <table>
 <tr><td width="50%" align="right"><strong>bool Build(String[] actorTypes, LuaFunction actionFunc = nil)</strong>
 </td><td>
@@ -651,7 +631,8 @@ Check whether the factory's production queue that builds this type of actor is c
 <br /><em>Queued Activity</em>
 </td><td>
 Build a unit, ignoring the production queue. The activity will wait if the exit is blocked.
-If productionType is nil or unavailable, then an exit will be selected based on Buildable info.
+If productionType is nil or unavailable, then an exit will be selected based on 'Buildable.BuildAtProductionType'.
+If 'Buildable.BuildAtProductionType' is not set either, a random exit will be selected.
 <br />
 <b>Requires Trait:</b> Production
 </td></tr>
@@ -662,7 +643,7 @@ Query or set a factory's rally point.
 <b>Requires Trait:</b> RallyPoint
 </td></tr>
 </table>
-#### Support Powers
+### Support Powers
 <table>
 <tr><td width="50%" align="right"><strong>void ActivateIonCannon(CPos target)</strong>
 </td><td>
@@ -675,6 +656,12 @@ Activate the actor's IonCannonPower.
 Activate the actor's NukePower.
 <br />
 <b>Requires Trait:</b> NukePower
+</td></tr>
+<tr><td width="50%" align="right"><strong>Actor[] ActivateParatroopers(WPos target, int facing = -1)</strong>
+</td><td>
+Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
+<br />
+<b>Requires Trait:</b> ParatroopersPower
 </td></tr>
 <tr><td width="50%" align="right"><strong>void Chronoshift(LuaTable unitLocationPairs, int duration = 0, bool killCargo = False)</strong>
 </td><td>
@@ -696,18 +683,18 @@ Activate the actor's Airstrike Power.
 </td></tr>
 <tr><td width="50%" align="right"><strong>Actor[] SendParatroopers(WPos target, bool randomize = True, int facing = 0)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units.
+Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
 <tr><td width="50%" align="right"><strong>Actor[] SendParatroopersFrom(CPos from, CPos to)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units.
+Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
 </table>
-#### Transports
+### Transports
 <table>
 <tr><td width="50%" align="right"><strong>bool HasPassengers { get; }</strong>
 </td><td>
@@ -748,16 +735,14 @@ Command transport to unload passengers.
 <b>Requires Trait:</b> Cargo
 </td></tr>
 </table>
-### Player Properties / Commands
-#### Diplomacy
-<table>
+## Player Properties / Commands
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Diplomacy</th></tr>
 <tr><td width="50%" align="right"><strong>bool IsAlliedWith(Player targetPlayer)</strong>
 </td><td>
 Returns true if the player is allied with the other player.
 </td></tr>
 </table>
-#### MissionObjectives
-<table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">MissionObjectives</th></tr>
 <tr><td width="50%" align="right"><strong>int AddObjective(string description, string type = Primary, bool required = True)</strong>
 <br /><em>Queued Activity</em>
 </td><td>
@@ -829,8 +814,7 @@ Mark an objective as failed.  This needs the objective ID returned by AddObjecti
 <b>Requires Trait:</b> MissionObjectives
 </td></tr>
 </table>
-#### Player
-<table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Player</th></tr>
 <tr><td width="50%" align="right"><strong>int BuildingsKilled { get; }</strong>
 </td><td>
 The total number of buildings killed by this player.
@@ -928,8 +912,7 @@ The total number of units lost by this player.
 <b>Requires Trait:</b> PlayerStatistics
 </td></tr>
 </table>
-#### Power
-<table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Power</th></tr>
 <tr><td width="50%" align="right"><strong>int PowerDrained { get; }</strong>
 </td><td>
 Returns the power used by the player.
@@ -955,8 +938,7 @@ Triggers low power for the chosen amount of ticks.
 <b>Requires Trait:</b> PowerManager
 </td></tr>
 </table>
-#### Production
-<table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Production</th></tr>
 <tr><td width="50%" align="right"><strong>bool Build(String[] actorTypes, LuaFunction actionFunc = nil)</strong>
 </td><td>
 Build the specified set of actors using classic (RA-style) production queues. The function will return true if production could be started, false otherwise. If an actionFunc is given, it will be called as actionFunc(Actor[] actors) once production of all actors has been completed. The actors array is guaranteed to only contain alive actors. Note: This function will fail to work when called during the first tick.
@@ -970,8 +952,7 @@ Check whether the production queue that builds this type of actor is currently b
 <b>Requires Traits:</b> ScriptTriggers, ClassicProductionQueue
 </td></tr>
 </table>
-#### Resources
-<table>
+<table align="center" width="1024"><tr><th colspan="2" width="1024">Resources</th></tr>
 <tr><td width="50%" align="right"><strong>int Cash { get; set; }</strong>
 </td><td>
 The amount of cash held by the player.

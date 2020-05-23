@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version release-20200202 of OpenRA.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version release-20200503 of OpenRA.
 
 * [OpenRA.Mods.Cnc.Traits](#openramodscnctraits)
   * [AttackLeap](#attackleap)
@@ -6,13 +6,13 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [AttackTDGunboatTurreted](#attacktdgunboatturreted)
   * [AttackTesla](#attacktesla)
   * [ClonesProducedUnits](#clonesproducedunits)
-  * [ProductionAirdrop](#productionairdrop)
   * [TiberianSunRefinery](#tiberiansunrefinery)
   * [Chronoshiftable](#chronoshiftable)
   * [Cloneable](#cloneable)
   * [ConyardChronoReturn](#conyardchronoreturn)
   * [DisguiseTooltip](#disguisetooltip)
   * [Disguise](#disguise)
+  * [DrainPrerequisitePowerOnDamage](#drainprerequisitepowerondamage)
   * [EdibleByLeap](#ediblebyleap)
   * [EnergyWall](#energywall)
   * [FrozenUnderFogUpdatedByGps](#frozenunderfogupdatedbygps)
@@ -40,21 +40,21 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [AttackOrderPower](#attackorderpower)
   * [ChronoshiftPower](#chronoshiftpower)
   * [GpsPower](#gpspower)
+  * [GrantPrerequisiteChargeDrainPower](#grantprerequisitechargedrainpower)
   * [IonCannonPower](#ioncannonpower)
   * [TDGunboat](#tdgunboat)
   * [TransferTimedExternalConditionOnTransform](#transfertimedexternalconditionontransform)
+  * [ShroudPalette](#shroudpalette)
   * [TSShroudPalette](#tsshroudpalette)
   * [VoxelNormalsPalette](#voxelnormalspalette)
 * [OpenRA.Mods.Cnc.Traits.Render](#openramodscnctraitsrender)
   * [WithCargo](#withcargo)
-  * [WithDeliveryAnimation](#withdeliveryanimation)
   * [WithDisguisingInfantryBody](#withdisguisinginfantrybody)
   * [WithDockingOverlay](#withdockingoverlay)
   * [WithEmbeddedTurretSpriteBody](#withembeddedturretspritebody)
   * [WithGunboatBody](#withgunboatbody)
   * [WithHarvesterSpriteBody](#withharvesterspritebody)
   * [WithLandingCraftAnimation](#withlandingcraftanimation)
-  * [WithPermanentInjury](#withpermanentinjury)
   * [WithRoof](#withroof)
   * [WithTeslaChargeAnimation](#withteslachargeanimation)
   * [WithTeslaChargeOverlay](#withteslachargeoverlay)
@@ -124,6 +124,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [LineBuildNode](#linebuildnode)
   * [PlaceBuildingVariants](#placebuildingvariants)
   * [PrimaryBuilding](#primarybuilding)
+  * [ProductionAirdrop](#productionairdrop)
   * [RallyPoint](#rallypoint)
   * [Refinery](#refinery)
   * [RepairableBuilding](#repairablebuilding)
@@ -135,6 +136,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [TransformsIntoMobile](#transformsintomobile)
   * [TransformsIntoPassenger](#transformsintopassenger)
   * [TransformsIntoRepairable](#transformsintorepairable)
+  * [TransformsIntoTransforms](#transformsintotransforms)
   * [Burns](#burns)
   * [Capturable](#capturable)
   * [CapturableProgressBar](#capturableprogressbar)
@@ -172,6 +174,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [GrantConditionOnTunnelLayer](#grantconditionontunnellayer)
   * [GrantConditionWhileAiming](#grantconditionwhileaiming)
   * [GrantExternalConditionToCrusher](#grantexternalconditiontocrusher)
+  * [GrantExternalConditionToProduced](#grantexternalconditiontoproduced)
   * [LineBuildSegmentExternalCondition](#linebuildsegmentexternalcondition)
   * [ProximityExternalCondition](#proximityexternalcondition)
   * [ToggleConditionOnOrder](#toggleconditiononorder)
@@ -210,7 +213,6 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [GivesBounty](#givesbounty)
   * [GivesCashOnCapture](#givescashoncapture)
   * [GivesExperience](#givesexperience)
-  * [GrantExternalConditionToProduced](#grantexternalconditiontoproduced)
   * [Guard](#guard)
   * [Guardable](#guardable)
   * [Harvester](#harvester)
@@ -277,6 +279,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [PlaceBeacon](#placebeacon)
   * [PlaceBuilding](#placebuilding)
   * [PlayerExperience](#playerexperience)
+  * [PlayerRadarTerrain](#playerradarterrain)
   * [PlayerResources](#playerresources)
   * [PlayerStatistics](#playerstatistics)
   * [UpdatesPlayerStatistics](#updatesplayerstatistics)
@@ -357,7 +360,9 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [CrateSpawner](#cratespawner)
   * [CreateMPPlayers](#creatempplayers)
   * [DomainIndex](#domainindex)
+  * [EditorActionManager](#editoractionmanager)
   * [EditorActorLayer](#editoractorlayer)
+  * [EditorCursorLayer](#editorcursorlayer)
   * [EditorResourceLayer](#editorresourcelayer)
   * [EditorSelectionLayer](#editorselectionlayer)
   * [ElevatedBridgeLayer](#elevatedbridgelayer)
@@ -388,10 +393,10 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [RadarPings](#radarpings)
   * [ResourceClaimLayer](#resourceclaimlayer)
   * [ResourceLayer](#resourcelayer)
+  * [ResourceRenderer](#resourcerenderer)
   * [ResourceType](#resourcetype)
   * [ScriptLobbyDropdown](#scriptlobbydropdown)
   * [Selection](#selection)
-  * [ShroudPalette](#shroudpalette)
   * [ShroudRenderer](#shroudrenderer)
   * [SmudgeLayer](#smudgelayer)
   * [SpawnMapActors](#spawnmapactors)
@@ -406,7 +411,6 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [ValidateOrder](#validateorder)
   * [WarheadDebugOverlay](#warheaddebugoverlay)
   * [WeatherOverlay](#weatheroverlay)
-  * [D2kActorPreviewPlaceBuildingPreview](#d2kactorpreviewplacebuildingpreview)
 * [OpenRA.Mods.Common.Traits.Conditions](#openramodscommontraitsconditions)
   * [GrantRandomCondition](#grantrandomcondition)
 * [OpenRA.Mods.Common.Traits.Radar](#openramodscommontraitsradar)
@@ -445,6 +449,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [WithDeadBridgeSpriteBody](#withdeadbridgespritebody)
   * [WithDeathAnimation](#withdeathanimation)
   * [WithDecoration](#withdecoration)
+  * [WithDeliveryAnimation](#withdeliveryanimation)
   * [WithDockedOverlay](#withdockedoverlay)
   * [WithDockingAnimation](#withdockinganimation)
   * [WithFacingSpriteBody](#withfacingspritebody)
@@ -493,6 +498,7 @@ This documentation is aimed at modders. It displays all traits with default valu
 * [OpenRA.Mods.D2k.Traits](#openramodsd2ktraits)
   * [AttackSwallow](#attackswallow)
   * [AttractsWorms](#attractsworms)
+  * [D2kActorPreviewPlaceBuildingPreview](#d2kactorpreviewplacebuildingpreview)
   * [LaysTerrain](#laysterrain)
   * [HarvesterInsurance](#harvesterinsurance)
   * [Sandworm](#sandworm)
@@ -500,7 +506,7 @@ This documentation is aimed at modders. It displays all traits with default valu
   * [BuildableTerrainLayer](#buildableterrainlayer)
   * [D2kEditorResourceLayer](#d2keditorresourcelayer)
   * [D2kFogPalette](#d2kfogpalette)
-  * [D2kResourceLayer](#d2kresourcelayer)
+  * [D2kResourceRenderer](#d2kresourcerenderer)
   * [PaletteFromScaledPalette](#palettefromscaledpalette)
 * [OpenRA.Mods.D2k.Traits.Render](#openramodsd2ktraitsrender)
   * [WithCrumbleOverlay](#withcrumbleoverlay)
@@ -628,17 +634,7 @@ Requires traits: [`Exit`](#exit), [`Production`](#production).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>CloneableTypes</td><td><em>(required)</em></td><td>Collection of CloneableType</td><td>Uses the "Cloneable" trait to determine whether or not we should clone a produced unit. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
-</table>
-
-### ProductionAirdrop
-Deliver the unit in production via skylift.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ReadyAudio</td><td>Reinforce</td><td>String</td><td></td></tr>
-<tr><td>ActorType</td><td>c17</td><td>String</td><td>Cargo aircraft used for delivery. Must have the `Aircraft` trait. </td></tr>
-<tr><td>Produces</td><td><em>(required)</em></td><td>Collection of String</td><td>e.g. Infantry, Vehicles, Aircraft, Buildings </td></tr>
-<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>ProductionType</td><td><em>(required)</em></td><td>String</td><td>e.g. Infantry, Vehicles, Aircraft, Buildings </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -725,6 +721,16 @@ Provides access to the disguise command, which makes the actor appear to be anot
 <tr><td>TargetTypes</td><td>Disguise</td><td>Collection of TargetableType</td><td>Target types of actors that this actor disguise as. </td></tr>
 <tr><td>RevealDisguiseOn</td><td>Attack</td><td>RevealDisguiseType</td><td>Triggers which cause the actor to drop it's disguise. Possible values: None, Attack, Damaged, Unload, Infiltrate, Demolish, Move. </td></tr>
 <tr><td>DisguisedAsConditions</td><td></td><td>Mapping of String to String</td><td>Conditions to grant when disguised as specified actor. A dictionary of [actor id]: [condition]. </td></tr>
+</table>
+
+### DrainPrerequisitePowerOnDamage
+Converts damage to a charge level of a GrantPrerequisiteChargeDrainPower.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>OrderName</td><td>GrantPrerequisiteChargeDrainPowerInfoOrder</td><td>String</td><td>The OrderName of the GrantPrerequisiteChargeDrainPower to drain. </td></tr>
+<tr><td>DamageMultiplier</td><td>1</td><td>Integer</td><td>Damage is multiplied by this number when converting damage to drain ticks. </td></tr>
+<tr><td>DamageDivisor</td><td>600</td><td>Integer</td><td>Damage is divided by this number when converting damage to drain ticks. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### EdibleByLeap
@@ -857,9 +863,6 @@ Requires traits: [`Explodes`](#explodes), [`WithFacingSpriteBody`](#withfacingsp
 <tr><td>ThumpSequence</td><td>piston</td><td>String</td><td></td></tr>
 <tr><td>ThumpInterval</td><td>8</td><td>Integer</td><td></td></tr>
 <tr><td>ThumpDamageWeapon</td><td>MADTankThump</td><td>String</td><td></td></tr>
-<tr><td>ThumpShakeIntensity</td><td>3</td><td>Integer</td><td></td></tr>
-<tr><td>ThumpShakeMultiplier</td><td>1,0</td><td>2D Real Number</td><td></td></tr>
-<tr><td>ThumpShakeTime</td><td>10</td><td>Integer</td><td></td></tr>
 <tr><td>ChargeDelay</td><td>96</td><td>Integer</td><td>Measured in ticks. </td></tr>
 <tr><td>ChargeSound</td><td>madchrg2.aud</td><td>String</td><td></td></tr>
 <tr><td>DetonationDelay</td><td>42</td><td>Integer</td><td>Measured in ticks. </td></tr>
@@ -891,6 +894,9 @@ Requires trait: [`Rearmable`](#rearmable).
 <tr><td>AmmoPoolName</td><td>primary</td><td>String</td><td></td></tr>
 <tr><td>MinefieldDepth</td><td>1c512</td><td>1D World Distance</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td>Voice to use when ordered to lay a minefield. </td></tr>
+<tr><td>TileValidName</td><td>build-valid</td><td>String</td><td>Sprite overlay to use for valid minefield cells. </td></tr>
+<tr><td>TileInvalidName</td><td>build-invalid</td><td>String</td><td>Sprite overlay to use for invalid minefield cells. </td></tr>
+<tr><td>TileUnknownName</td><td>build-unknown</td><td>String</td><td>Sprite overlay to use for minefield cells hidden behind fog or shroud. </td></tr>
 </table>
 
 ### ChronoshiftPaletteEffect
@@ -1113,6 +1119,56 @@ Requires `GpsWatcher` on the player actor.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### GrantPrerequisiteChargeDrainPower
+Grants a prerequisite while discharging at a configurable rate.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>DischargeModifier</td><td>300</td><td>Integer</td><td>Rate at which the power discharges compared to charging </td></tr>
+<tr><td>Prerequisite</td><td><em>(required)</em></td><td>String</td><td>The prerequisite type that this provides. </td></tr>
+<tr><td>ActiveText</td><td>ACTIVE</td><td>String</td><td>Label to display over the support power icon and in its tooltip while the power is active. </td></tr>
+<tr><td>AvailableText</td><td>READY</td><td>String</td><td>Label to display over the support power icon and in its tooltip while the power is available but not active. </td></tr>
+<tr><td>ChargeInterval</td><td>0</td><td>Integer</td><td>Measured in ticks. </td></tr>
+<tr><td>Icon</td><td></td><td>String</td><td></td></tr>
+<tr><td>Description</td><td></td><td>String</td><td></td></tr>
+<tr><td>LongDesc</td><td></td><td>String</td><td></td></tr>
+<tr><td>AllowMultiple</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>OneShot</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>Cursor</td><td>ability</td><td>String</td><td>Cursor to display for using this support power. </td></tr>
+<tr><td>StartFullyCharged</td><td>False</td><td>Boolean</td><td>If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. </td></tr>
+<tr><td>Prerequisites</td><td></td><td>Collection of String</td><td></td></tr>
+<tr><td>BeginChargeSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeginChargeSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>EndChargeSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>EndChargeSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>SelectTargetSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>SelectTargetSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>InsufficientPowerSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>InsufficientPowerSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>LaunchSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>LaunchSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>IncomingSound</td><td></td><td>String</td><td></td></tr>
+<tr><td>IncomingSpeechNotification</td><td></td><td>String</td><td></td></tr>
+<tr><td>DisplayTimerStances</td><td>None</td><td>Stance</td><td>Defines to which players the timer is shown. </td></tr>
+<tr><td>IconPalette</td><td>chrome</td><td>String</td><td>Palette used for the icon. </td></tr>
+<tr><td>DisplayBeacon</td><td>False</td><td>Boolean</td><td>Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers </td></tr>
+<tr><td>BeaconPaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>BeaconPalette</td><td>player</td><td>String</td><td></td></tr>
+<tr><td>BeaconImage</td><td>beacon</td><td>String</td><td></td></tr>
+<tr><td>BeaconPoster</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeaconPosterPalette</td><td>chrome</td><td>String</td><td></td></tr>
+<tr><td>ClockSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeaconSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>ArrowSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>CircleSequence</td><td></td><td>String</td><td></td></tr>
+<tr><td>BeaconDelay</td><td>0</td><td>Integer</td><td>Delay after launch, measured in ticks. </td></tr>
+<tr><td>DisplayRadarPing</td><td>False</td><td>Boolean</td><td></td></tr>
+<tr><td>RadarPingDuration</td><td>125</td><td>Integer</td><td>Measured in ticks. </td></tr>
+<tr><td>OrderName</td><td>GrantPrerequisiteChargeDrainPowerInfoOrder</td><td>String</td><td></td></tr>
+<tr><td>SupportPowerPaletteOrder</td><td>9999</td><td>Integer</td><td>Sort order for the support power palette. Smaller numbers are presented earlier. </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### IonCannonPower
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
@@ -1185,6 +1241,14 @@ Requires trait: [`Transforms`](#transforms).
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>External condition to transfer </td></tr>
 </table>
 
+### ShroudPalette
+Adds the hard-coded shroud palette to the game
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
+<tr><td>Fog</td><td>False</td><td>Boolean</td><td>Palette type </td></tr>
+</table>
+
 ### TSShroudPalette
 Adds the hard-coded shroud palette to the game
 <table>
@@ -1209,17 +1273,6 @@ Requires traits: [`BodyOrientation`](#bodyorientation), [`Cargo`](#cargo).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>LocalOffset</td><td>0,0,0</td><td>Collection of 3D World Vector</td><td>Cargo position relative to turret or body in (forward, right, up) triples. The default offset should be in the middle of the list. </td></tr>
 <tr><td>DisplayTypes</td><td></td><td>Set of String</td><td>Passenger CargoType to display. </td></tr>
-</table>
-
-### WithDeliveryAnimation
-Building animation to play when ProductionAirdrop is used to deliver units.
-
-Requires trait: [`WithSpriteBody`](#withspritebody).
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ActiveSequence</td><td>active</td><td>String</td><td></td></tr>
-<tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### WithDisguisingInfantryBody
@@ -1305,14 +1358,6 @@ Requires traits: [`Cargo`](#cargo), [`WithSpriteBody`](#withspritebody).
 <tr><td>CloseSequence</td><td>close</td><td>String</td><td></td></tr>
 <tr><td>UnloadSequence</td><td>unload</td><td>String</td><td></td></tr>
 <tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
-</table>
-
-### WithPermanentInjury
-Change the sprite after a certain amount of damage is taken, even when the hitpoints are regenerated.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>TriggeringDamageStage</td><td>Critical</td><td>DamageState</td><td></td></tr>
-<tr><td>InjuredSequencePrefix</td><td>crippled-</td><td>String</td><td></td></tr>
 </table>
 
 ### WithRoof
@@ -1459,10 +1504,11 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>LandingSounds</td><td></td><td>Collection of String</td><td>Sounds to play when the actor is landing. </td></tr>
 <tr><td>WaitDistanceFromResupplyBase</td><td>3c0</td><td>1D World Distance</td><td>The distance of the resupply base that the aircraft will wait for its turn. </td></tr>
 <tr><td>NumberOfTicksToVerifyAvailableAirport</td><td>150</td><td>Integer</td><td>The number of ticks that a airplane will wait to make a new search for an available airport. </td></tr>
-<tr><td>PreviewFacing</td><td>92</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorFacingDisplayOrder</td><td>3</td><td>Integer</td><td>Display order for the facing slider in the map editor </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. </td></tr>
-<tr><td>LandOnCondition</td><td></td><td>BooleanExpression</td><td>Condition when this aircraft should land as soon as possible and refuse to take off.  This only applies while the aircraft is above terrain which is listed in LandableTerrainTypes. </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### AttackAircraft
@@ -1513,10 +1559,10 @@ Causes aircraft husks that are spawned in the air to crash to the ground.
 Requires trait: [`Aircraft`](#aircraft).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Explosion</td><td>UnitExplode</td><td>String</td><td></td></tr>
-<tr><td>Spins</td><td>True</td><td>Boolean</td><td></td></tr>
-<tr><td>Moves</td><td>False</td><td>Boolean</td><td></td></tr>
-<tr><td>Velocity</td><td>0c43</td><td>1D World Distance</td><td></td></tr>
+<tr><td>Explosion</td><td>UnitExplode</td><td>String</td><td>Explosion weapon that triggers when hitting ground. </td></tr>
+<tr><td>MaximumSpinSpeed</td><td>-1</td><td>Integer</td><td>Limit the maximum spin (in facing units per tick) that can be achieved while crashing. 0 disables spinning. Negative values imply no limit. </td></tr>
+<tr><td>Moves</td><td>False</td><td>Boolean</td><td>Does the aircraft (husk) move forward at aircraft speed? </td></tr>
+<tr><td>Velocity</td><td>0c43</td><td>1D World Distance</td><td>Velocity (per tick) at which aircraft falls to ground. </td></tr>
 </table>
 
 ### AmmoPool
@@ -1767,6 +1813,7 @@ Requires trait: [`AttackBase`](#attackbase).
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>AllowMovement</td><td>True</td><td>Boolean</td><td>It will try to hunt down the enemy if it is set to AttackAnything. </td></tr>
 <tr><td>AllowTurning</td><td>True</td><td>Boolean</td><td>It will try to pivot to face the enemy if stance is not HoldFire. </td></tr>
+<tr><td>ScanOnIdle</td><td>True</td><td>Boolean</td><td>Scan for new targets when idle. </td></tr>
 <tr><td>ScanRadius</td><td>-1</td><td>Integer</td><td>Set to a value >1 to override weapons maximum range for this. </td></tr>
 <tr><td>InitialStanceAI</td><td>AttackAnything</td><td>UnitStance</td><td>Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for computer-controlled players, both Lua-scripted and regular Skirmish AI alike. </td></tr>
 <tr><td>InitialStance</td><td>Defend</td><td>UnitStance</td><td>Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for human players. </td></tr>
@@ -1838,6 +1885,7 @@ Manages AI base construction.
 <tr><td>MaximumFailedPlacementAttempts</td><td>3</td><td>Integer</td><td>After how many failed attempts to place a structure should AI give up and wait for StructureProductionResumeDelay before retrying. </td></tr>
 <tr><td>MaxResourceCellsToCheck</td><td>3</td><td>Integer</td><td>How many randomly chosen cells with resources to check when deciding refinery placement. </td></tr>
 <tr><td>CheckForNewBasesDelay</td><td>1500</td><td>Integer</td><td>Delay (in ticks) until rechecking for new BaseProviders. </td></tr>
+<tr><td>PlaceDefenseTowardsEnemyChance</td><td>100</td><td>Integer</td><td>Chance that the AI will place the defenses in the direction of the closest enemy building. </td></tr>
 <tr><td>MinimumDefenseRadius</td><td>5</td><td>Integer</td><td>Minimum range at which to build defensive structures near a combat hotspot. </td></tr>
 <tr><td>MaximumDefenseRadius</td><td>20</td><td>Integer</td><td>Maximum range at which to build defensive structures near a combat hotspot. </td></tr>
 <tr><td>NewProductionCashThreshold</td><td>5000</td><td>Integer</td><td>Try to build another production building if there is too much cash. </td></tr>
@@ -2053,6 +2101,7 @@ Where the unit should leave the building. Multiples are allowed if IDs are added
 <tr><td>Facing</td><td>-1</td><td>Integer</td><td></td></tr>
 <tr><td>ProductionTypes</td><td></td><td>Set of String</td><td>Type tags on this exit. </td></tr>
 <tr><td>ExitDelay</td><td>0</td><td>Integer</td><td>Number of ticks to wait before moving into the world. </td></tr>
+<tr><td>Priority</td><td>1</td><td>Integer</td><td>Exits with larger priorities will be used before lower priorities. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -2073,6 +2122,7 @@ If you want more than one unit to appear copy this section and assign IDs like F
 <tr><td>SpawnOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the top-left cell of the building. </td></tr>
 <tr><td>Facing</td><td>0</td><td>Integer</td><td>Which direction the unit should face. </td></tr>
 <tr><td>AllowRespawn</td><td>False</td><td>Boolean</td><td>Whether another actor should spawn upon re-enabling the trait. </td></tr>
+<tr><td>EditorFreeActorDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the free actor checkbox in the map editor </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -2089,6 +2139,7 @@ If you want more than one unit to be delivered, copy this section and assign IDs
 <tr><td>SpawnOffset</td><td>0,0</td><td>2D Cell Vector</td><td>Offset relative to the top-left cell of the building. </td></tr>
 <tr><td>Facing</td><td>0</td><td>Integer</td><td>Which direction the unit should face. </td></tr>
 <tr><td>AllowRespawn</td><td>False</td><td>Boolean</td><td>Whether another actor should spawn upon re-enabling the trait. </td></tr>
+<tr><td>EditorFreeActorDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the free actor checkbox in the map editor </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -2168,6 +2219,19 @@ Used together with ClassicProductionQueue.
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### ProductionAirdrop
+Deliver the unit in production via skylift.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>ReadyAudio</td><td>Reinforce</td><td>String</td><td></td></tr>
+<tr><td>ActorType</td><td><em>(required)</em></td><td>String</td><td>Cargo aircraft used for delivery. Must have the `Aircraft` trait. </td></tr>
+<tr><td>BaselineSpawn</td><td>False</td><td>Boolean</td><td>The cargo aircraft will spawn at the player baseline (map edge closest to the player spawn) </td></tr>
+<tr><td>Facing</td><td>64</td><td>Integer</td><td>Direction the aircraft should face to land. </td></tr>
+<tr><td>Produces</td><td><em>(required)</em></td><td>Collection of String</td><td>e.g. Infantry, Vehicles, Aircraft, Buildings </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
 ### RallyPoint
 Used to waypoint units after production or repair is finished.
 <table>
@@ -2179,7 +2243,8 @@ Used to waypoint units after production or repair is finished.
 <tr><td>Cursor</td><td>ability</td><td>String</td><td></td></tr>
 <tr><td>Palette</td><td>player</td><td>String</td><td>Custom indicator palette name </td></tr>
 <tr><td>IsPlayerPalette</td><td>True</td><td>Boolean</td><td>Custom palette is a player palette BaseName </td></tr>
-<tr><td>Offset</td><td>1,3</td><td>2D Cell Vector</td><td></td></tr>
+<tr><td>Path</td><td></td><td>Collection of 2D Cell Vector</td><td>A list of 0 or more offsets defining the initial rally point path. </td></tr>
+<tr><td>Notification</td><td></td><td>String</td><td>The speech notification to play when setting a new rallypoint. </td></tr>
 </table>
 
 ### Refinery
@@ -2304,6 +2369,16 @@ Requires trait: [`Transforms`](#transforms).
 <tr><td>RepairActors</td><td><em>(required)</em></td><td>Set of String</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>RequiresForceMove</td><td>False</td><td>Boolean</td><td>Require the force-move modifier to display the enter cursor. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### TransformsIntoTransforms
+Add to a building to allow queued transform orders while undeploying.
+
+Requires trait: [`Transforms`](#transforms).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -2455,6 +2530,7 @@ Lets the actor generate cash in a set periodic time.
 <tr><td>Amount</td><td>15</td><td>Integer</td><td>Amount of money to give each time. </td></tr>
 <tr><td>ShowTicks</td><td>True</td><td>Boolean</td><td>Whether to show the cash tick indicators rising from the actor. </td></tr>
 <tr><td>DisplayDuration</td><td>30</td><td>Integer</td><td>How long to show the cash tick indicator when enabled. </td></tr>
+<tr><td>UseResourceStorage</td><td>False</td><td>Boolean</td><td>Use resource storage for cash granted. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -2515,6 +2591,7 @@ Grants a condition while the trait is active.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>Condition to grant. </td></tr>
+<tr><td>GrantPermanently</td><td>False</td><td>Boolean</td><td>Is the condition irrevocable once it has been activated? </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -2529,6 +2606,8 @@ Grants a condition while the trait is active.
 <tr><td>RevokeDelay</td><td>15</td><td>Integer</td><td>Amount of ticks required to pass without firing to revoke an instance. </td></tr>
 <tr><td>RevokeOnNewTarget</td><td>False</td><td>Boolean</td><td>Should an instance be revoked if the actor changes target? </td></tr>
 <tr><td>RevokeAll</td><td>False</td><td>Boolean</td><td>Should all instances be revoked instead of only one? </td></tr>
+<tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### GrantConditionOnBotOwner
@@ -2567,6 +2646,7 @@ Grants a condition when a deploy order is issued.Can be paused with the granted 
 <tr><td>UndeployOnMove</td><td>False</td><td>Boolean</td><td>Undeploy before the actor tries to move? </td></tr>
 <tr><td>UndeployOnPickup</td><td>False</td><td>Boolean</td><td>Undeploy before the actor is picked up by a Carryall? </td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
+<tr><td>EditorDeployedDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the deployed checkbox in the map editor </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -2692,6 +2772,15 @@ Grant a condition to the crushing actor.
 <tr><td>WarnCrushDuration</td><td>0</td><td>Integer</td><td>Duration of the condition applied on a crush attempt (in ticks). Set to 0 for a permanent condition. </td></tr>
 <tr><td>OnCrushCondition</td><td></td><td>String</td><td>The condition to apply on a successful crush. Must be included among the crusher actor's ExternalCondition traits. </td></tr>
 <tr><td>OnCrushDuration</td><td>0</td><td>Integer</td><td>Duration of the condition applied on a successful crush (in ticks). Set to 0 for a permanent condition. </td></tr>
+</table>
+
+### GrantExternalConditionToProduced
+Grants a condition to actors produced by this actor.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to apply. Must be included in the produced actor's ExternalConditions list. </td></tr>
+<tr><td>Duration</td><td>0</td><td>Integer</td><td>Duration of the condition (in ticks). Set to 0 for a permanent condition. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
 ### LineBuildSegmentExternalCondition
@@ -3208,15 +3297,6 @@ This actor gives experience to a GainsExperience actor when they are killed.
 <tr><td>PlayerExperienceModifier</td><td>0</td><td>Integer</td><td>Percentage of the `Experience` value that is being granted to the player owning the killing actor. </td></tr>
 </table>
 
-### GrantExternalConditionToProduced
-Grants a condition to actors produced by this actor.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Condition</td><td><em>(required)</em></td><td>String</td><td>The condition to apply. Must be included in the produced actor's ExternalConditions list. </td></tr>
-<tr><td>Duration</td><td>0</td><td>Integer</td><td>Duration of the condition (in ticks). Set to 0 for a permanent condition. </td></tr>
-<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
-</table>
-
 ### Guard
 The player can give this unit the order to follow and protect friendly units with the Guardable trait.
 <table>
@@ -3273,6 +3353,7 @@ Shape of actor for targeting and damage calculations.
 Requires trait: [`BodyOrientation`](#bodyorientation).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>Turret</td><td></td><td>String</td><td>Name of turret this shape is linked to. Leave empty to link shape to body. </td></tr>
 <tr><td>TargetableOffsets</td><td>0,0,0</td><td>Collection of 3D World Vector</td><td>Create a targetable position for each offset listed here (relative to CenterPosition). </td></tr>
 <tr><td>UseTargetableCellsOffsets</td><td>False</td><td>Boolean</td><td>Create a targetable position at the center of each occupied cell. Stacks with TargetableOffsets. </td></tr>
 <tr><td>ArmorTypes</td><td></td><td>Collection of ArmorType</td><td>Defines which Armor types apply when the actor receives damage to this HitShape. If none specified, all armor types the actor has are valid. </td></tr>
@@ -3288,7 +3369,7 @@ Spawns remains of a husk actor with the correct facing.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>AllowedTerrain</td><td></td><td>Set of String</td><td></td></tr>
-<tr><td>PreviewFacing</td><td>92</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 </table>
 
 ### IgnoresCloak
@@ -3321,18 +3402,18 @@ Make the unit go prone when under attack, in an attempt to reduce damage.
 Requires trait: [`BodyOrientation`](#bodyorientation).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>ProneTime</td><td>100</td><td>Integer</td><td>How long (in ticks) the actor remains prone. </td></tr>
+<tr><td>Duration</td><td>100</td><td>Integer</td><td>How long (in ticks) the actor remains prone. Negative values mean actor remains prone permanently. </td></tr>
 <tr><td>SpeedModifier</td><td>50</td><td>Integer</td><td>Prone movement speed as a percentage of the normal speed. </td></tr>
-<tr><td>DamageTriggers</td><td><em>(required)</em></td><td>Collection of DamageType</td><td>Damage types that trigger prone state. Defined on the warheads. </td></tr>
+<tr><td>DamageTriggers</td><td></td><td>Collection of DamageType</td><td>Damage types that trigger prone state. Defined on the warheads. If Duration is negative (permanent), you can leave this empty to trigger prone state immediately. </td></tr>
 <tr><td>DamageModifiers</td><td></td><td>Mapping of String to Integer</td><td>Damage modifiers for each damage type (defined on the warheads) while the unit is prone. </td></tr>
-<tr><td>ProneOffset</td><td>500,0,0</td><td>3D World Vector</td><td></td></tr>
-<tr><td>ProneSequencePrefix</td><td>prone-</td><td>String</td><td></td></tr>
+<tr><td>ProneOffset</td><td>500,0,0</td><td>3D World Vector</td><td>Muzzle offset modifier to apply while prone. </td></tr>
+<tr><td>ProneSequencePrefix</td><td>prone-</td><td>String</td><td>Sequence prefix to apply while prone. </td></tr>
 <tr><td>Turret</td><td>primary</td><td>String</td><td></td></tr>
 <tr><td>TurnSpeed</td><td>255</td><td>Integer</td><td>Speed at which the turret turns. </td></tr>
 <tr><td>InitialFacing</td><td>0</td><td>Integer</td><td></td></tr>
 <tr><td>RealignDelay</td><td>40</td><td>Integer</td><td>Number of ticks before turret is realigned. (-1 turns off realignment) </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Muzzle position relative to turret or body. (forward, right, up) triples </td></tr>
-<tr><td>PreviewFacing</td><td>92</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorTurretFacingDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the turret facing slider in the map editor </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -3384,9 +3465,10 @@ Unit is able to move.
 <tr><td>Cursor</td><td>move</td><td>String</td><td></td></tr>
 <tr><td>BlockedCursor</td><td>move-blocked</td><td>String</td><td></td></tr>
 <tr><td>Voice</td><td>Action</td><td>String</td><td></td></tr>
-<tr><td>PreviewFacing</td><td>92</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorFacingDisplayOrder</td><td>3</td><td>Integer</td><td>Display order for the facing slider in the map editor </td></tr>
 <tr><td>RequireForceMoveCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which the regular (non-force) move cursor is disabled. </td></tr>
+<tr><td>ImmovableCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition under which this actor cannot be nudged by other actors. </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
@@ -3870,6 +3952,9 @@ This trait can be used to track player experience based on units killed with the
 It can also be used as a point score system in scripted maps, for example.
 Attach this to the player actor.
 
+### PlayerRadarTerrain
+Requires trait: [`Shroud`](#shroud).
+
 ### PlayerResources
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
@@ -3894,6 +3979,7 @@ Attach this to a unit to update observer stats.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>AddToArmyValue</td><td>False</td><td>Boolean</td><td>Add to army value in statistics </td></tr>
+<tr><td>OverrideActor</td><td></td><td>String</td><td>Count this actor as a different type in the spectator army display. </td></tr>
 </table>
 
 ### ProductionQueue
@@ -4474,7 +4560,6 @@ Adds capacity to a player's harvested resource limit.
 </table>
 
 ### NukePower
-Requires trait: [`BodyOrientation`](#bodyorientation).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>MissileWeapon</td><td><em>(required)</em></td><td>String</td><td>Weapon to use for the impact. Also image to use for the missile. </td></tr>
@@ -4839,7 +4924,7 @@ Requires trait: [`BodyOrientation`](#bodyorientation).
 <tr><td>InitialFacing</td><td>0</td><td>Integer</td><td></td></tr>
 <tr><td>RealignDelay</td><td>40</td><td>Integer</td><td>Number of ticks before turret is realigned. (-1 turns off realignment) </td></tr>
 <tr><td>Offset</td><td>0,0,0</td><td>3D World Vector</td><td>Muzzle position relative to turret or body. (forward, right, up) triples </td></tr>
-<tr><td>PreviewFacing</td><td>92</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
+<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td>Facing to use for actor previews (map editor, color picker, etc) </td></tr>
 <tr><td>EditorTurretFacingDisplayOrder</td><td>4</td><td>Integer</td><td>Display order for the turret facing slider in the map editor </td></tr>
 <tr><td>PauseOnCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to pause this trait. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
@@ -4935,11 +5020,22 @@ Attach this to the world actor.
 Identify untraversable regions of the map for faster pathfinding, especially with AI.
 This trait is required. Every mod needs it attached to the world actor.
 
+### EditorActionManager
+
 ### EditorActorLayer
 Required for the map editor to work. Attach this to the world actor.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>BinSize</td><td>250</td><td>Integer</td><td>Size of partition bins (world pixels) </td></tr>
+</table>
+
+### EditorCursorLayer
+Required for the map editor to work. Attach this to the world actor.
+
+Requires trait: [`EditorActorLayer`](#editoractorlayer).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>PreviewFacing</td><td>96</td><td>Integer</td><td></td></tr>
 </table>
 
 ### EditorResourceLayer
@@ -5162,6 +5258,7 @@ Trait for music handling. Attach this to the world actor.
 <tr><td>VictoryMusic</td><td></td><td>String</td><td>Music to play when the game has been won. </td></tr>
 <tr><td>DefeatMusic</td><td></td><td>String</td><td>Music to play when the game has been lost. </td></tr>
 <tr><td>BackgroundMusic</td><td></td><td>String</td><td>This track is played when no other music is playing. It cannot be paused, but can be overridden by selecting a new track. </td></tr>
+<tr><td>AllowMuteBackgroundMusic</td><td>False</td><td>Boolean</td><td>Allow the background music to be muted by the player. </td></tr>
 <tr><td>DisableWorldSounds</td><td>False</td><td>Boolean</td><td>Disable all world sounds (combat etc). </td></tr>
 </table>
 
@@ -5188,7 +5285,7 @@ Load VGA palette (.pal) registers.
 </table>
 
 ### PaletteFromGimpOrJascFile
-Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha. Index 0 is hardcoded to be fully transparent/invisible.
+Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha.
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Palette name used internally. </td></tr>
@@ -5197,6 +5294,8 @@ Load a GIMP .gpl or JASC .pal palette file. Supports per-color alpha. Index 0 is
 <tr><td>Filename</td><td><em>(required)</em></td><td>String</td><td>Name of the file to load. </td></tr>
 <tr><td>Premultiply</td><td>True</td><td>Boolean</td><td>Premultiply colors with their alpha values. </td></tr>
 <tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>TransparentIndex</td><td>0</td><td>Integer</td><td>Index set to be fully transparent/invisible. </td></tr>
+<tr><td>CursorPalette</td><td>False</td><td>Boolean</td><td>Whether this palette is available for cursors. </td></tr>
 </table>
 
 ### PaletteFromPaletteWithAlpha
@@ -5244,6 +5343,7 @@ Creates a single color palette without any base palette file.
 <tr><td>B</td><td>0</td><td>Integer</td><td>blue color component </td></tr>
 <tr><td>A</td><td>255</td><td>Integer</td><td>alpha channel (transparency) </td></tr>
 <tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td></td></tr>
+<tr><td>TransparentIndex</td><td>0</td><td>Integer</td><td>Index set to be fully transparent/invisible. </td></tr>
 </table>
 
 ### PathFinder
@@ -5269,6 +5369,16 @@ Attach this to the world actor.
 Order of the layers defines the Z sorting.
 
 Requires traits: [`BuildingInfluence`](#buildinginfluence), [`ResourceType`](#resourcetype).
+
+### ResourceRenderer
+Visualizes the state of the `ResourceLayer`.
+ Attach this to the world actor.
+
+Requires trait: [`ResourceLayer`](#resourcelayer).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>RenderTypes</td><td><em>(required)</em></td><td>Collection of String</td><td>Only render these ResourceType names. </td></tr>
+</table>
 
 ### ResourceType
 <table>
@@ -5304,14 +5414,6 @@ Controls the map difficulty, tech level, and short game lobby options.
 </table>
 
 ### Selection
-
-### ShroudPalette
-Adds the hard-coded shroud palette to the game
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>Name</td><td><em>(required)</em></td><td>String</td><td>Internal palette name </td></tr>
-<tr><td>Fog</td><td>False</td><td>Boolean</td><td>Palette type </td></tr>
-</table>
 
 ### ShroudRenderer
 <table>
@@ -5449,20 +5551,6 @@ Adds a particle-based overlay.
 <tr><td>SwingAmplitude</td><td>1, 1.5</td><td>Collection of Real Number</td><td>The value range that can be swung to the left or right. SwingAmplitude min. and max. value in px/tick. </td></tr>
 <tr><td>ParticleColors</td><td>ECECEC, E4E4E4, D0D0D0, BCBCBC</td><td>Collection of Color (RRGGBB[AA] notation)</td><td>The randomly selected rgb(a) hex colors for the particles. Use this order: rrggbb[aa], rrggbb[aa], ... </td></tr>
 <tr><td>LineTailAlphaValue</td><td>200</td><td>Byte</td><td>Works only with line enabled and can be used to fade out the tail of the line like a contrail. </td></tr>
-</table>
-
-### D2kActorPreviewPlaceBuildingPreview
-Creates a building placement preview based on the map editor actor preview.
-<table>
-<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
-<tr><td>UnsafeTerrainTypes</td><td>Rock</td><td>Set of String</td><td>Terrain types that should show the 'unsafe' footprint tile. </td></tr>
-<tr><td>Animated</td><td>True</td><td>Boolean</td><td>Enable the building's idle animation. </td></tr>
-<tr><td>OverridePalette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
-<tr><td>OverridePaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
-<tr><td>FootprintUnderPreview</td><td>Valid, LineBuild</td><td>PlaceBuildingCellType</td><td>Footprint types to draw underneath the actor preview. </td></tr>
-<tr><td>FootprintOverPreview</td><td>Invalid</td><td>PlaceBuildingCellType</td><td>Footprint types to draw above the actor preview. </td></tr>
-<tr><td>Palette</td><td>terrain</td><td>String</td><td>Palette to use for rendering the placement sprite. </td></tr>
-<tr><td>LineBuildSegmentPalette</td><td>terrain</td><td>String</td><td>Palette to use for rendering the placement sprite for line build segments. </td></tr>
 </table>
 
 ## OpenRA.Mods.Common.Traits.Conditions
@@ -5667,9 +5755,9 @@ Requires trait: [`ConditionManager`](#conditionmanager).
 </table>
 
 ### VeteranProductionIconOverlay
-Attach this to the player actor. When attached, enables all actors possessing the LevelupWhenCreated 
+Attach this to the player actor. When attached, enables all actors possessing the ProducibleWithLevel 
 trait to have their production queue icons render with an overlay defined in this trait. 
-The icon change occurs when LevelupWhenCreated.Prerequisites are met.
+The icon change occurs when ProducibleWithLevel.Prerequisites are met.
 
 Requires trait: [`TechTree`](#techtree).
 <table>
@@ -5884,6 +5972,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>CrushedPaletteIsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom crushed animation palette is a player palette BaseName </td></tr>
 <tr><td>DeathTypes</td><td></td><td>Mapping of String to Collection of String</td><td>Death animations to use for each damage type (defined on the warheads). Is only used if UseDeathTypeSuffix is `True`. </td></tr>
 <tr><td>FallbackSequence</td><td></td><td>String</td><td>Sequence to use when the actor is killed by some non-standard means (e.g. suicide). </td></tr>
+<tr><td>Delay</td><td>0</td><td>Integer</td><td>Delay the spawn of the death animation by this many ticks. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -5903,6 +5992,17 @@ Displays a custom UI overlay relative to the actor's mouseover bounds.
 <tr><td>BlinkInterval</td><td>5</td><td>Integer</td><td>The number of ticks that each step in the blink pattern in active. </td></tr>
 <tr><td>BlinkPattern</td><td></td><td>Collection of BlinkState</td><td>A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. </td></tr>
 <tr><td>BlinkPatterns</td><td></td><td>Mapping of BooleanExpression to Collection of BlinkState</td><td>Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. </td></tr>
+<tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
+</table>
+
+### WithDeliveryAnimation
+Building animation to play when ProductionAirdrop is used to deliver units.
+
+Requires trait: [`WithSpriteBody`](#withspritebody).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>ActiveSequence</td><td>active</td><td>String</td><td></td></tr>
+<tr><td>Body</td><td>body</td><td>String</td><td>Which sprite body to play the animation on. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -6155,6 +6255,8 @@ Requires traits: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspri
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Sequence</td><td>resources</td><td>String</td><td>Sequence name to use </td></tr>
+<tr><td>Palette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
+<tr><td>IsPlayerPalette</td><td>False</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
@@ -6463,6 +6565,20 @@ This actor makes noise, which causes them to be targeted by actors with the Sand
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
 
+### D2kActorPreviewPlaceBuildingPreview
+Creates a building placement preview based on the map editor actor preview.
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>UnsafeTerrainTypes</td><td>Rock</td><td>Set of String</td><td>Terrain types that should show the 'unsafe' footprint tile. </td></tr>
+<tr><td>Animated</td><td>True</td><td>Boolean</td><td>Enable the building's idle animation. </td></tr>
+<tr><td>OverridePalette</td><td></td><td>String</td><td>Custom palette name. </td></tr>
+<tr><td>OverridePaletteIsPlayerPalette</td><td>True</td><td>Boolean</td><td>Custom palette is a player palette BaseName. </td></tr>
+<tr><td>FootprintUnderPreview</td><td>Valid, LineBuild</td><td>PlaceBuildingCellType</td><td>Footprint types to draw underneath the actor preview. </td></tr>
+<tr><td>FootprintOverPreview</td><td>Invalid</td><td>PlaceBuildingCellType</td><td>Footprint types to draw above the actor preview. </td></tr>
+<tr><td>Palette</td><td>terrain</td><td>String</td><td>Palette to use for rendering the placement sprite. </td></tr>
+<tr><td>LineBuildSegmentPalette</td><td>terrain</td><td>String</td><td>Palette to use for rendering the placement sprite for line build segments. </td></tr>
+</table>
+
 ### LaysTerrain
 Requires trait: [`Building`](#building).
 <table>
@@ -6528,10 +6644,15 @@ Requires trait: [`ResourceType`](#resourcetype).
 <tr><td>AllowModifiers</td><td>True</td><td>Boolean</td><td>Allow palette modifiers to change the palette. </td></tr>
 </table>
 
-### D2kResourceLayer
+### D2kResourceRenderer
 Used to render spice with round borders.
+Attach this to the world actor
 
-Requires traits: [`BuildingInfluence`](#buildinginfluence), [`ResourceType`](#resourcetype).
+Requires trait: [`ResourceLayer`](#resourcelayer).
+<table>
+<tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
+<tr><td>RenderTypes</td><td><em>(required)</em></td><td>Collection of String</td><td>Only render these ResourceType names. </td></tr>
+</table>
 
 ### PaletteFromScaledPalette
 Create a palette by applying a scale and offset to the colors in another palette.
