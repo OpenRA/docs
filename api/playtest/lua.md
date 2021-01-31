@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version playtest-20201213 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version playtest-20210131 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -143,6 +143,7 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>CPos ClosestMatchingEdgeCell(CPos givenCell, LuaFunction filter)</strong></td><td>Returns the first cell on the visible border of the map from the given cell,
 matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>bool IsNamedActor(Actor actor)</strong></td><td>Returns true if actor was originally specified in the map file.</td></tr>
+<tr><td align="right" width="50%"><strong>bool IsPausedShellmap { get; }</strong></td><td>Returns true if this is a shellmap and the player has paused animations.</td></tr>
 <tr><td align="right" width="50%"><strong>bool IsSinglePlayer { get; }</strong></td><td>Returns true if there is only one human player.</td></tr>
 <tr><td align="right" width="50%"><strong>LuaValue LobbyOption(string id)</strong></td><td>Returns the value of a `ScriptLobbyDropdown` selected in the game lobby.</td></tr>
 <tr><td align="right" width="50%"><strong>Actor NamedActor(string actorName)</strong></td><td>Returns the actor that was specified with a given name in the map file (or nil, if the actor is dead or not found).</td></tr>
@@ -504,9 +505,9 @@ Specifies whether the actor is in the world.
 </td><td>
 Specifies whether or not the actor supports 'tags'.
 </td></tr>
-<tr><td width="50%" align="right"><strong>void Kill()</strong>
+<tr><td width="50%" align="right"><strong>void Kill(Object damageTypes = nil)</strong>
 </td><td>
-Kill the actor.
+Kill the actor. damageTypes may be omitted, specified as a string, or as table of strings.
 <br />
 <b>Requires Trait:</b> IHealth
 </td></tr>
@@ -943,6 +944,10 @@ Returns an array of actors representing all ground attack units of this player.
 Grant an external condition on the player actor and return the revocation token.
 Conditions must be defined on an ExternalConditions trait on the player actor.
 If duration > 0 the condition will be automatically revoked after the defined number of ticks.
+</td></tr>
+<tr><td width="50%" align="right"><strong>int Handicap { get; }</strong>
+</td><td>
+The player's handicap level.
 </td></tr>
 <tr><td width="50%" align="right"><strong>bool HasPrerequisites(String[] type)</strong>
 </td><td>

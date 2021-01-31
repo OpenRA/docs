@@ -1,4 +1,4 @@
-This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version playtest-20201213 of OpenRA.
+This documentation is aimed at modders. It displays all traits with default values and developer commentary. Please do not edit it directly, but add new `[Desc("String")]` tags to the source code. This file has been automatically generated for version playtest-20210131 of OpenRA.
 
 
 ## OpenRA.Mods.Cnc.Traits
@@ -867,7 +867,7 @@ Requires traits: [`Disguise`](#disguise), [`RenderSprites`](#rendersprites).
 <tr><td>MaxIdleDelay</td><td>110</td><td>Integer</td><td></td></tr>
 <tr><td>MoveSequence</td><td>run</td><td>String</td><td></td></tr>
 <tr><td>DefaultAttackSequence</td><td></td><td>String</td><td></td></tr>
-<tr><td>AttackSequences</td><td></td><td>Mapping of String to String</td><td>Attack sequence to use for each armament. </td></tr>
+<tr><td>AttackSequences</td><td></td><td>Mapping of String to Collection of String</td><td>Attack sequence to use for each armament. A dictionary of [armament name]: [sequence name(s)]. Multiple sequence names can be defined to specify per-burst animations. </td></tr>
 <tr><td>IdleSequences</td><td></td><td>Collection of String</td><td></td></tr>
 <tr><td>StandSequences</td><td>stand</td><td>Collection of String</td><td></td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
@@ -1089,13 +1089,13 @@ An actor with this trait indicates a valid spawn point for actors of ActorSpawnM
 <tr><td>RepulsionSpeed</td><td>-1</td><td>Integer</td><td>The speed at which the aircraft is repulsed from other aircraft. Specify -1 for normal movement speed. </td></tr>
 <tr><td>InitialFacing</td><td>0</td><td>1D World Angle</td><td></td></tr>
 <tr><td>TurnSpeed</td><td>512</td><td>1D World Angle</td><td>Speed at which the actor turns. </td></tr>
-<tr><td>IdleTurnSpeed</td><td></td><td>Nullable`1</td><td>Turn speed to apply when aircraft flies in circles while idle. Defaults to TurnSpeed if undefined. </td></tr>
+<tr><td>IdleTurnSpeed</td><td></td><td>1D World Angle (optional)</td><td>Turn speed to apply when aircraft flies in circles while idle. Defaults to TurnSpeed if undefined. </td></tr>
 <tr><td>Speed</td><td>1</td><td>Integer</td><td>Maximum flight speed when cruising. </td></tr>
 <tr><td>IdleSpeed</td><td>-1</td><td>Integer</td><td>If non-negative, force the aircraft to move in circles at this speed when idle (a speed of 0 means don't move), ignoring CanHover. </td></tr>
 <tr><td>Pitch</td><td>0</td><td>1D World Angle</td><td>Body pitch when flying forwards. Only relevant for voxel aircraft. </td></tr>
 <tr><td>PitchSpeed</td><td>0</td><td>1D World Angle</td><td>Pitch steps to apply each tick when starting/stopping. </td></tr>
 <tr><td>Roll</td><td>0</td><td>1D World Angle</td><td>Body roll when turning. Only relevant for voxel aircraft. </td></tr>
-<tr><td>IdleRoll</td><td></td><td>Nullable`1</td><td>Body roll to apply when aircraft flies in circles while idle. Defaults to Roll if undefined. Only relevant for voxel aircraft. </td></tr>
+<tr><td>IdleRoll</td><td></td><td>1D World Angle (optional)</td><td>Body roll to apply when aircraft flies in circles while idle. Defaults to Roll if undefined. Only relevant for voxel aircraft. </td></tr>
 <tr><td>RollSpeed</td><td>0</td><td>1D World Angle</td><td>Roll steps to apply each tick when turning. </td></tr>
 <tr><td>MinAirborneAltitude</td><td>1</td><td>Integer</td><td>Minimum altitude where this aircraft is considered airborne. </td></tr>
 <tr><td>LandableTerrainTypes</td><td></td><td>Set of String</td><td></td></tr>
@@ -1180,7 +1180,7 @@ Requires trait: [`Aircraft`](#aircraft).
 <table>
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>Explosion</td><td>UnitExplode</td><td>String</td><td>Explosion weapon that triggers when hitting ground. </td></tr>
-<tr><td>MaximumSpinSpeed</td><td></td><td>Nullable`1</td><td>Limit the maximum spin (in angle units per tick) that can be achieved while crashing. 0 disables spinning. Leave undefined for no limit. </td></tr>
+<tr><td>MaximumSpinSpeed</td><td></td><td>1D World Angle (optional)</td><td>Limit the maximum spin (in angle units per tick) that can be achieved while crashing. 0 disables spinning. Leave undefined for no limit. </td></tr>
 <tr><td>Moves</td><td>False</td><td>Boolean</td><td>Does the aircraft (husk) move forward at aircraft speed? </td></tr>
 <tr><td>Velocity</td><td>0c43</td><td>1D World Distance</td><td>Velocity (per tick) at which aircraft falls to ground. </td></tr>
 </table>
@@ -1731,7 +1731,7 @@ Where the unit should leave the building. Multiples are allowed if IDs are added
 <tr><th>Property</th><th>Default Value</th><th>Type</th><th>Description</th></tr>
 <tr><td>SpawnOffset</td><td>0,0,0</td><td>3D World Vector</td><td>Offset at which that the exiting actor is spawned relative to the center of the producing actor. </td></tr>
 <tr><td>ExitCell</td><td>0,0</td><td>2D Cell Vector</td><td>Cell offset where the exiting actor enters the ActorMap relative to the topleft cell of the producing actor. </td></tr>
-<tr><td>Facing</td><td></td><td>Nullable`1</td><td></td></tr>
+<tr><td>Facing</td><td></td><td>1D World Angle (optional)</td><td></td></tr>
 <tr><td>ProductionTypes</td><td></td><td>Set of String</td><td>Type tags on this exit. </td></tr>
 <tr><td>ExitDelay</td><td>0</td><td>Integer</td><td>Number of ticks to wait before moving into the world. </td></tr>
 <tr><td>Priority</td><td>1</td><td>Integer</td><td>Exits with larger priorities will be used before lower priorities. </td></tr>
@@ -2291,7 +2291,7 @@ Grants a condition when a deploy order is issued.Can be paused with the granted 
 <tr><td>CanDeployOnRamps</td><td>False</td><td>Boolean</td><td>Can this actor deploy on slopes? </td></tr>
 <tr><td>DeployCursor</td><td>deploy</td><td>String</td><td>Cursor to display when able to (un)deploy the actor. </td></tr>
 <tr><td>DeployBlockedCursor</td><td>deploy-blocked</td><td>String</td><td>Cursor to display when unable to (un)deploy the actor. </td></tr>
-<tr><td>Facing</td><td></td><td>Nullable`1</td><td>Facing that the actor must face before deploying. Leave undefined to deploy regardless of facing. </td></tr>
+<tr><td>Facing</td><td></td><td>1D World Angle (optional)</td><td>Facing that the actor must face before deploying. Leave undefined to deploy regardless of facing. </td></tr>
 <tr><td>DeploySounds</td><td></td><td>Collection of String</td><td>Play a randomly selected sound from this list when deploying. </td></tr>
 <tr><td>UndeploySounds</td><td></td><td>Collection of String</td><td>Play a randomly selected sound from this list when undeploying. </td></tr>
 <tr><td>SkipMakeAnimation</td><td>False</td><td>Boolean</td><td>Skip make/deploy animation? </td></tr>
@@ -3259,6 +3259,15 @@ Modifies the experience given by this actor.
 <tr><td>Modifier</td><td><em>(required)</em></td><td>Integer</td><td>Percentage modifier to apply. </td></tr>
 <tr><td>RequiresCondition</td><td></td><td>BooleanExpression</td><td>Boolean expression defining the condition to enable this trait. </td></tr>
 </table>
+
+### HandicapDamageMultiplier
+Modifies the damage applied to this actor based on the owner's handicap.
+
+### HandicapFirepowerMultiplier
+Modifies the damage applied by this actor based on the owner's handicap.
+
+### HandicapProductionTimeMultiplier
+Modifies the production time of this actor based on the producer's handicap.
 
 ### HarvesterResourceMultiplier
 Modifies the bale values of this harvester.
@@ -5048,8 +5057,8 @@ Used by SpawnMPUnits. Attach these to the world actor. You can have multiple var
 <tr><td>SupportActors</td><td></td><td>Collection of String</td><td>A group of units ready to defend or scout. </td></tr>
 <tr><td>InnerSupportRadius</td><td>2</td><td>Integer</td><td>Inner radius for spawning support actors </td></tr>
 <tr><td>OuterSupportRadius</td><td>4</td><td>Integer</td><td>Outer radius for spawning support actors </td></tr>
-<tr><td>BaseActorFacing</td><td>512</td><td>Nullable`1</td><td>Initial facing of BaseActor. Leave undefined for random facings. </td></tr>
-<tr><td>SupportActorsFacing</td><td></td><td>Nullable`1</td><td>Initial facing of SupportActors. Leave undefined for random facings. </td></tr>
+<tr><td>BaseActorFacing</td><td>512</td><td>1D World Angle (optional)</td><td>Initial facing of BaseActor. Leave undefined for random facings. </td></tr>
+<tr><td>SupportActorsFacing</td><td></td><td>1D World Angle (optional)</td><td>Initial facing of SupportActors. Leave undefined for random facings. </td></tr>
 </table>
 
 ### MusicPlaylist
@@ -5972,7 +5981,7 @@ Requires trait: [`RenderSprites`](#rendersprites).
 <tr><td>MaxIdleDelay</td><td>110</td><td>Integer</td><td></td></tr>
 <tr><td>MoveSequence</td><td>run</td><td>String</td><td></td></tr>
 <tr><td>DefaultAttackSequence</td><td></td><td>String</td><td></td></tr>
-<tr><td>AttackSequences</td><td></td><td>Mapping of String to String</td><td>Attack sequence to use for each armament. </td></tr>
+<tr><td>AttackSequences</td><td></td><td>Mapping of String to Collection of String</td><td>Attack sequence to use for each armament. A dictionary of [armament name]: [sequence name(s)]. Multiple sequence names can be defined to specify per-burst animations. </td></tr>
 <tr><td>IdleSequences</td><td></td><td>Collection of String</td><td></td></tr>
 <tr><td>StandSequences</td><td>stand</td><td>Collection of String</td><td></td></tr>
 <tr><td>Palette</td><td></td><td>String</td><td>Custom palette name </td></tr>
