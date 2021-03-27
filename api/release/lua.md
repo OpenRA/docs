@@ -1,9 +1,9 @@
-This is an automatically generated listing of the Lua map scripting API for version release-20200503 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version release-20210321 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
 
-You can access this interface by adding the [LuaScript](Traits#luascript) trait to the world actor in your map rules (note, you must replace the spaces in the snippet below with a single tab for each level of indentation):
+You can access this interface by adding the [LuaScript](../traits/#luascript) trait to the world actor in your map rules (note, you must replace the spaces in the snippet below with a single tab for each level of indentation):
 ```
 Rules:
 	World:
@@ -12,13 +12,13 @@ Rules:
 ```
 
 Map scripts can interact with the game engine in three ways:
+
 * Global tables provide functions for interacting with the global world state, or performing general helper tasks.
 They exist in the global namespace, and can be called directly using ```<table name>.<function name>```.
 * Individual actors expose a collection of properties and commands that query information or modify their state.
   * Some commands, marked as <em>queued activity</em>, are asynchronous. Activities are queued on the actor, and will run in sequence until the queue is empty or the Stop command is called. Actors that are not performing an activity are Idle (actor.IsIdle will return true). The properties and commands available on each actor depends on the traits that the actor specifies in its rule definitions.
 * Individual players expose a collection of properties and commands that query information or modify their state.
 The properties and commands available on each actor depends on the traits that the actor specifies in its rule definitions.
-
 
 For a basic guide about map scripts see the [`Map Scripting` wiki page](https://github.com/OpenRA/OpenRA/wiki/Map-scripting).
 
@@ -30,6 +30,18 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>int Cost(string type)</strong></td><td></td></tr>
 <tr><td align="right" width="50%"><strong>Actor Create(string type, bool addToWorld, LuaTable initTable)</strong></td><td>Create a new actor. initTable specifies a list of key-value pairs that defines the initial parameters for the actor's traits.</td></tr>
 <tr><td align="right" width="50%"><strong>int CruiseAltitude(string type)</strong></td><td>Returns the cruise altitude of the requested unit type (zero if it is ground-based).</td></tr>
+</table>
+### Angle
+<table>
+<tr><td align="right" width="50%"><strong>WAngle East { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle New(int a)</strong></td><td>Create an arbitrary angle.</td></tr>
+<tr><td align="right" width="50%"><strong>WAngle North { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle NorthEast { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle NorthWest { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle South { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle SouthEast { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle SouthWest { get; }</strong></td><td></td></tr>
+<tr><td align="right" width="50%"><strong>WAngle West { get; }</strong></td><td></td></tr>
 </table>
 ### Beacon
 <table>
@@ -131,6 +143,7 @@ An optional second value can be used to exactly specify the producing queue type
 <tr><td align="right" width="50%"><strong>CPos ClosestMatchingEdgeCell(CPos givenCell, LuaFunction filter)</strong></td><td>Returns the first cell on the visible border of the map from the given cell,
 matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>bool IsNamedActor(Actor actor)</strong></td><td>Returns true if actor was originally specified in the map file.</td></tr>
+<tr><td align="right" width="50%"><strong>bool IsPausedShellmap { get; }</strong></td><td>Returns true if this is a shellmap and the player has paused animations.</td></tr>
 <tr><td align="right" width="50%"><strong>bool IsSinglePlayer { get; }</strong></td><td>Returns true if there is only one human player.</td></tr>
 <tr><td align="right" width="50%"><strong>LuaValue LobbyOption(string id)</strong></td><td>Returns the value of a `ScriptLobbyDropdown` selected in the game lobby.</td></tr>
 <tr><td align="right" width="50%"><strong>Actor NamedActor(string actorName)</strong></td><td>Returns the actor that was specified with a given name in the map file (or nil, if the actor is dead or not found).</td></tr>
@@ -181,7 +194,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnAnyKilled(Actor[] actors, LuaFunction func)</strong></td><td>Call a function when one of the actors in a group is killed. The callback function will be called as func(Actor killed).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnAnyProduction(LuaFunction func)</strong></td><td>Call a function when any actor produces another actor. The callback function will be called as func(Actor producer, Actor produced, string productionType).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnCapture(Actor a, LuaFunction func)</strong></td><td>Call a function when this actor is captured. The callback function will be called as func(Actor self, Actor captor, Player oldOwner, Player newOwner).</td></tr>
-<tr><td align="right" width="50%"><strong>void OnDamaged(Actor a, LuaFunction func)</strong></td><td>Call a function when the actor is damaged. The callback function will be called as func(Actor self, Actor attacker).</td></tr>
+<tr><td align="right" width="50%"><strong>void OnDamaged(Actor a, LuaFunction func)</strong></td><td>Call a function when the actor is damaged. The callback function will be called as func(Actor self, Actor attacker, int damage).</td></tr>
 <tr><td align="right" width="50%"><strong>void OnDiscovered(Actor a, LuaFunction func)</strong></td><td>Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(Actor discovered, Player discoverer). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait.</td></tr>
 <tr><td align="right" width="50%"><strong>int OnEnteredFootprint(CPos[] cells, LuaFunction func)</strong></td><td>Call a function when a ground-based actor enters this cell footprint. Returns the trigger id for later removal using RemoveFootprintTrigger(int id). The callback function will be called as func(Actor a, int id).</td></tr>
 <tr><td align="right" width="50%"><strong>int OnEnteredProximityTrigger(WPos pos, WDist range, LuaFunction func)</strong></td><td>Call a function when an actor enters this range. Returns the trigger id for later removal using RemoveProximityTrigger(int id). The callback function will be called as func(Actor a, int id).</td></tr>
@@ -239,7 +252,7 @@ matching the filter function called as function(CPos cell).</td></tr>
 <tr><td align="right" width="50%"><strong>WVec New(int x, int y, int z)</strong></td><td>Create a new WVec with the specified coordinates.</td></tr>
 <tr><td align="right" width="50%"><strong>WVec Zero { get; }</strong></td><td>The world zero-vector.</td></tr>
 </table>
-## Actor Properties / Commands
+### Actor Properties / Commands
 ### Ability
 <table>
 <tr><td width="50%" align="right"><strong>void Capture(Actor target)</strong>
@@ -303,6 +316,15 @@ Adds the specified amount of ammo to the specified ammopool.
 <b>Requires Trait:</b> AmmoPool
 </td></tr>
 </table>
+### Cloak
+<table>
+<tr><td width="50%" align="right"><strong>bool IsCloaked { get; }</strong>
+</td><td>
+Returns true if the actor is cloaked.
+<br />
+<b>Requires Trait:</b> Cloak
+</td></tr>
+</table>
 ### Combat
 <table>
 <tr><td width="50%" align="right"><strong>void Attack(Actor targetActor, bool allowMove = True, bool forceAttack = False)</strong>
@@ -360,6 +382,45 @@ Patrol along a set of given waypoints until a condition becomes true. The actor 
 <b>Requires Traits:</b> IMove, AttackBase
 </td></tr>
 </table>
+### Experience
+<table>
+<tr><td width="50%" align="right"><strong>bool CanGainLevel { get; }</strong>
+</td><td>
+Returns true if the actor can gain a level.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>int Experience { get; }</strong>
+</td><td>
+The actor's amount of experience.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>void GiveExperience(int amount, bool silent = False)</strong>
+</td><td>
+Gives the actor experience. If 'silent' is true, no animation or sound will be played if the actor levels up.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>void GiveLevels(int numLevels, bool silent = False)</strong>
+</td><td>
+Gives the actor level(s). If 'silent' is true, no animation or sound will be played.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>int Level { get; }</strong>
+</td><td>
+The actor's level.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+<tr><td width="50%" align="right"><strong>int MaxLevel { get; }</strong>
+</td><td>
+The actor's maximum possible level.
+<br />
+<b>Requires Trait:</b> GainsExperience
+</td></tr>
+</table>
 ### General
 <table>
 <tr><td width="50%" align="right"><strong>bool AcceptsCondition(string condition)</strong>
@@ -397,7 +458,7 @@ Remove the actor from the game, without triggering any death notification.
 </td><td>
 The effective owner of the actor.
 </td></tr>
-<tr><td width="50%" align="right"><strong>int Facing { get; }</strong>
+<tr><td width="50%" align="right"><strong>WAngle Facing { get; }</strong>
 </td><td>
 The direction that the actor is facing.
 </td></tr>
@@ -410,7 +471,7 @@ defines which player palette to use. Duration is in ticks.
 </td><td>
 Grant an external condition on this actor and return the revocation token.
 Conditions must be defined on an ExternalConditions trait on the actor.
-If duration > 0 the condition will be automatically revoked after the defined number of ticks
+If duration > 0 the condition will be automatically revoked after the defined number of ticks.
 <br />
 <b>Requires Trait:</b> ExternalCondition
 </td></tr>
@@ -444,9 +505,9 @@ Specifies whether the actor is in the world.
 </td><td>
 Specifies whether or not the actor supports 'tags'.
 </td></tr>
-<tr><td width="50%" align="right"><strong>void Kill()</strong>
+<tr><td width="50%" align="right"><strong>void Kill(Object damageTypes = nil)</strong>
 </td><td>
-Kill the actor.
+Kill the actor. damageTypes may be omitted, specified as a string, or as table of strings.
 <br />
 <b>Requires Trait:</b> IHealth
 </td></tr>
@@ -569,6 +630,13 @@ Moves from outside the world into the cell grid.
 <br />
 <b>Requires Trait:</b> Mobile
 </td></tr>
+<tr><td width="50%" align="right"><strong>void Panic()</strong>
+<br /><em>Queued Activity</em>
+</td><td>
+Makes the unit automatically run around and become faster.
+<br />
+<b>Requires Trait:</b> ScaredyCat
+</td></tr>
 <tr><td width="50%" align="right"><strong>void Resupply()</strong>
 <br /><em>Queued Activity</em>
 </td><td>
@@ -659,7 +727,7 @@ Activate the actor's NukePower.
 </td></tr>
 <tr><td width="50%" align="right"><strong>Actor[] ActivateParatroopers(WPos target, int facing = -1)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
+Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
@@ -671,25 +739,25 @@ Chronoshift a group of actors. A duration of 0 will teleport the actors permanen
 </td></tr>
 <tr><td width="50%" align="right"><strong>void SendAirstrike(WPos target, bool randomize = True, int facing = 0)</strong>
 </td><td>
-Activate the actor's Airstrike Power.
+Activate the actor's Airstrike Power. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> AirstrikePower
 </td></tr>
 <tr><td width="50%" align="right"><strong>void SendAirstrikeFrom(CPos from, CPos to)</strong>
 </td><td>
-Activate the actor's Airstrike Power.
+Activate the actor's Airstrike Power. DEPRECATED! Will be removed.
 <br />
 <b>Requires Trait:</b> AirstrikePower
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor[] SendParatroopers(WPos target, bool randomize = True, int facing = 0)</strong>
+<tr><td width="50%" align="right"><strong>Actor[] TargetAirstrike(WPos target, Nullable`1 facing = nil)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
+Activate the actor's Airstrike Power. Returns the aircraft that will attack.
 <br />
-<b>Requires Trait:</b> ParatroopersPower
+<b>Requires Trait:</b> AirstrikePower
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor[] SendParatroopersFrom(CPos from, CPos to)</strong>
+<tr><td width="50%" align="right"><strong>Actor[] TargetParatroopers(WPos target, Nullable`1 facing = nil)</strong>
 </td><td>
-Activate the actor's Paratroopers Power. Returns the dropped units. DEPRECATED! Will be removed.
+Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.
 <br />
 <b>Requires Trait:</b> ParatroopersPower
 </td></tr>
@@ -721,9 +789,15 @@ Specifies the amount of passengers.
 <br />
 <b>Requires Trait:</b> Cargo
 </td></tr>
-<tr><td width="50%" align="right"><strong>Actor UnloadPassenger()</strong>
+<tr><td width="50%" align="right"><strong>Actor[] Passengers { get; }</strong>
 </td><td>
-Remove the first actor from the transport.  This actor is not added to the world.
+Returns references to passengers inside the transport.
+<br />
+<b>Requires Trait:</b> Cargo
+</td></tr>
+<tr><td width="50%" align="right"><strong>Actor UnloadPassenger(Actor a = nil)</strong>
+</td><td>
+Remove an existing actor (or first actor if none specified) from the transport.  This actor is not added to the world.
 <br />
 <b>Requires Trait:</b> Cargo
 </td></tr>
@@ -815,6 +889,10 @@ Mark an objective as failed.  This needs the objective ID returned by AddObjecti
 </td></tr>
 </table>
 <table align="center" width="1024"><tr><th colspan="2" width="1024">Player</th></tr>
+<tr><td width="50%" align="right"><strong>bool AcceptsCondition(string condition)</strong>
+</td><td>
+Check whether this player actor accepts a specific external condition.
+</td></tr>
 <tr><td width="50%" align="right"><strong>int BuildingsKilled { get; }</strong>
 </td><td>
 The total number of buildings killed by this player.
@@ -861,9 +939,23 @@ Returns all living actors of the specified types of this player.
 </td><td>
 Returns an array of actors representing all ground attack units of this player.
 </td></tr>
+<tr><td width="50%" align="right"><strong>int GrantCondition(string condition, int duration = 0)</strong>
+</td><td>
+Grant an external condition on the player actor and return the revocation token.
+Conditions must be defined on an ExternalConditions trait on the player actor.
+If duration > 0 the condition will be automatically revoked after the defined number of ticks.
+</td></tr>
+<tr><td width="50%" align="right"><strong>int Handicap { get; }</strong>
+</td><td>
+The player's handicap level.
+</td></tr>
 <tr><td width="50%" align="right"><strong>bool HasPrerequisites(String[] type)</strong>
 </td><td>
 Check if the player has these prerequisites available.
+</td></tr>
+<tr><td width="50%" align="right"><strong>CPos HomeLocation { get; }</strong>
+</td><td>
+The player's home/starting location.
 </td></tr>
 <tr><td width="50%" align="right"><strong>string InternalName { get; }</strong>
 </td><td>
@@ -890,6 +982,10 @@ The combined value of units killed by this player.
 <tr><td width="50%" align="right"><strong>string Name { get; }</strong>
 </td><td>
 The player's name.
+</td></tr>
+<tr><td width="50%" align="right"><strong>void RevokeCondition(int token)</strong>
+</td><td>
+Revoke a condition using the token returned by GrantCondition.
 </td></tr>
 <tr><td width="50%" align="right"><strong>int Spawn { get; }</strong>
 </td><td>
