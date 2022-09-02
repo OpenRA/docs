@@ -1,3 +1,7 @@
+body {
+    background-color: pink;
+}
+
 body > div.container {
     width: 95%;
 }
