@@ -1,4 +1,4 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220612` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220902` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 
@@ -112,8 +112,8 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| CloneableTypes | (require) | Collection of CloneableType | Uses the "Cloneable" trait to determine whether or not we should clone a produced unit. |
-| ProductionType | (require) | String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| CloneableTypes | *(required)* | Collection of CloneableType | Uses the "Cloneable" trait to determine whether or not we should clone a produced unit. |
+| ProductionType | *(required)* | String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TiberianSunRefinery
@@ -162,7 +162,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | (require) | Collection of CloneableType | This unit's cloneable type is: |
+| Types | *(required)* | Collection of CloneableType | This unit's cloneable type is: |
 
 ### ConyardChronoReturn
 **Implements the special case handling for the Chronoshiftable return on a construction yard. If ReturnOriginalActorOnCondition evaluates true and the actor is not being sold then OriginalActor will be returned to the origin. Otherwise, a vortex animation is played and damage is dealt each tick, ignoring modifiers.**
@@ -231,7 +231,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | (require) | String | The weapon to attack units on top of the wall with when activated. |
+| Weapon | *(required)* | String | The weapon to attack units on top of the wall with when activated. |
 | ActiveCondition |  | BooleanExpression | Boolean expression defining the condition to activate this trait. |
 | TerrainTypes |  | Set of String | Where you are allowed to place the building (Water, Clear, ...) |
 | Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
@@ -293,7 +293,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Types |  | Collection of TargetableType | The `TargetTypes` from `Targetable` that are allowed to enter. |
 | Image |  | String | Image used for this decoration. Defaults to the actor's type. |
-| Sequence | (require) | String | Sequence used for this decoration (can be animated). |
+| Sequence | *(required)* | String | Sequence used for this decoration (can be animated). |
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
@@ -332,7 +332,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Proxy | (require) | String |  |
+| Proxy | *(required)* | String |  |
 | Types |  | Collection of TargetableType | The `TargetTypes` from `Targetable` that are allowed to enter. |
 | InfiltratedNotification |  | String | Sound the victim will hear when technology gets stolen. |
 | InfiltratedTextNotification |  | String | Text notification the victim will see when technology gets stolen. |
@@ -354,7 +354,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| IntoActor | (require) | String |  |
+| IntoActor | *(required)* | String |  |
 | ForceHealthPercentage | 0 | Integer |  |
 | SkipMakeAnims | True | Boolean |  |
 | Types |  | Collection of TargetableType | The `TargetTypes` from `Targetable` that are allowed to enter. |
@@ -555,7 +555,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
-| Footprint | (require) | String | Actual footprint. Cells marked as x will be affected. |
+| Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
 | Duration | 750 | Integer | Ticks until returning after teleportation. |
 | TargetOverlayPalette | terrain | String |  |
 | FootprintImage | overlay | String |  |
@@ -622,7 +622,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| UnitTypes | (require) | Collection of String | Drop pod unit |
+| UnitTypes | *(required)* | Collection of String | Drop pod unit |
 | Drops | 5,8 | 2D Integer | Number of drop pods spawned. |
 | PodFacing | 128 | 1D World Angle | Sets the approach direction. |
 | PodScatter | 3 | Integer | Maximum offset from targetLocation |
@@ -758,7 +758,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | DischargeModifier | 300 | Integer | Rate at which the power discharges compared to charging |
-| Prerequisite | (require) | String | The prerequisite type that this provides. |
+| Prerequisite | *(required)* | String | The prerequisite type that this provides. |
 | ActiveText | ACTIVE | String | Label to display over the support power icon and in its tooltip while the power is active. |
 | AvailableText | READY | String | Label to display over the support power icon and in its tooltip while the power is available but not active. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
@@ -890,17 +890,17 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | External condition to transfer |
+| Condition | *(required)* | String | External condition to transfer |
 
 ### TransformsNearResources
 **Replace with another actor when a resource spawns adjacent.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| IntoActor | (require) | String |  |
+| IntoActor | *(required)* | String |  |
 | Offset | 0,0 | 2D Cell Vector |  |
 | SkipMakeAnims | False | Boolean | Don't render the make animation. |
-| Type | (require) | String | Resource type which triggers the transformation. |
+| Type | *(required)* | String | Resource type which triggers the transformation. |
 | Density | 1 | Integer | Resource density threshold which is required. |
 | Adjacency | 1 | Integer | This many adjacent resource tiles are required. |
 | Delay | 1000, 3000 | Collection of Integer | The range of time (in ticks) until the transformation starts. |
@@ -959,11 +959,11 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ResourceType | (require) | String | Resource type used for veins. |
+| ResourceType | *(required)* | String | Resource type used for veins. |
 | Image | resources | String | Sequence image that holds the different variants. |
 | Sequence | veins | String | Vein sequence name. |
 | Palette | terrain | String | Palette used for rendering the resource sprites. |
-| Name | (require) | String | Resource name used by tooltips. |
+| Name | *(required)* | String | Resource name used by tooltips. |
 | VeinholeActors |  | Set of String | Actor types that should be treated as veins for adjacency. |
 
 ### VoxelNormalsPalette
@@ -978,10 +978,10 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | (require) | Set of String | Resource types to animate. |
+| Types | *(required)* | Set of String | Resource types to animate. |
 | Ratio | 1, 10 | Collection of Integer | The percentage of resource cells to play the animation on. Use two values to randomize between them. |
 | Interval | 200, 500 | Collection of Integer | Tick interval between two animation spawning. Use two values to randomize between them. |
-| Image | (require) | String | Animation image. |
+| Image | *(required)* | String | Animation image. |
 | Sequences | idle | Collection of String | Randomly select one of these sequences to render. |
 | Palette |  | String | Animation palette. |
 
@@ -1347,7 +1347,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Name | primary | String |  |
-| Weapon | (require) | String | Has to be defined in weapons.yaml as well. |
+| Weapon | *(required)* | String | Has to be defined in weapons.yaml as well. |
 | Turret | primary | String | Which turret (if present) should this armament be assigned to. |
 | FireDelay | 0 | Integer | Time (in frames) until the weapon can fire again. |
 | LocalOffset |  | Collection of 3D World Vector | Muzzle position relative to turret or body, (forward, right, up) triples. If weapon Burst = 1, it cycles through all listed offsets, otherwise the offset corresponding to current burst is used. |
@@ -1474,9 +1474,9 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| PortOffsets | (require) | Collection of 3D World Vector | Fire port offsets in local coordinates. |
-| PortYaws | (require) | Collection of 1D World Angle | Fire port yaw angles. |
-| PortCones | (require) | Collection of 1D World Angle | Fire port yaw cone angle. |
+| PortOffsets | *(required)* | Collection of 3D World Vector | Fire port offsets in local coordinates. |
+| PortYaws | *(required)* | Collection of 1D World Angle | Fire port yaw angles. |
+| PortCones | *(required)* | Collection of 1D World Angle | Fire port yaw cone angle. |
 | MuzzlePalette | effect | String |  |
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
@@ -1911,7 +1911,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Actor | (require) | String | Name of the actor. |
+| Actor | *(required)* | String | Name of the actor. |
 | SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
 | Facing | 0 | 1D World Angle | Which direction the unit should face. |
 | AllowRespawn | False | Boolean | Whether another actor should spawn upon re-enabling the trait. |
@@ -1924,11 +1924,11 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| DeliveringActor | (require) | String | Name of the delivering actor. This actor must have the `Carryall` trait |
+| DeliveringActor | *(required)* | String | Name of the delivering actor. This actor must have the `Carryall` trait |
 | SpawnLocation | 0,0 | 2D Cell Position | Cell coordinates for spawning the delivering actor. If left blank, the closest edge cell will be chosen. |
 | DeliveryOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
 | DeliveryRange | 0c0 | 1D World Distance | Range to search for an alternative delivery location if the DeliveryOffset cell is blocked. |
-| Actor | (require) | String | Name of the actor. |
+| Actor | *(required)* | String | Name of the actor. |
 | SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
 | Facing | 0 | 1D World Angle | Which direction the unit should face. |
 | AllowRespawn | False | Boolean | Whether another actor should spawn upon re-enabling the trait. |
@@ -1957,7 +1957,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AreaTypes | (require) | Set of String | Types of buildable area this actor gives. |
+| AreaTypes | *(required)* | Set of String | Types of buildable area this actor gives. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GroundLevelBridge
@@ -1999,7 +1999,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Actors | (require) | Collection of String | Variant actors that can be cycled between when placing a structure. |
+| Actors | *(required)* | Collection of String | Variant actors that can be cycled between when placing a structure. |
 | Facings |  | Collection of 1D World Angle | Facing of the non-variant actor, followed by facings for each variant actor. The length equals the length of Actors + 1. |
 
 ### PrimaryBuilding
@@ -2023,10 +2023,10 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | ReadyAudio | Reinforce | String | Speech notification to play when a unit is delivered. |
 | ReadyTextNotification |  | String | Text notification to display when a unit is delivered. |
-| ActorType | (require) | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
+| ActorType | *(required)* | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
 | BaselineSpawn | False | Boolean | The cargo aircraft will spawn at the player baseline (map edge closest to the player spawn) |
 | Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
-| Produces | (require) | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2088,7 +2088,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AreaTypes | (require) | Set of String | Types of buildable are this actor requires. |
+| AreaTypes | *(required)* | Set of String | Types of buildable are this actor requires. |
 | Adjacent | 2 | Integer | Maximum range from the actor with 'GivesBuildableArea' this can be placed at. |
 
 ### Reservable
@@ -2117,7 +2117,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
-| DockActors | (require) | Set of String |  |
+| DockActors | *(required)* | Set of String |  |
 | Voice | Action | String |  |
 | RequiresForceMove | False | Boolean | Require the force-move modifier to display the move cursor. |
 | Cursor | move | String | Cursor to display when a move order can be issued at target location. |
@@ -2148,7 +2148,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Locomotor | (require) | String | Locomotor used by the transformed actor. Must be defined on the World actor. |
+| Locomotor | *(required)* | String | Locomotor used by the transformed actor. Must be defined on the World actor. |
 | Cursor | move | String | Cursor to display when a move order can be issued at target location. |
 | TerrainCursors |  | Dictionary with Key: String, Value: String | Cursor overrides to display for specific terrain types. A dictionary of [terrain type]: [cursor name]. |
 | BlockedCursor | move-blocked | String | Cursor to display when a move order cannot be issued at target location. |
@@ -2180,7 +2180,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| RepairActors | (require) | Set of String |  |
+| RepairActors | *(required)* | Set of String |  |
 | Voice | Action | String |  |
 | TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 | RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
@@ -2205,7 +2205,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | (require) | Collection of CaptureType | CaptureTypes (from the Captures trait) that are able to capture this. |
+| Types | *(required)* | Collection of CaptureType | CaptureTypes (from the Captures trait) that are able to capture this. |
 | ValidRelationships | Enemy, Neutral | PlayerRelationship | What player relationships the target's owner needs to be captured by this actor. |
 | CancelActivity | False | Boolean | Cancel the actor's current activity when getting captured. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -2256,7 +2256,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| CaptureTypes | (require) | Collection of CaptureType | Types of actors that it can capture, as long as the type also exists in the Capturable Type: trait. |
+| CaptureTypes | *(required)* | Collection of CaptureType | Types of actors that it can capture, as long as the type also exists in the Capturable Type: trait. |
 | SabotageThreshold | 0 | Integer | Targets with health above this percentage will be sabotaged instead of captured. Set to 0 to disable sabotaging. |
 | SabotageHPRemoval | 50 | Integer | Sabotage damage expressed as a percentage of maximum target health. |
 | SabotageDamageTypes |  | Collection of DamageType | Damage types that applied with the sabotage damage. |
@@ -2365,7 +2365,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TerrainType | (require) | String |  |
+| TerrainType | *(required)* | String |  |
 
 ### Cloak
 **This unit can cloak and uncloak in specific situations.**
@@ -2409,7 +2409,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String |  |
+| Condition | *(required)* | String |  |
 | SourceCap | 0 | Integer | If > 0, restrict the number of times that this condition can be granted by a single source. |
 | TotalCap | 0 | Integer | If > 0, restrict the number of times that this condition can be granted by any source. |
 
@@ -2419,7 +2419,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | GrantPermanently | False | Boolean | Is the condition irrevocable once it has been activated? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2428,7 +2428,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition type to grant. |
+| Condition | *(required)* | String | The condition type to grant. |
 | ArmamentNames | primary | Set of String | Name of the armaments that grant this condition. |
 | RequiredShotsPerInstance | 1 | Collection of Integer | Shots required to apply an instance of the condition. If there are more instances of the condition granted than values listed, the last value is used for all following instances beyond the defined range. |
 | MaximumInstances | 1 | Integer | Maximum instances of the condition to grant. |
@@ -2444,22 +2444,22 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
-| Bots | (require) | Collection of String | Bot types that trigger the condition. |
+| Condition | *(required)* | String | Condition to grant. |
+| Bots | *(required)* | Collection of String | Bot types that trigger the condition. |
 
 ### GrantConditionOnCombatantOwner
 **Grants a condition if the owner is a combatant.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to grant. |
+| Condition | *(required)* | String | The condition to grant. |
 
 ### GrantConditionOnDamageState
 **Applies a condition to the actor at specified damage states.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | EnabledSounds |  | Collection of String | Play a random sound from this list when enabled. |
 | DisabledSounds |  | Collection of String | Play a random sound from this list when disabled. |
 | ValidDamageStates | Heavy, Critical | DamageState | Levels of damage at which to grant the condition. |
@@ -2472,7 +2472,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | UndeployedCondition |  | String | The condition to grant while the actor is undeployed. |
-| DeployedCondition | (require) | String | The condition to grant after deploying and revoke before undeploying. |
+| DeployedCondition | *(required)* | String | The condition to grant after deploying and revoke before undeploying. |
 | AllowedTerrainTypes |  | Set of String | The terrain types that this actor can deploy on. Leave empty to allow any. |
 | CanDeployOnRamps | False | Boolean | Can this actor deploy on slopes? |
 | DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
@@ -2494,7 +2494,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | Factions |  | Set of String | Only grant this condition for certain factions. |
 | ResetOnOwnerChange | False | Boolean | Should it recheck everything when it is captured? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -2504,7 +2504,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | EnabledSounds |  | Collection of String | Play a random sound from this list when enabled. |
 | DisabledSounds |  | Collection of String | Play a random sound from this list when disabled. |
 | MinHP | 0 | Integer | Minimum level of health at which to grant the condition. |
@@ -2516,7 +2516,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to grant to self when changing to specific custom layer. |
+| Condition | *(required)* | String | The condition to grant to self when changing to specific custom layer. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnLineBuildDirection
@@ -2524,7 +2524,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | Direction | X | LineBuildDirection | Line build direction to trigger the condition. |
 
 ### GrantConditionOnMovement
@@ -2532,7 +2532,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | ValidMovementTypes | Horizontal | MovementType | Apply condition on listed movement types. Available options are: None, Horizontal, Vertical, Turn. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2541,7 +2541,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | Threshold | 0 | Integer | Enable condition when the amount of stored resources is greater than this. |
 
 ### GrantConditionOnPowerState
@@ -2550,7 +2550,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
+| Condition | *(required)* | String | Condition to grant. |
 | ValidPowerStates | Low, Critical | PowerState | PowerStates at which the condition is granted. Options are Normal, Low and Critical. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2559,15 +2559,15 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to grant. |
-| Prerequisites | (require) | Collection of String | List of required prerequisites. |
+| Condition | *(required)* | String | The condition to grant. |
+| Prerequisites | *(required)* | Collection of String | List of required prerequisites. |
 
 ### GrantConditionOnProduction
 **Grants a condition when this actor produces a specific actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to grant |
+| Condition | *(required)* | String | The condition to grant |
 | Actors |  | Set of String | The actors to grant condition for. If empty condition will be granted for all actors. |
 | Duration | -1 | Integer | How long condition is applies for. Use -1 for infinite. |
 | ShowSelectionBar | True | Boolean | Show a selection bar while condition is applied if it has a duration. |
@@ -2583,36 +2583,36 @@ Listed below are all traits with their properties and their default values plus 
 | SubterraneanTransitionSequence |  | String | Dig animation sequence to play when transitioning. |
 | SubterraneanTransitionPalette | effect | String |  |
 | SubterraneanTransitionSound |  | String | Dig sound to play when transitioning. |
-| Condition | (require) | String | The condition to grant to self when changing to specific custom layer. |
+| Condition | *(required)* | String | The condition to grant to self when changing to specific custom layer. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnTerrain
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
-| TerrainTypes | (require) | Collection of String | Terrain names to trigger the condition. |
+| Condition | *(required)* | String | Condition to grant. |
+| TerrainTypes | *(required)* | Collection of String | Terrain names to trigger the condition. |
 
 ### GrantConditionOnTileSet
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
-| TileSets | (require) | Collection of String | Tile set IDs to trigger the condition. |
+| Condition | *(required)* | String | Condition to grant. |
+| TileSets | *(required)* | Collection of String | Tile set IDs to trigger the condition. |
 
 ### GrantConditionOnTunnelLayer
 ###### Inherits from: `GrantConditionOnLayer`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to grant to self when changing to specific custom layer. |
+| Condition | *(required)* | String | The condition to grant to self when changing to specific custom layer. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionWhileAiming
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to grant while aiming. |
+| Condition | *(required)* | String | The condition to grant while aiming. |
 
 ### GrantExternalConditionToCrusher
 **Grant a condition to the crushing actor.**
@@ -2630,7 +2630,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to apply. Must be included in the produced actor's ExternalConditions list. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the produced actor's ExternalConditions list. |
 | Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2641,7 +2641,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProximityExternalCondition
@@ -2650,7 +2650,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
 | Range | 3c0 | 1D World Distance | The range to search for actors. |
 | MaximumVerticalOffset | 0c0 | 1D World Distance | The maximum vertical range above terrain to search for actors. Ignored if 0 (actors are selected regardless of vertical distance). |
 | ValidRelationships | Ally | PlayerRelationship | What player relationships are affected. |
@@ -2677,8 +2677,8 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition to grant. |
-| OrderName | (require) | String | Order name that toggles the condition. |
+| Condition | *(required)* | String | Condition to grant. |
+| OrderName | *(required)* | String | Order name that toggles the condition. |
 | EnabledSound |  | String |  |
 | EnabledSpeech |  | String |  |
 | EnabledTextNotification |  | String |  |
@@ -2745,7 +2745,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | (require) | String | The weapon to fire upon collection. |
+| Weapon | *(required)* | String | The weapon to fire upon collection. |
 | SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
 | Image | crate-effects | String | Image containing the crate effect animation sequence. |
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
@@ -2785,7 +2785,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | NoBaseSelectionShares | 1000 | Integer | The selection shares to use if the collector has no base. |
-| Units | (require) | Collection of String | The list of units to spawn. |
+| Units | *(required)* | Collection of String | The list of units to spawn. |
 | ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
 | Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
 | SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
@@ -2806,7 +2806,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Units | (require) | Collection of String | The list of units to spawn. |
+| Units | *(required)* | Collection of String | The list of units to spawn. |
 | ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
 | Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
 | SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
@@ -2827,7 +2827,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
 | Levels | 1 | Integer | How many times to grant the condition. |
 | Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
 | Range | 0c3 | 1D World Distance | The range to search for extra collectors in. Extra collectors will also be granted the crate action. |
@@ -2928,7 +2928,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Proxy | (require) | String | Which proxy actor, which grants the support power, to spawn. |
+| Proxy | *(required)* | String | Which proxy actor, which grants the support power, to spawn. |
 | SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
 | Image | crate-effects | String | Image containing the crate effect animation sequence. |
 | Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
@@ -2982,7 +2982,7 @@ Listed below are all traits with their properties and their default values plus 
 | Damage | 0 | Integer | Amount of damage received per DamageInterval ticks. |
 | DamageInterval | 0 | Integer | Delay between receiving damage. |
 | DamageTypes |  | Collection of DamageType | Apply the damage using these damagetypes. |
-| Terrain | (require) | Collection of String | Terrain types where the actor will take damage. |
+| Terrain | *(required)* | Collection of String | Terrain types where the actor will take damage. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DeliversCash
@@ -3124,7 +3124,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | (require) | String | Default weapon to use for explosion if ammo/payload is loaded. |
+| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
 | EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
 | LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
 | Chance | 100 | Integer | Chance that this actor will explode at all. |
@@ -3141,7 +3141,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | (require) | String | Weapon to use for explosion. |
+| Weapon | *(required)* | String | Weapon to use for explosion. |
 | DamageState | Heavy | DamageState | At which damage state explosion will trigger. |
 | TriggerOnlyOnce | False | Boolean | Should the explosion only be triggered once? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -3151,7 +3151,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Conditions | (require) | Dictionary with Key: Integer, Value: String | Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. |
+| Conditions | *(required)* | Dictionary with Key: Integer, Value: String | Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. |
 | LevelUpImage |  | String | Image for the level up sprite. |
 | LevelUpSequence | levelup | String | Sequence for the level up sprite. Needs to be present on LevelUpImage. |
 | LevelUpPalette | effect | String | Palette for the level up sprite. |
@@ -3327,7 +3327,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TerrainModifier | (require) | Dictionary with Key: String, Value: Integer | Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. |
+| TerrainModifier | *(required)* | Dictionary with Key: String, Value: Integer | Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. |
 | ModifyHealing | False | Boolean | Modify healing damage? For example: A friendly medic. |
 
 ### Interactable
@@ -3389,7 +3389,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Locomotor | (require) | String | Which Locomotor does this trait use. Must be defined on the World actor. |
+| Locomotor | *(required)* | String | Which Locomotor does this trait use. Must be defined on the World actor. |
 | InitialFacing | 0 | 1D World Angle |  |
 | TurnSpeed | 512 | 1D World Angle | Speed at which the actor turns. |
 | Speed | 1 | Integer |  |
@@ -3678,8 +3678,8 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name. |
-| BasePalette | (require) | String | The name of the palette to base off. |
+| Name | *(required)* | String | Internal palette name. |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
 | RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
@@ -3699,10 +3699,10 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | BasePalette |  | String | The name of the palette to base off. |
-| Index | (require) | Collection of Integer | Indices from BasePalette to be swapped with ReplaceIndex. |
-| ReplaceIndex | (require) | Collection of Integer | Indices from BasePalette to replace from Index. |
+| Index | *(required)* | Collection of Integer | Indices from BasePalette to be swapped with ReplaceIndex. |
+| ReplaceIndex | *(required)* | Collection of Integer | Indices from BasePalette to replace from Index. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### IndexedPlayerPalette
@@ -3720,9 +3720,9 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
-| Image | (require) | String | Sequence image holding the palette definition |
-| Sequence | (require) | String | Sequence holding the palette definition |
+| Name | *(required)* | String | Internal palette name |
+| Image | *(required)* | String | Sequence image holding the palette definition |
+| Sequence | *(required)* | String | Sequence holding the palette definition |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
 
@@ -3731,9 +3731,9 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | Tileset |  | String | If defined, load the palette only for this tileset. |
-| Filename | (require) | String | filename to load |
+| Filename | *(required)* | String | filename to load |
 | TransparentIndex | 0 | Collection of Integer | Map listed indices to transparent. Ignores previous color. |
 | ShadowIndex |  | Collection of Integer | Map listed indices to shadow. Ignores previous color. |
 | AllowModifiers | True | Boolean |  |
@@ -3744,10 +3744,10 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Palette name used internally. |
+| Name | *(required)* | String | Palette name used internally. |
 | Tilesets |  | Set of String | Defines for which tileset IDs this palette should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. |
 | ExcludeTilesets |  | Set of String | Don't load palette for these tileset IDs. |
-| Filename | (require) | String | Name of the file to load. |
+| Filename | *(required)* | String | Name of the file to load. |
 | Premultiply | True | Boolean | Premultiply colors with their alpha values. |
 | AllowModifiers | True | Boolean |  |
 | TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
@@ -3758,7 +3758,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | Tileset |  | String | If defined, load the palette only for this tileset. |
 | AllowModifiers | True | Boolean |  |
 | TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
@@ -3768,8 +3768,8 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
-| BasePalette | (require) | String | The name of the palette to base off. |
+| Name | *(required)* | String | Internal palette name |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 | Alpha | 1 | Real Number | Alpha component that is applied to the base palette. |
 | Premultiply | True | Boolean | Premultiply color by the alpha component. |
@@ -3779,8 +3779,8 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| BaseName | (require) | String | The prefix for the resulting player palettes |
-| BasePalette | (require) | String | The name of the player palette to base off. |
+| BaseName | *(required)* | String | The prefix for the resulting player palettes |
+| BasePalette | *(required)* | String | The name of the player palette to base off. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 | Alpha | 1 | Real Number | Alpha component that is applied to the base palette. |
 | Premultiply | True | Boolean | Premultiply color by the alpha component. |
@@ -3790,9 +3790,9 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | Tileset |  | String | If defined, load the palette only for this tileset. |
-| Filename | (require) | String | Filename to load |
+| Filename | *(required)* | String | Filename to load |
 | ShadowIndex |  | Collection of Integer | Map listed indices to shadow. Ignores previous color. |
 | AllowModifiers | True | Boolean |  |
 | CursorPalette | False | Boolean | Whether this palette is available for cursors. |
@@ -3802,7 +3802,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
+| Name | *(required)* | String | Internal palette name |
 | Tileset |  | String | If defined, load the palette only for this tileset. |
 | R | 0 | Integer | red color component |
 | G | 0 | Integer | green color component |
@@ -3889,7 +3889,7 @@ Listed below are all traits with their properties and their default values plus 
 | SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
 | BuildingCountBuildTimeMultipliers | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue modified by a percentage of the original time. |
 | ParallelPenaltyBuildTimeMultipliers | 100, 116, 133, 150, 166, 183, 200, 216, 233, 250 | Collection of Integer | Build time modifier multiplied by the number of parallel production for producing different actors at the same time. |
-| Type | (require) | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
 | DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
@@ -3923,7 +3923,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
 | BuildTimeSpeedReduction | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue decreased by a percentage of the original time. |
-| Type | (require) | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
 | DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
@@ -3983,7 +3983,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Name | Unnamed Bot | String | Human-readable name this bot uses. |
-| Type | (require) | String | Internal id for this bot. |
+| Type | *(required)* | String | Internal id for this bot. |
 
 ### EnemyWatcher
 **Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
@@ -4014,14 +4014,14 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ID | (require) | String | Internal id for this checkbox. |
-| Label | (require) | String | Display name for this checkbox. |
+| ID | *(required)* | String | Internal id for this checkbox. |
+| Label | *(required)* | String | Display name for this checkbox. |
 | Description |  | String | Description name for this checkbox. |
 | Enabled | False | Boolean | Default value of the checkbox in the lobby. |
 | Locked | False | Boolean | Prevent the checkbox from being changed from its default value. |
 | Visible | True | Boolean | Display the checkbox in the lobby. |
 | DisplayOrder | 0 | Integer | Display order for the checkbox in the lobby. |
-| Prerequisites | (require) | Set of String | Prerequisites to grant when this checkbox is enabled. |
+| Prerequisites | *(required)* | Set of String | Prerequisites to grant when this checkbox is enabled. |
 
 ### MissionObjectives
 
@@ -4050,7 +4050,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Type | (require) | String | Internal id for this bot. |
+| Type | *(required)* | String | Internal id for this bot. |
 | Name | Unnamed Bot | String | Human-readable name this bot uses. |
 | MinOrderQuotientPerTick | 5 | Integer | Minimum portion of pending orders to issue each tick (e.g. 5 issues at least 1/5th of all pending orders). Excess orders remain queued for subsequent ticks. |
 
@@ -4059,7 +4059,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Type | (require) | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
 | DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
@@ -4152,7 +4152,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Type | (require) | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
 | DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
@@ -4230,14 +4230,14 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Type | (require) | String | Plug type (matched against Conditions in Pluggable) |
+| Type | *(required)* | String | Plug type (matched against Conditions in Pluggable) |
 
 ### Pluggable
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Offset | 0,0 | 2D Cell Vector | Footprint cell offset where a plug can be placed. |
-| Conditions | (require) | Dictionary with Key: String, Value: String | Conditions to grant for each accepted plug type. Key is the plug type. Value is the condition that is granted when the plug is enabled. |
+| Conditions | *(required)* | Dictionary with Key: String, Value: String | Conditions to grant for each accepted plug type. Key is the plug type. Value is the condition that is granted when the plug is enabled. |
 | Requirements |  | Dictionary with Key: String, Value: BooleanExpression | Requirements for accepting a plug type. Key is the plug type that the requirements applies to. Value is the condition expression defining the requirements to place the plug. |
 | EditorOptions |  | Dictionary with Key: String, Value: String | Options to display in the map editor. Key is the plug type that the requirements applies to. Value is the label that is displayed in the actor editor dropdown. |
 | EmptyOption | Empty | String | Label to use for an empty plug socket. |
@@ -4293,7 +4293,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Produces | (require) | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -4303,7 +4303,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Produces | (require) | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -4318,7 +4318,7 @@ Listed below are all traits with their properties and their default values plus 
 | ChuteSound |  | String | Sound to play when dropping the unit. |
 | ReadyAudio |  | String | Speech notification to play when dropping the unit. |
 | ReadyTextNotification |  | String | Text notification to display when dropping the unit. |
-| Produces | (require) | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -4334,7 +4334,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | (require) | Collection of CaptureType |  |
+| Types | *(required)* | Collection of CaptureType |  |
 
 ### ProximityCapturable
 **Actor can be captured by units in a specified proximity.**
@@ -4361,7 +4361,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| RearmActors | (require) | Set of String | Actors that this actor can dock to and get rearmed by. |
+| RearmActors | *(required)* | Set of String | Actors that this actor can dock to and get rearmed by. |
 | AmmoPools | primary | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
 
 ### RejectsOrders
@@ -4444,7 +4444,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| RepairActors | (require) | Set of String |  |
+| RepairActors | *(required)* | Set of String |  |
 | Voice | Action | String |  |
 | HpPerStep | -1 | Integer | The amount the unit will be repaired at each step. Use -1 for fallback behavior where HpPerStep from RepairsUnits trait will be used. |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
@@ -4455,7 +4455,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| RepairActors | (require) | Set of String |  |
+| RepairActors | *(required)* | Set of String |  |
 | CloseEnough | 4c0 | 1D World Distance |  |
 | Voice | Action | String |  |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
@@ -4497,21 +4497,21 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | (require) | Set of String | Replacement types this Replaceable actor accepts. |
+| Types | *(required)* | Set of String | Replacement types this Replaceable actor accepts. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Replacement
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ReplaceableTypes | (require) | Set of String | Replacement type (matched against Types in Replaceable). |
+| ReplaceableTypes | *(required)* | Set of String | Replacement type (matched against Types in Replaceable). |
 
 ### RequiresSpecificOwners
 **Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ValidOwnerNames | (require) | Set of String | Only allow players listed here as owners. |
+| ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
 
 ### RevealOnDeath
 **Reveal this actor's last position when killed.**
@@ -4619,7 +4619,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Actor | (require) | String | Actor to spawn on death. |
+| Actor | *(required)* | String | Actor to spawn on death. |
 | Probability | 100 | Integer | Probability the actor spawns. |
 | OwnerType | Victim | OwnerType | Owner of the spawned actor. Allowed keywords:'Victim', 'Killer' and 'InternalName'. Falls back to 'InternalName' if 'Victim' is used and the victim is defeated (see 'SpawnAfterDefeat'). |
 | InternalOwner | Neutral | String | Map player to use when 'InternalName' is defined on 'OwnerType'. |
@@ -4639,7 +4639,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | ValuePercent | 40 | Integer |  |
 | MinHpPercent | 30 | Integer |  |
-| ActorTypes | (require) | Collection of String | Actor types to spawn on sell. Be sure to use lowercase. |
+| ActorTypes | *(required)* | Collection of String | Actor types to spawn on sell. Be sure to use lowercase. |
 | Factions |  | Set of String | Spawns actors only if the selling player's faction is in this list. Leave empty to allow all factions by default. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -4722,10 +4722,10 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
 | Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
 | Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
-| Footprint | (require) | String | Actual footprint. Cells marked as x will be affected. |
+| Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
 | OnFireSound |  | String | Sound to instantly play at the targeted area. |
 | ValidRelationships | Ally | PlayerRelationship | Player relationships which condition can be applied to. |
 | Sequence | active | String | Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. |
@@ -4788,7 +4788,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| MissileWeapon | (require) | String | Weapon to use for the impact. |
+| MissileWeapon | *(required)* | String | Weapon to use for the impact. |
 | MissileDelay | 0 | Integer | Delay (in ticks) after launch until the missile is spawned. |
 | MissileImage |  | String | Image to use for the missile. |
 | MissileUp | up | String | Sprite sequence for the ascending missile. |
@@ -4946,8 +4946,8 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Actors | (require) | Collection of String | Actors to produce. |
-| Type | (require) | String | Production queue type to use |
+| Actors | *(required)* | Collection of String | Actors to produce. |
+| Type | *(required)* | String | Production queue type to use |
 | ReadyAudio |  | String | Speech notification played when production is activated. The filename of the audio is defined per faction in notifications.yaml. |
 | ReadyTextNotification |  | String | Text notification displayed when production is activated. |
 | BlockedAudio |  | String | Speech notification played when the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
@@ -5009,7 +5009,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Actor | (require) | String | Actor to spawn. |
+| Actor | *(required)* | String | Actor to spawn. |
 | LifeTime | 250 | Integer | Amount of time to keep the actor alive in ticks. Value < 0 means this actor will not remove itself. |
 | Terrain |  | Collection of String | Only allow this to be spawned on this terrain. |
 | AllowUnderShroud | True | Boolean |  |
@@ -5106,7 +5106,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Anim | (require) | String |  |
+| Anim | *(required)* | String |  |
 | Offset | 0,0,0 | 3D World Vector | Initial position relative to body |
 | MinThrowRange | 0c256 | 1D World Distance | Minimum distance to throw the particle |
 | MaxThrowRange | 0c768 | 1D World Distance | Maximum distance to throw the particle |
@@ -5121,7 +5121,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapons | (require) | Collection of String | The weapons used for shrapnel. |
+| Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
 | Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
 | Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -5166,7 +5166,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| IntoActor | (require) | String |  |
+| IntoActor | *(required)* | String |  |
 | SkipMakeAnims | True | Boolean |  |
 | CrushClasses |  | Collection of CrushClass |  |
 
@@ -5175,7 +5175,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| IntoActor | (require) | String |  |
+| IntoActor | *(required)* | String |  |
 | ForceHealthPercentage | 0 | Integer |  |
 | SkipMakeAnims | True | Boolean |  |
 | CaptureTypes |  | Collection of CaptureType | Transform only if the capturer's CaptureTypes overlap with these types. Leave empty to allow all types. |
@@ -5186,7 +5186,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| IntoActor | (require) | String | Actor to transform into. |
+| IntoActor | *(required)* | String | Actor to transform into. |
 | Offset | 0,0 | 2D Cell Vector | Offset to spawn the transformed actor relative to the current cell. |
 | Facing | 384 | 1D World Angle | Facing that the actor must face before transforming. |
 | TransformSounds |  | Collection of String | Sounds to play when transforming. |
@@ -5251,7 +5251,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| VoiceSet | (require) | String | Which voice set to use. |
+| VoiceSet | *(required)* | String | Which voice set to use. |
 | Volume | 1 | Real Number | Multiply volume with this factor. |
 
 ### Wanders
@@ -5284,7 +5284,7 @@ Listed below are all traits with their properties and their default values plus 
 | Maximum | 4 | Integer | Maximum number of actors. |
 | SpawnInterval | 6000 | Collection of Integer | Time (in ticks) between actor spawn. Supports 1 or 2 values.
 If 2 values are provided they are used as a range from which a value is randomly selected. |
-| Actors | (require) | Collection of String | Name of the actor that will be randomly picked to spawn. |
+| Actors | *(required)* | Collection of String | Name of the actor that will be randomly picked to spawn. |
 | Owner | Creeps | String |  |
 | Types |  | Set of String | Type of ActorSpawner with which it connects. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -5295,7 +5295,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AllowedTerrainTypes | (require) | Set of String |  |
+| AllowedTerrainTypes | *(required)* | Set of String |  |
 | Palette | terrain | String | Palette to use for rendering the sprite. |
 | Image | overlay | String | Sprite definition. |
 | Sequence | build-invalid | String | Sequence to use for unbuildable area. |
@@ -5601,8 +5601,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TerrainFlashImage | (require) | String | The image to use. |
-| TerrainFlashSequence | (require) | String | The sequence to use. |
+| TerrainFlashImage | *(required)* | String | The image to use. |
+| TerrainFlashSequence | *(required)* | String | The sequence to use. |
 | TerrainFlashPalette |  | String | The palette to use. |
 | ActorFlashType | Overlay | ActorFlashType | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
 | ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
@@ -5662,11 +5662,11 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ID | (require) | String | Internal id for this option. |
-| Label | (require) | String | Descriptive label for this option. |
+| ID | *(required)* | String | Internal id for this option. |
+| Label | *(required)* | String | Descriptive label for this option. |
 | Description |  | String | Tooltip description for this option. |
-| Default | (require) | String | Default option key in the `Values` list. |
-| Values | (require) | Dictionary with Key: String, Value: String | Difficulty levels supported by the map. |
+| Default | *(required)* | String | Default option key in the `Values` list. |
+| Values | *(required)* | Dictionary with Key: String, Value: String | Difficulty levels supported by the map. |
 | Locked | False | Boolean | Prevent the option from being changed from its default value. |
 | Visible | True | Boolean | Whether to display the option in the lobby. |
 | DisplayOrder | 0 | Integer | Display order for the option in the lobby. |
@@ -5783,8 +5783,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Location | 0,0 | 2D Cell Position | Location of the tunnel |
 | Height | 0 | Byte | Height of the tunnel floor in map height steps. |
 | Dimensions | 0,0 | 2D Cell Vector | Size of the tunnel footprint |
-| Footprint | (require) | String | Tunnel footprint. _ is passable, x is blocked, and o are tunnel portals. |
-| TerrainType | (require) | String | Terrain type of the tunnel floor. |
+| Footprint | *(required)* | String | Tunnel footprint. _ is passable, x is blocked, and o are tunnel portals. |
+| TerrainType | *(required)* | String | Terrain type of the tunnel floor. |
 
 ### TerrainTunnelLayer
 
@@ -5860,7 +5860,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Conditions | (require) | Collection of String | List of conditions to grant from. |
+| Conditions | *(required)* | Collection of String | List of conditions to grant from. |
 
 ## OpenRA.Mods.Common.Traits.Radar
 
@@ -5885,7 +5885,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Terrain | (require) | String |  |
+| Terrain | *(required)* | String |  |
 
 ## OpenRA.Mods.Common.Traits.Render
 
@@ -5926,7 +5926,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Image | (require) | String |  |
+| Image | *(required)* | String |  |
 | Sequences | idle | Collection of String |  |
 | Palette | effect | String |  |
 | TerrainTypes |  | Set of String | Only leave trail on listed terrain types. Leave empty to leave trail on all terrain types. |
@@ -5948,7 +5948,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ProductionType | (require) | String | Production queue type, for actors with multiple queues. |
+| ProductionType | *(required)* | String | Production queue type, for actors with multiple queues. |
 | Color | 87CEEB | Color (RRGGBB[AA] notation) |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -5958,8 +5958,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Type | (require) | String | Type of the overlay. Prerequisites from WithProductionIconOverlay traits with matching types determine when this overlay will be enabled. |
-| Image | (require) | String | Image used for the overlay. |
+| Type | *(required)* | String | Type of the overlay. Prerequisites from WithProductionIconOverlay traits with matching types determine when this overlay will be enabled. |
+| Image | *(required)* | String | Image used for the overlay. |
 | Sequence |  | String | Sequence used for the overlay (cannot be animated). |
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 
@@ -6065,7 +6065,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | Condition that this bar corresponds to |
+| Condition | *(required)* | String | Condition that this bar corresponds to |
 | Color | FF0000 | Color (RRGGBB[AA] notation) |  |
 
 ### WithAcceptDeliveredCashAnimation
@@ -6086,7 +6086,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Armament | primary | String | Armament name |
-| Sequence | (require) | String | Displayed while targeting. |
+| Sequence | *(required)* | String | Displayed while targeting. |
 | Body | body | String | Which sprite body to modify. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -6096,7 +6096,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Image | (require) | String |  |
+| Image | *(required)* | String |  |
 | Sequences | idle | Collection of String |  |
 | Palette | effect | String |  |
 | VisibleThroughFog | False | Boolean | Should the sprite effect be visible through fog. |
@@ -6146,7 +6146,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Sequence | (require) | String | Sequence name to use |
+| Sequence | *(required)* | String | Sequence name to use |
 | Palette |  | String | Custom palette name |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Delay | 0 | Integer | Delay in ticks before overlay starts, either relative to attack preparation or attack. |
@@ -6206,7 +6206,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Image |  | String | Image used for this decoration. Defaults to the actor's type. |
-| Sequence | (require) | String | Sequence used for this decoration (can be animated). |
+| Sequence | *(required)* | String | Sequence used for this decoration (can be animated). |
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
@@ -6348,7 +6348,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Image |  | String | Image used for this decoration. Defaults to the actor's type. |
-| Sequence | (require) | String | Sequence used for this decoration (can be animated). |
+| Sequence | *(required)* | String | Sequence used for this decoration (can be animated). |
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
@@ -6530,7 +6530,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Sequence | (require) | String | Sequence name to use. |
+| Sequence | *(required)* | String | Sequence name to use. |
 | Palette |  | String | Custom palette name. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
 
@@ -6611,7 +6611,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | (require) | Collection of String |  |
+| Types | *(required)* | Collection of String |  |
 | Prerequisites |  | Collection of String |  |
 
 ### WithProductionOverlay
@@ -6829,7 +6829,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Text | (require) | String |  |
+| Text | *(required)* | String |  |
 | Font | TinyBold | String |  |
 | Color | FFFFFF | Color (RRGGBB[AA] notation) | Display in this color when not using the player color. |
 | UsePlayerColor | False | Boolean | Use the player color of the current owner. |
@@ -6851,7 +6851,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | -------- | ------------- | ---- | ----------- |
 | Armament | primary | String | Armament name |
 | Turret | primary | String | Turret name |
-| Sequence | (require) | String | Displayed while targeting. |
+| Sequence | *(required)* | String | Displayed while targeting. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTurretAttackAnimation
@@ -6937,7 +6937,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| SoundFiles | (require) | Collection of String |  |
+| SoundFiles | *(required)* | Collection of String |  |
 | Delay | 0 | Collection of Integer | Initial delay (in ticks) before playing the sound for the first time. Two values indicate a random delay range. |
 | Interval | 0 | Collection of Integer | Interval between playing the sound (in ticks). Two values indicate a random delay range. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -7007,7 +7007,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Voice | (require) | String | Voice to play. |
+| Voice | *(required)* | String | Voice to play. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Player relationships who can hear this voice. |
 | PlayToOwner | True | Boolean | Play the voice to the owning player even if Stance.Ally is not included in ValidStances. |
 | OneShot | False | Boolean | Disable the announcement after it has been triggered. |
@@ -7119,8 +7119,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
-| BasePalette | (require) | String | The name of the shroud palette to base off. |
+| Name | *(required)* | String | Internal palette name |
+| BasePalette | *(required)* | String | The name of the shroud palette to base off. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 
 ### D2kResourceRenderer
@@ -7136,8 +7136,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | (require) | String | Internal palette name |
-| BasePalette | (require) | String | The name of the palette to base off. |
+| Name | *(required)* | String | Internal palette name |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
 | Scale | 1 | Real Number | Amount to scale the base palette colors by. |
 | Offset | 0 | Integer | Amount to offset the base palette colors by. |

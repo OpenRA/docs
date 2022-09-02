@@ -1,4 +1,4 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220612` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220902` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 
@@ -284,7 +284,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Size | 0, 0 | Collection of Integer | Size of the area. The resources are seeded within this area. Provide 2 values for a ring effect (outer/inner). |
-| AddsResourceType | (require) | String | Will this splatter resources and which? |
+| AddsResourceType | *(required)* | String | Will this splatter resources and which? |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
@@ -314,10 +314,10 @@ Listed below are a template for weapon definitions and the types it can use (war
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | (require) | String | Has to be defined in weapons.yaml as well. |
+| Weapon | *(required)* | String | Has to be defined in weapons.yaml as well. |
 | RandomClusterCount | -1 | Integer | Number of weapons fired at random 'x' cells. Negative values will result in a number equal to 'x' footprint cells fired. |
 | Dimensions | 0,0 | 2D Cell Vector | Size of the cluster footprint |
-| Footprint | (require) | String | Cluster footprint. Cells marked as X will be attacked. Cells marked as x will be attacked randomly until RandomClusterCount is reached. |
+| Footprint | *(required)* | String | Cluster footprint. Cells marked as X will be attacked. Cells marked as x will be attacked randomly until RandomClusterCount is reached. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
@@ -346,7 +346,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Condition | (require) | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
 | Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
 | Range | 1c0 | 1D World Distance |  |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
