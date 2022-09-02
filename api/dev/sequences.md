@@ -25,8 +25,6 @@ Listed below are all sequence types with their properties and their default valu
 
 ## OpenRA.Mods.Common.Graphics
 
-### FileNotFoundSequence
-
 ### DefaultSpriteSequence
 **Generic sprite sequence implementation, mostly unencumbered with game- or artwork-specific logic.**
 
@@ -38,25 +36,25 @@ Listed below are all sequence types with their properties and their default valu
 | Facings | 1 | Integer | The amount of directions the unit faces. Use negative values to rotate counter-clockwise. |
 | InterpolatedFacings | 1 | Integer | The amount of directions the unit faces. Use negative values to rotate counter-clockwise. |
 | Tick | 40 | Integer | Time (in milliseconds at default game speed) to wait until playing the next frame in the animation. |
-| ZOffset | {'Length': 0, 'LengthSquared': 0} | 1D World Distance | Value controlling the Z-order. A higher values means rendering on top of other sprites at the same position. Use power of 2 values to avoid glitches. |
+| ZOffset | 0c0 | 1D World Distance | Value controlling the Z-order. A higher values means rendering on top of other sprites at the same position. Use power of 2 values to avoid glitches. |
 | ZRamp | 0 | Integer | Additional sprite depth Z offset to apply as a function of sprite Y (0: vertical, 1: flat on terrain) |
 | ShadowStart | -1 | Integer | If the shadow is not part of the sprite, but baked into the same sprite sheet at a fixed offset, set this to the frame index where it starts. |
-| ShadowZOffset | {'Length': -5, 'LengthSquared': 25} | 1D World Distance | Set Z-Offset for the separate shadow. Used by the later Westwood 2.5D titles. |
+| ShadowZOffset | -0c5 | 1D World Distance | Set Z-Offset for the separate shadow. Used by the later Westwood 2.5D titles. |
 | Frames | None | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
 | IgnoreWorldTint | False | Boolean | Don't apply terrain lighting or colored overlays. |
-| Scale | 1.0 | Real Number | Adjusts the rendered size of the sprite |
+| Scale | 1 | Real Number | Adjusts the rendered size of the sprite |
 | Reverses | False | Boolean | Play the sprite sequence back and forth. |
 | Transpose | False | Boolean | Support a frame order where each animation step is split per each direction. |
 | FlipX | False | Boolean | Mirror on the X axis. |
 | FlipY | False | Boolean | Mirror on the Y axis. |
-| Offset | {'X': 0.0, 'Y': 0.0, 'Z': 0.0, 'XY': {'X': 0.0, 'Y': 0.0, 'LengthSquared': 0.0, 'Length': 0.0}} | float3 | Change the position in-game on X, Y, Z. |
-| BlendMode | 1 | BlendMode | Apply an OpenGL/Photoshop inspired blend mode. |
+| Offset | 0,0,0 | float3 | Change the position in-game on X, Y, Z. |
+| BlendMode | Alpha | BlendMode | Apply an OpenGL/Photoshop inspired blend mode. |
 | Combine | None | MiniYaml | Allows to append multiple sequence definitions which are indented below this node like when offsets differ per frame or a sequence is spread across individual files. |
 | Alpha | None | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
 | AlphaFade | False | Boolean | Fade the animation from fully opaque on the first frame to fully transparent after the last frame. |
 | DepthSprite | None | String | Name of the file containing the depth data sprite. |
 | DepthSpriteFrame | 0 | Integer | Frame index containing the depth data. |
-| DepthSpriteOffset | {'X': 0.0, 'Y': 0.0, 'LengthSquared': 0.0, 'Length': 0.0} | 2D Real Number | X, Y offset to apply to the depth sprite. |
+| DepthSpriteOffset | 0,0 | 2D Real Number | X, Y offset to apply to the depth sprite. |
 | HasEmbeddedPalette | False | Boolean | Make a custom palette embedded in the sprite available to the PaletteFromEmbeddedSpritePalette trait. |
 
 ### TilesetSpecificSpriteSequence
