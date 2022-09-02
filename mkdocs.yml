@@ -1,3 +1,5 @@
 site_name: OpenRA
 site_description: Trait description and Lua API documentation
 docs_dir: api
+extra_css:
+    - css/extra.css
