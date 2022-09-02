@@ -1,4 +1,4 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220902` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220903` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 

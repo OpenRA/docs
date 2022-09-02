@@ -1,6 +1,6 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220902` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220903` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
-Listed below are all sequence types with their properties and their default values plus developer commentary.
+Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
 
 ## OpenRA.Mods.Cnc.Graphics
 
@@ -18,7 +18,7 @@ Listed below are all sequence types with their properties and their default valu
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TilesetOverrides | None | Dictionary with Key: String, Value: String | Dictionary of <string: string> with tileset name to override -> tileset name to use instead. |
+| TilesetOverrides |  | Dictionary with Key: String, Value: String | Dictionary of <string: string> with tileset name to override -> tileset name to use instead. |
 | UseTilesetCode | False | Boolean | Use `TilesetCodes` as defined in `mod.yaml` to add a letter as a second character into the sprite filename like the Westwood 2.5D titles did for tileset-specific variants. |
 | AddExtension | True | Boolean | Append a tileset-specific extension to the file name - either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) or the default hardcoded one for this sequence type (.shp). |
 | UseTilesetExtension | False | Boolean | Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name. |
@@ -40,7 +40,7 @@ Listed below are all sequence types with their properties and their default valu
 | ZRamp | 0 | Integer | Additional sprite depth Z offset to apply as a function of sprite Y (0: vertical, 1: flat on terrain) |
 | ShadowStart | -1 | Integer | If the shadow is not part of the sprite, but baked into the same sprite sheet at a fixed offset, set this to the frame index where it starts. |
 | ShadowZOffset | -0c5 | 1D World Distance | Set Z-Offset for the separate shadow. Used by the later Westwood 2.5D titles. |
-| Frames | None | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
+| Frames |  | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
 | IgnoreWorldTint | False | Boolean | Don't apply terrain lighting or colored overlays. |
 | Scale | 1 | Real Number | Adjusts the rendered size of the sprite |
 | Reverses | False | Boolean | Play the sprite sequence back and forth. |
@@ -49,10 +49,10 @@ Listed below are all sequence types with their properties and their default valu
 | FlipY | False | Boolean | Mirror on the Y axis. |
 | Offset | 0,0,0 | float3 | Change the position in-game on X, Y, Z. |
 | BlendMode | Alpha | BlendMode | Apply an OpenGL/Photoshop inspired blend mode. |
-| Combine | None | MiniYaml | Allows to append multiple sequence definitions which are indented below this node like when offsets differ per frame or a sequence is spread across individual files. |
-| Alpha | None | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
+| Combine |  | MiniYaml | Allows to append multiple sequence definitions which are indented below this node like when offsets differ per frame or a sequence is spread across individual files. |
+| Alpha |  | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
 | AlphaFade | False | Boolean | Fade the animation from fully opaque on the first frame to fully transparent after the last frame. |
-| DepthSprite | None | String | Name of the file containing the depth data sprite. |
+| DepthSprite |  | String | Name of the file containing the depth data sprite. |
 | DepthSpriteFrame | 0 | Integer | Frame index containing the depth data. |
 | DepthSpriteOffset | 0,0 | 2D Real Number | X, Y offset to apply to the depth sprite. |
 | HasEmbeddedPalette | False | Boolean | Make a custom palette embedded in the sprite available to the PaletteFromEmbeddedSpritePalette trait. |
@@ -63,7 +63,7 @@ Listed below are all sequence types with their properties and their default valu
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TilesetOverrides | None | Dictionary with Key: String, Value: String | Dictionary of <string: string> with tileset name to override -> tileset name to use instead. |
+| TilesetOverrides |  | Dictionary with Key: String, Value: String | Dictionary of <string: string> with tileset name to override -> tileset name to use instead. |
 | UseTilesetCode | False | Boolean | Use `TilesetCodes` as defined in `mod.yaml` to add a letter as a second character into the sprite filename like the Westwood 2.5D titles did for tileset-specific variants. |
 | AddExtension | True | Boolean | Append a tileset-specific extension to the file name - either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) or the default hardcoded one for this sequence type (.shp). |
 | UseTilesetExtension | False | Boolean | Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name. |
