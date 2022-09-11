@@ -1,6 +1,7 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220903` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220911` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
+Related enums with their possible values are listed ([at the bottom](#related-enums)).
 
 ## OpenRA.Mods.Cnc.Traits
 
@@ -193,7 +194,7 @@ Listed below are all traits with their properties and their default values plus 
 | AllyPrefix | Allied | String | Prefix to display in the tooltip for allied units. |
 | NeutralPrefix |  | String | Prefix to display in the tooltip for neutral units. |
 | EnemyPrefix | Enemy | String | Prefix to display in the tooltip for enemy units. |
-| GenericVisibility | None | PlayerRelationship | Player stances that the generic name should be shown to. |
+| GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
 | Name |  | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -205,9 +206,9 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Voice | Action | String |  |
 | DisguisedCondition |  | String | The condition to grant to self while disguised. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Player relationships the owner of the disguise target needs. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the disguise target needs. |
 | TargetTypes | Disguise | Collection of TargetableType | Target types of actors that this actor disguise as. |
-| RevealDisguiseOn | Attack | RevealDisguiseType | Triggers which cause the actor to drop it's disguise. Possible values: None, Attack, Damaged, Unload, Infiltrate, Demolish, Move. |
+| RevealDisguiseOn | Attack | [`RevealDisguiseType`](#revealdisguisetype) | Triggers which cause the actor to drop it's disguise. Possible values: None, Attack, Damaged, Unload, Infiltrate, Demolish, Move. |
 | DisguisedAsConditions |  | Dictionary with Key: String, Value: String | Conditions to grant when disguised as specified actor. A dictionary of [actor id]: [condition]. |
 | Cursor | ability | String | Cursor to display when hovering over a valid actor to disguise as. |
 
@@ -234,7 +235,7 @@ Listed below are all traits with their properties and their default values plus 
 | Weapon | *(required)* | String | The weapon to attack units on top of the wall with when activated. |
 | ActiveCondition |  | BooleanExpression | Boolean expression defining the condition to activate this trait. |
 | TerrainTypes |  | Set of String | Where you are allowed to place the building (Water, Clear, ...) |
-| Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
+| Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType (enum) | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
 | Dimensions | 1,1 | 2D Cell Vector |  |
 | LocalCenterOffset | 0,0,0 | 3D World Vector | Shift center of the actor by this offset. |
 | RequiresBaseProvider | False | Boolean |  |
@@ -297,13 +298,13 @@ Listed below are all traits with their properties and their default values plus 
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### InfiltrateForExploration
@@ -367,8 +368,8 @@ Listed below are all traits with their properties and their default values plus 
 | Types |  | Collection of TargetableType | The `TargetTypes` from `Targetable` that are allowed to enter. |
 | Voice | Action | String |  |
 | TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| ValidRelationships | Enemy, Neutral | PlayerRelationship | Player relationships the owner of the infiltration target needs. |
-| EnterBehaviour | Dispose | EnterBehaviour | Behaviour when entering the target. Possible values are Exit, Suicide, Dispose. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the infiltration target needs. |
+| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the target. Possible values are Exit, Suicide, Dispose. |
 | Notification |  | String | Notification to play when a target is infiltrated. |
 | TextNotification |  | String | Text notification to display when a target is infiltrated. |
 | PlayerExperience | 0 | Integer | Experience to grant to the infiltrating player. |
@@ -530,7 +531,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -598,7 +599,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -665,7 +666,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -732,7 +733,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -793,7 +794,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -857,7 +858,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -971,7 +972,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Name | normals | String |  |
-| Type | TiberianSun | NormalType | Can be TiberianSun or RedAlert2 |
+| Type | TiberianSun | [`NormalType`](#normaltype) | Can be TiberianSun or RedAlert2 |
 
 ### WithResourceAnimation
 **Allows to play animations on resources. Attach this to the world actor.**
@@ -1188,7 +1189,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ValidTypes |  | Set of String | Accepted `DeliversCash` types. Leave empty to accept all types. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships the owner of the delivering actor needs. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the delivering actor needs. |
 | Sounds |  | Collection of String | Play a randomly selected sound from this list when accepting cash. |
 
 ### AcceptsDeliveredExperience
@@ -1198,7 +1199,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ValidTypes |  | Set of String | Accepted `DeliversExperience` types. Leave empty to accept all types. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships the owner of the delivering actor needs. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the delivering actor needs. |
 
 ### ActorSpawner
 **An actor with this trait indicates a valid spawn point for actors of ActorSpawnManager.**
@@ -1214,7 +1215,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| IdleBehavior | None | IdleBehaviorType | Behavior when aircraft becomes idle. Options are Land, ReturnToBase, LeaveMap, and None. 'Land' will behave like 'None' (hover or circle) if a suitable landing site is not available. |
+| IdleBehavior | None | [`IdleBehaviorType`](#idlebehaviortype) | Behavior when aircraft becomes idle. Options are Land, ReturnToBase, LeaveMap, and None. 'Land' will behave like 'None' (hover or circle) if a suitable landing site is not available. |
 | CruiseAltitude | 1c256 | 1D World Distance |  |
 | Repulsable | True | Boolean | Whether the aircraft can be repulsed. |
 | IdealSeparation | 1c682 | 1D World Distance | The distance it tries to maintain from other aircraft if repulsable. |
@@ -1269,7 +1270,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AttackType | Default | AirAttackType | Attack behavior. Currently supported types are: Default: Attack while following the default movement rules. Hover: Hover, even if the Aircraft can't hover while idle. Strafe: Perform a fixed-length attack run on the target. |
+| AttackType | Default | [`AirAttackType`](#airattacktype) | Attack behavior. Currently supported types are: Default: Attack while following the default movement rules. Hover: Hover, even if the Aircraft can't hover while idle. Strafe: Perform a fixed-length attack run on the target. |
 | StrafeRunLength | 0c0 | 1D World Distance | Distance the strafing aircraft makes to a target before turning for another pass. When set to WDist.Zero this defaults to the maximum armament range. |
 | AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
@@ -1357,8 +1358,8 @@ Listed below are all traits with their properties and their default values plus 
 | MuzzleSequence |  | String | Muzzle flash sequence to render |
 | MuzzlePalette | effect | String | Palette to render Muzzle flash sequence in |
 | ReloadingCondition |  | String | Condition to grant while reloading. |
-| TargetRelationships | Enemy | PlayerRelationship |  |
-| ForceTargetRelationships | Enemy, Neutral, Ally | PlayerRelationship |  |
+| TargetRelationships | Enemy | [`PlayerRelationship`](#playerrelationship) |  |
+| ForceTargetRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) |  |
 | Cursor | attack | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor | attackoutsiderange | String | Cursor to display when hovering over a valid target that is outside of range. |
 | AmmoUsage | 1 | Integer | Ammo the weapon consumes per shot. |
@@ -1583,8 +1584,8 @@ Listed below are all traits with their properties and their default values plus 
 | AllowTurning | True | Boolean | It will try to pivot to face the enemy if stance is not HoldFire. |
 | ScanOnIdle | True | Boolean | Scan for new targets when idle. |
 | ScanRadius | -1 | Integer | Set to a value >1 to override weapons maximum range for this. |
-| InitialStanceAI | AttackAnything | UnitStance | Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for computer-controlled players, both Lua-scripted and regular Skirmish AI alike. |
-| InitialStance | Defend | UnitStance | Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for human players. |
+| InitialStanceAI | AttackAnything | [`UnitStance`](#unitstance) | Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for computer-controlled players, both Lua-scripted and regular Skirmish AI alike. |
+| InitialStance | Defend | [`UnitStance`](#unitstance) | Possible values are HoldFire, ReturnFire, Defend and AttackAnything. Used for human players. |
 | HoldFireCondition |  | String | The condition to grant to self while in the HoldFire stance. |
 | ReturnFireCondition |  | String | The condition to grant to self while in the ReturnFire stance. |
 | DefendCondition |  | String | The condition to grant to self while in the Defend stance. |
@@ -1604,7 +1605,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | ValidTargets | Ground, Water, Air | Collection of TargetableType | Target types that can be AutoTargeted. |
 | InvalidTargets |  | Collection of TargetableType | Target types that can't be AutoTargeted. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Relationships between actor's and target's owner needed for AutoTargeting. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Relationships between actor's and target's owner needed for AutoTargeting. |
 | Priority | 1 | Integer | ValidTargets with larger priorities will be AutoTargeted before lower priorities. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -1615,7 +1616,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Height | 1c0 | 1D World Distance |  |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Determines what projectiles to block based on their allegiance to the wall owner. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Determines what projectiles to block based on their allegiance to the wall owner. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BodyOrientation
@@ -1689,7 +1690,7 @@ Listed below are all traits with their properties and their default values plus 
 | MinimumCaptureDelay | 375 | Integer | Minimum delay (in ticks) between trying to capture with CapturingActorTypes. |
 | MaximumCaptureTargetOptions | 10 | Integer | Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. |
 | CheckCaptureTargetsForVisibility | True | Boolean | Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? |
-| CapturableRelationships | Enemy, Neutral | PlayerRelationship | Player relationships that capturers should attempt to target. |
+| CapturableRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships that capturers should attempt to target. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### HarvesterBotModule
@@ -1796,8 +1797,8 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Animated | True | Boolean | Enable the building's idle animation. |
 | PreviewAlpha | 1 | Real Number | Custom opacity to apply to the actor preview. |
-| FootprintUnderPreview | Valid, LineBuild | PlaceBuildingCellType | Footprint types to draw underneath the actor preview. |
-| FootprintOverPreview | Invalid | PlaceBuildingCellType | Footprint types to draw above the actor preview. |
+| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
+| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
 | Palette | terrain | String | Palette to use for rendering the placement sprite. |
 | FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
@@ -1858,7 +1859,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Type | GroundLevelBridge | String |  |
-| DamageState | Undamaged | DamageState |  |
+| DamageState | Undamaged | [`DamageState`](#damagestate) |  |
 | ReplaceWithActor |  | String | Actor type to replace with on repair. |
 | NeighbourOffsets |  | Collection of 2D Cell Vector |  |
 
@@ -1867,7 +1868,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | TerrainTypes |  | Set of String | Where you are allowed to place the building (Water, Clear, ...) |
-| Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
+| Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType (enum) | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
 | Dimensions | 1,1 | 2D Cell Vector |  |
 | LocalCenterOffset | 0,0,0 | 3D World Vector | Shift center of the actor by this offset. |
 | RequiresBaseProvider | False | Boolean |  |
@@ -1947,7 +1948,7 @@ Listed below are all traits with their properties and their default values plus 
 | CloseDelay | 150 | Integer | Ticks until the gate closes. |
 | TransitionDelay | 33 | Integer | Ticks until the gate is considered open. |
 | BlocksProjectilesHeight | 0c640 | 1D World Distance | Blocks bullets scaled to open value. |
-| BlocksProjectilesValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Determines what projectiles to block based on their allegiance to the gate owner. |
+| BlocksProjectilesValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Determines what projectiles to block based on their allegiance to the gate owner. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2103,8 +2104,8 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Sequence | idle | String | Sequence name to use. |
 | SequenceAlpha | 1 | Real Number | Custom opacity to apply to the sequence sprite. |
-| FootprintUnderPreview | Valid, LineBuild | PlaceBuildingCellType | Footprint types to draw underneath the actor preview. |
-| FootprintOverPreview | Invalid | PlaceBuildingCellType | Footprint types to draw above the actor preview. |
+| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
+| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
 | Palette | terrain | String | Palette to use for rendering the placement sprite. |
 | FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
@@ -2206,7 +2207,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Types | *(required)* | Collection of CaptureType | CaptureTypes (from the Captures trait) that are able to capture this. |
-| ValidRelationships | Enemy, Neutral | PlayerRelationship | What player relationships the target's owner needs to be captured by this actor. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | What player relationships the target's owner needs to be captured by this actor. |
 | CancelActivity | False | Boolean | Cancel the actor's current activity when getting captured. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -2263,7 +2264,7 @@ Listed below are all traits with their properties and their default values plus 
 | CaptureDelay | 0 | Integer | Delay (in ticks) that to wait next to the target before initiating the capture. |
 | ConsumedByCapture | True | Boolean | Enter the target actor and be consumed by the capture. |
 | PlayerExperience | 0 | Integer | Experience granted to the capturing player. |
-| PlayerExperienceRelationships | Enemy | PlayerRelationship | Relationships that the structure's previous owner needs to have for the capturing player to receive Experience. |
+| PlayerExperienceRelationships | Enemy | [`PlayerRelationship`](#playerrelationship) | Relationships that the structure's previous owner needs to have for the capturing player to receive Experience. |
 | SabotageCursor | capture | String | Cursor to display when the health of the target actor is above the sabotage threshold. |
 | EnterCursor | enter | String | Cursor to display when able to capture the target actor. |
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to capture the target actor. |
@@ -2375,7 +2376,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | InitialDelay | 10 | Integer | Measured in game ticks. |
 | CloakDelay | 30 | Integer | Measured in game ticks. |
-| UncloakOn | Attack, Unload, Infiltrate, Demolish, Dock | UncloakType | Events leading to the actor getting uncloaked. Possible values are: Attack, Move, Unload, Infiltrate, Demolish, Dock, Damage, Heal and SelfHeal. 'Dock' is triggered when docking to a refinery or resupplying. |
+| UncloakOn | Attack, Unload, Infiltrate, Demolish, Dock | [`UncloakType`](#uncloaktype) | Events leading to the actor getting uncloaked. Possible values are: Attack, Move, Unload, Infiltrate, Demolish, Dock, Damage, Heal and SelfHeal. 'Dock' is triggered when docking to a refinery or resupplying. |
 | CloakSound |  | String |  |
 | UncloakSound |  | String |  |
 | Palette | cloak | String |  |
@@ -2462,7 +2463,7 @@ Listed below are all traits with their properties and their default values plus 
 | Condition | *(required)* | String | Condition to grant. |
 | EnabledSounds |  | Collection of String | Play a random sound from this list when enabled. |
 | DisabledSounds |  | Collection of String | Play a random sound from this list when disabled. |
-| ValidDamageStates | Heavy, Critical | DamageState | Levels of damage at which to grant the condition. |
+| ValidDamageStates | Heavy, Critical | [`DamageState`](#damagestate) | Levels of damage at which to grant the condition. |
 | GrantPermanently | False | Boolean | Is the condition irrevocable once it has been activated? |
 
 ### GrantConditionOnDeploy
@@ -2525,7 +2526,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | Condition to grant. |
-| Direction | X | LineBuildDirection | Line build direction to trigger the condition. |
+| Direction | X | [`LineBuildDirection`](#linebuilddirection) | Line build direction to trigger the condition. |
 
 ### GrantConditionOnMovement
 ###### Inherits from: `ConditionalTrait`.
@@ -2533,7 +2534,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | Condition to grant. |
-| ValidMovementTypes | Horizontal | MovementType | Apply condition on listed movement types. Available options are: None, Horizontal, Vertical, Turn. |
+| ValidMovementTypes | Horizontal | [`MovementType`](#movementtype) | Apply condition on listed movement types. Available options are: None, Horizontal, Vertical, Turn. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnPlayerResources
@@ -2551,7 +2552,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | Condition to grant. |
-| ValidPowerStates | Low, Critical | PowerState | PowerStates at which the condition is granted. Options are Normal, Low and Critical. |
+| ValidPowerStates | Low, Critical | [`PowerState`](#powerstate) | PowerStates at which the condition is granted. Options are Normal, Low and Critical. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GrantConditionOnPrerequisite
@@ -2653,7 +2654,7 @@ Listed below are all traits with their properties and their default values plus 
 | Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
 | Range | 3c0 | 1D World Distance | The range to search for actors. |
 | MaximumVerticalOffset | 0c0 | 1D World Distance | The maximum vertical range above terrain to search for actors. Ignored if 0 (actors are selected regardless of vertical distance). |
-| ValidRelationships | Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Condition is applied permanently to this actor. |
 | EnableSound |  | String |  |
 | DisableSound |  | String |  |
@@ -2946,12 +2947,12 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ValidRelationships | Enemy, Neutral | PlayerRelationship | Relationship the watching player needs to see the generated shroud. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Relationship the watching player needs to see the generated shroud. |
 | MinRange | 0c0 | 1D World Distance |  |
 | Range | 0c0 | 1D World Distance |  |
 | MaxHeightDelta | -1 | Integer | If >= 0, prevent cells that are this much higher than the actor from being revealed. |
 | MoveRecalculationThreshold | 0c256 | 1D World Distance | If > 0, force visibility to be recalculated if the unit moves within a cell by more than this distance. |
-| Type | Footprint | VisibilityType | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Crushable
@@ -3027,12 +3028,12 @@ Listed below are all traits with their properties and their default values plus 
 | Flashes | 3 | Integer | Number of times to flash the target. |
 | FlashesDelay | 4 | Integer | Delay before the flashing starts. |
 | FlashInterval | 4 | Integer | Interval between each flash. |
-| EnterBehaviour | Exit | EnterBehaviour | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
+| EnterBehaviour | Exit | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
 | DamageTypes |  | Collection of DamageType | Types of damage that this trait causes. Leave empty for no damage types. |
 | Voice | Action | String | Voice string when planting explosive charges. |
 | TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| TargetRelationships | Enemy, Neutral | PlayerRelationship |  |
-| ForceTargetRelationships | Enemy, Neutral, Ally | PlayerRelationship |  |
+| TargetRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) |  |
+| ForceTargetRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) |  |
 | Cursor | c4 | String | Cursor to display when hovering over a demolishable target. |
 
 ### DetectCloaked
@@ -3068,8 +3069,8 @@ Listed below are all traits with their properties and their default values plus 
 | Types |  | Collection of EngineerRepairType | Uses the "EngineerRepairable" trait to determine repairability. |
 | Voice | Action | String |  |
 | TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| EnterBehaviour | Dispose | EnterBehaviour | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
-| ValidRelationships | Ally | PlayerRelationship | What player relationship the target's owner needs to be repaired by this actor. |
+| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | What player relationship the target's owner needs to be repaired by this actor. |
 | RepairSound |  | String | Sound to play when repairing is done. |
 | Cursor | goldwrench | String | Cursor to display when hovering over a valid actor to repair. |
 | RepairBlockedCursor | goldwrench-blocked | String | Cursor to display when target actor has full health so it can't be repaired. |
@@ -3130,8 +3131,8 @@ Listed below are all traits with their properties and their default values plus 
 | Chance | 100 | Integer | Chance that this actor will explode at all. |
 | DamageThreshold | 0 | Integer | Health level at which actor will explode. |
 | DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | DamageSource | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
-| Type | CenterPosition | ExplosionType | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
 | Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -3142,7 +3143,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Weapon | *(required)* | String | Weapon to use for explosion. |
-| DamageState | Heavy | DamageState | At which damage state explosion will trigger. |
+| DamageState | Heavy | [`DamageState`](#damagestate) | At which damage state explosion will trigger. |
 | TriggerOnlyOnce | False | Boolean | Should the explosion only be triggered once? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -3167,7 +3168,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Percentage | 10 | Integer | Percentage of the killed actor's Cost or CustomSellValue to be given. |
-| ValidRelationships | Enemy, Neutral | PlayerRelationship | Player relationships the attacking player needs to receive the bounty. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the attacking player needs to receive the bounty. |
 | ShowBounty | True | Boolean | Whether to show a floating text announcing the won bounty. |
 | DeathTypes |  | Collection of DamageType | DeathTypes for which a bounty should be granted. Use an empty list (the default) to allow all DeathTypes. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -3190,7 +3191,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Experience | -1 | Integer | If -1, use the value of the unit cost. |
-| ValidRelationships | Enemy, Neutral | PlayerRelationship | Player relationships the attacking player needs to receive the experience. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the attacking player needs to receive the experience. |
 | ActorExperienceModifier | 10000 | Integer | Percentage of the `Experience` value that is being granted to the killing actor. |
 | PlayerExperienceModifier | 0 | Integer | Percentage of the `Experience` value that is being granted to the player owning the killing actor. |
 
@@ -3349,7 +3350,7 @@ Listed below are all traits with their properties and their default values plus 
 | DecorationBounds |  | Collection of Integer | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead. |
 | DecorationHeight | -1 | Integer | Defines a custom height for Decorations (e.g. the selection box). If < 0, Height will be used instead. If Height is 0, this must be defined with a value greater than 0. |
 | Priority | 10 | Integer |  |
-| PriorityModifiers | None | SelectionPriorityModifiers | Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). |
+| PriorityModifiers | None | [`SelectionPriorityModifiers`](#selectionprioritymodifiers) | Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). |
 | Class |  | String | All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click).  Defaults to the actor name when not defined or inherited. |
 | Voice | Select | String |  |
 
@@ -3360,7 +3361,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Range | 0c0 | 1D World Distance | Range of the deflection. |
-| DeflectionRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| DeflectionRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | Chance | 100 | Integer | Chance of deflecting missiles. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -3418,7 +3419,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AlwaysVisibleRelationships | Ally | PlayerRelationship | Players with these relationships can always see the actor. |
+| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
 
 ### HiddenUnderFog
 **The actor stays invisible under fog of war.**
@@ -3426,16 +3427,16 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AlwaysVisibleRelationships | Ally | PlayerRelationship | Players with these relationships can always see the actor. |
-| Type | Footprint | VisibilityType | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
+| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
 
 ### HiddenUnderShroud
 **The actor stays invisible under the shroud.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AlwaysVisibleRelationships | Ally | PlayerRelationship | Players with these relationships can always see the actor. |
-| Type | Footprint | VisibilityType | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
+| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
 
 ### WithColoredOverlay
 **Display a colored overlay when a timed condition is active.**
@@ -3622,7 +3623,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Action | Kill | OwnerLostActionType | What does this unit do when its owner loses. Allowed values are 'ChangeOwner', 'Dispose', 'Kill' |
+| Action | Kill | [`OwnerLostActionType`](#ownerlostactiontype) | What does this unit do when its owner loses. Allowed values are 'ChangeOwner', 'Dispose', 'Kill' |
 | Owner | Neutral | String | Map player to use when 'Action' is 'ChangeOwner'. |
 | DeathTypes |  | Collection of DamageType | The deathtypes used when 'Action' is 'Kill'. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -3657,8 +3658,8 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | FadeLength | 10 | Integer | Time (in ticks) to fade between states |
-| Effect | None | EffectType | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
-| MenuEffect | None | EffectType | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
+| Effect | None | [`EffectType`](#effecttype) | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
+| MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
 ### RotationPaletteEffect
 **Palette effect used for sprinkle "animations".**
@@ -4469,7 +4470,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Voice | Action | String |  |
 | TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| EnterBehaviour | Dispose | EnterBehaviour | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
+| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
 | TargetCursor | goldwrench | String | Cursor to display when targeting an unrepaired bridge. |
 | TargetBlockedCursor | goldwrench-blocked | String | Cursor to display when repairing is denied. |
 | RepairNotification |  | String | Speech notification to play when a bridge is repaired. |
@@ -4519,7 +4520,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| RevealForRelationships | Ally | PlayerRelationship | Relationships relative to the actors' owner that shroud will be revealed for. |
+| RevealForRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships relative to the actors' owner that shroud will be revealed for. |
 | Duration | 25 | Integer | Duration of the reveal. |
 | Radius | 1c512 | 1D World Distance | Radius of the reveal around this actor. |
 | RevealGeneratedShroud | True | Boolean | Can this actor be revealed through shroud generated by the `CreatesShroud` trait? |
@@ -4533,7 +4534,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ArmamentNames | primary, secondary | Collection of String | The armament types which trigger revealing. |
-| RevealForRelationships | Ally | PlayerRelationship | Player relationships relative to the target player this actor will be revealed to during firing. |
+| RevealForRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships relative to the target player this actor will be revealed to during firing. |
 | Duration | 25 | Integer | Duration of the reveal. |
 | Radius | 1c512 | 1D World Distance | Radius of the reveal around this actor. |
 | RevealGeneratedShroud | True | Boolean | Can this actor be revealed through shroud generated by the `CreatesShroud` trait? |
@@ -4545,7 +4546,7 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ValidRelationships | Ally | PlayerRelationship | Relationships the watching player needs to see the shroud removed. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships the watching player needs to see the shroud removed. |
 | RevealGeneratedShroud | True | Boolean | Can this actor reveal shroud generated by the `CreatesShroud` trait? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -4554,13 +4555,13 @@ Listed below are all traits with their properties and their default values plus 
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| ValidRelationships | Ally | PlayerRelationship | Relationships the watching player needs to see the shroud removed. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships the watching player needs to see the shroud removed. |
 | RevealGeneratedShroud | True | Boolean | Can this actor reveal shroud generated by the `CreatesShroud` trait? |
 | MinRange | 0c0 | 1D World Distance |  |
 | Range | 0c0 | 1D World Distance |  |
 | MaxHeightDelta | -1 | Integer | If >= 0, prevent cells that are this much higher than the actor from being revealed. |
 | MoveRecalculationThreshold | 0c256 | 1D World Distance | If > 0, force visibility to be recalculated if the unit moves within a cell by more than this distance. |
-| Type | Footprint | VisibilityType | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ScriptTags
@@ -4584,7 +4585,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Priority | 10 | Integer |  |
-| PriorityModifiers | None | SelectionPriorityModifiers | Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). |
+| PriorityModifiers | None | [`SelectionPriorityModifiers`](#selectionprioritymodifiers) | Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). |
 | Class |  | String | All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click). Defaults to the actor name when not defined or inherited. |
 | Voice | Select | String |  |
 | Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
@@ -4621,7 +4622,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Actor | *(required)* | String | Actor to spawn on death. |
 | Probability | 100 | Integer | Probability the actor spawns. |
-| OwnerType | Victim | OwnerType | Owner of the spawned actor. Allowed keywords:'Victim', 'Killer' and 'InternalName'. Falls back to 'InternalName' if 'Victim' is used and the victim is defeated (see 'SpawnAfterDefeat'). |
+| OwnerType | Victim | [`OwnerType`](#ownertype) | Owner of the spawned actor. Allowed keywords:'Victim', 'Killer' and 'InternalName'. Falls back to 'InternalName' if 'Victim' is used and the victim is defeated (see 'SpawnAfterDefeat'). |
 | InternalOwner | Neutral | String | Map player to use when 'InternalName' is defined on 'OwnerType'. |
 | EffectiveOwnerFromOwner | False | Boolean | Changes the effective (displayed) owner of the spawned actor to the old owner (victim). |
 | DeathType |  | String | DeathType that triggers the actor spawn. Leave empty to spawn an actor ignoring the DeathTypes. |
@@ -4698,7 +4699,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -4727,7 +4728,7 @@ Listed below are all traits with their properties and their default values plus 
 | Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
 | Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
 | OnFireSound |  | String | Sound to instantly play at the targeted area. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships which condition can be applied to. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships which condition can be applied to. |
 | Sequence | active | String | Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. |
 | BlockedCursor | move-blocked | String | Cursor to display when there are no units to apply the condition in range. |
 | FootprintImage | overlay | String |  |
@@ -4764,7 +4765,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -4810,7 +4811,7 @@ Listed below are all traits with their properties and their default values plus 
 | BeaconRemoveAdvance | 25 | Integer | Amount of time before detonation to remove the beacon. |
 | CameraRange | 0c0 | 1D World Distance | Range of cells the camera should reveal around target cell. |
 | RevealGeneratedShroud | True | Boolean | Can the camera reveal shroud generated by the `CreatesShroud` trait? |
-| CameraRelationships | Ally | PlayerRelationship | Reveal cells to players with these relationships only. |
+| CameraRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Reveal cells to players with these relationships only. |
 | CameraSpawnAdvance | 25 | Integer | Amount of time before detonation to spawn the camera. |
 | CameraRemoveDelay | 25 | Integer | Amount of time after detonation to remove the camera. |
 | CircleColor | FF000080 | Color (RRGGBB[AA] notation) | Range circle color. |
@@ -4850,7 +4851,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -4921,7 +4922,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -4984,7 +4985,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -5050,7 +5051,7 @@ Listed below are all traits with their properties and their default values plus 
 | IncomingSound |  | String |  |
 | IncomingSpeechNotification |  | String |  |
 | IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | PlayerRelationship | Defines to which players the timer is shown. |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
 | DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
 | BeaconPaletteIsPlayerPalette | True | Boolean |  |
 | BeaconPalette | player | String |  |
@@ -5146,7 +5147,7 @@ Listed below are all traits with their properties and their default values plus 
 | AllyPrefix | Allied | String | Prefix to display in the tooltip for allied units. |
 | NeutralPrefix |  | String | Prefix to display in the tooltip for neutral units. |
 | EnemyPrefix | Enemy | String | Prefix to display in the tooltip for enemy units. |
-| GenericVisibility | None | PlayerRelationship | Player stances that the generic name should be shown to. |
+| GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
 | Name |  | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -5158,7 +5159,7 @@ Listed below are all traits with their properties and their default values plus 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Description |  | String | Text shown in tooltip. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Player relationships who can view the description. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the description. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformCrusherOnCrush
@@ -5282,8 +5283,7 @@ Listed below are all traits with their properties and their default values plus 
 | -------- | ------------- | ---- | ----------- |
 | Minimum | 0 | Integer | Minimum number of actors. |
 | Maximum | 4 | Integer | Maximum number of actors. |
-| SpawnInterval | 6000 | Collection of Integer | Time (in ticks) between actor spawn. Supports 1 or 2 values.
-If 2 values are provided they are used as a range from which a value is randomly selected. |
+| SpawnInterval | 6000 | Collection of Integer | Time (in ticks) between actor spawn. Supports 1 or 2 values. If 2 values are provided they are used as a range from which a value is randomly selected. |
 | Actors | *(required)* | Collection of String | Name of the actor that will be randomly picked to spawn. |
 | Owner | Creeps | String |  |
 | Types |  | Set of String | Type of ActorSpawner with which it connects. |
@@ -5410,7 +5410,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Location | 0,0 | 2D Cell Position | Location of the bridge |
-| Orientation | X | ElevatedBridgePlaceholderOrientation | Orientation of the bridge. |
+| Orientation | X | [`ElevatedBridgePlaceholderOrientation`](#elevatedbridgeplaceholderorientation) | Orientation of the bridge. |
 | Length | 0 | Integer | Length of the bridge |
 | Height | 0 | Byte | Height of the bridge in map height steps. |
 | TerrainType | Road | String | Terrain type of the bridge. |
@@ -5604,7 +5604,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | TerrainFlashImage | *(required)* | String | The image to use. |
 | TerrainFlashSequence | *(required)* | String | The sequence to use. |
 | TerrainFlashPalette |  | String | The palette to use. |
-| ActorFlashType | Overlay | ActorFlashType | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
+| ActorFlashType | Overlay | [`ActorFlashType`](#actorflashtype) | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
 | ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
 | ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
 | ActorFlashTint | 1,4,1,4,1,4 | float3 | The tint to apply when ActorFlashType is Tint. |
@@ -5688,7 +5688,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | OverrideShroudIndex | 15 | Integer |  |
 | OverrideFullFog |  | String | Override for source art that doesn't define a fully fogged tile |
 | OverrideFogIndex | 15 | Integer |  |
-| ShroudBlend | Alpha | BlendMode |  |
+| ShroudBlend | Alpha | [`BlendMode`](#blendmode) |  |
 
 ### SmudgeLayer
 **Attach this to the world actor. Order of the layers defines the Z sorting.**
@@ -5870,7 +5870,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | UseLocation | False | Boolean |  |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Player relationships who can view this actor on radar. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view this actor on radar. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ProvidesRadar
@@ -5895,7 +5895,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| DisplayRelationships | Ally | PlayerRelationship | Defines to which players the bar is to be shown. |
+| DisplayRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Defines to which players the bar is to be shown. |
 | Color | FF00FF | Color (RRGGBB[AA] notation) |  |
 
 ### Hovers
@@ -5930,7 +5930,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Sequences | idle | Collection of String |  |
 | Palette | effect | String |  |
 | TerrainTypes |  | Set of String | Only leave trail on listed terrain types. Leave empty to leave trail on all terrain types. |
-| Type | Cell | TrailType | Accepts values: Cell to draw the trail sprite in the center of the current cell, CenterPosition to draw the trail sprite at the current position. |
+| Type | Cell | [`TrailType`](#trailtype) | Accepts values: Cell to draw the trail sprite in the center of the current cell, CenterPosition to draw the trail sprite at the current position. |
 | VisibleThroughFog | False | Boolean | Should the trail be visible through fog. |
 | TrailWhileStationary | False | Boolean | Display a trail while stationary. |
 | StationaryInterval | 0 | Integer | Delay between trail updates when stationary. |
@@ -5989,7 +5989,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Width | 1 | Real Number | Range circle line width. |
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Border color of the circle and scanner update line. |
 | BorderWidth | 3 | Real Number | Range circle border width. |
-| Visible | WhenSelected | DetectionCircleVisibility | When to show the detection circle. Valid values are `Always`, and `WhenSelected` |
+| Visible | WhenSelected | [`DetectionCircleVisibility`](#detectioncirclevisibility) | When to show the detection circle. Valid values are `Always`, and `WhenSelected` |
 
 ### RenderRangeCircle
 **Draw a circle indicating my weapon's range.**
@@ -5999,7 +5999,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | -------- | ------------- | ---- | ----------- |
 | RangeCircleType |  | String |  |
 | FallbackRange | 0c0 | 1D World Distance | Range to draw if no armaments are available. |
-| RangeCircleMode | Maximum | RangeCircleMode | Which circle to show. Valid values are `Maximum`, and `Minimum`. |
+| RangeCircleMode | Maximum | [`RangeCircleMode`](#rangecirclemode) | Which circle to show. Valid values are `Maximum`, and `Minimum`. |
 | Color | FFFF0080 | Color (RRGGBB[AA] notation) | Color of the circle. |
 | Width | 1 | Real Number | Range circle line width. |
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Color of the border. |
@@ -6056,7 +6056,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| DisplayRelationships | Ally | PlayerRelationship | Defines to which players the bar is to be shown. |
+| DisplayRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Defines to which players the bar is to be shown. |
 | Color | FF00FF | Color (RRGGBB[AA] notation) |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -6118,13 +6118,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Palette | chrome | String |  |
 | AmmoPools |  | Collection of String | Name(s) of AmmoPool(s) that use this decoration. Leave empty to include all pools. |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithAttackAnimation
@@ -6136,7 +6136,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Armament | primary | String | Armament name |
 | Sequence |  | String | Displayed while attacking. |
 | Delay | 0 | Integer | Delay in ticks before animation starts, either relative to attack preparation or attack. |
-| DelayRelativeTo | Preparation | AttackDelayType | Should the animation be delayed relative to preparation or actual attack? |
+| DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the animation be delayed relative to preparation or actual attack? |
 | Body | body | String | Which sprite body to modify. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -6150,7 +6150,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Palette |  | String | Custom palette name |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Delay | 0 | Integer | Delay in ticks before overlay starts, either relative to attack preparation or attack. |
-| DelayRelativeTo | Preparation | AttackDelayType | Should the overlay be delayed relative to preparation or actual attack? |
+| DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the overlay be delayed relative to preparation or actual attack? |
 
 ### WithBridgeSpriteBody
 ###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
@@ -6210,13 +6210,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithCargoPipsDecoration
@@ -6233,13 +6233,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | CustomPipSequences |  | Dictionary with Key: String, Value: String | Pip sequence to use for specific passenger actors. |
 | Palette | chrome | String |  |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithChargeOverlay
@@ -6296,8 +6296,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Palette |  | String | Custom palette name. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
 | DamageTypes |  | Collection of DamageType | Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. |
-| MinimumDamageState | Heavy | DamageState | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
-| MaximumDamageState | Dead | DamageState |  |
+| MinimumDamageState | Heavy | [`DamageState`](#damagestate) | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
+| MaximumDamageState | Dead | [`DamageState`](#damagestate) |  |
 
 ### WithDeadBridgeSpriteBody
 ###### Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
@@ -6352,13 +6352,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Palette | chrome | String | Palette to render the sprite in. Reference the world actor's PaletteFrom* traits. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDeliveryAnimation
@@ -6450,13 +6450,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | ResourceSequences |  | Dictionary with Key: String, Value: String | Pip sequence to use for specific resource types. |
 | Palette | chrome | String |  |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithHarvestOverlay
@@ -6542,7 +6542,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | -------- | ------------- | ---- | ----------- |
 | MoveSequence | move | String | Displayed while moving. |
 | Body | body | String | Which sprite body to modify. |
-| ValidMovementTypes | Horizontal | MovementType | Apply condition on listed movement types. Available options are: None, Horizontal, Vertical, Turn. |
+| ValidMovementTypes | Horizontal | [`MovementType`](#movementtype) | Apply condition on listed movement types. Available options are: None, Horizontal, Vertical, Turn. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithMuzzleOverlay
@@ -6566,13 +6566,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Color | FFFFFF | Color (RRGGBB[AA] notation) | Display in this color when not using the player color. |
 | UsePlayerColor | False | Boolean | Use the player color of the current owner. |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithParachute
@@ -6641,8 +6641,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Color of the border. |
 | BorderWidth | 3 | Real Number | Range circle border width. |
 | UsePlayerColor | False | Boolean | If set, the color of the owning player will be used instead of `Color`. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships which will be able to see the circle. Valid values are combinations of `None`, `Ally`, `Enemy` and `Neutral`. |
-| Visible | WhenSelected | RangeCircleVisibility | When to show the range circle. Valid values are `Always`, and `WhenSelected` |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships which will be able to see the circle. Valid values are combinations of `None`, `Ally`, `Enemy` and `Neutral`. |
+| Visible | WhenSelected | [`RangeCircleVisibility`](#rangecirclevisibility) | When to show the range circle. Valid values are `Always`, and `WhenSelected` |
 | Range | 0c0 | 1D World Distance | Range of the circle |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -6703,13 +6703,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | FullSequence | pip-green | String | Sequence used for full pips. |
 | Palette | chrome | String |  |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithResupplyAnimation
@@ -6721,7 +6721,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | -------- | ------------- | ---- | ----------- |
 | Sequence | active | String | Sequence name to use |
 | Body | body | String | Which sprite body to play the animation on. |
-| PlayAnimationOn | Rearm, Repair | ResupplyType | Events leading to the animation getting played. Possible values currently are: Rearm, Repair. |
+| PlayAnimationOn | Rearm, Repair | [`ResupplyType`](#resupplytype) | Events leading to the animation getting played. Possible values currently are: Rearm, Repair. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithShadow
@@ -6834,13 +6834,13 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Color | FFFFFF | Color (RRGGBB[AA] notation) | Display in this color when not using the player color. |
 | UsePlayerColor | False | Boolean | Use the player color of the current owner. |
 | Position | TopLeft | String | Position in the actor's selection box to draw the decoration. |
-| ValidRelationships | Ally | PlayerRelationship | Player relationships who can view the decoration. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the decoration. |
 | RequiresSelection | False | Boolean | Should this be visible only when selected? |
 | Margin | 0,0 | 2D Integer | Offset sprite center position from the selection box edge. |
 | Offsets |  | Dictionary with Key: BooleanExpression, Value: 2D Integer | Screen-space offsets to apply when defined conditions are enabled. A dictionary of [condition string]: [x, y offset]. |
 | BlinkInterval | 5 | Integer | The number of ticks that each step in the blink pattern in active. |
-| BlinkPattern |  | Collection of BlinkState | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
-| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
+| BlinkPattern |  | Collection of BlinkState (enum) | A pattern of ticks (BlinkInterval long) where the decoration is visible or hidden. |
+| BlinkPatterns |  | Dictionary with Key: BooleanExpression, Value: Collection of BlinkState (enum) | Override blink conditions to use when defined conditions are enabled. A dictionary of [condition string]: [pattern]. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithTurretAimAnimation
@@ -6864,7 +6864,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Turret | primary | String | Turret name |
 | Sequence |  | String | Displayed while attacking. |
 | Delay | 0 | Integer | Delay in ticks before animation starts, either relative to attack preparation or attack. |
-| DelayRelativeTo | Preparation | AttackDelayType | Should the animation be delayed relative to preparation or actual attack? |
+| DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the animation be delayed relative to preparation or actual attack? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithVoxelBarrel
@@ -6968,7 +6968,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | -------- | ------------- | ---- | ----------- |
 | Sounds |  | Collection of String | Play a randomly selected sound from this list when preparing for an attack or attacking. |
 | Delay | 0 | Integer | Delay in ticks before sound starts, either relative to attack preparation or attack. |
-| DelayRelativeTo | Preparation | AttackDelayType | Should the sound be delayed relative to preparation or actual attack? |
+| DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the sound be delayed relative to preparation or actual attack? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CaptureNotification
@@ -7008,7 +7008,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Voice | *(required)* | String | Voice to play. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | Player relationships who can hear this voice. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can hear this voice. |
 | PlayToOwner | True | Boolean | Play the voice to the owning player even if Stance.Ally is not included in ValidStances. |
 | OneShot | False | Boolean | Disable the announcement after it has been triggered. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -7066,8 +7066,8 @@ If 2 values are provided they are used as a range from which a value is randomly
 | TileUnsafeName | build-unsafe | String | Sprite overlay to use for blocked cells. |
 | Animated | True | Boolean | Enable the building's idle animation. |
 | PreviewAlpha | 1 | Real Number | Custom opacity to apply to the actor preview. |
-| FootprintUnderPreview | Valid, LineBuild | PlaceBuildingCellType | Footprint types to draw underneath the actor preview. |
-| FootprintOverPreview | Invalid | PlaceBuildingCellType | Footprint types to draw above the actor preview. |
+| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
+| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
 | Palette | terrain | String | Palette to use for rendering the placement sprite. |
 | FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
@@ -7158,7 +7158,7 @@ If 2 values are provided they are used as a range from which a value is randomly
 | ConcreteTemplate | 88 | UInt16 | The terrain template to place when adding a concrete foundation. If the template is PickAny, then the actor footprint will be filled with this tile. |
 | ConcretePrerequisites |  | Collection of String | List of required prerequisites to place a terrain template. |
 | TerrainTypes |  | Set of String | Where you are allowed to place the building (Water, Clear, ...) |
-| Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
+| Footprint |  | Dictionary with Key: 2D Cell Vector, Value: FootprintCellType (enum) | x means cell is blocked, capital X means blocked but not counting as targetable,  = means part of the footprint but passable, _ means completely empty. |
 | Dimensions | 1,1 | 2D Cell Vector |  |
 | LocalCenterOffset | 0,0,0 | 3D World Vector | Shift center of the actor by this offset. |
 | RequiresBaseProvider | False | Boolean |  |
@@ -7256,3 +7256,153 @@ If 2 values are provided they are used as a range from which a value is randomly
 | -------- | ------------- | ---- | ----------- |
 | MinMultiplier | -3,-3 | 2D Real Number |  |
 | MaxMultiplier | 3,3 | 2D Real Number |  |
+
+#
+# Related enums:
+
+
+#### PlayerRelationship
+{ None: 0, Enemy: 1, Neutral: 2, Ally: 4 }
+
+#
+
+#### RevealDisguiseType
+{ None: 0, Attack: 1, Damaged: 2, Unload: 4, Infiltrate: 8, Demolish: 16, Move: 32 }
+
+#
+
+#### EnterBehaviour
+{ Exit: 0, Suicide: 1, Dispose: 2 }
+
+#
+
+#### NormalType
+{ TiberianSun: 2, RedAlert2: 4 }
+
+#
+
+#### IdleBehaviorType
+{ None: 0, Land: 1, ReturnToBase: 2, LeaveMap: 3, LeaveMapAtClosestEdge: 4 }
+
+#
+
+#### AirAttackType
+{ Default: 0, Hover: 1, Strafe: 2 }
+
+#
+
+#### UnitStance
+{ HoldFire: 0, ReturnFire: 1, Defend: 2, AttackAnything: 3 }
+
+#
+
+#### PlaceBuildingCellType
+{ None: 0, Valid: 1, Invalid: 2, LineBuild: 4 }
+
+#
+
+#### DamageState
+{ Undamaged: 1, Light: 2, Medium: 4, Heavy: 8, Critical: 16, Dead: 32 }
+
+#
+
+#### UncloakType
+{ None: 0, Attack: 1, Move: 2, Unload: 4, Infiltrate: 8, Demolish: 16, Damage: 32, Heal: 64, SelfHeal: 128, Dock: 256 }
+
+#
+
+#### LineBuildDirection
+{ Unset: 0, X: 1, Y: 2 }
+
+#
+
+#### MovementType
+{ None: 0, Horizontal: 1, Vertical: 2, Turn: 4 }
+
+#
+
+#### PowerState
+{ Normal: 1, Low: 2, Critical: 4 }
+
+#
+
+#### VisibilityType
+{ Footprint: 0, CenterPosition: 1, GroundPosition: 2 }
+
+#
+
+#### DamageSource
+{ Self: 0, Killer: 1 }
+
+#
+
+#### ExplosionType
+{ Footprint: 0, CenterPosition: 1 }
+
+#
+
+#### SelectionPriorityModifiers
+{ None: 0, Ctrl: 1, Alt: 2 }
+
+#
+
+#### OwnerLostActionType
+{ ChangeOwner: 0, Dispose: 1, Kill: 2 }
+
+#
+
+#### EffectType
+{ None: 0, Black: 1, Desaturated: 2 }
+
+#
+
+#### OwnerType
+{ Victim: 0, Killer: 1, InternalName: 2 }
+
+#
+
+#### ElevatedBridgePlaceholderOrientation
+{ X: 0, Y: 1 }
+
+#
+
+#### ActorFlashType
+{ Overlay: 0, Tint: 1 }
+
+#
+
+#### BlendMode
+{ None: 0, Alpha: 1, Additive: 2, Subtractive: 3, Multiply: 4, Multiplicative: 5, DoubleMultiplicative: 6, LowAdditive: 7, Screen: 8, Translucent: 9 }
+
+#
+
+#### TrailType
+{ Cell: 0, CenterPosition: 1 }
+
+#
+
+#### DetectionCircleVisibility
+{ Always: 0, WhenSelected: 1 }
+
+#
+
+#### RangeCircleMode
+{ Maximum: 0, Minimum: 1 }
+
+#
+
+#### AttackDelayType
+{ Preparation: 0, Attack: 1 }
+
+#
+
+#### RangeCircleVisibility
+{ Always: 0, WhenSelected: 1 }
+
+#
+
+#### ResupplyType
+{ None: 0, Rearm: 1, Repair: 2 }
+
+#
+

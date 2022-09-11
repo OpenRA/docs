@@ -1,6 +1,7 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220903` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220911` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
+Related enums with their possible values are listed ([at the bottom](#related-enums)).
 
 ## OpenRA.GameRules
 
@@ -34,14 +35,14 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Image | litning | String |  |
-| BrightSequence | bright | String |  |
-| DimSequence | dim | String |  |
-| Palette | effect | String |  |
-| BrightZaps | 1 | Integer |  |
-| DimZaps | 2 | Integer |  |
-| Duration | 2 | Integer |  |
-| DamageDuration | 1 | Integer |  |
-| TrackTarget | True | Boolean |  |
+| BrightSequence | bright | String | Sprite sequence to play at the center. |
+| DimSequence | dim | String | Sprite sequence to play at the borders. |
+| Palette | effect | String | The palette used to draw this electric zap. |
+| BrightZaps | 1 | Integer | How many sprite sequences to play at the center. |
+| DimZaps | 2 | Integer | How many sprite sequences to play at the borders. |
+| Duration | 2 | Integer | How long (in ticks) to play the sprite sequences. |
+| DamageDuration | 1 | Integer | How long (in ticks) until applying damage. Can't be longer than `Duration` |
+| TrackTarget | True | Boolean | Follow the targeted actor when it moves. |
 
 ## OpenRA.Mods.Common.Projectiles
 
@@ -54,12 +55,12 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Duration | 10 | Integer | The maximum duration (in ticks) of each beam burst. |
 | DamageInterval | 3 | Integer | The number of ticks between the beam causing warhead impacts in its area of effect. |
 | Width | 0c512 | 1D World Distance | The width of the beam. |
-| Shape | Cylindrical | BeamRenderableShape | The shape of the beam.  Accepts values Cylindrical or Flat. |
+| Shape | Cylindrical | [`BeamRenderableShape`](#beamrenderableshape) | The shape of the beam.  Accepts values Cylindrical or Flat. |
 | BeyondTargetRange | 0c0 | 1D World Distance | How far beyond the target the projectile keeps on travelling. |
 | Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
 | Range | 0c0, 2097151c1023 | Collection of 1D World Distance | Ranges at which each Falloff step is defined. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. |
 | TrackTarget | False | Boolean | Does the beam follow the target. |
 | RenderBeam | True | Boolean | Should the beam be visually rendered? False = Beam is invisible. |
@@ -74,7 +75,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | -------- | ------------- | ---- | ----------- |
 | Speed | 0c17 | Collection of 1D World Distance | Projectile speed in WDist / tick, two values indicate variable velocity. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | Image |  | String | Image to display. |
 | Sequences | idle | Collection of String | Loop a randomly chosen sequence of Image from this list while this projectile is moving. |
 | Palette | effect | String | The palette used to draw this projectile. |
@@ -94,7 +95,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | BounceRangeModifier | 60 | Integer | Modify distance of each bounce by this percentage of previous distance. |
 | BounceSound |  | String | Sound to play when the projectile hits the ground, but not the target. |
 | InvalidBounceTerrain |  | Set of String | Terrain where the projectile explodes instead of bouncing. |
-| ValidBounceBlockerRelationships | Enemy, Neutral | PlayerRelationship | Trigger the explosion if the projectile touches an actor thats owner has these player relationships. |
+| ValidBounceBlockerRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Trigger the explosion if the projectile touches an actor thats owner has these player relationships. |
 | AirburstAltitude | 0c0 | 1D World Distance | Altitude above terrain below which to explode. Zero effectively deactivates airburst. |
 | ContrailLength | 0 | Integer |  |
 | ContrailZOffset | 2047 | Integer |  |
@@ -124,7 +125,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Projectile can be blocked. |
 | Width | 0c1 | 1D World Distance | The width of the projectile. |
 | BlockerScanRadius | -0c1 | 1D World Distance | Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. |
@@ -135,7 +136,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Width | 0c86 | 1D World Distance | The width of the zap. |
-| Shape | Cylindrical | BeamRenderableShape | The shape of the beam.  Accepts values Cylindrical or Flat. |
+| Shape | Cylindrical | [`BeamRenderableShape`](#beamrenderableshape) | The shape of the beam.  Accepts values Cylindrical or Flat. |
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
 | Duration | 10 | Integer | The maximum duration (in ticks) of the beam's existence. |
 | DamageDuration | 1 | Integer | Total time-frame in ticks that the beam deals damage every DamageInterval. |
@@ -144,11 +145,11 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Color | FF0000 | Color (RRGGBB[AA] notation) | Color of the beam. |
 | TrackTarget | True | Boolean | Beam follows the target. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Beam can be blocked. |
 | SecondaryBeam | False | Boolean | Draw a second beam (for 'glow' effect). |
 | SecondaryBeamWidth | 0c86 | 1D World Distance | The width of the zap. |
-| SecondaryBeamShape | Cylindrical | BeamRenderableShape | The shape of the beam.  Accepts values Cylindrical or Flat. |
+| SecondaryBeamShape | Cylindrical | [`BeamRenderableShape`](#beamrenderableshape) | The shape of the beam.  Accepts values Cylindrical or Flat. |
 | SecondaryBeamZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
 | SecondaryBeamUsePlayerColor | False | Boolean |  |
 | SecondaryBeamColor | FF0000 | Color (RRGGBB[AA] notation) | Color of the secondary beam. |
@@ -181,7 +182,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | TerrainHeightAware | False | Boolean | Is the missile aware of terrain height levels. Only needed for mods with real, non-visual height levels. |
 | Width | 0c1 | 1D World Distance | Width of projectile (used for finding blocking actors). |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Absolute | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Absolute | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | LockOnInaccuracy | -0c1 | 1D World Distance | Inaccuracy override when successfully locked onto target. Defaults to Inaccuracy if negative. |
 | LockOnProbability | 100 | Integer | Probability of locking onto and following target. |
 | HorizontalRateOfTurn | 20 | 1D World Angle | Horizontal rate of turn. |
@@ -217,12 +218,12 @@ Listed below are a template for weapon definitions and the types it can use (war
 | -------- | ------------- | ---- | ----------- |
 | DamageActorsInLine | False | Boolean | Damage all units hit by the beam instead of just the target? |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | InaccuracyType | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. |
 | Duration | 15 | Integer | Duration of the beam and helix |
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
 | BeamWidth | 0c86 | 1D World Distance | The width of the main trajectory. ("beam"). |
-| BeamShape | Cylindrical | BeamRenderableShape | The shape of the beam.  Accepts values Cylindrical or Flat. |
+| BeamShape | Cylindrical | [`BeamRenderableShape`](#beamrenderableshape) | The shape of the beam.  Accepts values Cylindrical or Flat. |
 | BeamColor | FFFFFF80 | Color (RRGGBB[AA] notation) | Beam color in (A),R,G,B. |
 | BeamPlayerColor | False | Boolean | When true, this will override BeamColor parameter and draw the laser with player color. (Still uses BeamColor's alpha information) |
 | BeamAlphaDeltaPerTick | -8 | Integer | Beam alpha gets + this value per tick during drawing; hence negative value makes it fade over time. |
@@ -250,7 +251,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Range | 1c0 | 1D World Distance |  |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -272,7 +273,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Inaccuracy | 0c0 | 1D World Distance | The maximum inaccuracy of the effect spawn position relative to actual impact position. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -287,7 +288,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | AddsResourceType | *(required)* | String | Will this splatter resources and which? |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -303,7 +304,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | ResourceTypes |  | Set of String | Resource types to remove with this warhead. If empty, all resource types will be removed. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -320,7 +321,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Footprint | *(required)* | String | Cluster footprint. Cells marked as X will be attacked. Cells marked as x will be attacked randomly until RandomClusterCount is reached. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -335,7 +336,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Duration | 0 | Integer | Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPaletteEffect`. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -351,7 +352,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Range | 1c0 | 1D World Distance |  |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -369,7 +370,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Versus |  | Dictionary with Key: String, Value: Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -385,7 +386,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Chance | 100 | Integer | Percentage chance the smudge is created. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -401,7 +402,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Multiplier | 0,0 | 2D Real Number | Shake multipliers by the X and Y axis, comma-separated. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -416,13 +417,13 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Spread | 0c43 | 1D World Distance | Range between falloff steps. |
 | Falloff | 100, 37, 14, 5, 0 | Collection of Integer | Damage percentage at each range step |
 | Range |  | Collection of 1D World Distance | Ranges at which each Falloff step is defined. Overrides Spread. |
-| DamageCalculationType | HitShape | DamageCalculationType | Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. |
+| DamageCalculationType | HitShape | [`DamageCalculationType`](#damagecalculationtype) | Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. |
 | Damage | 0 | Integer | How much (raw) damage to deal. |
 | DamageTypes |  | Collection of DamageType | Types of damage that this warhead causes. Leave empty for no damage types. |
 | Versus |  | Dictionary with Key: String, Value: Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -440,7 +441,7 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Versus |  | Dictionary with Key: String, Value: Integer | Damage percentage versus each armor type. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
@@ -456,8 +457,33 @@ Listed below are a template for weapon definitions and the types it can use (war
 | Damage | 0 | Integer | How much damage to deal. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
-| ValidRelationships | Enemy, Neutral, Ally | PlayerRelationship | What player relationships are affected. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
 | AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
 | AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
+
+#
+# Related enums:
+
+
+#### BeamRenderableShape
+{ Cylindrical: 0, Flat: 1 }
+
+#
+
+#### InaccuracyType
+{ Maximum: 0, PerCellIncrement: 1, Absolute: 2 }
+
+#
+
+#### PlayerRelationship
+{ None: 0, Enemy: 1, Neutral: 2, Ally: 4 }
+
+#
+
+#### DamageCalculationType
+{ HitShape: 0, ClosestTargetablePosition: 1, CenterPosition: 2 }
+
+#
+

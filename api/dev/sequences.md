@@ -1,6 +1,7 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220903` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220911` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
+Related enums with their possible values are listed ([at the bottom](#related-enums)).
 
 ## OpenRA.Mods.Cnc.Graphics
 
@@ -48,7 +49,7 @@ Listed below are all sprite sequence types with their properties and their defau
 | FlipX | False | Boolean | Mirror on the X axis. |
 | FlipY | False | Boolean | Mirror on the Y axis. |
 | Offset | 0,0,0 | float3 | Change the position in-game on X, Y, Z. |
-| BlendMode | Alpha | BlendMode | Apply an OpenGL/Photoshop inspired blend mode. |
+| BlendMode | Alpha | [`BlendMode`](#blendmode) | Apply an OpenGL/Photoshop inspired blend mode. |
 | Combine |  | MiniYaml | Allows to append multiple sequence definitions which are indented below this node like when offsets differ per frame or a sequence is spread across individual files. |
 | Alpha |  | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
 | AlphaFade | False | Boolean | Fade the animation from fully opaque on the first frame to fully transparent after the last frame. |
@@ -67,3 +68,13 @@ Listed below are all sprite sequence types with their properties and their defau
 | UseTilesetCode | False | Boolean | Use `TilesetCodes` as defined in `mod.yaml` to add a letter as a second character into the sprite filename like the Westwood 2.5D titles did for tileset-specific variants. |
 | AddExtension | True | Boolean | Append a tileset-specific extension to the file name - either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) or the default hardcoded one for this sequence type (.shp). |
 | UseTilesetExtension | False | Boolean | Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name. |
+
+#
+# Related enums:
+
+
+#### BlendMode
+{ None: 0, Alpha: 1, Additive: 2, Subtractive: 3, Multiply: 4, Multiplicative: 5, DoubleMultiplicative: 6, LowAdditive: 7, Screen: 8, Translucent: 9 }
+
+#
+
