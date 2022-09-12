@@ -1,4 +1,4 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220911` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220912` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related enums with their possible values are listed ([at the bottom](#related-enums)).
@@ -463,27 +463,17 @@ Related enums with their possible values are listed ([at the bottom](#related-en
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
-#
 # Related enums:
 
-
 #### BeamRenderableShape
-{ Cylindrical: 0, Flat: 1 }
-
-#
+Cylindrical, Flat
 
 #### InaccuracyType
-{ Maximum: 0, PerCellIncrement: 1, Absolute: 2 }
-
-#
+Maximum, PerCellIncrement, Absolute
 
 #### PlayerRelationship
-{ None: 0, Enemy: 1, Neutral: 2, Ally: 4 }
-
-#
+None, Enemy, Neutral, Ally
 
 #### DamageCalculationType
-{ HitShape: 0, ClosestTargetablePosition: 1, CenterPosition: 2 }
-
-#
+HitShape, ClosestTargetablePosition, CenterPosition
 

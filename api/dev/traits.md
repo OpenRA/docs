@@ -1,4 +1,4 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220911` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220912` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related enums with their possible values are listed ([at the bottom](#related-enums)).
@@ -7257,152 +7257,92 @@ Related enums with their possible values are listed ([at the bottom](#related-en
 | MinMultiplier | -3,-3 | 2D Real Number |  |
 | MaxMultiplier | 3,3 | 2D Real Number |  |
 
-#
 # Related enums:
 
-
 #### PlayerRelationship
-{ None: 0, Enemy: 1, Neutral: 2, Ally: 4 }
-
-#
+None, Enemy, Neutral, Ally
 
 #### RevealDisguiseType
-{ None: 0, Attack: 1, Damaged: 2, Unload: 4, Infiltrate: 8, Demolish: 16, Move: 32 }
-
-#
+None, Attack, Damaged, Unload, Infiltrate, Demolish, Move
 
 #### EnterBehaviour
-{ Exit: 0, Suicide: 1, Dispose: 2 }
-
-#
+Exit, Suicide, Dispose
 
 #### NormalType
-{ TiberianSun: 2, RedAlert2: 4 }
-
-#
+TiberianSun, RedAlert2
 
 #### IdleBehaviorType
-{ None: 0, Land: 1, ReturnToBase: 2, LeaveMap: 3, LeaveMapAtClosestEdge: 4 }
-
-#
+None, Land, ReturnToBase, LeaveMap, LeaveMapAtClosestEdge
 
 #### AirAttackType
-{ Default: 0, Hover: 1, Strafe: 2 }
-
-#
+Default, Hover, Strafe
 
 #### UnitStance
-{ HoldFire: 0, ReturnFire: 1, Defend: 2, AttackAnything: 3 }
-
-#
+HoldFire, ReturnFire, Defend, AttackAnything
 
 #### PlaceBuildingCellType
-{ None: 0, Valid: 1, Invalid: 2, LineBuild: 4 }
-
-#
+None, Valid, Invalid, LineBuild
 
 #### DamageState
-{ Undamaged: 1, Light: 2, Medium: 4, Heavy: 8, Critical: 16, Dead: 32 }
-
-#
+Undamaged, Light, Medium, Heavy, Critical, Dead
 
 #### UncloakType
-{ None: 0, Attack: 1, Move: 2, Unload: 4, Infiltrate: 8, Demolish: 16, Damage: 32, Heal: 64, SelfHeal: 128, Dock: 256 }
-
-#
+None, Attack, Move, Unload, Infiltrate, Demolish, Damage, Heal, SelfHeal, Dock
 
 #### LineBuildDirection
-{ Unset: 0, X: 1, Y: 2 }
-
-#
+Unset, X, Y
 
 #### MovementType
-{ None: 0, Horizontal: 1, Vertical: 2, Turn: 4 }
-
-#
+None, Horizontal, Vertical, Turn
 
 #### PowerState
-{ Normal: 1, Low: 2, Critical: 4 }
-
-#
+Normal, Low, Critical
 
 #### VisibilityType
-{ Footprint: 0, CenterPosition: 1, GroundPosition: 2 }
-
-#
+Footprint, CenterPosition, GroundPosition
 
 #### DamageSource
-{ Self: 0, Killer: 1 }
-
-#
+Self, Killer
 
 #### ExplosionType
-{ Footprint: 0, CenterPosition: 1 }
-
-#
+Footprint, CenterPosition
 
 #### SelectionPriorityModifiers
-{ None: 0, Ctrl: 1, Alt: 2 }
-
-#
+None, Ctrl, Alt
 
 #### OwnerLostActionType
-{ ChangeOwner: 0, Dispose: 1, Kill: 2 }
-
-#
+ChangeOwner, Dispose, Kill
 
 #### EffectType
-{ None: 0, Black: 1, Desaturated: 2 }
-
-#
+None, Black, Desaturated
 
 #### OwnerType
-{ Victim: 0, Killer: 1, InternalName: 2 }
-
-#
+Victim, Killer, InternalName
 
 #### ElevatedBridgePlaceholderOrientation
-{ X: 0, Y: 1 }
-
-#
+X, Y
 
 #### ActorFlashType
-{ Overlay: 0, Tint: 1 }
-
-#
+Overlay, Tint
 
 #### BlendMode
-{ None: 0, Alpha: 1, Additive: 2, Subtractive: 3, Multiply: 4, Multiplicative: 5, DoubleMultiplicative: 6, LowAdditive: 7, Screen: 8, Translucent: 9 }
-
-#
+None, Alpha, Additive, Subtractive, Multiply, Multiplicative, DoubleMultiplicative, LowAdditive, Screen, Translucent
 
 #### TrailType
-{ Cell: 0, CenterPosition: 1 }
-
-#
+Cell, CenterPosition
 
 #### DetectionCircleVisibility
-{ Always: 0, WhenSelected: 1 }
-
-#
+Always, WhenSelected
 
 #### RangeCircleMode
-{ Maximum: 0, Minimum: 1 }
-
-#
+Maximum, Minimum
 
 #### AttackDelayType
-{ Preparation: 0, Attack: 1 }
-
-#
+Preparation, Attack
 
 #### RangeCircleVisibility
-{ Always: 0, WhenSelected: 1 }
-
-#
+Always, WhenSelected
 
 #### ResupplyType
-{ None: 0, Rearm: 1, Repair: 2 }
-
-#
+None, Rearm, Repair
 
