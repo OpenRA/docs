@@ -470,12 +470,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### BeamRenderableShape
 Possible values: `Cylindrical`, `Flat`
 
+Referenced by: [`LaserZap`](#laserzap), [`AreaBeam`](#areabeam), [`Railgun`](#railgun)
+
 ### InaccuracyType
 Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
+
+Referenced by: [`Missile`](#missile), [`Railgun`](#railgun), [`AreaBeam`](#areabeam), [`InstantHit`](#instanthit), [`LaserZap`](#laserzap), [`Bullet`](#bullet)
 
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
+Referenced by: [`TargetDamageWarhead`](#targetdamagewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`DamagesConcreteWarhead`](#damagesconcretewarhead), [`Bullet`](#bullet), [`ShakeScreenWarhead`](#shakescreenwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`ChangeOwnerWarhead`](#changeownerwarhead), [`FlashPaletteEffectWarhead`](#flashpaletteeffectwarhead)
+
 ### DamageCalculationType
 Possible values: `HitShape`, `ClosestTargetablePosition`, `CenterPosition`
+
+Referenced by: [`SpreadDamageWarhead`](#spreaddamagewarhead)
 

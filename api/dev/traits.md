@@ -7264,87 +7264,145 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
+Referenced by: [`Gate`](#gate), [`CreatesShroud`](#createsshroud), [`AttackOrderPower`](#attackorderpower), [`Capturable`](#capturable), [`VoiceAnnouncement`](#voiceannouncement), [`RevealsShroud`](#revealsshroud), [`DropPodsPower`](#droppodspower), [`FrozenUnderFog`](#frozenunderfog), [`RevealsMap`](#revealsmap), [`WithBuildingRepairDecoration`](#withbuildingrepairdecoration), [`Disguise`](#disguise), [`Infiltrates`](#infiltrates), [`Tooltip`](#tooltip), [`HiddenUnderFog`](#hiddenunderfog), [`GrantPrerequisiteChargeDrainPower`](#grantprerequisitechargedrainpower), [`AcceptsDeliveredCash`](#acceptsdeliveredcash), [`RevealOnDeath`](#revealondeath), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealOnFire`](#revealonfire), [`WithTextDecoration`](#withtextdecoration), [`ParatroopersPower`](#paratrooperspower), [`EngineerRepair`](#engineerrepair), [`WithAmmoPipsDecoration`](#withammopipsdecoration), [`ChronoshiftPower`](#chronoshiftpower), [`GivesBounty`](#givesbounty), [`DisguiseTooltip`](#disguisetooltip), [`IonCannonPower`](#ioncannonpower), [`AutoTargetPriority`](#autotargetpriority), [`Captures`](#captures), [`GivesExperience`](#givesexperience), [`CaptureManagerBotModule`](#capturemanagerbotmodule), [`BlocksProjectiles`](#blocksprojectiles), [`NukePower`](#nukepower), [`WithRangeCircle`](#withrangecircle), [`ProduceActorPower`](#produceactorpower), [`SupportPowerChargeBar`](#supportpowerchargebar), [`CashTricklerBar`](#cashtricklerbar), [`WithCargoPipsDecoration`](#withcargopipsdecoration), [`AirstrikePower`](#airstrikepower), [`InfiltrateForDecoration`](#infiltratefordecoration), [`WithNameTagDecoration`](#withnametagdecoration), [`GpsPower`](#gpspower), [`WithDecoration`](#withdecoration), [`JamsMissiles`](#jamsmissiles), [`AppearsOnRadar`](#appearsonradar), [`WithHarvesterPipsDecoration`](#withharvesterpipsdecoration), [`Demolition`](#demolition), [`SpawnActorPower`](#spawnactorpower), [`ProximityExternalCondition`](#proximityexternalcondition), [`TooltipDescription`](#tooltipdescription), [`AcceptsDeliveredExperience`](#acceptsdeliveredexperience), [`Armament`](#armament), [`GrantExternalConditionPower`](#grantexternalconditionpower), [`WithResourceStoragePipsDecoration`](#withresourcestoragepipsdecoration)
+
 ### RevealDisguiseType
 Possible values: `None`, `Attack`, `Damaged`, `Unload`, `Infiltrate`, `Demolish`, `Move`
+
+Referenced by: [`Disguise`](#disguise)
 
 ### EnterBehaviour
 Possible values: `Exit`, `Suicide`, `Dispose`
 
+Referenced by: [`RepairsBridges`](#repairsbridges), [`EngineerRepair`](#engineerrepair), [`Infiltrates`](#infiltrates), [`Demolition`](#demolition)
+
 ### NormalType
 Possible values: `TiberianSun`, `RedAlert2`
+
+Referenced by: [`VoxelNormalsPalette`](#voxelnormalspalette)
 
 ### IdleBehaviorType
 Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`
 
+Referenced by: [`Aircraft`](#aircraft)
+
 ### AirAttackType
 Possible values: `Default`, `Hover`, `Strafe`
+
+Referenced by: [`AttackAircraft`](#attackaircraft)
 
 ### UnitStance
 Possible values: `HoldFire`, `ReturnFire`, `Defend`, `AttackAnything`
 
+Referenced by: [`AutoTarget`](#autotarget)
+
 ### PlaceBuildingCellType
 Possible values: `None`, `Valid`, `Invalid`, `LineBuild`
+
+Referenced by: [`D2kActorPreviewPlaceBuildingPreview`](#d2kactorpreviewplacebuildingpreview), [`SequencePlaceBuildingPreview`](#sequenceplacebuildingpreview), [`ActorPreviewPlaceBuildingPreview`](#actorpreviewplacebuildingpreview)
 
 ### DamageState
 Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
 
+Referenced by: [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`BridgePlaceholder`](#bridgeplaceholder), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`WithDamageOverlay`](#withdamageoverlay)
+
 ### UncloakType
 Possible values: `None`, `Attack`, `Move`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`
+
+Referenced by: [`Cloak`](#cloak)
 
 ### LineBuildDirection
 Possible values: `Unset`, `X`, `Y`
 
+Referenced by: [`GrantConditionOnLineBuildDirection`](#grantconditiononlinebuilddirection)
+
 ### MovementType
 Possible values: `None`, `Horizontal`, `Vertical`, `Turn`
+
+Referenced by: [`GrantConditionOnMovement`](#grantconditiononmovement), [`WithMoveAnimation`](#withmoveanimation)
 
 ### PowerState
 Possible values: `Normal`, `Low`, `Critical`
 
+Referenced by: [`GrantConditionOnPowerState`](#grantconditiononpowerstate)
+
 ### VisibilityType
 Possible values: `Footprint`, `CenterPosition`, `GroundPosition`
+
+Referenced by: [`CreatesShroud`](#createsshroud), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealsShroud`](#revealsshroud), [`HiddenUnderFog`](#hiddenunderfog)
 
 ### DamageSource
 Possible values: `Self`, `Killer`
 
+Referenced by: [`Explodes`](#explodes)
+
 ### ExplosionType
 Possible values: `Footprint`, `CenterPosition`
+
+Referenced by: [`Explodes`](#explodes)
 
 ### SelectionPriorityModifiers
 Possible values: `None`, `Ctrl`, `Alt`
 
+Referenced by: [`IsometricSelectable`](#isometricselectable), [`Selectable`](#selectable)
+
 ### OwnerLostActionType
 Possible values: `ChangeOwner`, `Dispose`, `Kill`
+
+Referenced by: [`OwnerLostAction`](#ownerlostaction)
 
 ### EffectType
 Possible values: `None`, `Black`, `Desaturated`
 
+Referenced by: [`MenuPaletteEffect`](#menupaletteeffect)
+
 ### OwnerType
 Possible values: `Victim`, `Killer`, `InternalName`
+
+Referenced by: [`SpawnActorOnDeath`](#spawnactorondeath)
 
 ### ElevatedBridgePlaceholderOrientation
 Possible values: `X`, `Y`
 
+Referenced by: [`ElevatedBridgePlaceholder`](#elevatedbridgeplaceholder)
+
 ### ActorFlashType
 Possible values: `Overlay`, `Tint`
+
+Referenced by: [`OrderEffects`](#ordereffects)
 
 ### BlendMode
 Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 
+Referenced by: [`ShroudRenderer`](#shroudrenderer)
+
 ### TrailType
 Possible values: `Cell`, `CenterPosition`
+
+Referenced by: [`LeavesTrails`](#leavestrails)
 
 ### DetectionCircleVisibility
 Possible values: `Always`, `WhenSelected`
 
+Referenced by: [`RenderDetectionCircle`](#renderdetectioncircle)
+
 ### RangeCircleMode
 Possible values: `Maximum`, `Minimum`
+
+Referenced by: [`RenderRangeCircle`](#renderrangecircle)
 
 ### AttackDelayType
 Possible values: `Preparation`, `Attack`
 
+Referenced by: [`WithAttackOverlay`](#withattackoverlay), [`AttackSounds`](#attacksounds), [`WithTurretAttackAnimation`](#withturretattackanimation), [`WithAttackAnimation`](#withattackanimation)
+
 ### RangeCircleVisibility
 Possible values: `Always`, `WhenSelected`
 
+Referenced by: [`WithRangeCircle`](#withrangecircle)
+
 ### ResupplyType
 Possible values: `None`, `Rearm`, `Repair`
+
+Referenced by: [`WithResupplyAnimation`](#withresupplyanimation)
 

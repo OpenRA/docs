@@ -3,7 +3,7 @@ This documentation is aimed at modders and has been automatically generated for 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
 
-# Sprite Sequences:
+# Sprite sequences:
 
 ## OpenRA.Mods.Cnc.Graphics
 
@@ -75,4 +75,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### BlendMode
 Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
+
+Referenced by: [`DefaultSpriteSequence`](#defaultspritesequence)
 
