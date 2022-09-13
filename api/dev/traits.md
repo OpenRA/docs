@@ -1,7 +1,9 @@
 This documentation is aimed at modders and has been automatically generated for version `dev-20220913` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
-Related enums with their possible values are listed [at the bottom](#related-enums).
+Related types with their possible values are listed [at the bottom](#related-value-types-enums).
+
+# Traits:
 
 ## OpenRA.Mods.Cnc.Traits
 
@@ -7257,7 +7259,7 @@ Related enums with their possible values are listed [at the bottom](#related-enu
 | MinMultiplier | -3,-3 | 2D Real Number |  |
 | MaxMultiplier | 3,3 | 2D Real Number |  |
 
-# Related value types:
+# Related value types (enums):
 
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
