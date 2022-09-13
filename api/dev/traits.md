@@ -29,6 +29,67 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### AttackOrderPower
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+###### Requires trait(s): `AttackBase`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CircleColor | FF0000 | Color (RRGGBB[AA] notation) | Range circle color. |
+| CircleWidth | 1 | Real Number | Range circle line width. |
+| CircleBorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
+| CircleBorderWidth | 3 | Real Number | Range circle border width. |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | AttackOrderPowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### AttackPopupTurreted
 **Actor's turret rises from the ground before attacking.**
 ###### Inherits from: [`AttackTurreted`](#attackturreted), [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
@@ -108,35 +169,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### ClonesProducedUnits
-**Creates a free duplicate of produced units.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Exit`](#exit), [`Production`](#production).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CloneableTypes | *(required)* | Collection of CloneableType | Uses the "Cloneable" trait to determine whether or not we should clone a produced unit. |
-| ProductionType | *(required)* | String | e.g. Infantry, Vehicles, Aircraft, Buildings |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TiberianSunRefinery
-###### Inherits from: [`Refinery`](#refinery).
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DockAngle | 0 | 1D World Angle | Actual harvester facing when docking. |
-| DockOffset | 0,0 | 2D Cell Vector | Docking cell relative to top-left cell. |
-| IsDragRequired | False | Boolean | Does the refinery require the harvester to be dragged in? |
-| DragOffset | 0,0,0 | 3D World Vector | Vector by which the harvester will be dragged when docking. |
-| DragLength | 0 | Integer | In how many steps to perform the dragging? |
-| UseStorage | True | Boolean | Store resources in silos. Adds cash directly without storing if set to false. |
-| DiscardExcessResources | False | Boolean | Discard resources once silo capacity has been reached. |
-| ShowTicks | True | Boolean |  |
-| TickLifetime | 30 | Integer |  |
-| TickVelocity | 2 | Integer |  |
-| TickRate | 10 | Integer |  |
-
 ### Chronoshiftable
 **Can be teleported via Chronoshift power.**
 ###### Inherits from: `ConditionalTrait`.
@@ -148,6 +180,81 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ChronoshiftSound | chrono2.aud | String |  |
 | ReturnToOrigin | True | Boolean | Should the actor return to its previous location after the chronoshift wore out? |
 | TimeBarColor | FFFFFF | Color (RRGGBB[AA] notation) | The color the bar of the 'return-to-origin' logic has. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ChronoshiftPaletteEffect
+**Apply palette full screen rotations during chronoshifts. Add this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ChronoEffectLength | 60 | Integer | Measured in ticks. |
+
+### ChronoshiftPower
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
+| Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
+| Duration | 750 | Integer | Ticks until returning after teleportation. |
+| TargetOverlayPalette | terrain | String |  |
+| FootprintImage | overlay | String |  |
+| ValidFootprintSequence | target-valid | String |  |
+| InvalidFootprintSequence | target-invalid | String |  |
+| SourceFootprintSequence | target-select | String |  |
+| KillCargo | True | Boolean |  |
+| SelectionCursor | chrono-select | String | Cursor to display when selecting targets for the chronoshift. |
+| TargetCursor | chrono-target | String | Cursor to display when targeting an area for the chronoshift. |
+| TargetBlockedCursor | move-blocked | String | Cursor to display when the targeted area is blocked. |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | ChronoshiftPowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ClassicFacingBodyOrientation
@@ -167,6 +274,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Types | *(required)* | Collection of CloneableType | This unit's cloneable type is: |
 
+### ClonesProducedUnits
+**Creates a free duplicate of produced units.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Exit`](#exit), [`Production`](#production).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CloneableTypes | *(required)* | Collection of CloneableType | Uses the "Cloneable" trait to determine whether or not we should clone a produced unit. |
+| ProductionType | *(required)* | String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### ConyardChronoReturn
 **Implements the special case handling for the Chronoshiftable return on a construction yard. If ReturnOriginalActorOnCondition evaluates true and the actor is not being sold then OriginalActor will be returned to the origin. Otherwise, a vortex animation is played and damage is dealt each tick, ignoring modifiers.**
 ###### Requires trait(s): [`Health`](#health), [`WithSpriteBody`](#withspritebody).
@@ -183,6 +301,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Facing | 384 | 1D World Angle | Facing of the returned actor. |
 | ChronoshiftSound | chrono2.aud | String |  |
 | TimeBarColor | FFFFFF | Color (RRGGBB[AA] notation) | The color the bar of the 'return-to-origin' logic has. |
+
+### Disguise
+**Provides access to the disguise command, which makes the actor appear to be another player's actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Voice | Action | String |  |
+| DisguisedCondition |  | String | The condition to grant to self while disguised. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the disguise target needs. |
+| TargetTypes | Disguise | Collection of TargetableType | Target types of actors that this actor disguise as. |
+| RevealDisguiseOn | Attack | [`RevealDisguiseType`](#revealdisguisetype) | Triggers which cause the actor to drop it's disguise. Possible values: None, Attack, Damaged, Unload, Infiltrate, Demolish, Move. |
+| DisguisedAsConditions |  | Dictionary with Key: String, Value: String | Conditions to grant when disguised as specified actor. A dictionary of [actor id]: [condition]. |
+| Cursor | ability | String | Cursor to display when hovering over a valid actor to disguise as. |
 
 ### DisguiseTooltip
 **Overrides the default Tooltip when this actor is disguised (aids in deceiving enemy players).**
@@ -201,19 +332,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Name |  | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### Disguise
-**Provides access to the disguise command, which makes the actor appear to be another player's actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Voice | Action | String |  |
-| DisguisedCondition |  | String | The condition to grant to self while disguised. |
-| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the disguise target needs. |
-| TargetTypes | Disguise | Collection of TargetableType | Target types of actors that this actor disguise as. |
-| RevealDisguiseOn | Attack | [`RevealDisguiseType`](#revealdisguisetype) | Triggers which cause the actor to drop it's disguise. Possible values: None, Attack, Damaged, Unload, Infiltrate, Demolish, Move. |
-| DisguisedAsConditions |  | Dictionary with Key: String, Value: String | Conditions to grant when disguised as specified actor. A dictionary of [actor id]: [condition]. |
-| Cursor | ability | String | Cursor to display when hovering over a valid actor to disguise as. |
-
 ### DrainPrerequisitePowerOnDamage
 **Converts damage to a charge level of a GrantPrerequisiteChargeDrainPower.**
 ###### Inherits from: `ConditionalTrait`.
@@ -223,6 +341,73 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OrderName | GrantPrerequisiteChargeDrainPowerInfoOrder | String | The OrderName of the GrantPrerequisiteChargeDrainPower to drain. |
 | DamageMultiplier | 1 | Integer | Damage is multiplied by this number when converting damage to drain ticks. |
 | DamageDivisor | 600 | Integer | Damage is divided by this number when converting damage to drain ticks. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### DropPodsPower
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| UnitTypes | *(required)* | Collection of String | Drop pod unit |
+| Drops | 5,8 | 2D Integer | Number of drop pods spawned. |
+| PodFacing | 128 | 1D World Angle | Sets the approach direction. |
+| PodScatter | 3 | Integer | Maximum offset from targetLocation |
+| EntryEffect | podring | String | Effect sequence sprite image |
+| EntryEffectSequence | idle | String | Effect sequence to display in the air. |
+| EntryEffectPalette | effect | String |  |
+| CameraActor |  | String | Actor to spawn when the attack starts |
+| CameraRemoveDelay | 25 | Integer | Number of ticks to keep the camera alive |
+| Weapon | Vulcan2 | String | Which weapon to fire |
+| WeaponDelay | 0 | Integer | Apply the weapon impact this many ticks into the effect |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | DropPodsPowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EdibleByLeap
@@ -262,8 +447,136 @@ Related types with their possible values are listed [at the bottom](#related-val
 | String | Infantry | String | Sprite used for this actor. |
 | IndicatorPalettePrefix | player | String |  |
 
+### GpsPower
+**Requires `GpsWatcher` on the player actor.**
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RevealDelay | 0 | Integer | Delay in ticks between launching and revealing the map. |
+| DoorImage | atek | String |  |
+| DoorSequence | active | String |  |
+| DoorPalette | player | String | Palette to use for rendering the launch animation |
+| DoorPaletteIsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
+| SatelliteImage | sputnik | String |  |
+| SatelliteSequence | idle | String |  |
+| SatellitePalette | player | String | Palette to use for rendering the satellite projectile |
+| SatellitePaletteIsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
+| RequiresActiveRadar | True | Boolean | Requires an actor with an online `ProvidesRadar` to show GPS dots. |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | GpsPowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### GpsWatcher
 **Required for `GpsPower`. Attach this to the player actor.**
+
+### GrantPrerequisiteChargeDrainPower
+**Grants a prerequisite while discharging at a configurable rate.**
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DischargeModifier | 300 | Integer | Rate at which the power discharges compared to charging |
+| Prerequisite | *(required)* | String | The prerequisite type that this provides. |
+| ActiveText | ACTIVE | String | Label to display over the support power icon and in its tooltip while the power is active. |
+| AvailableText | READY | String | Label to display over the support power icon and in its tooltip while the power is available but not active. |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | GrantPrerequisiteChargeDrainPowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### HarvesterHuskModifier
 ###### Requires trait(s): [`Harvester`](#harvester).
@@ -378,443 +691,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterCursor | enter | String | Cursor to display when able to infiltrate the target actor. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### MadTank
-###### Requires trait(s): [`Explodes`](#explodes), [`WithFacingSpriteBody`](#withfacingspritebody).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ThumpSequence | piston | String |  |
-| ThumpInterval | 8 | Integer |  |
-| ThumpDamageWeapon | MADTankThump | String |  |
-| ChargeDelay | 96 | Integer | Measured in ticks. |
-| ChargeSound | madchrg2.aud | String |  |
-| DetonationDelay | 42 | Integer | Measured in ticks. |
-| DetonationSound | madexplo.aud | String |  |
-| DetonationWeapon | MADTankDetonate | String |  |
-| DriverActor | e1 | String |  |
-| Voice | Action | String |  |
-| DeployedCondition |  | String | The condition to grant to self while deployed. |
-| DamageTypes |  | Collection of DamageType | Types of damage that this trait causes to self while self-destructing. Leave empty for no damage types. |
-| AttackCursor | attack | String | Cursor to display when targeting. |
-| DeployCursor | deploy | String | Cursor to display when able to set up the detonation sequence. |
-
-### Mine
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CrushClasses |  | Collection of CrushClass |  |
-| AvoidFriendly | True | Boolean |  |
-| BlockFriendly | True | Boolean |  |
-| DetonateClasses |  | Collection of CrushClass |  |
-
-### MineImmune
-**Tag trait for stuff that should not trigger mines.**
-
-### Minelayer
-###### Requires trait(s): [`Rearmable`](#rearmable).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Mine | minv | String |  |
-| AmmoPoolName | primary | String |  |
-| MinefieldDepth | 1c512 | 1D World Distance |  |
-| Voice | Action | String | Voice to use when ordered to lay a minefield. |
-| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line when laying mines. |
-| TileValidName | build-valid | String | Sprite overlay to use for valid minefield cells. |
-| TileInvalidName | build-invalid | String | Sprite overlay to use for invalid minefield cells. |
-| TileUnknownName | build-unknown | String | Sprite overlay to use for minefield cells hidden behind fog or shroud. |
-| TerrainTypes |  | Set of String | Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. |
-| DeployCursor | deploy | String | Cursor to display when able to lay a mine. |
-| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to lay a mine. |
-| AbilityCursor | ability | String | Cursor to display when able to lay a mine. |
-| AmmoUsage | 1 | Integer | Ammo the minelayer consumes per mine. |
-
-### ChronoshiftPaletteEffect
-**Apply palette full screen rotations during chronoshifts. Add this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ChronoEffectLength | 60 | Integer | Measured in ticks. |
-
-### LightPaletteRotator
-**Palette effect used for blinking "animations" on actors.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ExcludePalettes |  | Set of String | Palettes this effect should not apply to. |
-| TimeStep | 0.5 | Real Number | 'Speed' at which the effect cycles through palette indices. |
-| ModifyIndex | 103 | Integer | Palette index to map to rotating color indices. |
-| RotationIndices | 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 238, 237, 236, 235, 234, 233, 232, 231 | Collection of Integer | Palette indices to rotate through. |
-
-### PortableChrono
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ChargeDelay | 500 | Integer | Cooldown in ticks until the unit can teleport. |
-| HasDistanceLimit | True | Boolean | Can the unit teleport only a certain distance? |
-| MaxDistance | 12 | Integer | The maximum distance in cells this unit can teleport (only used if HasDistanceLimit = true). |
-| ChronoshiftSound | chrotnk1.aud | String | Sound to play when teleporting. |
-| DeployCursor | deploy | String | Cursor to display when able to deploy the actor. |
-| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to deploy the actor. |
-| TargetCursor | chrono-target | String | Cursor to display when targeting a teleport location. |
-| TargetBlockedCursor | move-blocked | String | Cursor to display when the targeted location is blocked. |
-| KillCargo | True | Boolean | Kill cargo on teleporting. |
-| FlashScreen | False | Boolean | Flash the screen on teleporting. |
-| Voice | Action | String |  |
-| CircleColor | 7CFC0080 | Color (RRGGBB[AA] notation) | Range circle color. |
-| CircleWidth | 1 | Real Number | Range circle line width. |
-| CircleBorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
-| CircleBorderWidth | 3 | Real Number | Range circle border width. |
-| TargetLineColor | 7CFC00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### WithBuildingBib
-###### Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Sequence | bib | String |  |
-| Palette | terrain | String |  |
-| HasMinibib | False | Boolean |  |
-
-### ResourcePurifier
-**Gives additional cash when resources are delivered to refineries.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 0 | Integer | Percentage value of the resource to grant as cash. |
-| ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
-| TickLifetime | 30 | Integer | How long the cash ticks stay on the screen. |
-| TickRate | 10 | Integer | How often the cash ticks can appear. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### AttackOrderPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CircleColor | FF0000 | Color (RRGGBB[AA] notation) | Range circle color. |
-| CircleWidth | 1 | Real Number | Range circle line width. |
-| CircleBorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
-| CircleBorderWidth | 3 | Real Number | Range circle border width. |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | AttackOrderPowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ChronoshiftPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
-| Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
-| Duration | 750 | Integer | Ticks until returning after teleportation. |
-| TargetOverlayPalette | terrain | String |  |
-| FootprintImage | overlay | String |  |
-| ValidFootprintSequence | target-valid | String |  |
-| InvalidFootprintSequence | target-invalid | String |  |
-| SourceFootprintSequence | target-select | String |  |
-| KillCargo | True | Boolean |  |
-| SelectionCursor | chrono-select | String | Cursor to display when selecting targets for the chronoshift. |
-| TargetCursor | chrono-target | String | Cursor to display when targeting an area for the chronoshift. |
-| TargetBlockedCursor | move-blocked | String | Cursor to display when the targeted area is blocked. |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | ChronoshiftPowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### DropPodsPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| UnitTypes | *(required)* | Collection of String | Drop pod unit |
-| Drops | 5,8 | 2D Integer | Number of drop pods spawned. |
-| PodFacing | 128 | 1D World Angle | Sets the approach direction. |
-| PodScatter | 3 | Integer | Maximum offset from targetLocation |
-| EntryEffect | podring | String | Effect sequence sprite image |
-| EntryEffectSequence | idle | String | Effect sequence to display in the air. |
-| EntryEffectPalette | effect | String |  |
-| CameraActor |  | String | Actor to spawn when the attack starts |
-| CameraRemoveDelay | 25 | Integer | Number of ticks to keep the camera alive |
-| Weapon | Vulcan2 | String | Which weapon to fire |
-| WeaponDelay | 0 | Integer | Apply the weapon impact this many ticks into the effect |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | DropPodsPowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GpsPower
-**Requires `GpsWatcher` on the player actor.**
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RevealDelay | 0 | Integer | Delay in ticks between launching and revealing the map. |
-| DoorImage | atek | String |  |
-| DoorSequence | active | String |  |
-| DoorPalette | player | String | Palette to use for rendering the launch animation |
-| DoorPaletteIsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
-| SatelliteImage | sputnik | String |  |
-| SatelliteSequence | idle | String |  |
-| SatellitePalette | player | String | Palette to use for rendering the satellite projectile |
-| SatellitePaletteIsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
-| RequiresActiveRadar | True | Boolean | Requires an actor with an online `ProvidesRadar` to show GPS dots. |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | GpsPowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GrantPrerequisiteChargeDrainPower
-**Grants a prerequisite while discharging at a configurable rate.**
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DischargeModifier | 300 | Integer | Rate at which the power discharges compared to charging |
-| Prerequisite | *(required)* | String | The prerequisite type that this provides. |
-| ActiveText | ACTIVE | String | Label to display over the support power icon and in its tooltip while the power is active. |
-| AvailableText | READY | String | Label to display over the support power icon and in its tooltip while the power is available but not active. |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | GrantPrerequisiteChargeDrainPowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### IonCannonPower
 ###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -879,6 +755,111 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### LightPaletteRotator
+**Palette effect used for blinking "animations" on actors.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ExcludePalettes |  | Set of String | Palettes this effect should not apply to. |
+| TimeStep | 0.5 | Real Number | 'Speed' at which the effect cycles through palette indices. |
+| ModifyIndex | 103 | Integer | Palette index to map to rotating color indices. |
+| RotationIndices | 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 238, 237, 236, 235, 234, 233, 232, 231 | Collection of Integer | Palette indices to rotate through. |
+
+### MadTank
+###### Requires trait(s): [`Explodes`](#explodes), [`WithFacingSpriteBody`](#withfacingspritebody).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ThumpSequence | piston | String |  |
+| ThumpInterval | 8 | Integer |  |
+| ThumpDamageWeapon | MADTankThump | String |  |
+| ChargeDelay | 96 | Integer | Measured in ticks. |
+| ChargeSound | madchrg2.aud | String |  |
+| DetonationDelay | 42 | Integer | Measured in ticks. |
+| DetonationSound | madexplo.aud | String |  |
+| DetonationWeapon | MADTankDetonate | String |  |
+| DriverActor | e1 | String |  |
+| Voice | Action | String |  |
+| DeployedCondition |  | String | The condition to grant to self while deployed. |
+| DamageTypes |  | Collection of DamageType | Types of damage that this trait causes to self while self-destructing. Leave empty for no damage types. |
+| AttackCursor | attack | String | Cursor to display when targeting. |
+| DeployCursor | deploy | String | Cursor to display when able to set up the detonation sequence. |
+
+### MineImmune
+**Tag trait for stuff that should not trigger mines.**
+
+### Mine
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CrushClasses |  | Collection of CrushClass |  |
+| AvoidFriendly | True | Boolean |  |
+| BlockFriendly | True | Boolean |  |
+| DetonateClasses |  | Collection of CrushClass |  |
+
+### Minelayer
+###### Requires trait(s): [`Rearmable`](#rearmable).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Mine | minv | String |  |
+| AmmoPoolName | primary | String |  |
+| MinefieldDepth | 1c512 | 1D World Distance |  |
+| Voice | Action | String | Voice to use when ordered to lay a minefield. |
+| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line when laying mines. |
+| TileValidName | build-valid | String | Sprite overlay to use for valid minefield cells. |
+| TileInvalidName | build-invalid | String | Sprite overlay to use for invalid minefield cells. |
+| TileUnknownName | build-unknown | String | Sprite overlay to use for minefield cells hidden behind fog or shroud. |
+| TerrainTypes |  | Set of String | Only allow laying mines on listed terrain types. Leave empty to allow all terrain types. |
+| DeployCursor | deploy | String | Cursor to display when able to lay a mine. |
+| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to lay a mine. |
+| AbilityCursor | ability | String | Cursor to display when able to lay a mine. |
+| AmmoUsage | 1 | Integer | Ammo the minelayer consumes per mine. |
+
+### PortableChrono
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ChargeDelay | 500 | Integer | Cooldown in ticks until the unit can teleport. |
+| HasDistanceLimit | True | Boolean | Can the unit teleport only a certain distance? |
+| MaxDistance | 12 | Integer | The maximum distance in cells this unit can teleport (only used if HasDistanceLimit = true). |
+| ChronoshiftSound | chrotnk1.aud | String | Sound to play when teleporting. |
+| DeployCursor | deploy | String | Cursor to display when able to deploy the actor. |
+| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to deploy the actor. |
+| TargetCursor | chrono-target | String | Cursor to display when targeting a teleport location. |
+| TargetBlockedCursor | move-blocked | String | Cursor to display when the targeted location is blocked. |
+| KillCargo | True | Boolean | Kill cargo on teleporting. |
+| FlashScreen | False | Boolean | Flash the screen on teleporting. |
+| Voice | Action | String |  |
+| CircleColor | 7CFC0080 | Color (RRGGBB[AA] notation) | Range circle color. |
+| CircleWidth | 1 | Real Number | Range circle line width. |
+| CircleBorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
+| CircleBorderWidth | 3 | Real Number | Range circle border width. |
+| TargetLineColor | 7CFC00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ResourcePurifier
+**Gives additional cash when resources are delivered to refineries.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 0 | Integer | Percentage value of the resource to grant as cash. |
+| ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
+| TickLifetime | 30 | Integer | How long the cash ticks stay on the screen. |
+| TickRate | 10 | Integer | How often the cash ticks can appear. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ShroudPalette
+**Adds the hard-coded shroud palette to the game**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | shroud | String | Internal palette name |
+| Fog | False | Boolean | Palette type |
+
 ### TDGunboat
 
 | Property | Default Value | Type | Description |
@@ -886,6 +867,24 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Speed | 28 | Integer |  |
 | InitialFacing | 256 | 1D World Angle | Facing to use when actor spawns. Only 256 and 768 supported. |
 | PreviewFacing | 256 | 1D World Angle | Facing to use for actor previews (map editor, color picker, etc). Only 256 and 768 supported. |
+
+### TiberianSunRefinery
+###### Inherits from: [`Refinery`](#refinery).
+###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DockAngle | 0 | 1D World Angle | Actual harvester facing when docking. |
+| DockOffset | 0,0 | 2D Cell Vector | Docking cell relative to top-left cell. |
+| IsDragRequired | False | Boolean | Does the refinery require the harvester to be dragged in? |
+| DragOffset | 0,0,0 | 3D World Vector | Vector by which the harvester will be dragged when docking. |
+| DragLength | 0 | Integer | In how many steps to perform the dragging? |
+| UseStorage | True | Boolean | Store resources in silos. Adds cash directly without storing if set to false. |
+| DiscardExcessResources | False | Boolean | Discard resources once silo capacity has been reached. |
+| ShowTicks | True | Boolean |  |
+| TickLifetime | 30 | Integer |  |
+| TickVelocity | 2 | Integer |  |
+| TickRate | 10 | Integer |  |
 
 ### TransferTimedExternalConditionOnTransform
 **A special case trait that re-grants a timed external condition when this actor transforms. This trait does not work with permanently granted external conditions. This trait changes the external condition source, so cannot be used for conditions that may later be revoked**
@@ -907,14 +906,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Density | 1 | Integer | Resource density threshold which is required. |
 | Adjacency | 1 | Integer | This many adjacent resource tiles are required. |
 | Delay | 1000, 3000 | Collection of Integer | The range of time (in ticks) until the transformation starts. |
-
-### ShroudPalette
-**Adds the hard-coded shroud palette to the game**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | shroud | String | Internal palette name |
-| Fog | False | Boolean | Palette type |
 
 ### TSEditorResourceLayer
 ###### Inherits from: [`EditorResourceLayer`](#editorresourcelayer).
@@ -975,6 +966,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Name | normals | String |  |
 | Type | TiberianSun | [`NormalType`](#normaltype) | Can be TiberianSun or RedAlert2 |
+
+### WithBuildingBib
+###### Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Sequence | bib | String |  |
+| Palette | terrain | String |  |
+| HasMinibib | False | Boolean |  |
 
 ### WithResourceAnimation
 **Allows to play animations on resources. Attach this to the world actor.**
@@ -1203,6 +1203,26 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ValidTypes |  | Set of String | Accepted `DeliversExperience` types. Leave empty to accept all types. |
 | ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships the owner of the delivering actor needs. |
 
+### ActorMap
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BinSize | 10 | Integer | Size of partition bins (cells) |
+
+### ActorPreviewPlaceBuildingPreview
+**Creates a building placement preview based on the map editor actor preview.**
+###### Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Animated | True | Boolean | Enable the building's idle animation. |
+| PreviewAlpha | 1 | Real Number | Custom opacity to apply to the actor preview. |
+| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
+| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
+| Palette | terrain | String | Palette to use for rendering the placement sprite. |
+| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
+| LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
+
 ### ActorSpawner
 **An actor with this trait indicates a valid spawn point for actors of ActorSpawnManager.**
 ###### Inherits from: `ConditionalTrait`.
@@ -1210,6 +1230,30 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Types |  | Set of String | Type of ActorSpawner with which it connects. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ActorSpawnManager
+**Controls the spawning of specified actor types. Attach this to the world actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`MapCreeps`](#mapcreeps).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Minimum | 0 | Integer | Minimum number of actors. |
+| Maximum | 4 | Integer | Maximum number of actors. |
+| SpawnInterval | 6000 | Collection of Integer | Time (in ticks) between actor spawn. Supports 1 or 2 values. If 2 values are provided they are used as a range from which a value is randomly selected. |
+| Actors | *(required)* | Collection of String | Name of the actor that will be randomly picked to spawn. |
+| Owner | Creeps | String |  |
+| Types |  | Set of String | Type of ActorSpawner with which it connects. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### AffectedByPowerOutage
+**Disables the actor when a power outage is triggered (see `InfiltrateForPowerOutage` for more information).**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Condition |  | String | The condition to grant while there is a power outage. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Aircraft
@@ -1266,59 +1310,78 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### AttackAircraft
-###### Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Aircraft`](#aircraft).
+### AirstrikePower
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AttackType | Default | [`AirAttackType`](#airattacktype) | Attack behavior. Currently supported types are: Default: Attack while following the default movement rules. Hover: Hover, even if the Aircraft can't hover while idle. Strafe: Perform a fixed-length attack run on the target. |
-| StrafeRunLength | 0c0 | 1D World Distance | Distance the strafing aircraft makes to a target before turning for another pass. When set to WDist.Zero this defaults to the maximum armament range. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
-| OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
-| PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
-| RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| Armaments | primary, secondary | Collection of String | Armament names |
-| Cursor |  | String | Cursor to display when hovering over a valid target. |
-| OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
-| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| AttackRequiresEnteringCell | False | Boolean | Does the attack type require the attacker to enter the target's cell? |
-| TargetFrozenActors | False | Boolean | Allow firing into the fog to target frozen actors without requiring force-fire. |
-| ForceFireIgnoresActors | False | Boolean | Force-fire mode ignores actors and targets the ground instead. |
-| OutsideRangeRequiresForceFire | False | Boolean | Force-fire mode is required to enable targeting against targets outside of range. |
-| Voice | Action | String |  |
-| FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
+| UnitType | badr.bomber | String |  |
+| SquadSize | 1 | Integer |  |
+| SquadOffset | -1536,1536,0 | 3D World Vector |  |
+| QuantizedFacings | 32 | Integer |  |
+| Cordon | 5c0 | 1D World Distance |  |
+| CameraActor |  | String | Actor to spawn when the aircraft start attacking |
+| CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking |
+| UseDirectionalTarget | False | Boolean | Enables the player directional targeting |
+| DirectionArrowAnimation |  | String | Animation used to render the direction arrows. |
+| DirectionArrowPalette | chrome | String | Palette for direction cursor animation. |
+| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | AirstrikePowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### AttackBomber
-###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+### AllyRepair
+**Attach this to the player actor to allow building repair by team mates.**
 
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Armaments | primary, secondary | Collection of String | Armament names |
-| Cursor |  | String | Cursor to display when hovering over a valid target. |
-| OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
-| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| AttackRequiresEnteringCell | False | Boolean | Does the attack type require the attacker to enter the target's cell? |
-| TargetFrozenActors | False | Boolean | Allow firing into the fog to target frozen actors without requiring force-fire. |
-| ForceFireIgnoresActors | False | Boolean | Force-fire mode ignores actors and targets the ground instead. |
-| OutsideRangeRequiresForceFire | False | Boolean | Force-fire mode is required to enable targeting against targets outside of range. |
-| Voice | Action | String |  |
-| FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### FallsToEarth
-**Causes aircraft husks that are spawned in the air to crash to the ground.**
-###### Requires trait(s): [`Aircraft`](#aircraft).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Explosion | UnitExplode | String | Explosion weapon that triggers when hitting ground. |
-| MaximumSpinSpeed |  | 1D World Angle (optional) | Limit the maximum spin (in angle units per tick) that can be achieved while crashing. 0 disables spinning. Leave undefined for no limit. |
-| Moves | False | Boolean | Does the aircraft (husk) move forward at aircraft speed? |
-| Velocity | 0c43 | 1D World Distance | Velocity (per tick) at which aircraft falls to ground. |
+### AlwaysVisible
+**The actor is always considered visible for targeting and rendering purposes.**
 
 ### AmmoPool
 **Actor has a limited amount of ammo, after using it all the actor must reload in some way.**
@@ -1377,33 +1440,47 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type |  | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### AttackMove
-**Provides access to the attack-move command, which will make the actor automatically engage viable targets while moving to the destination.**
+### AttackAircraft
+###### Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
+###### Requires trait(s): [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| AttackType | Default | [`AirAttackType`](#airattacktype) | Attack behavior. Currently supported types are: Default: Attack while following the default movement rules. Hover: Hover, even if the Aircraft can't hover while idle. Strafe: Perform a fixed-length attack run on the target. |
+| StrafeRunLength | 0c0 | 1D World Distance | Distance the strafing aircraft makes to a target before turning for another pass. When set to WDist.Zero this defaults to the maximum armament range. |
+| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
+| OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
+| PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
+| RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
+| Armaments | primary, secondary | Collection of String | Armament names |
+| Cursor |  | String | Cursor to display when hovering over a valid target. |
+| OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
+| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| AttackRequiresEnteringCell | False | Boolean | Does the attack type require the attacker to enter the target's cell? |
+| TargetFrozenActors | False | Boolean | Allow firing into the fog to target frozen actors without requiring force-fire. |
+| ForceFireIgnoresActors | False | Boolean | Force-fire mode ignores actors and targets the ground instead. |
+| OutsideRangeRequiresForceFire | False | Boolean | Force-fire mode is required to enable targeting against targets outside of range. |
 | Voice | Action | String |  |
-| TargetLineColor | FF4500 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| AttackMoveCondition |  | String | The condition to grant to self while an attack-move is active. |
-| AssaultMoveCondition |  | String | The condition to grant to self while an assault-move is active. |
-| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
-| AttackMoveCursor | attackmove | String |  |
-| AttackMoveBlockedCursor | attackmove-blocked | String |  |
-| AssaultMoveCursor | assaultmove | String |  |
-| AssaultMoveBlockedCursor | assaultmove-blocked | String |  |
+| FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### AttackWander
-**Will AttackMove to a random location within MoveRadius when idle. This conflicts with player orders and should only be added to animal creeps.**
-###### Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
-###### Requires trait(s): [`AttackMove`](#attackmove).
+### AttackBomber
+###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| WanderMoveRadius | 1 | Integer |  |
-| ReduceMoveRadiusDelay | 5 | Integer | Number of ticks to wait before decreasing the effective move radius. |
-| MinMoveDelay | 0 | Integer | Minimum amount of ticks the actor will sit idly before starting to wander. |
-| MaxMoveDelay | 0 | Integer | Maximum amount of ticks the actor will sit idly before starting to wander. |
-| AvoidTerrainTypes |  | Set of String | The terrain types that this actor should avoid wandering on to. |
+| Armaments | primary, secondary | Collection of String | Armament names |
+| Cursor |  | String | Cursor to display when hovering over a valid target. |
+| OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
+| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| AttackRequiresEnteringCell | False | Boolean | Does the attack type require the attacker to enter the target's cell? |
+| TargetFrozenActors | False | Boolean | Allow firing into the fog to target frozen actors without requiring force-fire. |
+| ForceFireIgnoresActors | False | Boolean | Force-fire mode ignores actors and targets the ground instead. |
+| OutsideRangeRequiresForceFire | False | Boolean | Force-fire mode is required to enable targeting against targets outside of range. |
+| Voice | Action | String |  |
+| FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackCharges
@@ -1497,6 +1574,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### AttackMove
+**Provides access to the attack-move command, which will make the actor automatically engage viable targets while moving to the destination.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Voice | Action | String |  |
+| TargetLineColor | FF4500 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| AttackMoveCondition |  | String | The condition to grant to self while an attack-move is active. |
+| AssaultMoveCondition |  | String | The condition to grant to self while an assault-move is active. |
+| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
+| AttackMoveCursor | attackmove | String |  |
+| AttackMoveBlockedCursor | attackmove-blocked | String |  |
+| AssaultMoveCursor | assaultmove | String |  |
+| AssaultMoveBlockedCursor | assaultmove-blocked | String |  |
+
 ### AttackOmni
 ###### Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -1537,6 +1629,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Voice | Action | String |  |
 | FacingTolerance | 512 | 1D World Angle | Tolerance for attack angle. Range [0, 512], 512 covers 360 degrees. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### AttackWander
+**Will AttackMove to a random location within MoveRadius when idle. This conflicts with player orders and should only be added to animal creeps.**
+###### Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
+###### Requires trait(s): [`AttackMove`](#attackmove).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| WanderMoveRadius | 1 | Integer |  |
+| ReduceMoveRadiusDelay | 5 | Integer | Number of ticks to wait before decreasing the effective move radius. |
+| MinMoveDelay | 0 | Integer | Minimum amount of ticks the actor will sit idly before starting to wander. |
+| MaxMoveDelay | 0 | Integer | Maximum amount of ticks the actor will sit idly before starting to wander. |
+| AvoidTerrainTypes |  | Set of String | The terrain types that this actor should avoid wandering on to. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AutoCarryable
@@ -1611,23 +1717,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Priority | 1 | Integer | ValidTargets with larger priorities will be AutoTargeted before lower priorities. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### BlocksProjectiles
-**This actor blocks bullets and missiles with 'Blockable' property.**
-###### Inherits from: `ConditionalTrait`.
+### BaseAttackNotifier
+**Plays an audio notification and shows a radar ping when a building is attacked. Attach this to the player actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Height | 1c0 | 1D World Distance |  |
-| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Determines what projectiles to block based on their allegiance to the wall owner. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### BodyOrientation
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. |
-| CameraPitch | 113 | 1D World Angle | Camera pitch for rotation calculations. |
-| UseClassicPerspectiveFudge | True | Boolean | Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. |
+| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
+| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
+| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| Notification | BaseAttack | String | Speech notification type to play. |
+| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
 
 ### BaseBuilderBotModule
 **Manages AI base construction.**
@@ -1673,138 +1772,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildingDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start building specific buildings. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### BuildingRepairBotModule
-**Manages AI repairing base buildings.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CaptureManagerBotModule
-**Manages AI capturing logic.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CapturingActorTypes |  | Set of String | Actor types that can capture other actors (via `Captures`). Leave this empty to disable capturing. |
-| CapturableActorTypes |  | Set of String | Actor types that can be targeted for capturing. Leave this empty to include all actors. |
-| MinimumCaptureDelay | 375 | Integer | Minimum delay (in ticks) between trying to capture with CapturingActorTypes. |
-| MaximumCaptureTargetOptions | 10 | Integer | Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. |
-| CheckCaptureTargetsForVisibility | True | Boolean | Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? |
-| CapturableRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships that capturers should attempt to target. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### HarvesterBotModule
-**Put this on the Player actor. Manages bot harvesters to ensure they always continue harvesting as long as there are resources on the map.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| HarvesterTypes |  | Set of String | Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. |
-| RefineryTypes |  | Set of String | Actor types that are counted as refineries. Currently only needed by harvester replacement system. |
-| ScanForIdleHarvestersInterval | 50 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
-| HarvesterEnemyAvoidanceRadius | 8c0 | 1D World Distance | Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### McvManagerBotModule
-**Manages AI MCVs.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| McvTypes |  | Set of String | Actor types that are considered MCVs (deploy into base builders). |
-| ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
-| McvFactoryTypes |  | Set of String | Actor types that are able to produce MCVs. |
-| MinimumConstructionYardCount | 1 | Integer | Try to maintain at least this many ConstructionYardTypes, build an MCV if number is below this. |
-| ScanForNewMcvInterval | 20 | Integer | Delay (in ticks) between looking for and giving out orders to new MCVs. |
-| MinBaseRadius | 2 | Integer | Minimum distance in cells from center of the base when checking for MCV deployment location. |
-| MaxBaseRadius | 20 | Integer | Maximum distance in cells from center of the base when checking for MCV deployment location. Only applies if RestrictMCVDeploymentFallbackToBase is enabled and there's at least one construction yard. |
-| RestrictMCVDeploymentFallbackToBase | True | Boolean | Should deployment of additional MCVs be restricted to MaxBaseRadius if explicit deploy locations are missing or occupied? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### SquadManagerBotModule
-**Manages AI squads.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NavalUnitsTypes |  | Set of String | Actor types that are valid for naval squads. |
-| AirUnitsTypes |  | Set of String | Actor types that are excluded from ground attacks. |
-| ExcludeFromSquadsTypes |  | Set of String | Actor types that should generally be excluded from attack squads. |
-| ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
-| NavalProductionTypes |  | Set of String | Enemy building types around which to scan for targets for naval squads. |
-| ProtectionTypes |  | Set of String | Own actor types that are prioritized when defending. |
-| SquadSize | 8 | Integer | Minimum number of units AI must have before attacking. |
-| SquadSizeRandomBonus | 30 | Integer | Random number of up to this many units is added to squad size when creating an attack squad. |
-| AssignRolesInterval | 50 | Integer | Delay (in ticks) between giving out orders to units. |
-| RushInterval | 600 | Integer | Delay (in ticks) between attempting rush attacks. |
-| AttackForceInterval | 75 | Integer | Delay (in ticks) between updating squads. |
-| MinimumAttackForceDelay | 0 | Integer | Minimum delay (in ticks) between creating squads. |
-| RushAttackScanRadius | 15 | Integer | Radius in cells around enemy BaseBuilder (Construction Yard) where AI scans for targets to rush. |
-| ProtectUnitScanRadius | 15 | Integer | Radius in cells around the base that should be scanned for units to be protected. |
-| MaxBaseRadius | 20 | Integer | Maximum distance in cells from center of the base when checking for MCV deployment location. Only applies if RestrictMCVDeploymentFallbackToBase is enabled and there's at least one construction yard. |
-| IdleScanRadius | 10 | Integer | Radius in cells that squads should scan for enemies around their position while idle. |
-| DangerScanRadius | 10 | Integer | Radius in cells that squads should scan for danger around their position to make flee decisions. |
-| AttackScanRadius | 12 | Integer | Radius in cells that attack squads should scan for enemies around their position when trying to attack. |
-| ProtectionScanRadius | 8 | Integer | Radius in cells that protecting squads should scan for enemies around their position. |
-| IgnoredEnemyTargetTypes |  | Collection of TargetableType | Enemy target types to never target. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### SupportPowerBotModule
-**Manages bot support power handling.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Decisions |  | Collection of SupportPowerDecision | Tells the AI how to use its support powers. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### UnitBuilderBotModule
-**Controls AI unit production.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| IdleBaseUnitsMaximum | 12 | Integer | Only produce units as long as there are less than this amount of units idling inside the base. |
-| UnitQueues | Vehicle, Infantry, Plane, Ship, Aircraft | Set of String | Production queues AI uses for producing units. |
-| UnitsToBuild |  | Dictionary with Key: String, Value: Integer | What units to the AI should build. What relative share of the total army must be this type of unit. |
-| UnitLimits |  | Dictionary with Key: String, Value: Integer | What units should the AI have a maximum limit to train. |
-| UnitDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start train specific units. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Buildable
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Prerequisites |  | Collection of String | The prerequisite names that must be available before this can be built. This can be prefixed with ! to invert the prerequisite (disabling production if the prerequisite is available) and/or ~ to hide the actor from the production palette if the prerequisite is not available. Prerequisites are granted by actors with the ProvidesPrerequisite trait. |
-| Queue |  | Set of String | Production queue(s) that can produce this. |
-| BuildAtProductionType |  | String | Override the production structure type (from the Production Produces list) that this unit should be built at. |
-| BuildLimit | 0 | Integer | Disable production when there are more than this many of this actor on the battlefield. Set to 0 to disable. |
-| ForceFaction |  | String | Force a specific faction variant, overriding the faction of the producing actor. |
-| Icon | icon | String | Sequence of the actor that contains the icon. |
-| IconPalette | chrome | String | Palette used for the production icon. |
-| IconPaletteIsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
-| BuildDuration | -1 | Integer | Base build time in frames (-1 indicates to use the unit's Value). |
-| BuildDurationModifier | 60 | Integer | Percentage modifier to apply to the build duration. |
-| BuildPaletteOrder | 9999 | Integer | Sort order for the production palette. Smaller numbers are presented earlier. |
-| Description |  | String | Text shown in the production tooltip. |
-
-### ActorPreviewPlaceBuildingPreview
-**Creates a building placement preview based on the map editor actor preview.**
-###### Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Animated | True | Boolean | Enable the building's idle animation. |
-| PreviewAlpha | 1 | Real Number | Custom opacity to apply to the actor preview. |
-| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
-| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
-| Palette | terrain | String | Palette to use for rendering the placement sprite. |
-| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
-| LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
-
 ### BaseBuilding
 **Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors.**
 
@@ -1825,6 +1792,35 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### BlocksProjectiles
+**This actor blocks bullets and missiles with 'Blockable' property.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Height | 1c0 | 1D World Distance |  |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Determines what projectiles to block based on their allegiance to the wall owner. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### BodyOrientation
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. |
+| CameraPitch | 113 | 1D World Angle | Camera pitch for rotation calculations. |
+| UseClassicPerspectiveFudge | True | Boolean | Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. |
+
+### BridgeHut
+**Allows bridges to be targeted for demolition and repair.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Types | GroundLevelBridge | Collection of String | Bridge types to act on |
+| NeighbourOffsets |  | Collection of 2D Cell Vector | Offsets to look for adjacent bridges to act on |
+| RepairPropagationDelay | 20 | Integer | Delay between each segment repair step |
+| DemolishPropagationDelay | 5 | Integer | Delay between each segment demolish step |
+| RequireForceAttackForHeal | False | Boolean | Hide the repair cursor if the bridge is only damaged (not destroyed) |
+
 ### Bridge
 ###### Requires trait(s): [`Building`](#building), [`Health`](#health).
 
@@ -1844,16 +1840,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DemolishWeapon | Demolish | String | The name of the weapon to use when demolishing the bridge |
 | DamageTypes |  | Collection of DamageType | Types of damage that this bridge causes to units over/in path of it while being destroyed/repaired. Leave empty for no damage types. |
 
-### BridgeHut
-**Allows bridges to be targeted for demolition and repair.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Types | GroundLevelBridge | Collection of String | Bridge types to act on |
-| NeighbourOffsets |  | Collection of 2D Cell Vector | Offsets to look for adjacent bridges to act on |
-| RepairPropagationDelay | 20 | Integer | Delay between each segment repair step |
-| DemolishPropagationDelay | 5 | Integer | Delay between each segment demolish step |
-| RequireForceAttackForHeal | False | Boolean | Hide the repair cursor if the bridge is only damaged (not destroyed) |
+### BridgeLayer
 
 ### BridgePlaceholder
 **Placeholder actor used for dead segments and bridge end ramps.**
@@ -1864,6 +1851,36 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DamageState | Undamaged | [`DamageState`](#damagestate) |  |
 | ReplaceWithActor |  | String | Actor type to replace with on repair. |
 | NeighbourOffsets |  | Collection of 2D Cell Vector |  |
+
+### Buildable
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Prerequisites |  | Collection of String | The prerequisite names that must be available before this can be built. This can be prefixed with ! to invert the prerequisite (disabling production if the prerequisite is available) and/or ~ to hide the actor from the production palette if the prerequisite is not available. Prerequisites are granted by actors with the ProvidesPrerequisite trait. |
+| Queue |  | Set of String | Production queue(s) that can produce this. |
+| BuildAtProductionType |  | String | Override the production structure type (from the Production Produces list) that this unit should be built at. |
+| BuildLimit | 0 | Integer | Disable production when there are more than this many of this actor on the battlefield. Set to 0 to disable. |
+| ForceFaction |  | String | Force a specific faction variant, overriding the faction of the producing actor. |
+| Icon | icon | String | Sequence of the actor that contains the icon. |
+| IconPalette | chrome | String | Palette used for the production icon. |
+| IconPaletteIsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
+| BuildDuration | -1 | Integer | Base build time in frames (-1 indicates to use the unit's Value). |
+| BuildDurationModifier | 60 | Integer | Percentage modifier to apply to the build duration. |
+| BuildPaletteOrder | 9999 | Integer | Sort order for the production palette. Smaller numbers are presented earlier. |
+| Description |  | String | Text shown in the production tooltip. |
+
+### BuildableTerrainOverlay
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AllowedTerrainTypes | *(required)* | Set of String |  |
+| Palette | terrain | String | Palette to use for rendering the sprite. |
+| Image | overlay | String | Sprite definition. |
+| Sequence | build-invalid | String | Sequence to use for unbuildable area. |
+| Alpha | 1 | Real Number | Custom opacity to apply to the overlay sprite. |
+
+### BuildingInfluence
+**A dictionary of buildings placed on the map. Attach this to the world actor.**
 
 ### Building
 
@@ -1882,323 +1899,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildSounds |  | Collection of String |  |
 | UndeploySounds |  | Collection of String |  |
 
-### BuildingInfluence
-**A dictionary of buildings placed on the map. Attach this to the world actor.**
-
-### Exit
-**Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ...**
+### BuildingRepairBotModule
+**Manages AI repairing base buildings.**
 ###### Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| SpawnOffset | 0,0,0 | 3D World Vector | Offset at which that the exiting actor is spawned relative to the center of the producing actor. |
-| ExitCell | 0,0 | 2D Cell Vector | Cell offset where the exiting actor enters the ActorMap relative to the topleft cell of the producing actor. |
-| Facing |  | 1D World Angle (optional) |  |
-| ProductionTypes |  | Set of String | Type tags on this exit. |
-| ExitDelay | 0 | Integer | Number of ticks to wait before moving into the world. |
-| Priority | 1 | Integer | Exits with larger priorities will be used before lower priorities. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### FootprintPlaceBuildingPreview
-**Creates a building placement preview showing only the building footprint.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Palette | terrain | String | Palette to use for rendering the placement sprite. |
-| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
-| LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
-
-### FreeActor
-**Player receives a unit for free once the building is placed. This also works for structures. If you want more than one unit to appear copy this section and assign IDs like FreeActor@2, ...**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Actor | *(required)* | String | Name of the actor. |
-| SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
-| Facing | 0 | 1D World Angle | Which direction the unit should face. |
-| AllowRespawn | False | Boolean | Whether another actor should spawn upon re-enabling the trait. |
-| EditorFreeActorDisplayOrder | 4 | Integer | Display order for the free actor checkbox in the map editor |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### FreeActorWithDelivery
-**Player receives a unit for free once the building is placed. If you want more than one unit to be delivered, copy this section and assign IDs like FreeActorWithDelivery@2, ...**
-###### Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DeliveringActor | *(required)* | String | Name of the delivering actor. This actor must have the `Carryall` trait |
-| SpawnLocation | 0,0 | 2D Cell Position | Cell coordinates for spawning the delivering actor. If left blank, the closest edge cell will be chosen. |
-| DeliveryOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
-| DeliveryRange | 0c0 | 1D World Distance | Range to search for an alternative delivery location if the DeliveryOffset cell is blocked. |
-| Actor | *(required)* | String | Name of the actor. |
-| SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
-| Facing | 0 | 1D World Angle | Which direction the unit should face. |
-| AllowRespawn | False | Boolean | Whether another actor should spawn upon re-enabling the trait. |
-| EditorFreeActorDisplayOrder | 4 | Integer | Display order for the free actor checkbox in the map editor |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Gate
-**Will open and be passable for actors that appear friendly when there are no enemies in range.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Building`](#building).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| OpeningSound |  | String |  |
-| ClosingSound |  | String |  |
-| CloseDelay | 150 | Integer | Ticks until the gate closes. |
-| TransitionDelay | 33 | Integer | Ticks until the gate is considered open. |
-| BlocksProjectilesHeight | 0c640 | 1D World Distance | Blocks bullets scaled to open value. |
-| BlocksProjectilesValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Determines what projectiles to block based on their allegiance to the gate owner. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GivesBuildableArea
-**This actor allows placement of other actors with 'RequiresBuildableArea' trait around it.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AreaTypes | *(required)* | Set of String | Types of buildable area this actor gives. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GroundLevelBridge
-**Bridge actor that can't be passed underneath.**
-###### Requires trait(s): [`Building`](#building).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| TerrainType | Bridge | String |  |
-| Type | GroundLevelBridge | String |  |
-| NeighbourOffsets |  | Collection of 2D Cell Vector |  |
-| DemolishWeapon | Demolish | String | The name of the weapon to use when demolishing the bridge |
-| DamageTypes |  | Collection of DamageType | Types of damage that this bridge causes to units over/in path of it while being destroyed/repaired. Leave empty for no damage types. |
-
-### LegacyBridgeHut
-**Allows bridges to be targeted for demolition and repair.**
-
-### LineBuild
-**Place the second actor in line to build more of the same at once (used for walls).**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Range | 5 | Integer | The maximum allowed length of the line. |
-| NodeTypes | wall | Set of String | LineBuildNode 'Types' to attach to. |
-| SegmentType |  | String | Actor type for line-built segments (defaults to same actor). |
-| SegmentsRequireNode | False | Boolean | Delete generated segments when destroyed or sold. |
-
-### LineBuildNode
-**LineBuild actors attach to LineBuildNodes.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Types | wall | Set of String | This actor is of LineBuild 'NodeType'... |
-| Connections | 1,0, 0,1, -1,0, 0,-1 | Collection of 2D Cell Vector | Cells (outside the footprint) that contain cells that can connect to this actor. |
-
-### PlaceBuildingVariants
-**Place a different building when PlaceBuilding's ToggleVariantKey hotkey is pressed while the PlaceBuildingOrderGenerator is active.**
-###### Requires trait(s): [`Buildable`](#buildable), [`Building`](#building).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Actors | *(required)* | Collection of String | Variant actors that can be cycled between when placing a structure. |
-| Facings |  | Collection of 1D World Angle | Facing of the non-variant actor, followed by facings for each variant actor. The length equals the length of Actors + 1. |
-
-### PrimaryBuilding
-**Used together with ClassicProductionQueue.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PrimaryCondition |  | String | The condition to grant to self while this is the primary building. |
-| SelectionNotification |  | String | Speech notification to play when selecting a primary building. |
-| SelectionTextNotification |  | String | Text notification to display when selecting a primary building. |
-| ProductionQueues |  | Collection of String | List of production queues for which the primary flag should be set. If empty, the list given in the `Produces` property of the `Production` trait will be used. |
-| Cursor | deploy | String | Cursor to display when setting the primary building. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProductionAirdrop
-**Deliver the unit in production via skylift.**
-###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ReadyAudio | Reinforce | String | Speech notification to play when a unit is delivered. |
-| ReadyTextNotification |  | String | Text notification to display when a unit is delivered. |
-| ActorType | *(required)* | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
-| BaselineSpawn | False | Boolean | The cargo aircraft will spawn at the player baseline (map edge closest to the player spawn) |
-| Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
-| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RallyPoint
-**Used to waypoint units after production or repair is finished.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Image | rallypoint | String |  |
-| LineWidth | 1 | Integer | Width (in pixels) of the rallypoint line. |
-| FlagSequence | flag | String |  |
-| CirclesSequence | circles | String |  |
-| Cursor | ability | String | Cursor to display when rally point can be set. |
-| Palette | player | String | Custom indicator palette name |
-| IsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
-| Path |  | Collection of 2D Cell Vector | A list of 0 or more offsets defining the initial rally point path. |
-| Notification |  | String | Speech notification to play when setting a new rallypoint. |
-| TextNotification |  | String | Text notification to display when setting a new rallypoint. |
-| ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
-
-### Refinery
-###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DockAngle | 0 | 1D World Angle | Actual harvester facing when docking. |
-| DockOffset | 0,0 | 2D Cell Vector | Docking cell relative to top-left cell. |
-| IsDragRequired | False | Boolean | Does the refinery require the harvester to be dragged in? |
-| DragOffset | 0,0,0 | 3D World Vector | Vector by which the harvester will be dragged when docking. |
-| DragLength | 0 | Integer | In how many steps to perform the dragging? |
-| UseStorage | True | Boolean | Store resources in silos. Adds cash directly without storing if set to false. |
-| DiscardExcessResources | False | Boolean | Discard resources once silo capacity has been reached. |
-| ShowTicks | True | Boolean |  |
-| TickLifetime | 30 | Integer |  |
-| TickVelocity | 2 | Integer |  |
-| TickRate | 10 | Integer |  |
-
-### RepairableBuilding
-**Building can be repaired by the repair button.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RepairPercent | 20 | Integer | Cost to fully repair the actor as a percent of its value. |
-| RepairInterval | 24 | Integer | Number of ticks between each repair step. |
-| RepairStep | 7 | Integer | The maximum amount of HP to repair each step. |
-| RepairDamageTypes |  | Collection of DamageType | Damage types used for the repair. |
-| RepairBonuses | 100, 150, 175, 200, 220, 240, 260, 280, 300 | Collection of Integer | The percentage repair bonus applied with increasing numbers of repairers. |
-| CancelWhenDisabled | False | Boolean | Cancel the repair state when the trait is disabled. |
-| PlayerExperience | 0 | Integer | Experience gained by a player for repairing structures of allied players. |
-| RepairCondition |  | String | The condition to grant to self while being repaired. |
-| RepairingNotification |  | String |  |
-| RepairingTextNotification |  | String |  |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RequiresBuildableArea
-**This actor requires another actor with 'GivesBuildableArea' trait around to be placed.**
-###### Requires trait(s): [`Building`](#building).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AreaTypes | *(required)* | Set of String | Types of buildable are this actor requires. |
-| Adjacent | 2 | Integer | Maximum range from the actor with 'GivesBuildableArea' this can be placed at. |
-
-### Reservable
-**Reserve landing places for aircraft.**
-
-### SequencePlaceBuildingPreview
-**Creates a building placement preview based on a defined sequence.**
-###### Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Sequence | idle | String | Sequence name to use. |
-| SequenceAlpha | 1 | Real Number | Custom opacity to apply to the sequence sprite. |
-| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
-| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
-| Palette | terrain | String | Palette to use for rendering the placement sprite. |
-| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
-| LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
-
-### TransformsIntoAircraft
-**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
-| DockActors | *(required)* | Set of String |  |
-| Voice | Action | String |  |
-| RequiresForceMove | False | Boolean | Require the force-move modifier to display the move cursor. |
-| Cursor | move | String | Cursor to display when a move order can be issued at target location. |
-| BlockedCursor | move-blocked | String | Cursor to display when a move order cannot be issued at target location. |
-| EnterCursor | enter | String | Cursor to display when able to land at target building. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to land at target building. |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line for regular move orders. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TransformsIntoEntersTunnels
-**Add to a building to expose a move cursor that triggers Transforms and issues an enter tunnel order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| EnterCursor | enter | String | Cursor to display when able to enter target tunnel. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target tunnel. |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line while in tunnels. |
-| Voice | Action | String |  |
-| RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TransformsIntoMobile
-**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Locomotor | *(required)* | String | Locomotor used by the transformed actor. Must be defined on the World actor. |
-| Cursor | move | String | Cursor to display when a move order can be issued at target location. |
-| TerrainCursors |  | Dictionary with Key: String, Value: String | Cursor overrides to display for specific terrain types. A dictionary of [terrain type]: [cursor name]. |
-| BlockedCursor | move-blocked | String | Cursor to display when a move order cannot be issued at target location. |
-| Voice | Action | String |  |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line for regular move orders. |
-| RequiresForceMove | False | Boolean | Require the force-move modifier to display the move cursor. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TransformsIntoPassenger
-**Add to a building to expose a move cursor that triggers Transforms and issues an EnterTransport order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CargoType |  | String |  |
-| Weight | 1 | Integer |  |
-| Voice | Action | String |  |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
-| EnterCursor | enter | String | Cursor to display when able to enter target actor. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target actor. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TransformsIntoRepairable
-**Add to a building to expose a move cursor that triggers Transforms and issues a repair order to the transformed actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RepairActors | *(required)* | Set of String |  |
-| Voice | Action | String |  |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
-| EnterCursor | enter | String | Cursor to display when able to be repaired at target actor. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired at target actor. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TransformsIntoTransforms
-**Add to a building to allow queued transform orders while undeploying.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Transforms`](#transforms).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Voice | Action | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Capturable
@@ -2231,6 +1937,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Interval | 50 | Integer | Number of ticks to wait between repeating blinks. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### CaptureManagerBotModule
+**Manages AI capturing logic.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CapturingActorTypes |  | Set of String | Actor types that can capture other actors (via `Captures`). Leave this empty to disable capturing. |
+| CapturableActorTypes |  | Set of String | Actor types that can be targeted for capturing. Leave this empty to include all actors. |
+| MinimumCaptureDelay | 375 | Integer | Minimum delay (in ticks) between trying to capture with CapturingActorTypes. |
+| MaximumCaptureTargetOptions | 10 | Integer | Maximum number of options to consider for capturing. If a value less than 1 is given 1 will be used instead. |
+| CheckCaptureTargetsForVisibility | True | Boolean | Should visibility (Shroud, Fog, Cloak, etc) be considered when searching for capturable targets? |
+| CapturableRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships that capturers should attempt to target. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CaptureManager
@@ -2297,6 +2017,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LoadedCondition |  | String | The condition to grant to self while passengers are loaded. Condition can stack with multiple passengers. |
 | PassengerConditions |  | Dictionary with Key: String, Value: String | Conditions to grant when specified actors are loaded inside the transport. A dictionary of [actor name]: [condition]. |
 
+### CarryableHarvester
+
 ### Carryable
 **Can be carried by actors with the `Carryall` trait.**
 ###### Inherits from: `ConditionalTrait`.
@@ -2308,8 +2030,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LockedCondition |  | String | The condition to grant to self while being locked for carry. |
 | LocalOffset | 0,0,0 | 3D World Vector | Carryall attachment point relative to body. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CarryableHarvester
 
 ### Carryall
 **Transports actors with the `Carryable` trait.**
@@ -2348,6 +2068,24 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### CashTricklerMultiplier
+**Modifies the cash given by cash tricker traits of this actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`CashTrickler`](#cashtrickler).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### CellTriggerOverlay
+**Renders a debug overlay showing the script triggers. Attach this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Font | BigBold | String |  |
+| Color | FF0000 | Color (RRGGBB[AA] notation) |  |
+
 ### ChangesHealth
 **Attach this to actors which should regenerate or lose health points over time.**
 ###### Inherits from: `ConditionalTrait`.
@@ -2369,6 +2107,82 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | TerrainType | *(required)* | String |  |
+
+### ClassicParallelProductionQueue
+**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time.**
+###### Inherits from: [`ProductionQueue`](#productionqueue).
+###### Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
+| BuildingCountBuildTimeMultipliers | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue modified by a percentage of the original time. |
+| ParallelPenaltyBuildTimeMultipliers | 100, 116, 133, 150, 166, 183, 200, 216, 233, 250 | Collection of Integer | Build time modifier multiplied by the number of parallel production for producing different actors at the same time. |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
+| Group |  | String | Group queues from separate buildings together into the same tab. |
+| Factions |  | Set of String | Only enable this queue for certain factions. |
+| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
+| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
+| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
+| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
+| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
+| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
+| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
+| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
+| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
+| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
+| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
+
+### ClassicProductionQueue
+**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit.**
+###### Inherits from: [`ProductionQueue`](#productionqueue).
+###### Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
+| BuildTimeSpeedReduction | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue decreased by a percentage of the original time. |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
+| Group |  | String | Group queues from separate buildings together into the same tab. |
+| Factions |  | Set of String | Only enable this queue for certain factions. |
+| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
+| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
+| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
+| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
+| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
+| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
+| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
+| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
+| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
+| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
+| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
+
+### CliffBackImpassabilityLayer
+**Sets a custom terrain type for cells that are obscured by back-facing cliffs. This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TerrainType | Impassable | String |  |
 
 ### Cloak
 **This unit can cloak and uncloak in specific situations.**
@@ -2396,6 +2210,31 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### CloakPaletteEffect
+
+### ColorPickerManager
+**Configuration options for the lobby player color picker. Attach this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| HsvSaturationRange | 0.3, 0.95 | Collection of Real Number | Minimum and maximum saturation levels that are valid for use. |
+| V | 0.95 | Real Number | HSV value component for player colors. |
+| SimilarityThreshold | 0.314 | Real Number | Perceptual color threshold for determining whether two colors are too similar. |
+| PresetHues |  | Collection of Real Number | List of hue components for the preset colors in the palette tab. Each entry must have a corresponding PresetSaturations definition. |
+| PresetSaturations |  | Collection of Real Number | List of saturation components for the preset colors in the palette tab. Each entry must have a corresponding PresetHues definition. |
+| PreviewActor |  | String | Actor type to show in the color picker. This can be overridden for specific factions with FactionPreviewActors. |
+| FactionPreviewActors |  | Dictionary with Key: String, Value: String | Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. |
+
+### ColorPickerPalette
+**Create a color picker palette from another palette.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | *(required)* | String | Internal palette name. |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
+| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
 ### CombatDebugOverlay
 **Displays fireports, muzzle offsets, and hit areas in developer mode.**
 
@@ -2407,6 +2246,501 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DisableStop | True | Boolean | Disable the 'Stop' button for this actor. |
 | DisableWaypointMode | True | Boolean | Disable the 'Waypoint Mode' button for this actor. |
 
+### ConquestVictoryConditions
+###### Requires trait(s): [`MissionObjectives`](#missionobjectives).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| NotificationDelay | 1500 | Integer | Delay for the end game notification in milliseconds. |
+| Objective | Destroy all opposition! | String | Description of the objective. |
+| SuppressNotifications | False | Boolean | Disable the win/loss messages and audio notifications? |
+
+### Contrail
+**Draw a colored contrail behind this actor when they move.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Offset | 0,0,0 | 3D World Vector | Position relative to body |
+| ZOffset | 0 | Integer | Offset for Z sorting. |
+| TrailLength | 25 | Integer | Length of the trail (in ticks). |
+| TrailWidth | 0c64 | 1D World Distance | Width of the trail. |
+| Color | FFFFFF | Color (RRGGBB[AA] notation) | RGB color of the contrail. |
+| UsePlayerColor | True | Boolean | Use player remap color instead of a custom color? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ControlGroups
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Groups | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 | Collection of String |  |
+
+### CrateAction
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Crate
+###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Duration | 0 | Integer | Length of time (in ticks) until the crate gets removed automatically. A value of zero disables auto-removal. |
+| TerrainTypes |  | Set of String | Allowed to land on. |
+| CrushClass | crate | String | Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. |
+
+### CrateSpawner
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CheckboxLabel | Crates | String | Descriptive label for the crates checkbox in the lobby. |
+| CheckboxDescription | Collect crates with units to receive random bonuses or penalties | String | Tooltip description for the crates checkbox in the lobby. |
+| CheckboxEnabled | True | Boolean | Default value of the crates checkbox in the lobby. |
+| CheckboxLocked | False | Boolean | Prevent the crates state from being changed in the lobby. |
+| CheckboxVisible | True | Boolean | Whether to display the crates checkbox in the lobby. |
+| CheckboxDisplayOrder | 0 | Integer | Display order for the crates checkbox in the lobby. |
+| Minimum | 1 | Integer | Minimum number of crates. |
+| Maximum | 255 | Integer | Maximum number of crates. |
+| SpawnInterval | 4500 | Integer | Average time (ticks) between crate spawn. |
+| InitialSpawnDelay | 0 | Integer | Delay (in ticks) before the first crate spawns. |
+| ValidGround | Clear, Rough, Road, Ore, Beach | Set of String | Which terrain types can we drop on? |
+| ValidWater | Water | Set of String | Which terrain types count as water? |
+| WaterChance | 20 | Integer | Chance of generating a water crate instead of a land crate. |
+| CrateActors | crate | Collection of String | Crate actors to drop. |
+| CrateActorShares | 10 | Collection of Integer | Chance of each crate actor spawning. |
+| DeliveryAircraft |  | String | If a DeliveryAircraft: is specified, then this actor will deliver crates. |
+| QuantizedFacings | 32 | Integer | Number of facings that the delivery aircraft may approach from. |
+| Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
+
+### CreateMapPlayers
+**Attach this to the world actor.**
+
+### CreatesShroud
+###### Inherits from: `AffectsShroud`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Relationship the watching player needs to see the generated shroud. |
+| MinRange | 0c0 | 1D World Distance |  |
+| Range | 0c0 | 1D World Distance |  |
+| MaxHeightDelta | -1 | Integer | If >= 0, prevent cells that are this much higher than the actor from being revealed. |
+| MoveRecalculationThreshold | 0c256 | 1D World Distance | If > 0, force visibility to be recalculated if the unit moves within a cell by more than this distance. |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### CreatesShroudMultiplier
+**Modifies the shroud range created by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Crushable
+**This actor is crushable.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CrushSound |  | String | Sound to play when being crushed. |
+| CrushClasses | infantry | Collection of CrushClass | Which crush classes does this actor belong to. |
+| WarnProbability | 75 | Integer | Probability of mobile actors noticing and evading a crush attempt. |
+| CrushedByFriendlies | False | Boolean | Will friendly units just crush me instead of pathing around. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### CustomSellValue
+**Allow a non-standard sell/repair value to avoid buy-sell exploits.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Value | 0 | Integer |  |
+
+### CustomTerrainDebugOverlay
+**Displays custom terrain types.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Font | TinyBold | String |  |
+
+### DamagedByTerrain
+**This actor receives damage from the given weapon when on the specified terrain type.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Damage | 0 | Integer | Amount of damage received per DamageInterval ticks. |
+| DamageInterval | 0 | Integer | Delay between receiving damage. |
+| DamageTypes |  | Collection of DamageType | Apply the damage using these damagetypes. |
+| Terrain | *(required)* | Collection of String | Terrain types where the actor will take damage. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### DamageMultiplier
+**Modifies the damage applied to this actor. Use 0 to make actor invulnerable.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### DeliversCash
+**Donate money to actors with the `AcceptsDeliveredCash` trait.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Payload | 500 | Integer | The amount of cash the owner receives. |
+| PlayerExperience | 0 | Integer | The amount of experience the donating player receives. |
+| Type |  | String | Identifier checked against AcceptsDeliveredCash.ValidTypes. Only needed if the latter is not empty. |
+| Sounds |  | Collection of String | Sound to play when delivering cash |
+| Cursor | enter | String | Cursor to display when hovering over a valid actor to deliver cash to. |
+| Voice | Action | String |  |
+| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+
+### DeliversExperience
+**This actor can grant experience levels equal to it's own current level via entering to other actors with the `AcceptsDeliveredExperience` trait.**
+###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PlayerExperience | 0 | Integer | The amount of experience the donating player receives. |
+| Type |  | String | Identifier checked against AcceptsDeliveredExperience.ValidTypes. Only needed if the latter is not empty. |
+| Cursor | enter | String | Cursor to display when hovering over a valid actor to deliver experience to. |
+| Voice | Action | String |  |
+| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+
+### Demolishable
+**Handle demolitions from C4 explosives.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Condition |  | String | Condition to grant during demolition countdown. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Demolition
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DetonationDelay | 45 | Integer | Delay to demolish the target once the explosive device is planted. Measured in game ticks. Default is 1.8 seconds. |
+| Flashes | 3 | Integer | Number of times to flash the target. |
+| FlashesDelay | 4 | Integer | Delay before the flashing starts. |
+| FlashInterval | 4 | Integer | Interval between each flash. |
+| EnterBehaviour | Exit | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
+| DamageTypes |  | Collection of DamageType | Types of damage that this trait causes. Leave empty for no damage types. |
+| Voice | Action | String | Voice string when planting explosive charges. |
+| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| TargetRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) |  |
+| ForceTargetRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) |  |
+| Cursor | c4 | String | Cursor to display when hovering over a demolishable target. |
+
+### DetectCloaked
+**Actor can reveal Cloak actors in a specified range.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DetectionTypes | Cloak | Collection of DetectionType | Specific cloak classifications I can reveal. |
+| Range | 5c0 | 1D World Distance |  |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### DetectCloakedMultiplier
+**Modifies the cloak detection range of this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### DeveloperMode
+**Attach this to the player actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CheckboxLabel | Debug Menu | String | Descriptive label for the developer mode checkbox in the lobby. |
+| CheckboxDescription | Enables cheats and developer commands | String | Tooltip description for the developer mode checkbox in the lobby. |
+| CheckboxEnabled | False | Boolean | Default value of the developer mode checkbox in the lobby. |
+| CheckboxLocked | False | Boolean | Prevent the developer mode state from being changed in the lobby. |
+| CheckboxVisible | True | Boolean | Whether to display the developer mode checkbox in the lobby. |
+| CheckboxDisplayOrder | 0 | Integer | Display order for the developer mode checkbox in the lobby. |
+| Cash | 20000 | Integer | Default cash bonus granted by the give cash cheat. |
+| ResourceGrowth | 100 | Integer | Growth steps triggered by the grow resources button. |
+| FastBuild | False | Boolean | Enable the fast build cheat by default. |
+| FastCharge | False | Boolean | Enable the fast support powers cheat by default. |
+| DisableShroud | False | Boolean | Enable the disable visibility cheat by default. |
+| UnlimitedPower | False | Boolean | Enable the unlimited power cheat by default. |
+| BuildAnywhere | False | Boolean | Enable the build anywhere cheat by default. |
+| PathDebug | False | Boolean | Enable the path debug overlay by default. |
+
+### DrawLineToTarget
+**Renders target lines between order waypoints.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Delay | 2400 | Integer | Delay (in milliseconds) before the target lines disappear. |
+| LineWidth | 1 | Integer | Width (in pixels) of the target lines. |
+| QueuedLineWidth | 1 | Integer | Width (in pixels) of the queued target lines. |
+| MarkerWidth | 2 | Integer | Width (in pixels) of the end node markers. |
+| QueuedMarkerWidth | 2 | Integer | Width (in pixels) of the queued end node markers. |
+
+### DummyBot
+**A placeholder bot that doesn't do anything.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | Unnamed Bot | String | Human-readable name this bot uses. |
+| Type | *(required)* | String | Internal id for this bot. |
+
+### DuplicateUnitCrateAction
+**Creates duplicates of the actor that collects the crate.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| MaxAmount | 2 | Integer | The maximum number of duplicates to make. |
+| MinAmount | 1 | Integer | The minimum number of duplicates to make. Overrules MaxDuplicatesWorth. |
+| MaxDuplicateValue | -1 | Integer | The maximum total value allowed for the duplicates. Duplication stops if the total worth will exceed this number. -1 = no limit |
+| MaxRadius | 4 | Integer | The maximum radius (in cells) that duplicates can be spawned. |
+| ValidTargets | Ground, Water | Collection of TargetableType | The list of unit target types we are allowed to duplicate. |
+| ValidFactions |  | Set of String | Which factions this crate action can occur for. |
+| Owner |  | String | Is the new duplicates given to a specific owner, regardless of whom collected it? |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### EditorActionManager
+
+### EditorActorLayer
+**Required for the map editor to work. Attach this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BinSize | 250 | Integer | Size of partition bins (world pixels) |
+
+### EditorCursorLayer
+**Required for the map editor to work. Attach this to the world actor.**
+###### Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PreviewFacing | 384 | 1D World Angle |  |
+
+### EditorOnlyTooltip
+**Shown in map editor.**
+###### Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name |  | String |  |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### EditorResourceLayer
+**Required for the map editor to work. Attach this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
+| RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
+
+### EditorSelectionLayer
+**Required for the map editor to work. Attach this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Palette | terrain | String | Palette to use for rendering the placement sprite. |
+| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
+| Image | editor-overlay | String | Sequence image where the selection overlay types are defined. |
+| CopySequence | copy | String | Sequence to use for the copy overlay. |
+| PasteSequence | paste | String | Sequence to use for the paste overlay. |
+
+### EjectOnDeath
+**Eject a ground soldier or a paratrooper while in the air.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PilotActor | E1 | String | Name of the unit to eject. This actor type needs to have the Parachutable trait defined. |
+| SuccessRate | 50 | Integer | Probability that the aircraft's pilot gets ejected once the aircraft is destroyed. |
+| ChuteSound |  | String | Sound to play when ejecting the pilot from the aircraft. |
+| EjectInAir | False | Boolean | Can a destroyed aircraft eject its pilot while it has not yet fallen to ground level? |
+| EjectOnGround | False | Boolean | Can a destroyed aircraft eject its pilot when it falls to ground level? |
+| AllowUnsuitableCell | False | Boolean | Risks stuck units when they don't have the Paratrooper trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ElevatedBridgeLayer
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any elevated bridge footprint. |
+
+### ElevatedBridgePlaceholder
+**Placeholder to make static elevated bridges work. Define individual trait instances for each elevated bridge footprint in the map.**
+###### Requires trait(s): [`ElevatedBridgeLayer`](#elevatedbridgelayer).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Location | 0,0 | 2D Cell Position | Location of the bridge |
+| Orientation | X | [`ElevatedBridgePlaceholderOrientation`](#elevatedbridgeplaceholderorientation) | Orientation of the bridge. |
+| Length | 0 | Integer | Length of the bridge |
+| Height | 0 | Byte | Height of the bridge in map height steps. |
+| TerrainType | Road | String | Terrain type of the bridge. |
+
+### EnemyWatcher
+**Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ScanInterval | 25 | Integer | Interval in ticks between scanning for enemies. |
+| NotificationInterval | 750 | Integer | Minimal ticks in-between notifications. |
+
+### EngineerRepairable
+**Eligible for instant repair.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Types |  | Collection of EngineerRepairType | Actors with these Types under EngineerRepair trait can repair me. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### EngineerRepair
+**Can instantly repair other actors, but gets consumed afterwards.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Types |  | Collection of EngineerRepairType | Uses the "EngineerRepairable" trait to determine repairability. |
+| Voice | Action | String |  |
+| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | What player relationship the target's owner needs to be repaired by this actor. |
+| RepairSound |  | String | Sound to play when repairing is done. |
+| Cursor | goldwrench | String | Cursor to display when hovering over a valid actor to repair. |
+| RepairBlockedCursor | goldwrench-blocked | String | Cursor to display when target actor has full health so it can't be repaired. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### EntersTunnels
+**This actor can interact with TunnelEntrances to move through TerrainTunnels.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| EnterCursor | enter | String | Cursor to display when able to enter target tunnel. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target tunnel. |
+| Voice | Action | String |  |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line while in tunnels. |
+| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
+
+### Exit
+**Where the unit should leave the building. Multiples are allowed if IDs are added: Exit@2, ...**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| SpawnOffset | 0,0,0 | 3D World Vector | Offset at which that the exiting actor is spawned relative to the center of the producing actor. |
+| ExitCell | 0,0 | 2D Cell Vector | Cell offset where the exiting actor enters the ActorMap relative to the topleft cell of the producing actor. |
+| Facing |  | 1D World Angle (optional) |  |
+| ProductionTypes |  | Set of String | Type tags on this exit. |
+| ExitDelay | 0 | Integer | Number of ticks to wait before moving into the world. |
+| Priority | 1 | Integer | Exits with larger priorities will be used before lower priorities. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ExitsDebugOverlay
+**Displays `Exit` data for factories.**
+###### Requires trait(s): [`Exit`](#exit).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DrawPerimiterCellVectors | True | Boolean | Should cell vectors be drawn for each perimeter cell? |
+| DrawExitCellVectors | True | Boolean | Should cell vectors be drawn for each exit cell? |
+| DrawSpawnOffsetLines | True | Boolean | Should lines be drawn for each exit (from spawn offset to the center of the exit cell)? |
+
+### ExitsDebugOverlayManager
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Font | TinyBold | String | The font used to draw cell vectors. Should match the value as-is in the Fonts section of the mod manifest (do not convert to lowercase). |
+
+### ExperienceTrickler
+**Lets the actor gain experience in a set periodic time.**
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Interval | 50 | Integer | Number of ticks to wait between giving experience. |
+| InitialDelay | 0 | Integer | Number of ticks to wait before giving first experience. |
+| Amount | 15 | Integer | Amount of experience to give each time. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ExplodeCrateAction
+**Fires a weapon at the location when collected.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapon | *(required)* | String | The weapon to fire upon collection. |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Explodes
+**This actor explodes when killed.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
+| EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
+| LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
+| Chance | 100 | Integer | Chance that this actor will explode at all. |
+| DamageThreshold | 0 | Integer | Health level at which actor will explode. |
+| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
+| Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ExplosionOnDamageTransition
+**This actor triggers an explosion on itself when transitioning to a specific damage state.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapon | *(required)* | String | Weapon to use for explosion. |
+| DamageState | Heavy | [`DamageState`](#damagestate) | At which damage state explosion will trigger. |
+| TriggerOnlyOnce | False | Boolean | Should the explosion only be triggered once? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### ExternalCondition
 **Allows a condition to be granted from an external source (Lua, warheads, etc).**
 
@@ -2415,6 +2749,262 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Condition | *(required)* | String |  |
 | SourceCap | 0 | Integer | If > 0, restrict the number of times that this condition can be granted by a single source. |
 | TotalCap | 0 | Integer | If > 0, restrict the number of times that this condition can be granted by any source. |
+
+### FallsToEarth
+**Causes aircraft husks that are spawned in the air to crash to the ground.**
+###### Requires trait(s): [`Aircraft`](#aircraft).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Explosion | UnitExplode | String | Explosion weapon that triggers when hitting ground. |
+| MaximumSpinSpeed |  | 1D World Angle (optional) | Limit the maximum spin (in angle units per tick) that can be achieved while crashing. 0 disables spinning. Leave undefined for no limit. |
+| Moves | False | Boolean | Does the aircraft (husk) move forward at aircraft speed? |
+| Velocity | 0c43 | 1D World Distance | Velocity (per tick) at which aircraft falls to ground. |
+
+### FirepowerMultiplier
+**Modifies the damage applied by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### FixedColorPalette
+**Add this to the World actor definition.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Base | terrain | String | The name of the palette to base off. |
+| Name | resources | String | The name of the resulting palette |
+| RemapIndex |  | Collection of Integer | Remap these indices to pre-defined colors. |
+| Color | 00000000 | Color (RRGGBB[AA] notation) | The fixed color to remap. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
+### FlashPaletteEffect
+**Used for bursted one-colored whole screen effects. Add this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ExcludePalettes | cursor, chrome, colorpicker, fog, shroud | Set of String |  |
+| Length | 20 | Integer | Measured in ticks. |
+| Color | FFFFFF | Color (RRGGBB[AA] notation) |  |
+| Type |  | String | Set this when using multiple independent flash effects. |
+
+### FootprintPlaceBuildingPreview
+**Creates a building placement preview showing only the building footprint.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Palette | terrain | String | Palette to use for rendering the placement sprite. |
+| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
+| LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
+
+### FreeActor
+**Player receives a unit for free once the building is placed. This also works for structures. If you want more than one unit to appear copy this section and assign IDs like FreeActor@2, ...**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Actor | *(required)* | String | Name of the actor. |
+| SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
+| Facing | 0 | 1D World Angle | Which direction the unit should face. |
+| AllowRespawn | False | Boolean | Whether another actor should spawn upon re-enabling the trait. |
+| EditorFreeActorDisplayOrder | 4 | Integer | Display order for the free actor checkbox in the map editor |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### FreeActorWithDelivery
+**Player receives a unit for free once the building is placed. If you want more than one unit to be delivered, copy this section and assign IDs like FreeActorWithDelivery@2, ...**
+###### Inherits from: [`FreeActor`](#freeactor), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DeliveringActor | *(required)* | String | Name of the delivering actor. This actor must have the `Carryall` trait |
+| SpawnLocation | 0,0 | 2D Cell Position | Cell coordinates for spawning the delivering actor. If left blank, the closest edge cell will be chosen. |
+| DeliveryOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
+| DeliveryRange | 0c0 | 1D World Distance | Range to search for an alternative delivery location if the DeliveryOffset cell is blocked. |
+| Actor | *(required)* | String | Name of the actor. |
+| SpawnOffset | 0,0 | 2D Cell Vector | Offset relative to the top-left cell of the building. |
+| Facing | 0 | 1D World Angle | Which direction the unit should face. |
+| AllowRespawn | False | Boolean | Whether another actor should spawn upon re-enabling the trait. |
+| EditorFreeActorDisplayOrder | 4 | Integer | Display order for the free actor checkbox in the map editor |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### FrozenUnderFog
+**This actor will remain visible (but not updated visually) under fog, once discovered.**
+###### Requires trait(s): [`Building`](#building).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
+
+### GainsExperience
+**This actor's experience increases when it has killed a GivesExperience actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Conditions | *(required)* | Dictionary with Key: Integer, Value: String | Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. |
+| LevelUpImage |  | String | Image for the level up sprite. |
+| LevelUpSequence | levelup | String | Sequence for the level up sprite. Needs to be present on LevelUpImage. |
+| LevelUpPalette | effect | String | Palette for the level up sprite. |
+| ExperienceModifier | -1 | Integer | Multiplier to apply to the Conditions keys. Defaults to the actor's value. |
+| SuppressLevelupAnimation | True | Boolean | Should the level-up animation be suppressed when actor is created? |
+| LevelUpNotification |  | String |  |
+| LevelUpTextNotification |  | String |  |
+
+### GainsExperienceMultiplier
+**Modifies the experience gathered by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GameSaveViewportManager
+
+### Gate
+**Will open and be passable for actors that appear friendly when there are no enemies in range.**
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+###### Requires trait(s): [`Building`](#building).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| OpeningSound |  | String |  |
+| ClosingSound |  | String |  |
+| CloseDelay | 150 | Integer | Ticks until the gate closes. |
+| TransitionDelay | 33 | Integer | Ticks until the gate is considered open. |
+| BlocksProjectilesHeight | 0c640 | 1D World Distance | Blocks bullets scaled to open value. |
+| BlocksProjectilesValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Determines what projectiles to block based on their allegiance to the gate owner. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GiveCashCrateAction
+**Gives cash to the collector.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Amount | 2000 | Integer | Amount of cash to give. |
+| UseCashTick | False | Boolean | Should the collected amount be displayed as a cash tick? |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GiveMcvCrateAction
+**Spawns units when collected. Adjust selection shares when player has no base.**
+###### Inherits from: [`GiveUnitCrateAction`](#giveunitcrateaction), [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| NoBaseSelectionShares | 1000 | Integer | The selection shares to use if the collector has no base. |
+| Units | *(required)* | Collection of String | The list of units to spawn. |
+| ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
+| Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GivesBounty
+**When killed, this actor causes the attacking player to receive money.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Percentage | 10 | Integer | Percentage of the killed actor's Cost or CustomSellValue to be given. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the attacking player needs to receive the bounty. |
+| ShowBounty | True | Boolean | Whether to show a floating text announcing the won bounty. |
+| DeathTypes |  | Collection of DamageType | DeathTypes for which a bounty should be granted. Use an empty list (the default) to allow all DeathTypes. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GivesBuildableArea
+**This actor allows placement of other actors with 'RequiresBuildableArea' trait around it.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AreaTypes | *(required)* | Set of String | Types of buildable area this actor gives. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GivesCashOnCapture
+**Lets the actor grant cash when captured.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
+| DisplayDuration | 30 | Integer | How long to show the Amount tick indicator when enabled. |
+| Amount | 0 | Integer | Amount of money awarded for capturing the actor. |
+| CaptureTypes |  | Collection of CaptureType | Award cash only if the capturer's CaptureTypes overlap with these types. Leave empty to allow all types. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GivesExperience
+**This actor gives experience to a GainsExperience actor when they are killed.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Experience | -1 | Integer | If -1, use the value of the unit cost. |
+| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the attacking player needs to receive the experience. |
+| ActorExperienceModifier | 10000 | Integer | Percentage of the `Experience` value that is being granted to the killing actor. |
+| PlayerExperienceModifier | 0 | Integer | Percentage of the `Experience` value that is being granted to the player owning the killing actor. |
+
+### GivesExperienceMultiplier
+**Modifies the experience given by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GiveUnitCrateAction
+**Spawns units when collected.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Units | *(required)* | Collection of String | The list of units to spawn. |
+| ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
+| Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### GlobalLightingPaletteEffect
+**Used for day/night effects.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ExcludePalettes | cursor, chrome, colorpicker, fog, shroud, alpha | Set of String | Do not modify graphics that use any palette in this list. |
+| ExcludePalettePrefixes |  | Set of String | Do not modify graphics that start with these letters. |
+| Red | 1 | Real Number |  |
+| Green | 1 | Real Number |  |
+| Blue | 1 | Real Number |  |
+| Ambient | 1 | Real Number |  |
 
 ### GrantCondition
 **Grants a condition while the trait is active.**
@@ -2565,6 +3155,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Condition | *(required)* | String | The condition to grant. |
 | Prerequisites | *(required)* | Collection of String | List of required prerequisites. |
 
+### GrantConditionOnPrerequisiteManager
+**Attach this to the player actor.**
+###### Requires trait(s): [`TechTree`](#techtree).
+
 ### GrantConditionOnProduction
 **Grants a condition when this actor produces a specific actor.**
 
@@ -2617,213 +3211,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | The condition to grant while aiming. |
 
-### GrantExternalConditionToCrusher
-**Grant a condition to the crushing actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| WarnCrushCondition |  | String | The condition to apply on a crush attempt. Must be included among the crusher actor's ExternalCondition traits. |
-| WarnCrushDuration | 0 | Integer | Duration of the condition applied on a crush attempt (in ticks). Set to 0 for a permanent condition. |
-| OnCrushCondition |  | String | The condition to apply on a successful crush. Must be included among the crusher actor's ExternalCondition traits. |
-| OnCrushDuration | 0 | Integer | Duration of the condition applied on a successful crush (in ticks). Set to 0 for a permanent condition. |
-
-### GrantExternalConditionToProduced
-**Grants a condition to actors produced by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition | *(required)* | String | The condition to apply. Must be included in the produced actor's ExternalConditions list. |
-| Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### LineBuildSegmentExternalCondition
-**Applies a condition to connected line build segments.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`LineBuild`](#linebuild).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProximityExternalCondition
-**Applies a condition to actors within a specified range.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
-| Range | 3c0 | 1D World Distance | The range to search for actors. |
-| MaximumVerticalOffset | 0c0 | 1D World Distance | The maximum vertical range above terrain to search for actors. Ignored if 0 (actors are selected regardless of vertical distance). |
-| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
-| AffectsParent | False | Boolean | Condition is applied permanently to this actor. |
-| EnableSound |  | String |  |
-| DisableSound |  | String |  |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### SpreadsCondition
-**Any actor with this trait enabled has a chance to affect others with this trait.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Probability | 5 | Integer | The chance this actor is going to affect an adjacent actor. |
-| Range | 3c0 | 1D World Distance | How far the condition can spread from one actor to another. |
-| SpreadCondition | spreading | String | Condition to grant onto another actor in range with the same trait. |
-| Delay | 5 | Integer | Time in ticks to wait between spreading further. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ToggleConditionOnOrder
-**Toggles a condition on and off when a specified order type is received.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition | *(required)* | String | Condition to grant. |
-| OrderName | *(required)* | String | Order name that toggles the condition. |
-| EnabledSound |  | String |  |
-| EnabledSpeech |  | String |  |
-| EnabledTextNotification |  | String |  |
-| DisabledSound |  | String |  |
-| DisabledSpeech |  | String |  |
-| DisabledTextNotification |  | String |  |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Crate
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Duration | 0 | Integer | Length of time (in ticks) until the crate gets removed automatically. A value of zero disables auto-removal. |
-| TerrainTypes |  | Set of String | Allowed to land on. |
-| CrushClass | crate | String | Define actors that can collect crates by setting this into the Crushes field from the Mobile trait. |
-
-### CrateAction
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### DuplicateUnitCrateAction
-**Creates duplicates of the actor that collects the crate.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| MaxAmount | 2 | Integer | The maximum number of duplicates to make. |
-| MinAmount | 1 | Integer | The minimum number of duplicates to make. Overrules MaxDuplicatesWorth. |
-| MaxDuplicateValue | -1 | Integer | The maximum total value allowed for the duplicates. Duplication stops if the total worth will exceed this number. -1 = no limit |
-| MaxRadius | 4 | Integer | The maximum radius (in cells) that duplicates can be spawned. |
-| ValidTargets | Ground, Water | Collection of TargetableType | The list of unit target types we are allowed to duplicate. |
-| ValidFactions |  | Set of String | Which factions this crate action can occur for. |
-| Owner |  | String | Is the new duplicates given to a specific owner, regardless of whom collected it? |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ExplodeCrateAction
-**Fires a weapon at the location when collected.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Weapon | *(required)* | String | The weapon to fire upon collection. |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GiveCashCrateAction
-**Gives cash to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Amount | 2000 | Integer | Amount of cash to give. |
-| UseCashTick | False | Boolean | Should the collected amount be displayed as a cash tick? |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GiveMcvCrateAction
-**Spawns units when collected. Adjust selection shares when player has no base.**
-###### Inherits from: [`GiveUnitCrateAction`](#giveunitcrateaction), [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NoBaseSelectionShares | 1000 | Integer | The selection shares to use if the collector has no base. |
-| Units | *(required)* | Collection of String | The list of units to spawn. |
-| ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
-| Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GiveUnitCrateAction
-**Spawns units when collected.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Units | *(required)* | Collection of String | The list of units to spawn. |
-| ValidFactions |  | Set of String | Factions that are allowed to trigger this action. |
-| Owner |  | String | Override the owner of the newly spawned unit: e.g. Creeps or Neutral |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### GrantExternalConditionCrateAction
 **Grants a condition on the collector.**
 ###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
@@ -2847,355 +3234,110 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### HealActorsCrateAction
-**Heals all actors that belong to the owner of the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+### GrantExternalConditionPower
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TargetTypes |  | Collection of TargetableType | The target type(s) of the actors this crate action will heal. Leave empty to heal all actors. |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### HideMapCrateAction
-**Hides the entire map in shroud.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| IncludeAllies | False | Boolean | Should the map also be hidden for the allies of the collector's owner? |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### LevelUpCrateAction
-**Gives experience levels to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Levels | 1 | Integer | Number of experience levels to give. |
-| Range | 0c3 | 1D World Distance | The range to search for extra collectors in. Extra collectors will also be granted the crate action. |
-| MaxExtraCollectors | 4 | Integer | The maximum number of extra collectors to grant the crate action to. |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RevealMapCrateAction
-**Reveals the entire map.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| IncludeAllies | False | Boolean | Should the map also be revealed for the allies of the collector's owner? |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### SupportPowerCrateAction
-**Gives a supportpower to the collector.**
-###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Proxy | *(required)* | String | Which proxy actor, which grants the support power, to spawn. |
-| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
-| Image | crate-effects | String | Image containing the crate effect animation sequence. |
-| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
-| Palette | effect | String | Palette to draw the animation in. |
-| Sound |  | String | Audio clip to play when the crate is collected. |
-| Notification |  | String | Speech notification to play when the crate is collected. |
-| TextNotification |  | String | Text notification to display when the crate is collected. |
-| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
-| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
-| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CreatesShroud
-###### Inherits from: `AffectsShroud`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Relationship the watching player needs to see the generated shroud. |
-| MinRange | 0c0 | 1D World Distance |  |
-| Range | 0c0 | 1D World Distance |  |
-| MaxHeightDelta | -1 | Integer | If >= 0, prevent cells that are this much higher than the actor from being revealed. |
-| MoveRecalculationThreshold | 0c256 | 1D World Distance | If > 0, force visibility to be recalculated if the unit moves within a cell by more than this distance. |
-| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Crushable
-**This actor is crushable.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CrushSound |  | String | Sound to play when being crushed. |
-| CrushClasses | infantry | Collection of CrushClass | Which crush classes does this actor belong to. |
-| WarnProbability | 75 | Integer | Probability of mobile actors noticing and evading a crush attempt. |
-| CrushedByFriendlies | False | Boolean | Will friendly units just crush me instead of pathing around. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CustomSellValue
-**Allow a non-standard sell/repair value to avoid buy-sell exploits.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Value | 0 | Integer |  |
-
-### DamagedByTerrain
-**This actor receives damage from the given weapon when on the specified terrain type.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Damage | 0 | Integer | Amount of damage received per DamageInterval ticks. |
-| DamageInterval | 0 | Integer | Delay between receiving damage. |
-| DamageTypes |  | Collection of DamageType | Apply the damage using these damagetypes. |
-| Terrain | *(required)* | Collection of String | Terrain types where the actor will take damage. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### DeliversCash
-**Donate money to actors with the `AcceptsDeliveredCash` trait.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Payload | 500 | Integer | The amount of cash the owner receives. |
-| PlayerExperience | 0 | Integer | The amount of experience the donating player receives. |
-| Type |  | String | Identifier checked against AcceptsDeliveredCash.ValidTypes. Only needed if the latter is not empty. |
-| Sounds |  | Collection of String | Sound to play when delivering cash |
-| Cursor | enter | String | Cursor to display when hovering over a valid actor to deliver cash to. |
-| Voice | Action | String |  |
-| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-
-### DeliversExperience
-**This actor can grant experience levels equal to it's own current level via entering to other actors with the `AcceptsDeliveredExperience` trait.**
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PlayerExperience | 0 | Integer | The amount of experience the donating player receives. |
-| Type |  | String | Identifier checked against AcceptsDeliveredExperience.ValidTypes. Only needed if the latter is not empty. |
-| Cursor | enter | String | Cursor to display when hovering over a valid actor to deliver experience to. |
-| Voice | Action | String |  |
-| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-
-### Demolishable
-**Handle demolitions from C4 explosives.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition |  | String | Condition to grant during demolition countdown. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Demolition
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DetonationDelay | 45 | Integer | Delay to demolish the target once the explosive device is planted. Measured in game ticks. Default is 1.8 seconds. |
-| Flashes | 3 | Integer | Number of times to flash the target. |
-| FlashesDelay | 4 | Integer | Delay before the flashing starts. |
-| FlashInterval | 4 | Integer | Interval between each flash. |
-| EnterBehaviour | Exit | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
-| DamageTypes |  | Collection of DamageType | Types of damage that this trait causes. Leave empty for no damage types. |
-| Voice | Action | String | Voice string when planting explosive charges. |
-| TargetLineColor | DC143C | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| TargetRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) |  |
-| ForceTargetRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) |  |
-| Cursor | c4 | String | Cursor to display when hovering over a demolishable target. |
-
-### DetectCloaked
-**Actor can reveal Cloak actors in a specified range.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DetectionTypes | Cloak | Collection of DetectionType | Specific cloak classifications I can reveal. |
-| Range | 5c0 | 1D World Distance |  |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### EjectOnDeath
-**Eject a ground soldier or a paratrooper while in the air.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PilotActor | E1 | String | Name of the unit to eject. This actor type needs to have the Parachutable trait defined. |
-| SuccessRate | 50 | Integer | Probability that the aircraft's pilot gets ejected once the aircraft is destroyed. |
-| ChuteSound |  | String | Sound to play when ejecting the pilot from the aircraft. |
-| EjectInAir | False | Boolean | Can a destroyed aircraft eject its pilot while it has not yet fallen to ground level? |
-| EjectOnGround | False | Boolean | Can a destroyed aircraft eject its pilot when it falls to ground level? |
-| AllowUnsuitableCell | False | Boolean | Risks stuck units when they don't have the Paratrooper trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### EngineerRepair
-**Can instantly repair other actors, but gets consumed afterwards.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Types |  | Collection of EngineerRepairType | Uses the "EngineerRepairable" trait to determine repairability. |
-| Voice | Action | String |  |
-| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
-| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | What player relationship the target's owner needs to be repaired by this actor. |
-| RepairSound |  | String | Sound to play when repairing is done. |
-| Cursor | goldwrench | String | Cursor to display when hovering over a valid actor to repair. |
-| RepairBlockedCursor | goldwrench-blocked | String | Cursor to display when target actor has full health so it can't be repaired. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### EngineerRepairable
-**Eligible for instant repair.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Types |  | Collection of EngineerRepairType | Actors with these Types under EngineerRepair trait can repair me. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### EntersTunnels
-**This actor can interact with TunnelEntrances to move through TerrainTunnels.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| EnterCursor | enter | String | Cursor to display when able to enter target tunnel. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target tunnel. |
-| Voice | Action | String |  |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line while in tunnels. |
-| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
-
-### ExitsDebugOverlay
-**Displays `Exit` data for factories.**
-###### Requires trait(s): [`Exit`](#exit).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DrawPerimiterCellVectors | True | Boolean | Should cell vectors be drawn for each perimeter cell? |
-| DrawExitCellVectors | True | Boolean | Should cell vectors be drawn for each exit cell? |
-| DrawSpawnOffsetLines | True | Boolean | Should lines be drawn for each exit (from spawn offset to the center of the exit cell)? |
-
-### ExperienceTrickler
-**Lets the actor gain experience in a set periodic time.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Interval | 50 | Integer | Number of ticks to wait between giving experience. |
-| InitialDelay | 0 | Integer | Number of ticks to wait before giving first experience. |
-| Amount | 15 | Integer | Amount of experience to give each time. |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
+| Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
+| Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
+| OnFireSound |  | String | Sound to instantly play at the targeted area. |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships which condition can be applied to. |
+| Sequence | active | String | Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. |
+| BlockedCursor | move-blocked | String | Cursor to display when there are no units to apply the condition in range. |
+| FootprintImage | overlay | String |  |
+| FootprintSequence | target-select | String |  |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | GrantExternalConditionPowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### Explodes
-**This actor explodes when killed.**
+### GrantExternalConditionToCrusher
+**Grant a condition to the crushing actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| WarnCrushCondition |  | String | The condition to apply on a crush attempt. Must be included among the crusher actor's ExternalCondition traits. |
+| WarnCrushDuration | 0 | Integer | Duration of the condition applied on a crush attempt (in ticks). Set to 0 for a permanent condition. |
+| OnCrushCondition |  | String | The condition to apply on a successful crush. Must be included among the crusher actor's ExternalCondition traits. |
+| OnCrushDuration | 0 | Integer | Duration of the condition applied on a successful crush (in ticks). Set to 0 for a permanent condition. |
+
+### GrantExternalConditionToProduced
+**Grants a condition to actors produced by this actor.**
 ###### Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
-| EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
-| LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
-| Chance | 100 | Integer | Chance that this actor will explode at all. |
-| DamageThreshold | 0 | Integer | Health level at which actor will explode. |
-| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
-| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
-| Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
+| Condition | *(required)* | String | The condition to apply. Must be included in the produced actor's ExternalConditions list. |
+| Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### ExplosionOnDamageTransition
-**This actor triggers an explosion on itself when transitioning to a specific damage state.**
-###### Inherits from: `ConditionalTrait`.
+### GroundLevelBridge
+**Bridge actor that can't be passed underneath.**
+###### Requires trait(s): [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Weapon | *(required)* | String | Weapon to use for explosion. |
-| DamageState | Heavy | [`DamageState`](#damagestate) | At which damage state explosion will trigger. |
-| TriggerOnlyOnce | False | Boolean | Should the explosion only be triggered once? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+| TerrainType | Bridge | String |  |
+| Type | GroundLevelBridge | String |  |
+| NeighbourOffsets |  | Collection of 2D Cell Vector |  |
+| DemolishWeapon | Demolish | String | The name of the weapon to use when demolishing the bridge |
+| DamageTypes |  | Collection of DamageType | Types of damage that this bridge causes to units over/in path of it while being destroyed/repaired. Leave empty for no damage types. |
 
-### GainsExperience
-**This actor's experience increases when it has killed a GivesExperience actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Conditions | *(required)* | Dictionary with Key: Integer, Value: String | Condition to grant at each level. Key is the XP requirements for each level as a percentage of our own value. Value is the condition to grant. |
-| LevelUpImage |  | String | Image for the level up sprite. |
-| LevelUpSequence | levelup | String | Sequence for the level up sprite. Needs to be present on LevelUpImage. |
-| LevelUpPalette | effect | String | Palette for the level up sprite. |
-| ExperienceModifier | -1 | Integer | Multiplier to apply to the Conditions keys. Defaults to the actor's value. |
-| SuppressLevelupAnimation | True | Boolean | Should the level-up animation be suppressed when actor is created? |
-| LevelUpNotification |  | String |  |
-| LevelUpTextNotification |  | String |  |
-
-### GivesBounty
-**When killed, this actor causes the attacking player to receive money.**
-###### Inherits from: `ConditionalTrait`.
+### Guardable
+**This unit can be guarded (followed and protected) by a Guard unit.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Percentage | 10 | Integer | Percentage of the killed actor's Cost or CustomSellValue to be given. |
-| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the attacking player needs to receive the bounty. |
-| ShowBounty | True | Boolean | Whether to show a floating text announcing the won bounty. |
-| DeathTypes |  | Collection of DamageType | DeathTypes for which a bounty should be granted. Use an empty list (the default) to allow all DeathTypes. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GivesCashOnCapture
-**Lets the actor grant cash when captured.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
-| DisplayDuration | 30 | Integer | How long to show the Amount tick indicator when enabled. |
-| Amount | 0 | Integer | Amount of money awarded for capturing the actor. |
-| CaptureTypes |  | Collection of CaptureType | Award cash only if the capturer's CaptureTypes overlap with these types. Leave empty to allow all types. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GivesExperience
-**This actor gives experience to a GainsExperience actor when they are killed.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Experience | -1 | Integer | If -1, use the value of the unit cost. |
-| ValidRelationships | Enemy, Neutral | [`PlayerRelationship`](#playerrelationship) | Player relationships the attacking player needs to receive the experience. |
-| ActorExperienceModifier | 10000 | Integer | Percentage of the `Experience` value that is being granted to the killing actor. |
-| PlayerExperienceModifier | 0 | Integer | Percentage of the `Experience` value that is being granted to the player owning the killing actor. |
+| Range | 2c0 | 1D World Distance | Maximum range that guarding actors will maintain. |
 
 ### Guard
 **The player can give this unit the order to follow and protect friendly units with the Guardable trait.**
@@ -3205,12 +3347,36 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Voice | Action | String |  |
 | TargetLineColor | FF4500 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
 
-### Guardable
-**This unit can be guarded (followed and protected) by a Guard unit.**
+### HandicapDamageMultiplier
+**Modifies the damage applied to this actor based on the owner's handicap.**
+
+### HandicapFirepowerMultiplier
+**Modifies the damage applied by this actor based on the owner's handicap.**
+
+### HandicapProductionTimeMultiplier
+**Modifies the production time of this actor based on the producer's handicap.**
+
+### HarvesterAttackNotifier
+**Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Range | 2c0 | 1D World Distance | Maximum range that guarding actors will maintain. |
+| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
+| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
+| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| Notification | HarvesterAttack | String | Speech notification type to play. |
+
+### HarvesterBotModule
+**Put this on the Player actor. Manages bot harvesters to ensure they always continue harvesting as long as there are resources on the map.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| HarvesterTypes |  | Set of String | Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. |
+| RefineryTypes |  | Set of String | Actor types that are counted as refineries. Currently only needed by harvester replacement system. |
+| ScanForIdleHarvestersInterval | 50 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
+| HarvesterEnemyAvoidanceRadius | 8c0 | 1D World Distance | Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Harvester
 ###### Inherits from: `ConditionalTrait`.
@@ -3246,6 +3412,25 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HarvestCursor | harvest | String | Cursor to display when ordering to harvest resources. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### HealActorsCrateAction
+**Heals all actors that belong to the owner of the collector.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TargetTypes |  | Collection of TargetableType | The target type(s) of the actors this crate action will heal. Leave empty to heal all actors. |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### Health
 
 | Property | Default Value | Type | Description |
@@ -3253,6 +3438,54 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HP | 0 | Integer | HitPoints |
 | NotifyAppliedDamage | True | Boolean | Trigger interfaces such as AnnounceOnKill? |
 | EditorHealthDisplayOrder | 2 | Integer | Display order for the health slider in the map editor |
+
+### HiddenUnderFog
+**The actor stays invisible under fog of war.**
+###### Inherits from: [`HiddenUnderShroud`](#hiddenundershroud).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
+
+### HiddenUnderShroud
+**The actor stays invisible under the shroud.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
+
+### HideMapCrateAction
+**Hides the entire map in shroud.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| IncludeAllies | False | Boolean | Should the map also be hidden for the allies of the collector's owner? |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### HierarchicalPathFinderOverlay
+**Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor.**
+###### Requires trait(s): [`PathFinder`](#pathfinder).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Font | TinyBold | String |  |
+| GroundLayerColor | FF8C00 | Color (RRGGBB[AA] notation) |  |
+| CustomLayerColor | 0000FF | Color (RRGGBB[AA] notation) |  |
+| GroundToCustomLayerColor | 800080 | Color (RRGGBB[AA] notation) |  |
+| AbstractNodeColor | FF0000 | Color (RRGGBB[AA] notation) |  |
 
 ### HitShape
 **Shape of actor for targeting and damage calculations.**
@@ -3291,47 +3524,36 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | OccupiesSpace | True | Boolean |  |
 
-### ScaredyCat
-**Makes the unit automatically run around when taking damage.**
-###### Requires trait(s): [`Mobile`](#mobile).
+### InaccuracyMultiplier
+**Modifies the inaccuracy of weapons fired by this actor.**
+###### Inherits from: `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| PanicChance | 100 | Integer | Chance (out of 100) the unit has to enter panic mode when attacked. |
-| PanicDuration | 250 | Integer | How long (in ticks) the actor should panic for. |
-| PanicSpeedModifier | 200 | Integer | Panic movement speed as a percentage of the normal speed. |
-| AttackPanicChance | 20 | Integer | Chance (out of 100) the unit has to enter panic mode when attacking. |
-| AvoidTerrainTypes |  | Set of String | The terrain types that this actor should avoid running on to while panicking. |
-| PanicSequencePrefix | panic- | String |  |
-
-### TakeCover
-**Make the unit go prone when under attack, in an attempt to reduce damage.**
-###### Inherits from: [`Turreted`](#turreted), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Duration | 100 | Integer | How long (in ticks) the actor remains prone. Negative values mean actor remains prone permanently. |
-| SpeedModifier | 50 | Integer | Prone movement speed as a percentage of the normal speed. |
-| DamageTriggers |  | Collection of DamageType | Damage types that trigger prone state. Defined on the warheads. If Duration is negative (permanent), you can leave this empty to trigger prone state immediately. |
-| DamageModifiers |  | Dictionary with Key: String, Value: Integer | Damage modifiers for each damage type (defined on the warheads) while the unit is prone. |
-| ProneOffset | 500,0,0 | 3D World Vector | Muzzle offset modifier to apply while prone. |
-| ProneSequencePrefix | prone- | String | Sequence prefix to apply while prone. |
-| Turret | primary | String |  |
-| TurnSpeed | 512 | 1D World Angle | Speed at which the turret turns. |
-| InitialFacing | 0 | 1D World Angle |  |
-| RealignDelay | 40 | Integer | Number of ticks before turret is realigned. (-1 turns off realignment) |
-| Offset | 0,0,0 | 3D World Vector | Muzzle position relative to turret or body. (forward, right, up) triples |
-| EditorTurretFacingDisplayOrder | 4 | Integer | Display order for the turret facing slider in the map editor |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### TerrainModifiesDamage
+### IndexedPalette
+**Define a palette by swapping palette indices.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TerrainModifier | *(required)* | Dictionary with Key: String, Value: Integer | Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. |
-| ModifyHealing | False | Boolean | Modify healing damage? For example: A friendly medic. |
+| Name | *(required)* | String | Internal palette name |
+| BasePalette |  | String | The name of the palette to base off. |
+| Index | *(required)* | Collection of Integer | Indices from BasePalette to be swapped with ReplaceIndex. |
+| ReplaceIndex | *(required)* | Collection of Integer | Indices from BasePalette to replace from Index. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
+### IndexedPlayerPalette
+**Define a player palette by swapping palette indices.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BasePalette |  | String | The name of the palette to base off. |
+| BaseName | player | String | The prefix for the resulting player palettes |
+| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+| PlayerIndex |  | Dictionary with Key: String, Value: Collection of Integer |  |
 
 ### Interactable
 **Used to enable mouse interaction on actors that are not Selectable.**
@@ -3367,6 +3589,32 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Chance | 100 | Integer | Chance of deflecting missiles. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### JumpjetActorLayer
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TerrainType | Jumpjet | String | Terrain type of the airborne layer. |
+| HeightOffset | 3c920 | 1D World Distance | Height offset relative to the smoothed terrain for movement. |
+| SmoothingRadius | 2 | Integer | Cell radius for smoothing adjacent cell heights. |
+
+### JumpjetLocomotor
+**Used by Mobile. Required for jumpjet actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+###### Inherits from: [`Locomotor`](#locomotor).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| JumpjetTransitionCost | 0 | Int16 | Pathfinding cost for taking off or landing. |
+| JumpjetTransitionTerrainTypes |  | Set of String | The terrain types that this actor can transition on. Leave empty to allow any. |
+| JumpjetTransitionOnRamps | True | Boolean | Can this actor transition on slopes? |
+| Name | default | String | Locomotor ID. |
+| WaitAverage | 40 | Integer |  |
+| WaitSpread | 10 | Integer |  |
+| SharesCell | False | Boolean | Allow multiple (infantry) units in one cell. |
+| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
+| Crushes |  | Collection of CrushClass | e.g. crate, wall, infantry |
+| CrushDamageTypes |  | Collection of DamageType | Types of damage that are caused while crushing. Leave empty for no damage types. |
+| TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
+
 ### KillsSelf
 ###### Inherits from: `ConditionalTrait`.
 
@@ -3378,6 +3626,132 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GrantsCondition |  | String | The condition to grant moments before suiciding. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### LegacyBridgeHut
+**Allows bridges to be targeted for demolition and repair.**
+
+### LegacyBridgeLayer
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Bridges | bridge1, bridge2 | Collection of String |  |
+
+### LevelUpCrateAction
+**Gives experience levels to the collector.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Levels | 1 | Integer | Number of experience levels to give. |
+| Range | 0c3 | 1D World Distance | The range to search for extra collectors in. Extra collectors will also be granted the crate action. |
+| MaxExtraCollectors | 4 | Integer | The maximum number of extra collectors to grant the crate action to. |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### LineBuild
+**Place the second actor in line to build more of the same at once (used for walls).**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Range | 5 | Integer | The maximum allowed length of the line. |
+| NodeTypes | wall | Set of String | LineBuildNode 'Types' to attach to. |
+| SegmentType |  | String | Actor type for line-built segments (defaults to same actor). |
+| SegmentsRequireNode | False | Boolean | Delete generated segments when destroyed or sold. |
+
+### LineBuildNode
+**LineBuild actors attach to LineBuildNodes.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Types | wall | Set of String | This actor is of LineBuild 'NodeType'... |
+| Connections | 1,0, 0,1, -1,0, 0,-1 | Collection of 2D Cell Vector | Cells (outside the footprint) that contain cells that can connect to this actor. |
+
+### LineBuildSegmentExternalCondition
+**Applies a condition to connected line build segments.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`LineBuild`](#linebuild).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### LoadWidgetAtGameStart
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ShellmapRoot | MAINMENU | String | The widget tree to open when a shellmap is loaded (i.e. the main menu). |
+| IngameRoot | INGAME_ROOT | String | The widget tree to open when a regular map is loaded (i.e. the ingame UI). |
+| EditorRoot | EDITOR_ROOT | String | The widget tree to open when the map editor is loaded. |
+| GameSaveLoadingRoot | GAMESAVE_LOADING_SCREEN | String | The widget tree to open (in addition to INGAME_ROOT) while loading a saved game. |
+| ClearRoot | True | Boolean | Remove any existing UI when a map is loaded. |
+
+### LobbyPrerequisiteCheckbox
+**Enables defined prerequisites at game start for all players if the checkbox is enabled.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ID | *(required)* | String | Internal id for this checkbox. |
+| Label | *(required)* | String | Display name for this checkbox. |
+| Description |  | String | Description name for this checkbox. |
+| Enabled | False | Boolean | Default value of the checkbox in the lobby. |
+| Locked | False | Boolean | Prevent the checkbox from being changed from its default value. |
+| Visible | True | Boolean | Display the checkbox in the lobby. |
+| DisplayOrder | 0 | Integer | Display order for the checkbox in the lobby. |
+| Prerequisites | *(required)* | Set of String | Prerequisites to grant when this checkbox is enabled. |
+
+### Locomotor
+**Used by Mobile. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | default | String | Locomotor ID. |
+| WaitAverage | 40 | Integer |  |
+| WaitSpread | 10 | Integer |  |
+| SharesCell | False | Boolean | Allow multiple (infantry) units in one cell. |
+| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
+| Crushes |  | Collection of CrushClass | e.g. crate, wall, infantry |
+| CrushDamageTypes |  | Collection of DamageType | Types of damage that are caused while crushing. Leave empty for no damage types. |
+| TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
+
+### MapBuildRadius
+**Controls the build radius checkboxes in the lobby options.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AllyBuildRadiusCheckboxLabel | Build off Allies | String | Descriptive label for the ally build radius checkbox in the lobby. |
+| AllyBuildRadiusCheckboxDescription | Allow allies to place structures inside your build area | String | Tooltip description for the ally build radius checkbox in the lobby. |
+| AllyBuildRadiusCheckboxEnabled | True | Boolean | Default value of the ally build radius checkbox in the lobby. |
+| AllyBuildRadiusCheckboxLocked | False | Boolean | Prevent the ally build radius state from being changed in the lobby. |
+| AllyBuildRadiusCheckboxVisible | True | Boolean | Whether to display the ally build radius checkbox in the lobby. |
+| AllyBuildRadiusCheckboxDisplayOrder | 0 | Integer | Display order for the ally build radius checkbox in the lobby. |
+| BuildRadiusCheckboxLabel | Limit Build Area | String | Tooltip description for the build radius checkbox in the lobby. |
+| BuildRadiusCheckboxDescription | Limits structure placement to areas around Construction Yards | String | Tooltip description for the build radius checkbox in the lobby. |
+| BuildRadiusCheckboxEnabled | True | Boolean | Default value of the build radius checkbox in the lobby. |
+| BuildRadiusCheckboxLocked | False | Boolean | Prevent the build radius state from being changed in the lobby. |
+| BuildRadiusCheckboxVisible | True | Boolean | Display the build radius checkbox in the lobby. |
+| BuildRadiusCheckboxDisplayOrder | 0 | Integer | Display order for the build radius checkbox in the lobby. |
+
+### MapCreeps
+**Controls the 'Creeps' checkbox in the lobby options.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CheckboxLabel | Creep Actors | String | Descriptive label for the creeps checkbox in the lobby. |
+| CheckboxDescription | Hostile forces spawn on the battlefield | String | Tooltip description for the creeps checkbox in the lobby. |
+| CheckboxEnabled | True | Boolean | Default value of the creeps checkbox in the lobby. |
+| CheckboxLocked | False | Boolean | Prevent the creeps state from being changed in the lobby. |
+| CheckboxVisible | True | Boolean | Whether to display the creeps checkbox in the lobby. |
+| CheckboxDisplayOrder | 0 | Integer | Display order for the creeps checkbox in the lobby. |
+
 ### MapEditorData
 
 | Property | Default Value | Type | Description |
@@ -3385,6 +3759,94 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequireTilesets |  | Set of String |  |
 | ExcludeTilesets |  | Set of String |  |
 | Categories |  | Collection of String |  |
+
+### MapOptions
+**Controls the game speed, tech level, and short game lobby options.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ShortGameCheckboxLabel | Short Game | String | Descriptive label for the short game checkbox in the lobby. |
+| ShortGameCheckboxDescription | Players are defeated when their bases are destroyed | String | Tooltip description for the short game checkbox in the lobby. |
+| ShortGameCheckboxEnabled | True | Boolean | Default value of the short game checkbox in the lobby. |
+| ShortGameCheckboxLocked | False | Boolean | Prevent the short game enabled state from being changed in the lobby. |
+| ShortGameCheckboxVisible | True | Boolean | Whether to display the short game checkbox in the lobby. |
+| ShortGameCheckboxDisplayOrder | 0 | Integer | Display order for the short game checkbox in the lobby. |
+| TechLevelDropdownLabel | Tech Level | String | Descriptive label for the tech level option in the lobby. |
+| TechLevelDropdownDescription | The units and abilities that players can use | String | Tooltip description for the tech level option in the lobby. |
+| TechLevel | unrestricted | String | Default tech level. |
+| TechLevelDropdownLocked | False | Boolean | Prevent the tech level from being changed in the lobby. |
+| TechLevelDropdownVisible | True | Boolean | Display the tech level option in the lobby. |
+| TechLevelDropdownDisplayOrder | 0 | Integer | Display order for the tech level option in the lobby. |
+| GameSpeedDropdownLabel | Game Speed | String | Tooltip description for the game speed option in the lobby. |
+| GameSpeedDropdownDescription | The rate at which time passes | String | Description of the game speed option in the lobby. |
+| GameSpeed |  | String | Default game speed (leave empty to use the default defined in mod.yaml). |
+| GameSpeedDropdownLocked | False | Boolean | Prevent the game speed from being changed in the lobby. |
+| GameSpeedDropdownVisible | True | Boolean | Display the game speed option in the lobby. |
+| GameSpeedDropdownDisplayOrder | 0 | Integer | Display order for the game speed option in the lobby. |
+
+### MapStartingLocations
+**Allows the map to have working spawnpoints. Also controls the 'Separate Team Spawns' checkbox in the lobby options.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| InitialExploreRange | 5c0 | 1D World Distance |  |
+| SeparateTeamSpawnsCheckboxLabel | Separate Team Spawns | String | Descriptive label for the spawn positions checkbox in the lobby. |
+| SeparateTeamSpawnsCheckboxDescription | Players without assigned spawn points will start as far as possible from enemy players | String | Tooltip description for the spawn positions checkbox in the lobby. |
+| SeparateTeamSpawnsCheckboxEnabled | True | Boolean | Default value of the spawn positions checkbox in the lobby. |
+| SeparateTeamSpawnsCheckboxLocked | False | Boolean | Prevent the spawn positions state from being changed in the lobby. |
+| SeparateTeamSpawnsCheckboxVisible | True | Boolean | Whether to display the spawn positions checkbox in the lobby. |
+| SeparateTeamSpawnsCheckboxDisplayOrder | 0 | Integer | Display order for the spawn positions checkbox in the lobby. |
+
+### McvManagerBotModule
+**Manages AI MCVs.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| McvTypes |  | Set of String | Actor types that are considered MCVs (deploy into base builders). |
+| ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
+| McvFactoryTypes |  | Set of String | Actor types that are able to produce MCVs. |
+| MinimumConstructionYardCount | 1 | Integer | Try to maintain at least this many ConstructionYardTypes, build an MCV if number is below this. |
+| ScanForNewMcvInterval | 20 | Integer | Delay (in ticks) between looking for and giving out orders to new MCVs. |
+| MinBaseRadius | 2 | Integer | Minimum distance in cells from center of the base when checking for MCV deployment location. |
+| MaxBaseRadius | 20 | Integer | Maximum distance in cells from center of the base when checking for MCV deployment location. Only applies if RestrictMCVDeploymentFallbackToBase is enabled and there's at least one construction yard. |
+| RestrictMCVDeploymentFallbackToBase | True | Boolean | Should deployment of additional MCVs be restricted to MaxBaseRadius if explicit deploy locations are missing or occupied? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### MenuPaletteEffect
+**Fades the world from/to black at the start/end of the game, and can (optionally) desaturate the world**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| FadeLength | 10 | Integer | Time (in ticks) to fade between states |
+| Effect | None | [`EffectType`](#effecttype) | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
+| MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
+
+### MissionData
+**Defines the FMVs that can be played by missions.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Briefing |  | String | Briefing text displayed in the mission browser. |
+| BackgroundVideo |  | String | Played by the "Background Info" button in the mission browser. |
+| BriefingVideo |  | String | Played by the "Briefing" button in the mission browser. |
+| StartVideo |  | String | Automatically played before starting the mission. |
+| WinVideo |  | String | Automatically played when the player wins the mission. |
+| LossVideo |  | String | Automatically played when the player loses the mission. |
+
+### MissionObjectives
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Cooperative | False | Boolean | Set this to true if multiple cooperative players have a distinct set of objectives that each of them has to complete to win the game. This is mainly useful for multiplayer coop missions. Do not use this for skirmish team games. |
+| EarlyGameOver | False | Boolean | If set to true, this setting causes the game to end immediately once the first player (or team of cooperative players) fails or completes his objectives.  If set to false, players that fail their objectives will stick around and become observers. |
+| GameOverDelay | 1500 | Integer | Delay between the game over condition being met, and the game actually ending, in milliseconds. |
+| WinNotification |  | String |  |
+| WinTextNotification |  | String |  |
+| LoseNotification |  | String |  |
+| LoseTextNotification |  | String |  |
+| LeaveNotification |  | String |  |
+| LeaveTextNotification |  | String |  |
 
 ### Mobile
 **Unit is able to move.**
@@ -3412,205 +3874,26 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### AlwaysVisible
-**The actor is always considered visible for targeting and rendering purposes.**
-
-### FrozenUnderFog
-**This actor will remain visible (but not updated visually) under fog, once discovered.**
-###### Requires trait(s): [`Building`](#building).
+### ModularBot
+**Bot that uses BotModules.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
+| Type | *(required)* | String | Internal id for this bot. |
+| Name | Unnamed Bot | String | Human-readable name this bot uses. |
+| MinOrderQuotientPerTick | 5 | Integer | Minimum portion of pending orders to issue each tick (e.g. 5 issues at least 1/5th of all pending orders). Excess orders remain queued for subsequent ticks. |
 
-### HiddenUnderFog
-**The actor stays invisible under fog of war.**
-###### Inherits from: [`HiddenUnderShroud`](#hiddenundershroud).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
-| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
-
-### HiddenUnderShroud
-**The actor stays invisible under the shroud.**
+### MusicPlaylist
+**Trait for music handling. Attach this to the world actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| AlwaysVisibleRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Players with these relationships can always see the actor. |
-| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (reveal when the center is visible) and  Footprint (reveal when any footprint cell is visible). |
-
-### WithColoredOverlay
-**Display a colored overlay when a timed condition is active.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Color | 80000080 | Color (RRGGBB[AA] notation) | Color to overlay. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CashTricklerMultiplier
-**Modifies the cash given by cash tricker traits of this actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`CashTrickler`](#cashtrickler).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CreatesShroudMultiplier
-**Modifies the shroud range created by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### DamageMultiplier
-**Modifies the damage applied to this actor. Use 0 to make actor invulnerable.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### DetectCloakedMultiplier
-**Modifies the cloak detection range of this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### FirepowerMultiplier
-**Modifies the damage applied by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GainsExperienceMultiplier
-**Modifies the experience gathered by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GivesExperienceMultiplier
-**Modifies the experience given by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### HandicapDamageMultiplier
-**Modifies the damage applied to this actor based on the owner's handicap.**
-
-### HandicapFirepowerMultiplier
-**Modifies the damage applied by this actor based on the owner's handicap.**
-
-### HandicapProductionTimeMultiplier
-**Modifies the production time of this actor based on the producer's handicap.**
-
-### InaccuracyMultiplier
-**Modifies the inaccuracy of weapons fired by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### PowerMultiplier
-**Modifies the power usage/output of this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProductionCostMultiplier
-**Modifies the production cost of this actor for a specific queue or when a prerequisite is granted.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Multiplier | 100 | Integer | Percentage modifier to apply. |
-| Prerequisites |  | Collection of String | Only apply this cost change if owner has these prerequisites. |
-| Queue |  | Set of String | Queues that this cost will apply. |
-
-### ProductionTimeMultiplier
-**Modifies the production time of this actor for a specific queue or when a prerequisite is granted.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Multiplier | 100 | Integer | Percentage modifier to apply. |
-| Prerequisites |  | Collection of String | Only apply this time change if owner has these prerequisites. |
-| Queue |  | Set of String | Queues that this time will apply. |
-
-### RangeMultiplier
-**Modifies the range of weapons fired by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ReloadAmmoDelayMultiplier
-**Modifies the reload time of ammo pools on this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ReloadDelayMultiplier
-**Modifies the reload time of weapons fired by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ResourceValueMultiplier
-**Modifies the value of resources delivered to this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RevealsShroudMultiplier
-**Modifies the shroud range revealed by this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### SpeedMultiplier
-**Modifies the movement speed of this actor.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Modifier | 100 | Integer | Percentage modifier to apply. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+| StartingMusic |  | String | Music to play when the map starts. Plays the first song on the playlist when undefined. |
+| VictoryMusic |  | String | Music to play when the game has been won. |
+| DefeatMusic |  | String | Music to play when the game has been lost. |
+| BackgroundMusic |  | String | This track is played when no other music is playing. It cannot be paused, but can be overridden by selecting a new track. |
+| AllowMuteBackgroundMusic | False | Boolean | Allow the background music to be muted by the player. |
+| DisableWorldSounds | False | Boolean | Disable all world sounds (combat etc). |
 
 ### MustBeDestroyed
 **Actors with this trait must be destroyed for a game to end.**
@@ -3618,6 +3901,115 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | RequiredForShortGame | False | Boolean | In a short game only actors that have this value set to true need to be destroyed. |
+
+### NukePower
+###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| MissileWeapon | *(required)* | String | Weapon to use for the impact. |
+| MissileDelay | 0 | Integer | Delay (in ticks) after launch until the missile is spawned. |
+| MissileImage |  | String | Image to use for the missile. |
+| MissileUp | up | String | Sprite sequence for the ascending missile. |
+| MissileDown | down | String | Sprite sequence for the descending missile. |
+| SpawnOffset | 0,0,0 | 3D World Vector | Offset from the actor the missile spawns on. |
+| DetonationAltitude | 0c0 | 1D World Distance | Altitude offset from the target position at which the warhead should detonate. |
+| RemoveMissileOnDetonation | True | Boolean | Should nuke missile projectile be removed on detonation above ground. 'False' will make the missile continue until it hits the ground and disappears (without triggering another explosion). |
+| MissilePalette | effect | String | Palette to use for the missile weapon image. |
+| IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
+| TrailImage |  | String | Trail animation. |
+| TrailSequences |  | Collection of String | Loop a randomly chosen sequence of TrailImage from this list while this projectile is moving. |
+| TrailInterval | 1 | Integer | Interval in ticks between each spawned Trail animation. |
+| TrailDelay | 1 | Integer | Delay in ticks until trail animation is spawned. |
+| TrailPalette | effect | String | Palette used to render the trail sequence. |
+| TrailUsePlayerPalette | False | Boolean | Use the Player Palette to render the trail sequence. |
+| FlightDelay | 400 | Integer | Travel time - split equally between ascent and descent. |
+| FlightVelocity | 0c512 | 1D World Distance | Visual ascent velocity in WDist / tick. |
+| SkipAscent | False | Boolean | Descend immediately on the target. |
+| BeaconRemoveAdvance | 25 | Integer | Amount of time before detonation to remove the beacon. |
+| CameraRange | 0c0 | 1D World Distance | Range of cells the camera should reveal around target cell. |
+| RevealGeneratedShroud | True | Boolean | Can the camera reveal shroud generated by the `CreatesShroud` trait? |
+| CameraRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Reveal cells to players with these relationships only. |
+| CameraSpawnAdvance | 25 | Integer | Amount of time before detonation to spawn the camera. |
+| CameraRemoveDelay | 25 | Integer | Amount of time after detonation to remove the camera. |
+| CircleColor | FF000080 | Color (RRGGBB[AA] notation) | Range circle color. |
+| CircleWidth | 1 | Real Number | Range circle width in pixel. |
+| CircleBorderColor | FF000040 | Color (RRGGBB[AA] notation) | Range circle border color. |
+| CircleBorderWidth | 3 | Real Number | Range circle border width in pixel. |
+| CircleRanges |  | Collection of 1D World Distance | Render circles based on these distance ranges while targeting. |
+| ChargeInterval | 0 | Integer | Measured in ticks. |
+| IconImage | icon | String |  |
+| Icon |  | String | Icon sprite displayed in the support power palette. |
+| IconPalette | chrome | String | Palette used for the icon. |
+| Name |  | String |  |
+| Description |  | String |  |
+| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
+| OneShot | False | Boolean | Allow this to be used only once. |
+| Cursor | ability | String | Cursor to display for using this support power. |
+| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
+| Prerequisites |  | Collection of String |  |
+| DetectedSound |  | String |  |
+| DetectedSpeechNotification |  | String |  |
+| DetectedTextNotification |  | String |  |
+| BeginChargeSound |  | String |  |
+| BeginChargeSpeechNotification |  | String |  |
+| BeginChargeTextNotification |  | String |  |
+| EndChargeSound |  | String |  |
+| EndChargeSpeechNotification |  | String |  |
+| EndChargeTextNotification |  | String |  |
+| SelectTargetSound |  | String |  |
+| SelectTargetSpeechNotification |  | String |  |
+| SelectTargetTextNotification |  | String |  |
+| InsufficientPowerSound |  | String |  |
+| InsufficientPowerSpeechNotification |  | String |  |
+| InsufficientPowerTextNotification |  | String |  |
+| LaunchSound |  | String |  |
+| LaunchSpeechNotification |  | String |  |
+| LaunchTextNotification |  | String |  |
+| IncomingSound |  | String |  |
+| IncomingSpeechNotification |  | String |  |
+| IncomingTextNotification |  | String |  |
+| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
+| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
+| BeaconPaletteIsPlayerPalette | True | Boolean |  |
+| BeaconPalette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconPoster |  | String |  |
+| BeaconPosterPalette | chrome | String |  |
+| ClockSequence |  | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence |  | String |  |
+| CircleSequence |  | String |  |
+| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
+| DisplayRadarPing | False | Boolean |  |
+| RadarPingDuration | 125 | Integer | Measured in ticks. |
+| OrderName | NukePowerInfoOrder | String |  |
+| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ObjectivesPanel
+**Provides game mode progress information for players. Goes on WorldActor - observers don't have a player it can live on. Current options for PanelName are 'SKIRMISH_STATS' and 'MISSION_OBJECTIVES'.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PanelName |  | String |  |
+| ExitDelay | 1400 | Integer | in ms |
+
+### OrderEffects
+**Renders an effect at the order target locations.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TerrainFlashImage | *(required)* | String | The image to use. |
+| TerrainFlashSequence | *(required)* | String | The sequence to use. |
+| TerrainFlashPalette |  | String | The palette to use. |
+| ActorFlashType | Overlay | [`ActorFlashType`](#actorflashtype) | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
+| ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
+| ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
+| ActorFlashTint | 1,4,1,4,1,4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashCount | 2 | Integer | Number of times to flash (frozen) actors. |
+| ActorFlashInterval | 2 | Integer | Number of ticks between (frozen) actor flashes. |
 
 ### OwnerLostAction
 **Perform an action when the actor's owner is defeated.**
@@ -3629,95 +4021,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Owner | Neutral | String | Map player to use when 'Action' is 'ChangeOwner'. |
 | DeathTypes |  | Collection of DamageType | The deathtypes used when 'Action' is 'Kill'. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CloakPaletteEffect
-
-### FlashPaletteEffect
-**Used for bursted one-colored whole screen effects. Add this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ExcludePalettes | cursor, chrome, colorpicker, fog, shroud | Set of String |  |
-| Length | 20 | Integer | Measured in ticks. |
-| Color | FFFFFF | Color (RRGGBB[AA] notation) |  |
-| Type |  | String | Set this when using multiple independent flash effects. |
-
-### GlobalLightingPaletteEffect
-**Used for day/night effects.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ExcludePalettes | cursor, chrome, colorpicker, fog, shroud, alpha | Set of String | Do not modify graphics that use any palette in this list. |
-| ExcludePalettePrefixes |  | Set of String | Do not modify graphics that start with these letters. |
-| Red | 1 | Real Number |  |
-| Green | 1 | Real Number |  |
-| Blue | 1 | Real Number |  |
-| Ambient | 1 | Real Number |  |
-
-### MenuPaletteEffect
-**Fades the world from/to black at the start/end of the game, and can (optionally) desaturate the world**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| FadeLength | 10 | Integer | Time (in ticks) to fade between states |
-| Effect | None | [`EffectType`](#effecttype) | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
-| MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
-
-### RotationPaletteEffect
-**Palette effect used for sprinkle "animations".**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Palettes |  | Set of String | Defines to which palettes this effect should be applied to. If none specified, it applies to all palettes not explicitly excluded. |
-| Tilesets |  | Set of String | Defines for which tileset IDs this effect should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. |
-| ExcludePalettes |  | Set of String | Defines which palettes should be excluded from this effect. |
-| ExcludeTilesets |  | Set of String | Don't apply the effect for these tileset IDs. |
-| RotationBase | 96 | Integer | Palette index of first RotationRange color. |
-| RotationRange | 7 | Integer | Range of colors to rotate. |
-| RotationStep | 0.25 | Real Number | Step towards next color index per tick. |
-
-### ColorPickerPalette
-**Create a color picker palette from another palette.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | *(required)* | String | Internal palette name. |
-| BasePalette | *(required)* | String | The name of the palette to base off. |
-| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-
-### FixedColorPalette
-**Add this to the World actor definition.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Base | terrain | String | The name of the palette to base off. |
-| Name | resources | String | The name of the resulting palette |
-| RemapIndex |  | Collection of Integer | Remap these indices to pre-defined colors. |
-| Color | 00000000 | Color (RRGGBB[AA] notation) | The fixed color to remap. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-
-### IndexedPalette
-**Define a palette by swapping palette indices.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | *(required)* | String | Internal palette name |
-| BasePalette |  | String | The name of the palette to base off. |
-| Index | *(required)* | Collection of Integer | Indices from BasePalette to be swapped with ReplaceIndex. |
-| ReplaceIndex | *(required)* | Collection of Integer | Indices from BasePalette to replace from Index. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-
-### IndexedPlayerPalette
-**Define a player palette by swapping palette indices.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| BasePalette |  | String | The name of the palette to base off. |
-| BaseName | player | String | The prefix for the resulting player palettes |
-| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-| PlayerIndex |  | Dictionary with Key: String, Value: Collection of Integer |  |
 
 ### PaletteFromEmbeddedSpritePalette
 
@@ -3814,16 +4117,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowModifiers | True | Boolean |  |
 | TransparentIndex | 0 | Integer | Index set to be fully transparent/invisible. |
 
-### PlayerColorPalette
-**Add this to the World actor definition.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| BasePalette |  | String | The name of the palette to base off. |
-| BaseName | player | String | The prefix for the resulting player palettes |
-| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-
 ### Parachutable
 **Can be paradropped by a ParaDrop actor.**
 
@@ -3851,211 +4144,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DropRange | 4c0 | 1D World Distance | Distance around the drop-point to unload troops. |
 | DropInterval | 5 | Integer | Wait at least this many ticks between each drop. |
 | ChuteSound |  | String | Sound to play when dropping. |
-
-### Passenger
-**This actor can enter Cargo actors.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CargoType |  | String |  |
-| CustomPipType |  | String | If defined, use a custom pip type defined on the transport's WithCargoPipsDecoration.CustomPipSequences list. |
-| Weight | 1 | Integer |  |
-| CargoCondition |  | String | The condition to grant to when this actor is loaded inside any transport. |
-| CargoConditions |  | Dictionary with Key: String, Value: String | Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor name]: [condition]. |
-| Voice | Action | String |  |
-| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
-| EnterCursor | enter | String | Cursor to display when able to enter target actor. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target actor. |
-
-### AllyRepair
-**Attach this to the player actor to allow building repair by team mates.**
-
-### BaseAttackNotifier
-**Plays an audio notification and shows a radar ping when a building is attacked. Attach this to the player actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
-| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
-| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
-| Notification | BaseAttack | String | Speech notification type to play. |
-| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
-
-### ClassicParallelProductionQueue
-**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time.**
-###### Inherits from: [`ProductionQueue`](#productionqueue).
-###### Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
-| BuildingCountBuildTimeMultipliers | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue modified by a percentage of the original time. |
-| ParallelPenaltyBuildTimeMultipliers | 100, 116, 133, 150, 166, 183, 200, 216, 233, 250 | Collection of Integer | Build time modifier multiplied by the number of parallel production for producing different actors at the same time. |
-| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
-| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
-| Group |  | String | Group queues from separate buildings together into the same tab. |
-| Factions |  | Set of String | Only enable this queue for certain factions. |
-| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
-| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
-| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
-| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
-| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
-| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
-| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
-| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
-| ReadyTextNotification |  | String | Notification displayed when production is complete. |
-| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
-| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
-| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
-| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
-| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
-| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
-| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
-| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
-| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
-| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
-| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
-
-### ClassicProductionQueue
-**Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit.**
-###### Inherits from: [`ProductionQueue`](#productionqueue).
-###### Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| SpeedUp | False | Boolean | If you build more actors of the same type, the same queue will get its build time lowered for every actor produced there. |
-| BuildTimeSpeedReduction | 100, 86, 75, 67, 60, 55, 50 | Collection of Integer | Every time another production building of the same queue is constructed, the build times of all actors in the queue decreased by a percentage of the original time. |
-| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
-| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
-| Group |  | String | Group queues from separate buildings together into the same tab. |
-| Factions |  | Set of String | Only enable this queue for certain factions. |
-| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
-| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
-| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
-| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
-| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
-| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
-| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
-| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
-| ReadyTextNotification |  | String | Notification displayed when production is complete. |
-| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
-| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
-| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
-| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
-| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
-| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
-| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
-| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
-| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
-| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
-| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
-
-### ConquestVictoryConditions
-###### Requires trait(s): [`MissionObjectives`](#missionobjectives).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NotificationDelay | 1500 | Integer | Delay for the end game notification in milliseconds. |
-| Objective | Destroy all opposition! | String | Description of the objective. |
-| SuppressNotifications | False | Boolean | Disable the win/loss messages and audio notifications? |
-
-### DeveloperMode
-**Attach this to the player actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CheckboxLabel | Debug Menu | String | Descriptive label for the developer mode checkbox in the lobby. |
-| CheckboxDescription | Enables cheats and developer commands | String | Tooltip description for the developer mode checkbox in the lobby. |
-| CheckboxEnabled | False | Boolean | Default value of the developer mode checkbox in the lobby. |
-| CheckboxLocked | False | Boolean | Prevent the developer mode state from being changed in the lobby. |
-| CheckboxVisible | True | Boolean | Whether to display the developer mode checkbox in the lobby. |
-| CheckboxDisplayOrder | 0 | Integer | Display order for the developer mode checkbox in the lobby. |
-| Cash | 20000 | Integer | Default cash bonus granted by the give cash cheat. |
-| ResourceGrowth | 100 | Integer | Growth steps triggered by the grow resources button. |
-| FastBuild | False | Boolean | Enable the fast build cheat by default. |
-| FastCharge | False | Boolean | Enable the fast support powers cheat by default. |
-| DisableShroud | False | Boolean | Enable the disable visibility cheat by default. |
-| UnlimitedPower | False | Boolean | Enable the unlimited power cheat by default. |
-| BuildAnywhere | False | Boolean | Enable the build anywhere cheat by default. |
-| PathDebug | False | Boolean | Enable the path debug overlay by default. |
-
-### DummyBot
-**A placeholder bot that doesn't do anything.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | Unnamed Bot | String | Human-readable name this bot uses. |
-| Type | *(required)* | String | Internal id for this bot. |
-
-### EnemyWatcher
-**Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ScanInterval | 25 | Integer | Interval in ticks between scanning for enemies. |
-| NotificationInterval | 750 | Integer | Minimal ticks in-between notifications. |
-
-### GameSaveViewportManager
-
-### GrantConditionOnPrerequisiteManager
-**Attach this to the player actor.**
-###### Requires trait(s): [`TechTree`](#techtree).
-
-### HarvesterAttackNotifier
-**Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
-| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
-| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
-| Notification | HarvesterAttack | String | Speech notification type to play. |
-
-### LobbyPrerequisiteCheckbox
-**Enables defined prerequisites at game start for all players if the checkbox is enabled.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ID | *(required)* | String | Internal id for this checkbox. |
-| Label | *(required)* | String | Display name for this checkbox. |
-| Description |  | String | Description name for this checkbox. |
-| Enabled | False | Boolean | Default value of the checkbox in the lobby. |
-| Locked | False | Boolean | Prevent the checkbox from being changed from its default value. |
-| Visible | True | Boolean | Display the checkbox in the lobby. |
-| DisplayOrder | 0 | Integer | Display order for the checkbox in the lobby. |
-| Prerequisites | *(required)* | Set of String | Prerequisites to grant when this checkbox is enabled. |
-
-### MissionObjectives
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Cooperative | False | Boolean | Set this to true if multiple cooperative players have a distinct set of objectives that each of them has to complete to win the game. This is mainly useful for multiplayer coop missions. Do not use this for skirmish team games. |
-| EarlyGameOver | False | Boolean | If set to true, this setting causes the game to end immediately once the first player (or team of cooperative players) fails or completes his objectives.  If set to false, players that fail their objectives will stick around and become observers. |
-| GameOverDelay | 1500 | Integer | Delay between the game over condition being met, and the game actually ending, in milliseconds. |
-| WinNotification |  | String |  |
-| WinTextNotification |  | String |  |
-| LoseNotification |  | String |  |
-| LoseTextNotification |  | String |  |
-| LeaveNotification |  | String |  |
-| LeaveTextNotification |  | String |  |
-
-### ObjectivesPanel
-**Provides game mode progress information for players. Goes on WorldActor - observers don't have a player it can live on. Current options for PanelName are 'SKIRMISH_STATS' and 'MISSION_OBJECTIVES'.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PanelName |  | String |  |
-| ExitDelay | 1400 | Integer | in ms |
-
-### ModularBot
-**Bot that uses BotModules.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Type | *(required)* | String | Internal id for this bot. |
-| Name | Unnamed Bot | String | Human-readable name this bot uses. |
-| MinOrderQuotientPerTick | 5 | Integer | Minimum portion of pending orders to issue each tick (e.g. 5 issues at least 1/5th of all pending orders). Excess orders remain queued for subsequent ticks. |
 
 ### ParallelProductionQueue
 ###### Inherits from: [`ProductionQueue`](#productionqueue).
@@ -4086,791 +4174,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
-
-### PlaceBeacon
-**A beacon that is constructed from a circle sprite that is animated once and a moving arrow sprite.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Duration | 750 | Integer |  |
-| NotificationType | Sounds | String |  |
-| Notification | Beacon | String |  |
-| IsPlayerPalette | True | Boolean |  |
-| Palette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence | arrow | String |  |
-| CircleSequence | circles | String |  |
-
-### PlaceBuilding
-**Allows the player to execute build orders.  Attach this to the player actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NewOptionsNotificationDelay | 10 | Integer | Play NewOptionsNotification this many ticks after building placement. |
-| NewOptionsNotification |  | String | Speech notification to play after building placement if new construction options are available. |
-| NewOptionsTextNotification |  | String | Text notification to display after building placement if new construction options are available. |
-| CannotPlaceNotification |  | String | Speech notification to play if building placement is not possible. |
-| CannotPlaceTextNotification |  | String | Text notification to display if building placement is not possible. |
-| ToggleVariantKey | OpenRA.HotkeyReference | HotkeyReference | Hotkey to toggle between PlaceBuildingVariants when placing a structure. |
-
-### PlayerExperience
-**This trait can be used to track player experience based on units killed with the `GivesExperience` trait. It can also be used as a point score system in scripted maps, for example. Attach this to the player actor.**
-
-### PlayerRadarTerrain
-###### Requires trait(s): [`Shroud`](#shroud).
-
-### PlayerResources
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DefaultCashDropdownLabel | Starting Cash | String | Descriptive label for the starting cash option in the lobby. |
-| DefaultCashDropdownDescription | The amount of cash that players start with | String | Tooltip description for the starting cash option in the lobby. |
-| SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. |
-| DefaultCash | 5000 | Integer | Default starting cash option: should be one of the SelectableCash options. |
-| DefaultCashDropdownLocked | False | Boolean | Force the DefaultCash option by disabling changes in the lobby. |
-| DefaultCashDropdownVisible | True | Boolean | Whether to display the DefaultCash option in the lobby. |
-| DefaultCashDropdownDisplayOrder | 0 | Integer | Display order for the DefaultCash option. |
-| InsufficientFundsNotification |  | String | Speech notification to play when the player does not have any funds. |
-| InsufficientFundsTextNotification |  | String | Text notification to display when the player does not have any funds. |
-| InsufficientFundsNotificationInterval | 30000 | Integer | Delay (in ticks) during which warnings will be muted. |
-| CashTickUpNotification |  | String |  |
-| CashTickDownNotification |  | String |  |
-| ResourceValues |  | Dictionary with Key: String, Value: Integer | Monetary value of each resource type. Dictionary of [resource type]: [value per unit]. |
-
-### PlayerStatistics
-**Attach this to the player actor to collect observer stats.**
-
-### UpdatesPlayerStatistics
-**Attach this to a unit to update observer stats.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AddToArmyValue | False | Boolean | Add to army value in statistics |
-| AddToAssetsValue | True | Boolean | Add to assets value in statistics |
-| OverrideActor |  | String | Count this actor as a different type in the spectator army display. |
-
-### ProductionQueue
-**Attach this to an actor (usually a building) to let it produce units or construct buildings. If one builds another actor of this type, he will get a separate queue to create two actors at the same time. Will only work together with the Production: trait.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
-| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
-| Group |  | String | Group queues from separate buildings together into the same tab. |
-| Factions |  | Set of String | Only enable this queue for certain factions. |
-| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
-| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
-| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
-| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
-| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
-| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
-| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
-| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
-| ReadyTextNotification |  | String | Notification displayed when production is complete. |
-| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
-| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
-| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
-| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
-| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
-| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
-| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
-| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
-| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
-| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
-| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
-
-### ProvidesPrerequisite
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Prerequisite |  | String | The prerequisite type that this provides. If left empty it defaults to the actor's name. |
-| RequiresPrerequisites |  | Collection of String | Only grant this prerequisite when you have these prerequisites. |
-| Factions |  | Set of String | Only grant this prerequisite for certain factions. |
-| ResetOnOwnerChange | False | Boolean | Should it recheck everything when it is captured? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProvidesTechPrerequisite
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Id |  | String | Internal id for this tech level. |
-| Name |  | String | Name shown in the lobby options. |
-| Prerequisites |  | Collection of String | Prerequisites to grant when this tech level is active. |
-
-### ResourceStorageWarning
-**Provides the player with an audible warning when their storage is nearing full.**
-###### Requires trait(s): [`PlayerResources`](#playerresources).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AdviceInterval | 20000 | Integer | Interval (in milliseconds) at which to check if more storage is needed. |
-| Threshold | 80 | Integer | The percentage threshold above which a warning is played. |
-| Notification | SilosNeeded | String | Speech to play for the warning. |
-| TextNotification |  | String | Text to display for the warning. |
-
-### StrategicPoint
-**Used to mark a place that needs to be in possession for StrategicVictoryConditions.**
-
-### StrategicVictoryConditions
-**Allows King of the Hill (KotH) style gameplay.**
-###### Requires trait(s): [`MissionObjectives`](#missionobjectives).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| HoldDuration | 7500 | Integer | Amount of time (in game ticks) that the player has to hold all the strategic points. Defaults to 7500 ticks (5 minutes at default speed). |
-| ResetOnHoldLost | True | Boolean | Should the timer reset when the player loses hold of a strategic point. |
-| RatioRequired | 50 | Integer | Percentage of all strategic points the player has to hold to win. |
-| NotificationDelay | 1500 | Integer | Delay for the end game notification in milliseconds. |
-| Objective | Hold all the strategic positions! | String | Description of the objective |
-| SuppressNotifications | False | Boolean | Disable the win/loss messages and audio notifications? |
-
-### TechTree
-**Manages build limits and pre-requisites.  Attach this to the player actor.**
-
-### Plug
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Type | *(required)* | String | Plug type (matched against Conditions in Pluggable) |
-
-### Pluggable
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Offset | 0,0 | 2D Cell Vector | Footprint cell offset where a plug can be placed. |
-| Conditions | *(required)* | Dictionary with Key: String, Value: String | Conditions to grant for each accepted plug type. Key is the plug type. Value is the condition that is granted when the plug is enabled. |
-| Requirements |  | Dictionary with Key: String, Value: BooleanExpression | Requirements for accepting a plug type. Key is the plug type that the requirements applies to. Value is the condition expression defining the requirements to place the plug. |
-| EditorOptions |  | Dictionary with Key: String, Value: String | Options to display in the map editor. Key is the plug type that the requirements applies to. Value is the label that is displayed in the actor editor dropdown. |
-| EmptyOption | Empty | String | Label to use for an empty plug socket. |
-| EditorDisplayOrder | 5 | Integer | Display order for the dropdown in the map editor |
-
-### PowerTooltip
-**Shown power info on the build palette widget.**
-
-### AffectedByPowerOutage
-**Disables the actor when a power outage is triggered (see `InfiltrateForPowerOutage` for more information).**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition |  | String | The condition to grant while there is a power outage. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### PowerManager
-**Attach this to the player actor.**
-###### Requires trait(s): [`DeveloperMode`](#developermode).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AdviceInterval | 10000 | Integer | Interval (in milliseconds) at which to warn the player of low power. |
-| SpeechNotification |  | String |  |
-| TextNotification |  | String |  |
-
-### Power
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Amount | 0 | Integer | If negative, it will drain power. If positive, it will provide power. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ScalePowerWithHealth
-**Scale power amount with the current health.**
-###### Requires trait(s): [`Power`](#power).
-
-### ProducibleWithLevel
-**Actors possessing this trait should define the GainsExperience trait. When the prerequisites are fulfilled,  this trait grants a level-up to newly spawned actors.**
-###### Requires trait(s): [`GainsExperience`](#gainsexperience).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Prerequisites |  | Collection of String |  |
-| InitialLevels | 1 | Integer | Number of levels to give to the actor on creation. |
-| SuppressLevelupAnimation | True | Boolean | Should the level-up animation be suppressed when actor is created? |
-
-### Production
-**This unit has access to build queues.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProductionFromMapEdge
-**Produce a unit on the closest map edge cell and move into the world.**
-###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProductionParadrop
-**Deliver the unit in production via paradrop.**
-###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
-###### Requires trait(s): [`Exit`](#exit).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ActorType | badr | String | Cargo aircraft used. Must have Aircraft trait. |
-| ChuteSound |  | String | Sound to play when dropping the unit. |
-| ReadyAudio |  | String | Speech notification to play when dropping the unit. |
-| ReadyTextNotification |  | String | Text notification to display when dropping the unit. |
-| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ProductionQueueFromSelection
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ProductionTabsWidget |  | String |  |
-| ProductionPaletteWidget |  | String |  |
-
-### ProximityCaptor
-**Actor can capture ProximityCapturable actors.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Types | *(required)* | Collection of CaptureType |  |
-
-### ProximityCapturable
-**Actor can be captured by units in a specified proximity.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Range | 5c0 | 1D World Distance | Maximum range at which a ProximityCaptor actor can initiate the capture. |
-| CaptorTypes | Player, Vehicle, Tank, Infantry | Collection of CaptureType | Allowed ProximityCaptor actors to capture this actor. |
-| MustBeClear | False | Boolean | If set, the capturing process stops immediately after another player comes into Range. |
-| Sticky | False | Boolean | If set, the ownership will not revert back when the captor leaves the area. |
-| Permanent | False | Boolean | If set, the actor can only be captured via this logic once. This option implies the `Sticky` behaviour as well. |
-
-### QuantizeFacingsFromSequence
-**Derive facings from sprite body sequence.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`RenderSprites`](#rendersprites).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Sequence | idle | String | Defines sequence to derive facings from. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Rearmable
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RearmActors | *(required)* | Set of String | Actors that this actor can dock to and get rearmed by. |
-| AmmoPools | primary | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
-
-### RejectsOrders
-**Can be used to make a unit partly uncontrollable by the player.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Reject |  | Set of String | Explicit list of rejected orders. Leave empty to reject all minus those listed under Except. |
-| Except |  | Set of String | List of orders that should *not* be rejected. Also overrides other instances of this trait's Reject fields. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ReloadAmmoPool
-**Reloads an ammo pool.**
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AmmoPool | primary | String | Reload ammo pool with this name. |
-| Delay | 50 | Integer | Reload time in ticks per Count. |
-| Count | 1 | Integer | How much ammo is reloaded after Delay. |
-| ResetOnFire | False | Boolean | Whether or not reload timer should be reset when ammo has been fired. |
-| Sound |  | String | Play this sound each time ammo is reloaded. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Contrail
-**Draw a colored contrail behind this actor when they move.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Offset | 0,0,0 | 3D World Vector | Position relative to body |
-| ZOffset | 0 | Integer | Offset for Z sorting. |
-| TrailLength | 25 | Integer | Length of the trail (in ticks). |
-| TrailWidth | 0c64 | 1D World Distance | Width of the trail. |
-| Color | FFFFFF | Color (RRGGBB[AA] notation) | RGB color of the contrail. |
-| UsePlayerColor | True | Boolean | Use player remap color instead of a custom color? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### CustomTerrainDebugOverlay
-**Displays custom terrain types.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Font | TinyBold | String |  |
-
-### DrawLineToTarget
-**Renders target lines between order waypoints.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Delay | 2400 | Integer | Delay (in milliseconds) before the target lines disappear. |
-| LineWidth | 1 | Integer | Width (in pixels) of the target lines. |
-| QueuedLineWidth | 1 | Integer | Width (in pixels) of the queued target lines. |
-| MarkerWidth | 2 | Integer | Width (in pixels) of the end node markers. |
-| QueuedMarkerWidth | 2 | Integer | Width (in pixels) of the queued end node markers. |
-
-### RenderJammerCircle
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Color | FF000080 | Color (RRGGBB[AA] notation) | Range circle color. |
-| Width | 1 | Real Number | Range circle line width. |
-| BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
-| BorderWidth | 3 | Real Number | Range circle border width. |
-
-### RenderShroudCircle
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Color | 00FFFF80 | Color (RRGGBB[AA] notation) | Color of the circle. |
-| Width | 1 | Real Number | Range circle line width. |
-| BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Border color of the circle. |
-| BorderWidth | 3 | Real Number | Range circle border width. |
-
-### Repairable
-**This actor can be sent to a structure for repairs.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RepairActors | *(required)* | Set of String |  |
-| Voice | Action | String |  |
-| HpPerStep | -1 | Integer | The amount the unit will be repaired at each step. Use -1 for fallback behavior where HpPerStep from RepairsUnits trait will be used. |
-| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
-| EnterCursor | enter | String | Cursor to display when able to be repaired at target actor. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired at target actor. |
-
-### RepairableNear
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RepairActors | *(required)* | Set of String |  |
-| CloseEnough | 4c0 | 1D World Distance |  |
-| Voice | Action | String |  |
-| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
-| EnterCursor | enter | String | Cursor to display when able to be repaired near target actor. |
-| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired near target actor. |
-
-### RepairsBridges
-**Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Voice | Action | String |  |
-| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
-| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
-| TargetCursor | goldwrench | String | Cursor to display when targeting an unrepaired bridge. |
-| TargetBlockedCursor | goldwrench-blocked | String | Cursor to display when repairing is denied. |
-| RepairNotification |  | String | Speech notification to play when a bridge is repaired. |
-| RepairTextNotification |  | String | Text notification to display when a bridge is repaired. |
-
-### RepairsUnits
-###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ValuePercentage | 20 | Integer | Cost in % of the unit value to fully repair the unit. |
-| HpPerStep | 10 | Integer |  |
-| Interval | 24 | Integer | Time (in ticks) between two repair steps. |
-| RepairDamageTypes |  | Collection of DamageType | Damage types used for the repair. |
-| StartRepairingNotification |  | String | Speech notification played when starting to repair a unit. |
-| StartRepairingTextNotification |  | String | Text notification displayed when starting to repair a unit. |
-| FinishRepairingNotification |  | String | Speech notification played when repairing a unit is done. |
-| FinishRepairingTextNotification |  | String | Text notification displayed when repairing a unit is done. |
-| PlayerExperience | 0 | Integer | Experience gained by the player owning this actor for repairing an allied unit. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Replaceable
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Types | *(required)* | Set of String | Replacement types this Replaceable actor accepts. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Replacement
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ReplaceableTypes | *(required)* | Set of String | Replacement type (matched against Types in Replaceable). |
-
-### RequiresSpecificOwners
-**Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
-
-### RevealOnDeath
-**Reveal this actor's last position when killed.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RevealForRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships relative to the actors' owner that shroud will be revealed for. |
-| Duration | 25 | Integer | Duration of the reveal. |
-| Radius | 1c512 | 1D World Distance | Radius of the reveal around this actor. |
-| RevealGeneratedShroud | True | Boolean | Can this actor be revealed through shroud generated by the `CreatesShroud` trait? |
-| DeathTypes |  | Collection of DamageType | DeathTypes for which shroud will be revealed. Use an empty list (the default) to allow all DeathTypes. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RevealOnFire
-**Reveal this actor to the target's owner when attacking.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ArmamentNames | primary, secondary | Collection of String | The armament types which trigger revealing. |
-| RevealForRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships relative to the target player this actor will be revealed to during firing. |
-| Duration | 25 | Integer | Duration of the reveal. |
-| Radius | 1c512 | 1D World Distance | Radius of the reveal around this actor. |
-| RevealGeneratedShroud | True | Boolean | Can this actor be revealed through shroud generated by the `CreatesShroud` trait? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RevealsMap
-**Reveals shroud and fog across the whole map while active.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships the watching player needs to see the shroud removed. |
-| RevealGeneratedShroud | True | Boolean | Can this actor reveal shroud generated by the `CreatesShroud` trait? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### RevealsShroud
-###### Inherits from: `AffectsShroud`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships the watching player needs to see the shroud removed. |
-| RevealGeneratedShroud | True | Boolean | Can this actor reveal shroud generated by the `CreatesShroud` trait? |
-| MinRange | 0c0 | 1D World Distance |  |
-| Range | 0c0 | 1D World Distance |  |
-| MaxHeightDelta | -1 | Integer | If >= 0, prevent cells that are this much higher than the actor from being revealed. |
-| MoveRecalculationThreshold | 0c256 | 1D World Distance | If > 0, force visibility to be recalculated if the unit moves within a cell by more than this distance. |
-| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ScriptTags
-**Allows this actor to be 'tagged' with arbitrary strings. Tags must be unique or they will be rejected.**
-
-### SeedsResource
-**Lets the actor spread resources around it in a circle.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Interval | 75 | Integer |  |
-| ResourceType | Ore | String |  |
-| MaxRange | 100 | Integer |  |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### Selectable
-**This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
-###### Inherits from: [`Interactable`](#interactable).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Priority | 10 | Integer |  |
-| PriorityModifiers | None | [`SelectionPriorityModifiers`](#selectionprioritymodifiers) | Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). |
-| Class |  | String | All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click). Defaults to the actor name when not defined or inherited. |
-| Voice | Select | String |  |
-| Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
-| DecorationBounds |  | Collection of 1D World Distance | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead |
-
-### Sellable
-**Actor can be sold**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| RefundPercent | 50 | Integer | Percentage of units value to give back after selling. |
-| SellSounds |  | Collection of String | List of audio clips to play when the actor is being sold. |
-| Notification |  | String | Speech notification to play. |
-| ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
-| ShowTooltipText | True | Boolean | Whether to show the refund text on the tooltip, when actor is hovered over with sell order. |
-| SkipMakeAnimation | False | Boolean | Skip playing (reversed) make animation. |
-| Cursor | sell | String | Cursor to display when the sell order generator hovers over this actor. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ShakeOnDeath
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the shake. Leave empty to always trigger a shake. |
-| Duration | 10 | Integer |  |
-| Intensity | 1 | Integer |  |
-
-### SpawnActorOnDeath
-**Spawn another actor immediately upon death.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Actor | *(required)* | String | Actor to spawn on death. |
-| Probability | 100 | Integer | Probability the actor spawns. |
-| OwnerType | Victim | [`OwnerType`](#ownertype) | Owner of the spawned actor. Allowed keywords:'Victim', 'Killer' and 'InternalName'. Falls back to 'InternalName' if 'Victim' is used and the victim is defeated (see 'SpawnAfterDefeat'). |
-| InternalOwner | Neutral | String | Map player to use when 'InternalName' is defined on 'OwnerType'. |
-| EffectiveOwnerFromOwner | False | Boolean | Changes the effective (displayed) owner of the spawned actor to the old owner (victim). |
-| DeathType |  | String | DeathType that triggers the actor spawn. Leave empty to spawn an actor ignoring the DeathTypes. |
-| SkipMakeAnimations | True | Boolean | Skips the spawned actor's make animations if true. |
-| RequiresLobbyCreeps | False | Boolean | Should an actor only be spawned when the 'Creeps' setting is true? |
-| Offset | 0,0 | 2D Cell Vector | Offset of the spawned actor relative to the dying actor's position. Warning: Spawning an actor outside the parent actor's footprint/influence might lead to unexpected behaviour. |
-| SpawnAfterDefeat | True | Boolean | Should an actor spawn after the player has been defeated (e.g. after surrendering)? |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### SpawnActorsOnSell
-**Spawn new actors when sold.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ValuePercent | 40 | Integer |  |
-| MinHpPercent | 30 | Integer |  |
-| ActorTypes | *(required)* | Collection of String | Actor types to spawn on sell. Be sure to use lowercase. |
-| Factions |  | Set of String | Spawns actors only if the selling player's faction is in this list. Leave empty to allow all factions by default. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### StoresResources
-**Adds capacity to a player's harvested resource limit.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Capacity | 0 | Integer |  |
-
-### AirstrikePower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| UnitType | badr.bomber | String |  |
-| SquadSize | 1 | Integer |  |
-| SquadOffset | -1536,1536,0 | 3D World Vector |  |
-| QuantizedFacings | 32 | Integer |  |
-| Cordon | 5c0 | 1D World Distance |  |
-| CameraActor |  | String | Actor to spawn when the aircraft start attacking |
-| CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking |
-| UseDirectionalTarget | False | Boolean | Enables the player directional targeting |
-| DirectionArrowAnimation |  | String | Animation used to render the direction arrows. |
-| DirectionArrowPalette | chrome | String | Palette for direction cursor animation. |
-| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | AirstrikePowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GrantExternalConditionPower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
-| Duration | 0 | Integer | Duration of the condition (in ticks). Set to 0 for a permanent condition. |
-| Dimensions | 0,0 | 2D Cell Vector | Size of the footprint of the affected area. |
-| Footprint | *(required)* | String | Actual footprint. Cells marked as x will be affected. |
-| OnFireSound |  | String | Sound to instantly play at the targeted area. |
-| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships which condition can be applied to. |
-| Sequence | active | String | Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. |
-| BlockedCursor | move-blocked | String | Cursor to display when there are no units to apply the condition in range. |
-| FootprintImage | overlay | String |  |
-| FootprintSequence | target-select | String |  |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | GrantExternalConditionPowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### NukePower
-###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| MissileWeapon | *(required)* | String | Weapon to use for the impact. |
-| MissileDelay | 0 | Integer | Delay (in ticks) after launch until the missile is spawned. |
-| MissileImage |  | String | Image to use for the missile. |
-| MissileUp | up | String | Sprite sequence for the ascending missile. |
-| MissileDown | down | String | Sprite sequence for the descending missile. |
-| SpawnOffset | 0,0,0 | 3D World Vector | Offset from the actor the missile spawns on. |
-| DetonationAltitude | 0c0 | 1D World Distance | Altitude offset from the target position at which the warhead should detonate. |
-| RemoveMissileOnDetonation | True | Boolean | Should nuke missile projectile be removed on detonation above ground. 'False' will make the missile continue until it hits the ground and disappears (without triggering another explosion). |
-| MissilePalette | effect | String | Palette to use for the missile weapon image. |
-| IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
-| TrailImage |  | String | Trail animation. |
-| TrailSequences |  | Collection of String | Loop a randomly chosen sequence of TrailImage from this list while this projectile is moving. |
-| TrailInterval | 1 | Integer | Interval in ticks between each spawned Trail animation. |
-| TrailDelay | 1 | Integer | Delay in ticks until trail animation is spawned. |
-| TrailPalette | effect | String | Palette used to render the trail sequence. |
-| TrailUsePlayerPalette | False | Boolean | Use the Player Palette to render the trail sequence. |
-| FlightDelay | 400 | Integer | Travel time - split equally between ascent and descent. |
-| FlightVelocity | 0c512 | 1D World Distance | Visual ascent velocity in WDist / tick. |
-| SkipAscent | False | Boolean | Descend immediately on the target. |
-| BeaconRemoveAdvance | 25 | Integer | Amount of time before detonation to remove the beacon. |
-| CameraRange | 0c0 | 1D World Distance | Range of cells the camera should reveal around target cell. |
-| RevealGeneratedShroud | True | Boolean | Can the camera reveal shroud generated by the `CreatesShroud` trait? |
-| CameraRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Reveal cells to players with these relationships only. |
-| CameraSpawnAdvance | 25 | Integer | Amount of time before detonation to spawn the camera. |
-| CameraRemoveDelay | 25 | Integer | Amount of time after detonation to remove the camera. |
-| CircleColor | FF000080 | Color (RRGGBB[AA] notation) | Range circle color. |
-| CircleWidth | 1 | Real Number | Range circle width in pixel. |
-| CircleBorderColor | FF000040 | Color (RRGGBB[AA] notation) | Range circle border color. |
-| CircleBorderWidth | 3 | Real Number | Range circle border width in pixel. |
-| CircleRanges |  | Collection of 1D World Distance | Render circles based on these distance ranges while targeting. |
-| ChargeInterval | 0 | Integer | Measured in ticks. |
-| IconImage | icon | String |  |
-| Icon |  | String | Icon sprite displayed in the support power palette. |
-| IconPalette | chrome | String | Palette used for the icon. |
-| Name |  | String |  |
-| Description |  | String |  |
-| AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
-| OneShot | False | Boolean | Allow this to be used only once. |
-| Cursor | ability | String | Cursor to display for using this support power. |
-| StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
-| Prerequisites |  | Collection of String |  |
-| DetectedSound |  | String |  |
-| DetectedSpeechNotification |  | String |  |
-| DetectedTextNotification |  | String |  |
-| BeginChargeSound |  | String |  |
-| BeginChargeSpeechNotification |  | String |  |
-| BeginChargeTextNotification |  | String |  |
-| EndChargeSound |  | String |  |
-| EndChargeSpeechNotification |  | String |  |
-| EndChargeTextNotification |  | String |  |
-| SelectTargetSound |  | String |  |
-| SelectTargetSpeechNotification |  | String |  |
-| SelectTargetTextNotification |  | String |  |
-| InsufficientPowerSound |  | String |  |
-| InsufficientPowerSpeechNotification |  | String |  |
-| InsufficientPowerTextNotification |  | String |  |
-| LaunchSound |  | String |  |
-| LaunchSpeechNotification |  | String |  |
-| LaunchTextNotification |  | String |  |
-| IncomingSound |  | String |  |
-| IncomingSpeechNotification |  | String |  |
-| IncomingTextNotification |  | String |  |
-| DisplayTimerRelationships | None | [`PlayerRelationship`](#playerrelationship) | Defines to which players the timer is shown. |
-| DisplayBeacon | False | Boolean | Beacons are only supported on the Airstrike, Paratroopers, and Nuke powers |
-| BeaconPaletteIsPlayerPalette | True | Boolean |  |
-| BeaconPalette | player | String |  |
-| BeaconImage | beacon | String |  |
-| BeaconPoster |  | String |  |
-| BeaconPosterPalette | chrome | String |  |
-| ClockSequence |  | String |  |
-| BeaconSequence |  | String |  |
-| ArrowSequence |  | String |  |
-| CircleSequence |  | String |  |
-| BeaconDelay | 0 | Integer | Delay after launch, measured in ticks. |
-| DisplayRadarPing | False | Boolean |  |
-| RadarPingDuration | 125 | Integer | Measured in ticks. |
-| OrderName | NukePowerInfoOrder | String |  |
-| SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ParatroopersPower
 ###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
@@ -4943,6 +4246,173 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### Passenger
+**This actor can enter Cargo actors.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CargoType |  | String |  |
+| CustomPipType |  | String | If defined, use a custom pip type defined on the transport's WithCargoPipsDecoration.CustomPipSequences list. |
+| Weight | 1 | Integer |  |
+| CargoCondition |  | String | The condition to grant to when this actor is loaded inside any transport. |
+| CargoConditions |  | Dictionary with Key: String, Value: String | Conditions to grant when this actor is loaded inside specified transport. A dictionary of [actor name]: [condition]. |
+| Voice | Action | String |  |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
+| EnterCursor | enter | String | Cursor to display when able to enter target actor. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target actor. |
+
+### PathFinder
+**Calculates routes for mobile actors with locomotors based on the A* search algorithm.  Attach this to the world actor.**
+###### Requires trait(s): [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
+
+### PathFinderOverlay
+**Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor.**
+###### Requires trait(s): [`PathFinder`](#pathfinder).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Font | TinyBold | String |  |
+| TargetLineColor | FF0000 | Color (RRGGBB[AA] notation) |  |
+| AbstractColor1 | 00FF00 | Color (RRGGBB[AA] notation) |  |
+| AbstractColor2 | 98FB98 | Color (RRGGBB[AA] notation) |  |
+| LocalColor1 | FFFF00 | Color (RRGGBB[AA] notation) |  |
+| LocalColor2 | FFFFE0 | Color (RRGGBB[AA] notation) |  |
+| ShowCosts | True | Boolean |  |
+
+### PlaceBeacon
+**A beacon that is constructed from a circle sprite that is animated once and a moving arrow sprite.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Duration | 750 | Integer |  |
+| NotificationType | Sounds | String |  |
+| Notification | Beacon | String |  |
+| IsPlayerPalette | True | Boolean |  |
+| Palette | player | String |  |
+| BeaconImage | beacon | String |  |
+| BeaconSequence |  | String |  |
+| ArrowSequence | arrow | String |  |
+| CircleSequence | circles | String |  |
+
+### PlaceBuilding
+**Allows the player to execute build orders.  Attach this to the player actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| NewOptionsNotificationDelay | 10 | Integer | Play NewOptionsNotification this many ticks after building placement. |
+| NewOptionsNotification |  | String | Speech notification to play after building placement if new construction options are available. |
+| NewOptionsTextNotification |  | String | Text notification to display after building placement if new construction options are available. |
+| CannotPlaceNotification |  | String | Speech notification to play if building placement is not possible. |
+| CannotPlaceTextNotification |  | String | Text notification to display if building placement is not possible. |
+| ToggleVariantKey | OpenRA.HotkeyReference | HotkeyReference | Hotkey to toggle between PlaceBuildingVariants when placing a structure. |
+
+### PlaceBuildingVariants
+**Place a different building when PlaceBuilding's ToggleVariantKey hotkey is pressed while the PlaceBuildingOrderGenerator is active.**
+###### Requires trait(s): [`Buildable`](#buildable), [`Building`](#building).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Actors | *(required)* | Collection of String | Variant actors that can be cycled between when placing a structure. |
+| Facings |  | Collection of 1D World Angle | Facing of the non-variant actor, followed by facings for each variant actor. The length equals the length of Actors + 1. |
+
+### PlayerColorPalette
+**Add this to the World actor definition.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BasePalette |  | String | The name of the palette to base off. |
+| BaseName | player | String | The prefix for the resulting player palettes |
+| RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
+### PlayerExperience
+**This trait can be used to track player experience based on units killed with the `GivesExperience` trait. It can also be used as a point score system in scripted maps, for example. Attach this to the player actor.**
+
+### PlayerRadarTerrain
+###### Requires trait(s): [`Shroud`](#shroud).
+
+### PlayerResources
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DefaultCashDropdownLabel | Starting Cash | String | Descriptive label for the starting cash option in the lobby. |
+| DefaultCashDropdownDescription | The amount of cash that players start with | String | Tooltip description for the starting cash option in the lobby. |
+| SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. |
+| DefaultCash | 5000 | Integer | Default starting cash option: should be one of the SelectableCash options. |
+| DefaultCashDropdownLocked | False | Boolean | Force the DefaultCash option by disabling changes in the lobby. |
+| DefaultCashDropdownVisible | True | Boolean | Whether to display the DefaultCash option in the lobby. |
+| DefaultCashDropdownDisplayOrder | 0 | Integer | Display order for the DefaultCash option. |
+| InsufficientFundsNotification |  | String | Speech notification to play when the player does not have any funds. |
+| InsufficientFundsTextNotification |  | String | Text notification to display when the player does not have any funds. |
+| InsufficientFundsNotificationInterval | 30000 | Integer | Delay (in ticks) during which warnings will be muted. |
+| CashTickUpNotification |  | String |  |
+| CashTickDownNotification |  | String |  |
+| ResourceValues |  | Dictionary with Key: String, Value: Integer | Monetary value of each resource type. Dictionary of [resource type]: [value per unit]. |
+
+### PlayerStatistics
+**Attach this to the player actor to collect observer stats.**
+
+### Pluggable
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Offset | 0,0 | 2D Cell Vector | Footprint cell offset where a plug can be placed. |
+| Conditions | *(required)* | Dictionary with Key: String, Value: String | Conditions to grant for each accepted plug type. Key is the plug type. Value is the condition that is granted when the plug is enabled. |
+| Requirements |  | Dictionary with Key: String, Value: BooleanExpression | Requirements for accepting a plug type. Key is the plug type that the requirements applies to. Value is the condition expression defining the requirements to place the plug. |
+| EditorOptions |  | Dictionary with Key: String, Value: String | Options to display in the map editor. Key is the plug type that the requirements applies to. Value is the label that is displayed in the actor editor dropdown. |
+| EmptyOption | Empty | String | Label to use for an empty plug socket. |
+| EditorDisplayOrder | 5 | Integer | Display order for the dropdown in the map editor |
+
+### Plug
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String | Plug type (matched against Conditions in Pluggable) |
+
+### Power
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Amount | 0 | Integer | If negative, it will drain power. If positive, it will provide power. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### PowerManager
+**Attach this to the player actor.**
+###### Requires trait(s): [`DeveloperMode`](#developermode).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AdviceInterval | 10000 | Integer | Interval (in milliseconds) at which to warn the player of low power. |
+| SpeechNotification |  | String |  |
+| TextNotification |  | String |  |
+
+### PowerMultiplier
+**Modifies the power usage/output of this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### PowerTooltip
+**Shown power info on the build palette widget.**
+
+### PrimaryBuilding
+**Used together with ClassicProductionQueue.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PrimaryCondition |  | String | The condition to grant to self while this is the primary building. |
+| SelectionNotification |  | String | Speech notification to play when selecting a primary building. |
+| SelectionTextNotification |  | String | Text notification to display when selecting a primary building. |
+| ProductionQueues |  | Collection of String | List of production queues for which the primary flag should be set. If empty, the list given in the `Produces` property of the `Production` trait will be used. |
+| Cursor | deploy | String | Cursor to display when setting the primary building. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### ProduceActorPower
 **Produces an actor without using the standard production queue.**
 ###### Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
@@ -5004,6 +4474,683 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OrderName | ProduceActorPowerInfoOrder | String |  |
 | SupportPowerPaletteOrder | 9999 | Integer | Sort order for the support power palette. Smaller numbers are presented earlier. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ProducibleWithLevel
+**Actors possessing this trait should define the GainsExperience trait. When the prerequisites are fulfilled,  this trait grants a level-up to newly spawned actors.**
+###### Requires trait(s): [`GainsExperience`](#gainsexperience).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Prerequisites |  | Collection of String |  |
+| InitialLevels | 1 | Integer | Number of levels to give to the actor on creation. |
+| SuppressLevelupAnimation | True | Boolean | Should the level-up animation be suppressed when actor is created? |
+
+### ProductionAirdrop
+**Deliver the unit in production via skylift.**
+###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ReadyAudio | Reinforce | String | Speech notification to play when a unit is delivered. |
+| ReadyTextNotification |  | String | Text notification to display when a unit is delivered. |
+| ActorType | *(required)* | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
+| BaselineSpawn | False | Boolean | The cargo aircraft will spawn at the player baseline (map edge closest to the player spawn) |
+| Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ProductionCostMultiplier
+**Modifies the production cost of this actor for a specific queue or when a prerequisite is granted.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Multiplier | 100 | Integer | Percentage modifier to apply. |
+| Prerequisites |  | Collection of String | Only apply this cost change if owner has these prerequisites. |
+| Queue |  | Set of String | Queues that this cost will apply. |
+
+### ProductionFromMapEdge
+**Produce a unit on the closest map edge cell and move into the world.**
+###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Production
+**This unit has access to build queues.**
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ProductionParadrop
+**Deliver the unit in production via paradrop.**
+###### Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+###### Requires trait(s): [`Exit`](#exit).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ActorType | badr | String | Cargo aircraft used. Must have Aircraft trait. |
+| ChuteSound |  | String | Sound to play when dropping the unit. |
+| ReadyAudio |  | String | Speech notification to play when dropping the unit. |
+| ReadyTextNotification |  | String | Text notification to display when dropping the unit. |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ProductionQueueFromSelection
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ProductionTabsWidget |  | String |  |
+| ProductionPaletteWidget |  | String |  |
+
+### ProductionQueue
+**Attach this to an actor (usually a building) to let it produce units or construct buildings. If one builds another actor of this type, he will get a separate queue to create two actors at the same time. Will only work together with the Production: trait.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
+| Group |  | String | Group queues from separate buildings together into the same tab. |
+| Factions |  | Set of String | Only enable this queue for certain factions. |
+| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
+| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
+| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
+| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
+| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
+| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
+| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
+| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
+| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
+| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
+| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
+
+### ProductionTimeMultiplier
+**Modifies the production time of this actor for a specific queue or when a prerequisite is granted.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Multiplier | 100 | Integer | Percentage modifier to apply. |
+| Prerequisites |  | Collection of String | Only apply this time change if owner has these prerequisites. |
+| Queue |  | Set of String | Queues that this time will apply. |
+
+### ProvidesPrerequisite
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Prerequisite |  | String | The prerequisite type that this provides. If left empty it defaults to the actor's name. |
+| RequiresPrerequisites |  | Collection of String | Only grant this prerequisite when you have these prerequisites. |
+| Factions |  | Set of String | Only grant this prerequisite for certain factions. |
+| ResetOnOwnerChange | False | Boolean | Should it recheck everything when it is captured? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ProvidesTechPrerequisite
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Id |  | String | Internal id for this tech level. |
+| Name |  | String | Name shown in the lobby options. |
+| Prerequisites |  | Collection of String | Prerequisites to grant when this tech level is active. |
+
+### ProximityCaptor
+**Actor can capture ProximityCapturable actors.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Types | *(required)* | Collection of CaptureType |  |
+
+### ProximityCapturable
+**Actor can be captured by units in a specified proximity.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Range | 5c0 | 1D World Distance | Maximum range at which a ProximityCaptor actor can initiate the capture. |
+| CaptorTypes | Player, Vehicle, Tank, Infantry | Collection of CaptureType | Allowed ProximityCaptor actors to capture this actor. |
+| MustBeClear | False | Boolean | If set, the capturing process stops immediately after another player comes into Range. |
+| Sticky | False | Boolean | If set, the ownership will not revert back when the captor leaves the area. |
+| Permanent | False | Boolean | If set, the actor can only be captured via this logic once. This option implies the `Sticky` behaviour as well. |
+
+### ProximityExternalCondition
+**Applies a condition to actors within a specified range.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Condition | *(required)* | String | The condition to apply. Must be included in the target actor's ExternalConditions list. |
+| Range | 3c0 | 1D World Distance | The range to search for actors. |
+| MaximumVerticalOffset | 0c0 | 1D World Distance | The maximum vertical range above terrain to search for actors. Ignored if 0 (actors are selected regardless of vertical distance). |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
+| AffectsParent | False | Boolean | Condition is applied permanently to this actor. |
+| EnableSound |  | String |  |
+| DisableSound |  | String |  |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### QuantizeFacingsFromSequence
+**Derive facings from sprite body sequence.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Sequence | idle | String | Defines sequence to derive facings from. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RadarPings
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| FromRadius | 200 | Integer |  |
+| ToRadius | 15 | Integer |  |
+| ShrinkSpeed | 4 | Integer |  |
+| RotationSpeed | 0.12 | Real Number |  |
+
+### RallyPoint
+**Used to waypoint units after production or repair is finished.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Image | rallypoint | String |  |
+| LineWidth | 1 | Integer | Width (in pixels) of the rallypoint line. |
+| FlagSequence | flag | String |  |
+| CirclesSequence | circles | String |  |
+| Cursor | ability | String | Cursor to display when rally point can be set. |
+| Palette | player | String | Custom indicator palette name |
+| IsPlayerPalette | True | Boolean | Custom palette is a player palette BaseName |
+| Path |  | Collection of 2D Cell Vector | A list of 0 or more offsets defining the initial rally point path. |
+| Notification |  | String | Speech notification to play when setting a new rallypoint. |
+| TextNotification |  | String | Text notification to display when setting a new rallypoint. |
+| ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
+
+### RangeMultiplier
+**Modifies the range of weapons fired by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Rearmable
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RearmActors | *(required)* | Set of String | Actors that this actor can dock to and get rearmed by. |
+| AmmoPools | primary | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
+
+### Refinery
+###### Requires trait(s): [`WithSpriteBody`](#withspritebody).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DockAngle | 0 | 1D World Angle | Actual harvester facing when docking. |
+| DockOffset | 0,0 | 2D Cell Vector | Docking cell relative to top-left cell. |
+| IsDragRequired | False | Boolean | Does the refinery require the harvester to be dragged in? |
+| DragOffset | 0,0,0 | 3D World Vector | Vector by which the harvester will be dragged when docking. |
+| DragLength | 0 | Integer | In how many steps to perform the dragging? |
+| UseStorage | True | Boolean | Store resources in silos. Adds cash directly without storing if set to false. |
+| DiscardExcessResources | False | Boolean | Discard resources once silo capacity has been reached. |
+| ShowTicks | True | Boolean |  |
+| TickLifetime | 30 | Integer |  |
+| TickVelocity | 2 | Integer |  |
+| TickRate | 10 | Integer |  |
+
+### RejectsOrders
+**Can be used to make a unit partly uncontrollable by the player.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Reject |  | Set of String | Explicit list of rejected orders. Leave empty to reject all minus those listed under Except. |
+| Except |  | Set of String | List of orders that should *not* be rejected. Also overrides other instances of this trait's Reject fields. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ReloadAmmoDelayMultiplier
+**Modifies the reload time of ammo pools on this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ReloadAmmoPool
+**Reloads an ammo pool.**
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AmmoPool | primary | String | Reload ammo pool with this name. |
+| Delay | 50 | Integer | Reload time in ticks per Count. |
+| Count | 1 | Integer | How much ammo is reloaded after Delay. |
+| ResetOnFire | False | Boolean | Whether or not reload timer should be reset when ammo has been fired. |
+| Sound |  | String | Play this sound each time ammo is reloaded. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ReloadDelayMultiplier
+**Modifies the reload time of weapons fired by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RenderJammerCircle
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Color | FF000080 | Color (RRGGBB[AA] notation) | Range circle color. |
+| Width | 1 | Real Number | Range circle line width. |
+| BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
+| BorderWidth | 3 | Real Number | Range circle border width. |
+
+### RenderShroudCircle
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Color | 00FFFF80 | Color (RRGGBB[AA] notation) | Color of the circle. |
+| Width | 1 | Real Number | Range circle line width. |
+| BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Border color of the circle. |
+| BorderWidth | 3 | Real Number | Range circle border width. |
+
+### RepairableBuilding
+**Building can be repaired by the repair button.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RepairPercent | 20 | Integer | Cost to fully repair the actor as a percent of its value. |
+| RepairInterval | 24 | Integer | Number of ticks between each repair step. |
+| RepairStep | 7 | Integer | The maximum amount of HP to repair each step. |
+| RepairDamageTypes |  | Collection of DamageType | Damage types used for the repair. |
+| RepairBonuses | 100, 150, 175, 200, 220, 240, 260, 280, 300 | Collection of Integer | The percentage repair bonus applied with increasing numbers of repairers. |
+| CancelWhenDisabled | False | Boolean | Cancel the repair state when the trait is disabled. |
+| PlayerExperience | 0 | Integer | Experience gained by a player for repairing structures of allied players. |
+| RepairCondition |  | String | The condition to grant to self while being repaired. |
+| RepairingNotification |  | String |  |
+| RepairingTextNotification |  | String |  |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Repairable
+**This actor can be sent to a structure for repairs.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RepairActors | *(required)* | Set of String |  |
+| Voice | Action | String |  |
+| HpPerStep | -1 | Integer | The amount the unit will be repaired at each step. Use -1 for fallback behavior where HpPerStep from RepairsUnits trait will be used. |
+| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
+| EnterCursor | enter | String | Cursor to display when able to be repaired at target actor. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired at target actor. |
+
+### RepairableNear
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RepairActors | *(required)* | Set of String |  |
+| CloseEnough | 4c0 | 1D World Distance |  |
+| Voice | Action | String |  |
+| RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
+| EnterCursor | enter | String | Cursor to display when able to be repaired near target actor. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired near target actor. |
+
+### RepairsBridges
+**Can enter a BridgeHut or LegacyBridgeHut to trigger a repair.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Voice | Action | String |  |
+| TargetLineColor | FFFF00 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| EnterBehaviour | Dispose | [`EnterBehaviour`](#enterbehaviour) | Behaviour when entering the structure. Possible values are Exit, Suicide, Dispose. |
+| TargetCursor | goldwrench | String | Cursor to display when targeting an unrepaired bridge. |
+| TargetBlockedCursor | goldwrench-blocked | String | Cursor to display when repairing is denied. |
+| RepairNotification |  | String | Speech notification to play when a bridge is repaired. |
+| RepairTextNotification |  | String | Text notification to display when a bridge is repaired. |
+
+### RepairsUnits
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValuePercentage | 20 | Integer | Cost in % of the unit value to fully repair the unit. |
+| HpPerStep | 10 | Integer |  |
+| Interval | 24 | Integer | Time (in ticks) between two repair steps. |
+| RepairDamageTypes |  | Collection of DamageType | Damage types used for the repair. |
+| StartRepairingNotification |  | String | Speech notification played when starting to repair a unit. |
+| StartRepairingTextNotification |  | String | Text notification displayed when starting to repair a unit. |
+| FinishRepairingNotification |  | String | Speech notification played when repairing a unit is done. |
+| FinishRepairingTextNotification |  | String | Text notification displayed when repairing a unit is done. |
+| PlayerExperience | 0 | Integer | Experience gained by the player owning this actor for repairing an allied unit. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Replaceable
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Types | *(required)* | Set of String | Replacement types this Replaceable actor accepts. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Replacement
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ReplaceableTypes | *(required)* | Set of String | Replacement type (matched against Types in Replaceable). |
+
+### RequiresBuildableArea
+**This actor requires another actor with 'GivesBuildableArea' trait around to be placed.**
+###### Requires trait(s): [`Building`](#building).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AreaTypes | *(required)* | Set of String | Types of buildable are this actor requires. |
+| Adjacent | 2 | Integer | Maximum range from the actor with 'GivesBuildableArea' this can be placed at. |
+
+### RequiresSpecificOwners
+**Can be used to enforce specific owners (like 'Neutral' or 'Creeps') for this actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
+
+### Reservable
+**Reserve landing places for aircraft.**
+
+### ResourceClaimLayer
+**Allows harvesters to coordinate their operations. Attach this to the world actor.**
+
+### ResourceLayer
+**Attach this to the world actor.**
+###### Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
+| RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
+
+### ResourceRenderer
+**Visualizes the state of the `ResourceLayer`.  Attach this to the world actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
+
+### ResourceStorageWarning
+**Provides the player with an audible warning when their storage is nearing full.**
+###### Requires trait(s): [`PlayerResources`](#playerresources).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AdviceInterval | 20000 | Integer | Interval (in milliseconds) at which to check if more storage is needed. |
+| Threshold | 80 | Integer | The percentage threshold above which a warning is played. |
+| Notification | SilosNeeded | String | Speech to play for the warning. |
+| TextNotification |  | String | Text to display for the warning. |
+
+### ResourceValueMultiplier
+**Modifies the value of resources delivered to this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RevealMapCrateAction
+**Reveals the entire map.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| IncludeAllies | False | Boolean | Should the map also be revealed for the allies of the collector's owner? |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RevealOnDeath
+**Reveal this actor's last position when killed.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RevealForRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships relative to the actors' owner that shroud will be revealed for. |
+| Duration | 25 | Integer | Duration of the reveal. |
+| Radius | 1c512 | 1D World Distance | Radius of the reveal around this actor. |
+| RevealGeneratedShroud | True | Boolean | Can this actor be revealed through shroud generated by the `CreatesShroud` trait? |
+| DeathTypes |  | Collection of DamageType | DeathTypes for which shroud will be revealed. Use an empty list (the default) to allow all DeathTypes. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RevealOnFire
+**Reveal this actor to the target's owner when attacking.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ArmamentNames | primary, secondary | Collection of String | The armament types which trigger revealing. |
+| RevealForRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships relative to the target player this actor will be revealed to during firing. |
+| Duration | 25 | Integer | Duration of the reveal. |
+| Radius | 1c512 | 1D World Distance | Radius of the reveal around this actor. |
+| RevealGeneratedShroud | True | Boolean | Can this actor be revealed through shroud generated by the `CreatesShroud` trait? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RevealsMap
+**Reveals shroud and fog across the whole map while active.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships the watching player needs to see the shroud removed. |
+| RevealGeneratedShroud | True | Boolean | Can this actor reveal shroud generated by the `CreatesShroud` trait? |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RevealsShroud
+###### Inherits from: `AffectsShroud`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Relationships the watching player needs to see the shroud removed. |
+| RevealGeneratedShroud | True | Boolean | Can this actor reveal shroud generated by the `CreatesShroud` trait? |
+| MinRange | 0c0 | 1D World Distance |  |
+| Range | 0c0 | 1D World Distance |  |
+| MaxHeightDelta | -1 | Integer | If >= 0, prevent cells that are this much higher than the actor from being revealed. |
+| MoveRecalculationThreshold | 0c256 | 1D World Distance | If > 0, force visibility to be recalculated if the unit moves within a cell by more than this distance. |
+| Type | Footprint | [`VisibilityType`](#visibilitytype) | Possible values are CenterPosition (measure range from the center) and  Footprint (measure range from the footprint) |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RevealsShroudMultiplier
+**Modifies the shroud range revealed by this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### RotationPaletteEffect
+**Palette effect used for sprinkle "animations".**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Palettes |  | Set of String | Defines to which palettes this effect should be applied to. If none specified, it applies to all palettes not explicitly excluded. |
+| Tilesets |  | Set of String | Defines for which tileset IDs this effect should be loaded. If none specified, it applies to all tileset IDs not explicitly excluded. |
+| ExcludePalettes |  | Set of String | Defines which palettes should be excluded from this effect. |
+| ExcludeTilesets |  | Set of String | Don't apply the effect for these tileset IDs. |
+| RotationBase | 96 | Integer | Palette index of first RotationRange color. |
+| RotationRange | 7 | Integer | Range of colors to rotate. |
+| RotationStep | 0.25 | Real Number | Step towards next color index per tick. |
+
+### ScalePowerWithHealth
+**Scale power amount with the current health.**
+###### Requires trait(s): [`Power`](#power).
+
+### ScaredyCat
+**Makes the unit automatically run around when taking damage.**
+###### Requires trait(s): [`Mobile`](#mobile).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PanicChance | 100 | Integer | Chance (out of 100) the unit has to enter panic mode when attacked. |
+| PanicDuration | 250 | Integer | How long (in ticks) the actor should panic for. |
+| PanicSpeedModifier | 200 | Integer | Panic movement speed as a percentage of the normal speed. |
+| AttackPanicChance | 20 | Integer | Chance (out of 100) the unit has to enter panic mode when attacking. |
+| AvoidTerrainTypes |  | Set of String | The terrain types that this actor should avoid running on to while panicking. |
+| PanicSequencePrefix | panic- | String |  |
+
+### ScriptLobbyDropdown
+**Controls the map difficulty, tech level, and short game lobby options.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ID | *(required)* | String | Internal id for this option. |
+| Label | *(required)* | String | Descriptive label for this option. |
+| Description |  | String | Tooltip description for this option. |
+| Default | *(required)* | String | Default option key in the `Values` list. |
+| Values | *(required)* | Dictionary with Key: String, Value: String | Difficulty levels supported by the map. |
+| Locked | False | Boolean | Prevent the option from being changed from its default value. |
+| Visible | True | Boolean | Whether to display the option in the lobby. |
+| DisplayOrder | 0 | Integer | Display order for the option in the lobby. |
+
+### ScriptTags
+**Allows this actor to be 'tagged' with arbitrary strings. Tags must be unique or they will be rejected.**
+
+### SeedsResource
+**Lets the actor spread resources around it in a circle.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Interval | 75 | Integer |  |
+| ResourceType | Ore | String |  |
+| MaxRange | 100 | Integer |  |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### Selectable
+**This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
+###### Inherits from: [`Interactable`](#interactable).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Priority | 10 | Integer |  |
+| PriorityModifiers | None | [`SelectionPriorityModifiers`](#selectionprioritymodifiers) | Allow selection priority to be modified using a hotkey. Valid values are None (priority is not affected by modifiers) Ctrl (priority is raised when Ctrl pressed) and Alt (priority is raised when Alt pressed). |
+| Class |  | String | All units having the same selection class specified will be selected with select-by-type commands (e.g. double-click). Defaults to the actor name when not defined or inherited. |
+| Voice | Select | String |  |
+| Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
+| DecorationBounds |  | Collection of 1D World Distance | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead |
+
+### Selection
+
+### Sellable
+**Actor can be sold**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RefundPercent | 50 | Integer | Percentage of units value to give back after selling. |
+| SellSounds |  | Collection of String | List of audio clips to play when the actor is being sold. |
+| Notification |  | String | Speech notification to play. |
+| ShowTicks | True | Boolean | Whether to show the cash tick indicators rising from the actor. |
+| ShowTooltipText | True | Boolean | Whether to show the refund text on the tooltip, when actor is hovered over with sell order. |
+| SkipMakeAnimation | False | Boolean | Skip playing (reversed) make animation. |
+| Cursor | sell | String | Cursor to display when the sell order generator hovers over this actor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SequencePlaceBuildingPreview
+**Creates a building placement preview based on a defined sequence.**
+###### Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
+###### Requires trait(s): [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Sequence | idle | String | Sequence name to use. |
+| SequenceAlpha | 1 | Real Number | Custom opacity to apply to the sequence sprite. |
+| FootprintUnderPreview | Valid, LineBuild | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw underneath the actor preview. |
+| FootprintOverPreview | Invalid | [`PlaceBuildingCellType`](#placebuildingcelltype) | Footprint types to draw above the actor preview. |
+| Palette | terrain | String | Palette to use for rendering the placement sprite. |
+| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
+| LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
+
+### ShakeOnDeath
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the shake. Leave empty to always trigger a shake. |
+| Duration | 10 | Integer |  |
+| Intensity | 1 | Integer |  |
+
+### ShroudRenderer
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Sequence | shroud | String |  |
+| ShroudVariants | shroud | Collection of String |  |
+| FogVariants | fog | Collection of String |  |
+| ShroudPalette | shroud | String |  |
+| FogPalette | fog | String |  |
+| Index | 12, 9, 8, 3, 1, 6, 4, 2, 13, 11, 7, 14 | Collection of Integer | Bitfield of shroud directions for each frame. Lower four bits are corners clockwise from TL; upper four are edges clockwise from top |
+| UseExtendedIndex | False | Boolean | Use the upper four bits when calculating frame |
+| OverrideFullShroud |  | String | Override for source art that doesn't define a fully shrouded tile |
+| OverrideShroudIndex | 15 | Integer |  |
+| OverrideFullFog |  | String | Override for source art that doesn't define a fully fogged tile |
+| OverrideFogIndex | 15 | Integer |  |
+| ShroudBlend | Alpha | [`BlendMode`](#blendmode) |  |
+
+### SmudgeLayer
+**Attach this to the world actor. Order of the layers defines the Z sorting.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | Scorch | String |  |
+| Sequence | scorch | String | Sprite sequence name |
+| SmokeChance | 0 | Integer | Chance of smoke rising from the ground |
+| SmokeImage |  | String | Smoke sprite image name |
+| SmokeSequences |  | Collection of String | Smoke sprite sequences randomly chosen from |
+| SmokePalette | effect | String |  |
+| Palette | terrain | String |  |
+| InitialSmudges |  | Dictionary with Key: 2D Cell Position, Value: MapSmudge |  |
+
+### SpawnActorOnDeath
+**Spawn another actor immediately upon death.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Actor | *(required)* | String | Actor to spawn on death. |
+| Probability | 100 | Integer | Probability the actor spawns. |
+| OwnerType | Victim | [`OwnerType`](#ownertype) | Owner of the spawned actor. Allowed keywords:'Victim', 'Killer' and 'InternalName'. Falls back to 'InternalName' if 'Victim' is used and the victim is defeated (see 'SpawnAfterDefeat'). |
+| InternalOwner | Neutral | String | Map player to use when 'InternalName' is defined on 'OwnerType'. |
+| EffectiveOwnerFromOwner | False | Boolean | Changes the effective (displayed) owner of the spawned actor to the old owner (victim). |
+| DeathType |  | String | DeathType that triggers the actor spawn. Leave empty to spawn an actor ignoring the DeathTypes. |
+| SkipMakeAnimations | True | Boolean | Skips the spawned actor's make animations if true. |
+| RequiresLobbyCreeps | False | Boolean | Should an actor only be spawned when the 'Creeps' setting is true? |
+| Offset | 0,0 | 2D Cell Vector | Offset of the spawned actor relative to the dying actor's position. Warning: Spawning an actor outside the parent actor's footprint/influence might lead to unexpected behaviour. |
+| SpawnAfterDefeat | True | Boolean | Should an actor spawn after the player has been defeated (e.g. after surrendering)? |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnActorPower
@@ -5072,9 +5219,214 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### SpawnActorsOnSell
+**Spawn new actors when sold.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValuePercent | 40 | Integer |  |
+| MinHpPercent | 30 | Integer |  |
+| ActorTypes | *(required)* | Collection of String | Actor types to spawn on sell. Be sure to use lowercase. |
+| Factions |  | Set of String | Spawns actors only if the selling player's faction is in this list. Leave empty to allow all factions by default. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SpawnMapActors
+**Spawns the initial units for each player upon game start.**
+
+### SpawnStartingUnits
+**Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor.**
+###### Requires trait(s): [`StartingUnits`](#startingunits).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| StartingUnitsClass | none | String |  |
+| DropdownLabel | Starting Units | String | Descriptive label for the starting units option in the lobby. |
+| DropdownDescription | The units that players start the game with | String | Tooltip description for the starting units option in the lobby. |
+| DropdownLocked | False | Boolean | Prevent the starting units option from being changed in the lobby. |
+| DropdownVisible | True | Boolean | Whether to display the starting units option in the lobby. |
+| DropdownDisplayOrder | 0 | Integer | Display order for the starting units option in the lobby. |
+
+### SpeedMultiplier
+**Modifies the movement speed of this actor.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Modifier | 100 | Integer | Percentage modifier to apply. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SpreadsCondition
+**Any actor with this trait enabled has a chance to affect others with this trait.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Probability | 5 | Integer | The chance this actor is going to affect an adjacent actor. |
+| Range | 3c0 | 1D World Distance | How far the condition can spread from one actor to another. |
+| SpreadCondition | spreading | String | Condition to grant onto another actor in range with the same trait. |
+| Delay | 5 | Integer | Time in ticks to wait between spreading further. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SquadManagerBotModule
+**Manages AI squads.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| NavalUnitsTypes |  | Set of String | Actor types that are valid for naval squads. |
+| AirUnitsTypes |  | Set of String | Actor types that are excluded from ground attacks. |
+| ExcludeFromSquadsTypes |  | Set of String | Actor types that should generally be excluded from attack squads. |
+| ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
+| NavalProductionTypes |  | Set of String | Enemy building types around which to scan for targets for naval squads. |
+| ProtectionTypes |  | Set of String | Own actor types that are prioritized when defending. |
+| SquadSize | 8 | Integer | Minimum number of units AI must have before attacking. |
+| SquadSizeRandomBonus | 30 | Integer | Random number of up to this many units is added to squad size when creating an attack squad. |
+| AssignRolesInterval | 50 | Integer | Delay (in ticks) between giving out orders to units. |
+| RushInterval | 600 | Integer | Delay (in ticks) between attempting rush attacks. |
+| AttackForceInterval | 75 | Integer | Delay (in ticks) between updating squads. |
+| MinimumAttackForceDelay | 0 | Integer | Minimum delay (in ticks) between creating squads. |
+| RushAttackScanRadius | 15 | Integer | Radius in cells around enemy BaseBuilder (Construction Yard) where AI scans for targets to rush. |
+| ProtectUnitScanRadius | 15 | Integer | Radius in cells around the base that should be scanned for units to be protected. |
+| MaxBaseRadius | 20 | Integer | Maximum distance in cells from center of the base when checking for MCV deployment location. Only applies if RestrictMCVDeploymentFallbackToBase is enabled and there's at least one construction yard. |
+| IdleScanRadius | 10 | Integer | Radius in cells that squads should scan for enemies around their position while idle. |
+| DangerScanRadius | 10 | Integer | Radius in cells that squads should scan for danger around their position to make flee decisions. |
+| AttackScanRadius | 12 | Integer | Radius in cells that attack squads should scan for enemies around their position when trying to attack. |
+| ProtectionScanRadius | 8 | Integer | Radius in cells that protecting squads should scan for enemies around their position. |
+| IgnoredEnemyTargetTypes |  | Collection of TargetableType | Enemy target types to never target. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### StartGameNotification
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Notification | StartGame | String |  |
+| TextNotification |  | String |  |
+| LoadedNotification | GameLoaded | String |  |
+| LoadedTextNotification |  | String |  |
+| SavedNotification | GameSaved | String |  |
+| SavedTextNotification |  | String |  |
+
+### StartingUnits
+**Used by SpawnStartingUnits. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Class | none | String | Internal class ID. |
+| ClassName | Unlabeled | String | Exposed via the UI to the player. |
+| Factions |  | Set of String | Only available when selecting one of these factions. Leave empty for no restrictions. |
+| BaseActor |  | String | The actor at the center, usually the mobile construction vehicle. |
+| BaseActorOffset | 0,0 | 2D Cell Vector | Offset from the spawn point, BaseActor will spawn at. |
+| SupportActors |  | Collection of String | A group of units ready to defend or scout. |
+| InnerSupportRadius | 2 | Integer | Inner radius for spawning support actors |
+| OuterSupportRadius | 4 | Integer | Outer radius for spawning support actors |
+| BaseActorFacing | 512 | 1D World Angle (optional) | Initial facing of BaseActor. Leave undefined for random facings. |
+| SupportActorsFacing |  | 1D World Angle (optional) | Initial facing of SupportActors. Leave undefined for random facings. |
+
+### StoresResources
+**Adds capacity to a player's harvested resource limit.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Capacity | 0 | Integer |  |
+
+### StrategicPoint
+**Used to mark a place that needs to be in possession for StrategicVictoryConditions.**
+
+### StrategicVictoryConditions
+**Allows King of the Hill (KotH) style gameplay.**
+###### Requires trait(s): [`MissionObjectives`](#missionobjectives).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| HoldDuration | 7500 | Integer | Amount of time (in game ticks) that the player has to hold all the strategic points. Defaults to 7500 ticks (5 minutes at default speed). |
+| ResetOnHoldLost | True | Boolean | Should the timer reset when the player loses hold of a strategic point. |
+| RatioRequired | 50 | Integer | Percentage of all strategic points the player has to hold to win. |
+| NotificationDelay | 1500 | Integer | Delay for the end game notification in milliseconds. |
+| Objective | Hold all the strategic positions! | String | Description of the objective |
+| SuppressNotifications | False | Boolean | Disable the win/loss messages and audio notifications? |
+
+### SubterraneanActorLayer
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TerrainType | Subterranean | String | Terrain type of the underground layer. |
+| HeightOffset | -2c0 | 1D World Distance | Height offset relative to the smoothed terrain for movement. |
+| SmoothingRadius | 2 | Integer | Cell radius for smoothing adjacent cell heights. |
+
+### SubterraneanLocomotor
+**Used by Mobile. Required for subterranean actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
+###### Inherits from: [`Locomotor`](#locomotor).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| SubterraneanTransitionCost | 0 | Int16 | Pathfinding cost for submerging or reemerging. |
+| SubterraneanTransitionTerrainTypes |  | Set of String | The terrain types that this actor can transition on. Leave empty to allow any. |
+| SubterraneanTransitionOnRamps | False | Boolean | Can this actor transition on slopes? |
+| SubterraneanTransitionDepth | -1c0 | 1D World Distance | Depth at which the subterranean condition is applied. |
+| Name | default | String | Locomotor ID. |
+| WaitAverage | 40 | Integer |  |
+| WaitSpread | 10 | Integer |  |
+| SharesCell | False | Boolean | Allow multiple (infantry) units in one cell. |
+| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
+| Crushes |  | Collection of CrushClass | e.g. crate, wall, infantry |
+| CrushDamageTypes |  | Collection of DamageType | Types of damage that are caused while crushing. Leave empty for no damage types. |
+| TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
+
+### SupportPowerBotModule
+**Manages bot support power handling.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Decisions |  | Collection of SupportPowerDecision | Tells the AI how to use its support powers. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### SupportPowerCrateAction
+**Gives a supportpower to the collector.**
+###### Inherits from: [`CrateAction`](#crateaction), `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Proxy | *(required)* | String | Which proxy actor, which grants the support power, to spawn. |
+| SelectionShares | 10 | Integer | Chance of getting this crate, assuming the collector is compatible. |
+| Image | crate-effects | String | Image containing the crate effect animation sequence. |
+| Sequence |  | String | Animation sequence played when collected. Leave empty for no effect. |
+| Palette | effect | String | Palette to draw the animation in. |
+| Sound |  | String | Audio clip to play when the crate is collected. |
+| Notification |  | String | Speech notification to play when the crate is collected. |
+| TextNotification |  | String | Text notification to display when the crate is collected. |
+| TimeDelay | 0 | Integer | The earliest time (in ticks) that this crate action can occur on. |
+| Prerequisites |  | Collection of String | Only allow this crate action when the collector has these prerequisites |
+| ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### SupportPowerManager
 **Attach this to the player actor.**
 ###### Requires trait(s): [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
+
+### TakeCover
+**Make the unit go prone when under attack, in an attempt to reduce damage.**
+###### Inherits from: [`Turreted`](#turreted), `PausableConditionalTrait`, `ConditionalTrait`.
+###### Requires trait(s): [`BodyOrientation`](#bodyorientation).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Duration | 100 | Integer | How long (in ticks) the actor remains prone. Negative values mean actor remains prone permanently. |
+| SpeedModifier | 50 | Integer | Prone movement speed as a percentage of the normal speed. |
+| DamageTriggers |  | Collection of DamageType | Damage types that trigger prone state. Defined on the warheads. If Duration is negative (permanent), you can leave this empty to trigger prone state immediately. |
+| DamageModifiers |  | Dictionary with Key: String, Value: Integer | Damage modifiers for each damage type (defined on the warheads) while the unit is prone. |
+| ProneOffset | 500,0,0 | 3D World Vector | Muzzle offset modifier to apply while prone. |
+| ProneSequencePrefix | prone- | String | Sequence prefix to apply while prone. |
+| Turret | primary | String |  |
+| TurnSpeed | 512 | 1D World Angle | Speed at which the turret turns. |
+| InitialFacing | 0 | 1D World Angle |  |
+| RealignDelay | 40 | Integer | Number of ticks before turret is realigned. (-1 turns off realignment) |
+| Offset | 0,0,0 | 3D World Vector | Muzzle position relative to turret or body. (forward, right, up) triples |
+| EditorTurretFacingDisplayOrder | 4 | Integer | Display order for the turret facing slider in the map editor |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Targetable
 **Actor can be targeted.**
@@ -5086,12 +5438,30 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresForceFire | False | Boolean |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### TechTree
+**Manages build limits and pre-requisites.  Attach this to the player actor.**
+
 ### TemporaryOwnerManager
 **Interacts with the ChangeOwner warhead. Displays a bar how long this actor is affected and reverts back to the old owner on temporary changes.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | BarColor | FFA500 | Color (RRGGBB[AA] notation) |  |
+
+### TerrainGeometryOverlay
+**Renders a debug overlay showing the terrain cells. Attach this to the world actor.**
+
+### TerrainLighting
+**Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Intensity | 1 | Real Number |  |
+| HeightStep | 0 | Real Number |  |
+| RedTint | 1 | Real Number |  |
+| GreenTint | 1 | Real Number |  |
+| BlueTint | 1 | Real Number |  |
+| BinSize | 10 | Integer | Size of light source partition bins (cells) |
 
 ### TerrainLightSource
 **Adds a localized circular light centered on the actor to the world's TerrainLightSource trait.**
@@ -5103,6 +5473,32 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RedTint | 0 | Real Number |  |
 | GreenTint | 0 | Real Number |  |
 | BlueTint | 0 | Real Number |  |
+
+### TerrainModifiesDamage
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| TerrainModifier | *(required)* | Dictionary with Key: String, Value: Integer | Damage percentage for specific terrain types. 120 = 120%, 80 = 80%, etc. |
+| ModifyHealing | False | Boolean | Modify healing damage? For example: A friendly medic. |
+
+### TerrainRenderer
+
+### TerrainTunnel
+###### Requires trait(s): [`TerrainTunnelLayer`](#terraintunnellayer).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Location | 0,0 | 2D Cell Position | Location of the tunnel |
+| Height | 0 | Byte | Height of the tunnel floor in map height steps. |
+| Dimensions | 0,0 | 2D Cell Vector | Size of the tunnel footprint |
+| Footprint | *(required)* | String | Tunnel footprint. _ is passable, x is blocked, and o are tunnel portals. |
+| TerrainType | *(required)* | String | Terrain type of the tunnel floor. |
+
+### TerrainTunnelLayer
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any tunnel footprint. |
 
 ### ThrowsParticle
 ###### Requires trait(s): [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
@@ -5129,13 +5525,62 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### EditorOnlyTooltip
-**Shown in map editor.**
-###### Inherits from: `TooltipInfoBase`, `ConditionalTrait`.
+### TimeLimitManager
+**This trait allows setting a time limit on matches. Attach this to the World actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name |  | String |  |
+| TimeLimitLabel | Time Limit | String | Label that will be shown for the time limit option in the lobby. |
+| TimeLimitDescription | Player or team with the highest score after this time wins | String | Tooltip description that will be shown for the time limit option in the lobby. |
+| TimeLimitOptions | 0, 10, 20, 30, 40, 60, 90 | Collection of Integer | Time Limit options that will be shown in the lobby dropdown. Values are in minutes. |
+| TimeLimitWarnings | 1: 
+
+2: 
+
+3: 
+
+4: 
+
+5: 
+
+10: 
+
+ | Dictionary with Key: Integer, Value: String | List of remaining minutes of game time when a text and optional speech notification should be made to players. |
+| TimeLimitDefault | 0 | Integer | Default selection for the time limit option in the lobby. Needs to use one of the TimeLimitOptions. |
+| TimeLimitLocked | False | Boolean | Prevent the time limit option from being changed in the lobby. |
+| TimeLimitDropdownVisible | True | Boolean | Whether to display the options dropdown in the lobby. |
+| TimeLimitDisplayOrder | 0 | Integer | Display order for the time limit dropdown in the lobby. |
+| Notification | {0} minute{1} remaining. | String | Notification text for time limit warnings. The string '{0}' will be replaced by the remaining time in minutes, '{1}' is used for the plural form. |
+| CountdownLabel |  | String | ID of the LabelWidget used to display a text ingame that will be updated every second. |
+| CountdownText |  | String | Text to be shown using the CountdownLabel. The string '{0}' will be replaced by the time in hh:mm:ss format. |
+| SkipTimeRemainingNotifications | False | Boolean | Will prevent showing/playing the built-in time limit warnings when set to true. |
+| SkipTimerExpiredNotification | False | Boolean | Will prevent showing/playing the built-in timer expired notification when set to true. |
+
+### ToggleConditionOnOrder
+**Toggles a condition on and off when a specified order type is received.**
+###### Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Condition | *(required)* | String | Condition to grant. |
+| OrderName | *(required)* | String | Order name that toggles the condition. |
+| EnabledSound |  | String |  |
+| EnabledSpeech |  | String |  |
+| EnabledTextNotification |  | String |  |
+| DisabledSound |  | String |  |
+| DisabledSpeech |  | String |  |
+| DisabledTextNotification |  | String |  |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TooltipDescription
+**Additional info shown in the battlefield tooltip.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Description |  | String | Text shown in tooltip. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the description. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Tooltip
@@ -5152,16 +5597,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
 | Name |  | String |  |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### TooltipDescription
-**Additional info shown in the battlefield tooltip.**
-###### Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Description |  | String | Text shown in tooltip. |
-| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the description. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformCrusherOnCrush
@@ -5204,6 +5639,95 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### TransformsIntoAircraft
+**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
+| DockActors | *(required)* | Set of String |  |
+| Voice | Action | String |  |
+| RequiresForceMove | False | Boolean | Require the force-move modifier to display the move cursor. |
+| Cursor | move | String | Cursor to display when a move order can be issued at target location. |
+| BlockedCursor | move-blocked | String | Cursor to display when a move order cannot be issued at target location. |
+| EnterCursor | enter | String | Cursor to display when able to land at target building. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to land at target building. |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line for regular move orders. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TransformsIntoEntersTunnels
+**Add to a building to expose a move cursor that triggers Transforms and issues an enter tunnel order to the transformed actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| EnterCursor | enter | String | Cursor to display when able to enter target tunnel. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target tunnel. |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line while in tunnels. |
+| Voice | Action | String |  |
+| RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TransformsIntoMobile
+**Add to a building to expose a move cursor that triggers Transforms and issues a move order to the transformed actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Locomotor | *(required)* | String | Locomotor used by the transformed actor. Must be defined on the World actor. |
+| Cursor | move | String | Cursor to display when a move order can be issued at target location. |
+| TerrainCursors |  | Dictionary with Key: String, Value: String | Cursor overrides to display for specific terrain types. A dictionary of [terrain type]: [cursor name]. |
+| BlockedCursor | move-blocked | String | Cursor to display when a move order cannot be issued at target location. |
+| Voice | Action | String |  |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line for regular move orders. |
+| RequiresForceMove | False | Boolean | Require the force-move modifier to display the move cursor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TransformsIntoPassenger
+**Add to a building to expose a move cursor that triggers Transforms and issues an EnterTransport order to the transformed actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| CargoType |  | String |  |
+| Weight | 1 | Integer |  |
+| Voice | Action | String |  |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
+| EnterCursor | enter | String | Cursor to display when able to enter target actor. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to enter target actor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TransformsIntoRepairable
+**Add to a building to expose a move cursor that triggers Transforms and issues a repair order to the transformed actor.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RepairActors | *(required)* | Set of String |  |
+| Voice | Action | String |  |
+| TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line. |
+| RequiresForceMove | False | Boolean | Require the force-move modifier to display the enter cursor. |
+| EnterCursor | enter | String | Cursor to display when able to be repaired at target actor. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to be repaired at target actor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TransformsIntoTransforms
+**Add to a building to allow queued transform orders while undeploying.**
+###### Inherits from: `ConditionalTrait`.
+###### Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Voice | Action | String |  |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### TunnelEntrance
 **Provides a target for players to issue orders for units to move through a TerrainTunnel. The host actor should be placed so that the Sensor position overlaps one of the TerrainTunnel portal cells.**
 
@@ -5239,8 +5763,33 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### UnitBuilderBotModule
+**Controls AI unit production.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| IdleBaseUnitsMaximum | 12 | Integer | Only produce units as long as there are less than this amount of units idling inside the base. |
+| UnitQueues | Vehicle, Infantry, Plane, Ship, Aircraft | Set of String | Production queues AI uses for producing units. |
+| UnitsToBuild |  | Dictionary with Key: String, Value: Integer | What units to the AI should build. What relative share of the total army must be this type of unit. |
+| UnitLimits |  | Dictionary with Key: String, Value: Integer | What units should the AI have a maximum limit to train. |
+| UnitDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start train specific units. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### UpdatesDerrickCount
 **Tag trait for updating the 'Oil Derrick' count economy statistic.**
+
+### UpdatesPlayerStatistics
+**Attach this to a unit to update observer stats.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| AddToArmyValue | False | Boolean | Add to army value in statistics |
+| AddToAssetsValue | True | Boolean | Add to assets value in statistics |
+| OverrideActor |  | String | Count this actor as a different type in the spectator army display. |
+
+### ValidateOrder
+**Used to detect exploits. Attach this to the world actor.**
 
 ### Valued
 **How much the unit is worth.**
@@ -5270,564 +5819,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AvoidTerrainTypes |  | Set of String | The terrain types that this actor should avoid wandering on to. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### ActorMap
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| BinSize | 10 | Integer | Size of partition bins (cells) |
-
-### ActorSpawnManager
-**Controls the spawning of specified actor types. Attach this to the world actor.**
-###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`MapCreeps`](#mapcreeps).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Minimum | 0 | Integer | Minimum number of actors. |
-| Maximum | 4 | Integer | Maximum number of actors. |
-| SpawnInterval | 6000 | Collection of Integer | Time (in ticks) between actor spawn. Supports 1 or 2 values. If 2 values are provided they are used as a range from which a value is randomly selected. |
-| Actors | *(required)* | Collection of String | Name of the actor that will be randomly picked to spawn. |
-| Owner | Creeps | String |  |
-| Types |  | Set of String | Type of ActorSpawner with which it connects. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### BridgeLayer
-
-### BuildableTerrainOverlay
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AllowedTerrainTypes | *(required)* | Set of String |  |
-| Palette | terrain | String | Palette to use for rendering the sprite. |
-| Image | overlay | String | Sprite definition. |
-| Sequence | build-invalid | String | Sequence to use for unbuildable area. |
-| Alpha | 1 | Real Number | Custom opacity to apply to the overlay sprite. |
-
-### CellTriggerOverlay
-**Renders a debug overlay showing the script triggers. Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Font | BigBold | String |  |
-| Color | FF0000 | Color (RRGGBB[AA] notation) |  |
-
-### CliffBackImpassabilityLayer
-**Sets a custom terrain type for cells that are obscured by back-facing cliffs. This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| TerrainType | Impassable | String |  |
-
-### ColorPickerManager
-**Configuration options for the lobby player color picker. Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| HsvSaturationRange | 0.3, 0.95 | Collection of Real Number | Minimum and maximum saturation levels that are valid for use. |
-| V | 0.95 | Real Number | HSV value component for player colors. |
-| SimilarityThreshold | 0.314 | Real Number | Perceptual color threshold for determining whether two colors are too similar. |
-| PresetHues |  | Collection of Real Number | List of hue components for the preset colors in the palette tab. Each entry must have a corresponding PresetSaturations definition. |
-| PresetSaturations |  | Collection of Real Number | List of saturation components for the preset colors in the palette tab. Each entry must have a corresponding PresetHues definition. |
-| PreviewActor |  | String | Actor type to show in the color picker. This can be overridden for specific factions with FactionPreviewActors. |
-| FactionPreviewActors |  | Dictionary with Key: String, Value: String | Actor type to show in the color picker for specific factions. Overrides PreviewActor. A dictionary of [faction name]: [actor name]. |
-
-### ControlGroups
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Groups | 1, 2, 3, 4, 5, 6, 7, 8, 9, 0 | Collection of String |  |
-
-### CrateSpawner
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CheckboxLabel | Crates | String | Descriptive label for the crates checkbox in the lobby. |
-| CheckboxDescription | Collect crates with units to receive random bonuses or penalties | String | Tooltip description for the crates checkbox in the lobby. |
-| CheckboxEnabled | True | Boolean | Default value of the crates checkbox in the lobby. |
-| CheckboxLocked | False | Boolean | Prevent the crates state from being changed in the lobby. |
-| CheckboxVisible | True | Boolean | Whether to display the crates checkbox in the lobby. |
-| CheckboxDisplayOrder | 0 | Integer | Display order for the crates checkbox in the lobby. |
-| Minimum | 1 | Integer | Minimum number of crates. |
-| Maximum | 255 | Integer | Maximum number of crates. |
-| SpawnInterval | 4500 | Integer | Average time (ticks) between crate spawn. |
-| InitialSpawnDelay | 0 | Integer | Delay (in ticks) before the first crate spawns. |
-| ValidGround | Clear, Rough, Road, Ore, Beach | Set of String | Which terrain types can we drop on? |
-| ValidWater | Water | Set of String | Which terrain types count as water? |
-| WaterChance | 20 | Integer | Chance of generating a water crate instead of a land crate. |
-| CrateActors | crate | Collection of String | Crate actors to drop. |
-| CrateActorShares | 10 | Collection of Integer | Chance of each crate actor spawning. |
-| DeliveryAircraft |  | String | If a DeliveryAircraft: is specified, then this actor will deliver crates. |
-| QuantizedFacings | 32 | Integer | Number of facings that the delivery aircraft may approach from. |
-| Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
-
-### CreateMapPlayers
-**Attach this to the world actor.**
-
-### EditorActionManager
-
-### EditorActorLayer
-**Required for the map editor to work. Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| BinSize | 250 | Integer | Size of partition bins (world pixels) |
-
-### EditorCursorLayer
-**Required for the map editor to work. Attach this to the world actor.**
-###### Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PreviewFacing | 384 | 1D World Angle |  |
-
-### EditorResourceLayer
-**Required for the map editor to work. Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
-| RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
-
-### EditorSelectionLayer
-**Required for the map editor to work. Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Palette | terrain | String | Palette to use for rendering the placement sprite. |
-| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
-| Image | editor-overlay | String | Sequence image where the selection overlay types are defined. |
-| CopySequence | copy | String | Sequence to use for the copy overlay. |
-| PasteSequence | paste | String | Sequence to use for the paste overlay. |
-
-### ElevatedBridgeLayer
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any elevated bridge footprint. |
-
-### ElevatedBridgePlaceholder
-**Placeholder to make static elevated bridges work. Define individual trait instances for each elevated bridge footprint in the map.**
-###### Requires trait(s): [`ElevatedBridgeLayer`](#elevatedbridgelayer).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Location | 0,0 | 2D Cell Position | Location of the bridge |
-| Orientation | X | [`ElevatedBridgePlaceholderOrientation`](#elevatedbridgeplaceholderorientation) | Orientation of the bridge. |
-| Length | 0 | Integer | Length of the bridge |
-| Height | 0 | Byte | Height of the bridge in map height steps. |
-| TerrainType | Road | String | Terrain type of the bridge. |
-
-### ExitsDebugOverlayManager
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Font | TinyBold | String | The font used to draw cell vectors. Should match the value as-is in the Fonts section of the mod manifest (do not convert to lowercase). |
-
-### HierarchicalPathFinderOverlay
-**Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor.**
-###### Requires trait(s): [`PathFinder`](#pathfinder).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Font | TinyBold | String |  |
-| GroundLayerColor | FF8C00 | Color (RRGGBB[AA] notation) |  |
-| CustomLayerColor | 0000FF | Color (RRGGBB[AA] notation) |  |
-| GroundToCustomLayerColor | 800080 | Color (RRGGBB[AA] notation) |  |
-| AbstractNodeColor | FF0000 | Color (RRGGBB[AA] notation) |  |
-
-### JumpjetActorLayer
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| TerrainType | Jumpjet | String | Terrain type of the airborne layer. |
-| HeightOffset | 3c920 | 1D World Distance | Height offset relative to the smoothed terrain for movement. |
-| SmoothingRadius | 2 | Integer | Cell radius for smoothing adjacent cell heights. |
-
-### JumpjetLocomotor
-**Used by Mobile. Required for jumpjet actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
-###### Inherits from: [`Locomotor`](#locomotor).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| JumpjetTransitionCost | 0 | Int16 | Pathfinding cost for taking off or landing. |
-| JumpjetTransitionTerrainTypes |  | Set of String | The terrain types that this actor can transition on. Leave empty to allow any. |
-| JumpjetTransitionOnRamps | True | Boolean | Can this actor transition on slopes? |
-| Name | default | String | Locomotor ID. |
-| WaitAverage | 40 | Integer |  |
-| WaitSpread | 10 | Integer |  |
-| SharesCell | False | Boolean | Allow multiple (infantry) units in one cell. |
-| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
-| Crushes |  | Collection of CrushClass | e.g. crate, wall, infantry |
-| CrushDamageTypes |  | Collection of DamageType | Types of damage that are caused while crushing. Leave empty for no damage types. |
-| TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
-
-### LegacyBridgeLayer
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Bridges | bridge1, bridge2 | Collection of String |  |
-
-### LoadWidgetAtGameStart
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ShellmapRoot | MAINMENU | String | The widget tree to open when a shellmap is loaded (i.e. the main menu). |
-| IngameRoot | INGAME_ROOT | String | The widget tree to open when a regular map is loaded (i.e. the ingame UI). |
-| EditorRoot | EDITOR_ROOT | String | The widget tree to open when the map editor is loaded. |
-| GameSaveLoadingRoot | GAMESAVE_LOADING_SCREEN | String | The widget tree to open (in addition to INGAME_ROOT) while loading a saved game. |
-| ClearRoot | True | Boolean | Remove any existing UI when a map is loaded. |
-
-### Locomotor
-**Used by Mobile. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | default | String | Locomotor ID. |
-| WaitAverage | 40 | Integer |  |
-| WaitSpread | 10 | Integer |  |
-| SharesCell | False | Boolean | Allow multiple (infantry) units in one cell. |
-| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
-| Crushes |  | Collection of CrushClass | e.g. crate, wall, infantry |
-| CrushDamageTypes |  | Collection of DamageType | Types of damage that are caused while crushing. Leave empty for no damage types. |
-| TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
-
-### MapBuildRadius
-**Controls the build radius checkboxes in the lobby options.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| AllyBuildRadiusCheckboxLabel | Build off Allies | String | Descriptive label for the ally build radius checkbox in the lobby. |
-| AllyBuildRadiusCheckboxDescription | Allow allies to place structures inside your build area | String | Tooltip description for the ally build radius checkbox in the lobby. |
-| AllyBuildRadiusCheckboxEnabled | True | Boolean | Default value of the ally build radius checkbox in the lobby. |
-| AllyBuildRadiusCheckboxLocked | False | Boolean | Prevent the ally build radius state from being changed in the lobby. |
-| AllyBuildRadiusCheckboxVisible | True | Boolean | Whether to display the ally build radius checkbox in the lobby. |
-| AllyBuildRadiusCheckboxDisplayOrder | 0 | Integer | Display order for the ally build radius checkbox in the lobby. |
-| BuildRadiusCheckboxLabel | Limit Build Area | String | Tooltip description for the build radius checkbox in the lobby. |
-| BuildRadiusCheckboxDescription | Limits structure placement to areas around Construction Yards | String | Tooltip description for the build radius checkbox in the lobby. |
-| BuildRadiusCheckboxEnabled | True | Boolean | Default value of the build radius checkbox in the lobby. |
-| BuildRadiusCheckboxLocked | False | Boolean | Prevent the build radius state from being changed in the lobby. |
-| BuildRadiusCheckboxVisible | True | Boolean | Display the build radius checkbox in the lobby. |
-| BuildRadiusCheckboxDisplayOrder | 0 | Integer | Display order for the build radius checkbox in the lobby. |
-
-### MapCreeps
-**Controls the 'Creeps' checkbox in the lobby options.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| CheckboxLabel | Creep Actors | String | Descriptive label for the creeps checkbox in the lobby. |
-| CheckboxDescription | Hostile forces spawn on the battlefield | String | Tooltip description for the creeps checkbox in the lobby. |
-| CheckboxEnabled | True | Boolean | Default value of the creeps checkbox in the lobby. |
-| CheckboxLocked | False | Boolean | Prevent the creeps state from being changed in the lobby. |
-| CheckboxVisible | True | Boolean | Whether to display the creeps checkbox in the lobby. |
-| CheckboxDisplayOrder | 0 | Integer | Display order for the creeps checkbox in the lobby. |
-
-### MapOptions
-**Controls the game speed, tech level, and short game lobby options.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ShortGameCheckboxLabel | Short Game | String | Descriptive label for the short game checkbox in the lobby. |
-| ShortGameCheckboxDescription | Players are defeated when their bases are destroyed | String | Tooltip description for the short game checkbox in the lobby. |
-| ShortGameCheckboxEnabled | True | Boolean | Default value of the short game checkbox in the lobby. |
-| ShortGameCheckboxLocked | False | Boolean | Prevent the short game enabled state from being changed in the lobby. |
-| ShortGameCheckboxVisible | True | Boolean | Whether to display the short game checkbox in the lobby. |
-| ShortGameCheckboxDisplayOrder | 0 | Integer | Display order for the short game checkbox in the lobby. |
-| TechLevelDropdownLabel | Tech Level | String | Descriptive label for the tech level option in the lobby. |
-| TechLevelDropdownDescription | The units and abilities that players can use | String | Tooltip description for the tech level option in the lobby. |
-| TechLevel | unrestricted | String | Default tech level. |
-| TechLevelDropdownLocked | False | Boolean | Prevent the tech level from being changed in the lobby. |
-| TechLevelDropdownVisible | True | Boolean | Display the tech level option in the lobby. |
-| TechLevelDropdownDisplayOrder | 0 | Integer | Display order for the tech level option in the lobby. |
-| GameSpeedDropdownLabel | Game Speed | String | Tooltip description for the game speed option in the lobby. |
-| GameSpeedDropdownDescription | The rate at which time passes | String | Description of the game speed option in the lobby. |
-| GameSpeed |  | String | Default game speed (leave empty to use the default defined in mod.yaml). |
-| GameSpeedDropdownLocked | False | Boolean | Prevent the game speed from being changed in the lobby. |
-| GameSpeedDropdownVisible | True | Boolean | Display the game speed option in the lobby. |
-| GameSpeedDropdownDisplayOrder | 0 | Integer | Display order for the game speed option in the lobby. |
-
-### MapStartingLocations
-**Allows the map to have working spawnpoints. Also controls the 'Separate Team Spawns' checkbox in the lobby options.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| InitialExploreRange | 5c0 | 1D World Distance |  |
-| SeparateTeamSpawnsCheckboxLabel | Separate Team Spawns | String | Descriptive label for the spawn positions checkbox in the lobby. |
-| SeparateTeamSpawnsCheckboxDescription | Players without assigned spawn points will start as far as possible from enemy players | String | Tooltip description for the spawn positions checkbox in the lobby. |
-| SeparateTeamSpawnsCheckboxEnabled | True | Boolean | Default value of the spawn positions checkbox in the lobby. |
-| SeparateTeamSpawnsCheckboxLocked | False | Boolean | Prevent the spawn positions state from being changed in the lobby. |
-| SeparateTeamSpawnsCheckboxVisible | True | Boolean | Whether to display the spawn positions checkbox in the lobby. |
-| SeparateTeamSpawnsCheckboxDisplayOrder | 0 | Integer | Display order for the spawn positions checkbox in the lobby. |
-
-### StartingUnits
-**Used by SpawnStartingUnits. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Class | none | String | Internal class ID. |
-| ClassName | Unlabeled | String | Exposed via the UI to the player. |
-| Factions |  | Set of String | Only available when selecting one of these factions. Leave empty for no restrictions. |
-| BaseActor |  | String | The actor at the center, usually the mobile construction vehicle. |
-| BaseActorOffset | 0,0 | 2D Cell Vector | Offset from the spawn point, BaseActor will spawn at. |
-| SupportActors |  | Collection of String | A group of units ready to defend or scout. |
-| InnerSupportRadius | 2 | Integer | Inner radius for spawning support actors |
-| OuterSupportRadius | 4 | Integer | Outer radius for spawning support actors |
-| BaseActorFacing | 512 | 1D World Angle (optional) | Initial facing of BaseActor. Leave undefined for random facings. |
-| SupportActorsFacing |  | 1D World Angle (optional) | Initial facing of SupportActors. Leave undefined for random facings. |
-
-### MissionData
-**Defines the FMVs that can be played by missions.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Briefing |  | String | Briefing text displayed in the mission browser. |
-| BackgroundVideo |  | String | Played by the "Background Info" button in the mission browser. |
-| BriefingVideo |  | String | Played by the "Briefing" button in the mission browser. |
-| StartVideo |  | String | Automatically played before starting the mission. |
-| WinVideo |  | String | Automatically played when the player wins the mission. |
-| LossVideo |  | String | Automatically played when the player loses the mission. |
-
-### MusicPlaylist
-**Trait for music handling. Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| StartingMusic |  | String | Music to play when the map starts. Plays the first song on the playlist when undefined. |
-| VictoryMusic |  | String | Music to play when the game has been won. |
-| DefeatMusic |  | String | Music to play when the game has been lost. |
-| BackgroundMusic |  | String | This track is played when no other music is playing. It cannot be paused, but can be overridden by selecting a new track. |
-| AllowMuteBackgroundMusic | False | Boolean | Allow the background music to be muted by the player. |
-| DisableWorldSounds | False | Boolean | Disable all world sounds (combat etc). |
-
-### OrderEffects
-**Renders an effect at the order target locations.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| TerrainFlashImage | *(required)* | String | The image to use. |
-| TerrainFlashSequence | *(required)* | String | The sequence to use. |
-| TerrainFlashPalette |  | String | The palette to use. |
-| ActorFlashType | Overlay | [`ActorFlashType`](#actorflashtype) | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
-| ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
-| ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
-| ActorFlashTint | 1,4,1,4,1,4 | float3 | The tint to apply when ActorFlashType is Tint. |
-| ActorFlashCount | 2 | Integer | Number of times to flash (frozen) actors. |
-| ActorFlashInterval | 2 | Integer | Number of ticks between (frozen) actor flashes. |
-
-### PathFinder
-**Calculates routes for mobile actors with locomotors based on the A* search algorithm.  Attach this to the world actor.**
-###### Requires trait(s): [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
-
-### PathFinderOverlay
-**Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor.**
-###### Requires trait(s): [`PathFinder`](#pathfinder).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Font | TinyBold | String |  |
-| TargetLineColor | FF0000 | Color (RRGGBB[AA] notation) |  |
-| AbstractColor1 | 00FF00 | Color (RRGGBB[AA] notation) |  |
-| AbstractColor2 | 98FB98 | Color (RRGGBB[AA] notation) |  |
-| LocalColor1 | FFFF00 | Color (RRGGBB[AA] notation) |  |
-| LocalColor2 | FFFFE0 | Color (RRGGBB[AA] notation) |  |
-| ShowCosts | True | Boolean |  |
-
-### RadarPings
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| FromRadius | 200 | Integer |  |
-| ToRadius | 15 | Integer |  |
-| ShrinkSpeed | 4 | Integer |  |
-| RotationSpeed | 0.12 | Real Number |  |
-
-### ResourceClaimLayer
-**Allows harvesters to coordinate their operations. Attach this to the world actor.**
-
-### ResourceLayer
-**Attach this to the world actor.**
-###### Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
-| RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
-
-### ResourceRenderer
-**Visualizes the state of the `ResourceLayer`.  Attach this to the world actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
-
-### ScriptLobbyDropdown
-**Controls the map difficulty, tech level, and short game lobby options.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ID | *(required)* | String | Internal id for this option. |
-| Label | *(required)* | String | Descriptive label for this option. |
-| Description |  | String | Tooltip description for this option. |
-| Default | *(required)* | String | Default option key in the `Values` list. |
-| Values | *(required)* | Dictionary with Key: String, Value: String | Difficulty levels supported by the map. |
-| Locked | False | Boolean | Prevent the option from being changed from its default value. |
-| Visible | True | Boolean | Whether to display the option in the lobby. |
-| DisplayOrder | 0 | Integer | Display order for the option in the lobby. |
-
-### Selection
-
-### ShroudRenderer
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Sequence | shroud | String |  |
-| ShroudVariants | shroud | Collection of String |  |
-| FogVariants | fog | Collection of String |  |
-| ShroudPalette | shroud | String |  |
-| FogPalette | fog | String |  |
-| Index | 12, 9, 8, 3, 1, 6, 4, 2, 13, 11, 7, 14 | Collection of Integer | Bitfield of shroud directions for each frame. Lower four bits are corners clockwise from TL; upper four are edges clockwise from top |
-| UseExtendedIndex | False | Boolean | Use the upper four bits when calculating frame |
-| OverrideFullShroud |  | String | Override for source art that doesn't define a fully shrouded tile |
-| OverrideShroudIndex | 15 | Integer |  |
-| OverrideFullFog |  | String | Override for source art that doesn't define a fully fogged tile |
-| OverrideFogIndex | 15 | Integer |  |
-| ShroudBlend | Alpha | [`BlendMode`](#blendmode) |  |
-
-### SmudgeLayer
-**Attach this to the world actor. Order of the layers defines the Z sorting.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Type | Scorch | String |  |
-| Sequence | scorch | String | Sprite sequence name |
-| SmokeChance | 0 | Integer | Chance of smoke rising from the ground |
-| SmokeImage |  | String | Smoke sprite image name |
-| SmokeSequences |  | Collection of String | Smoke sprite sequences randomly chosen from |
-| SmokePalette | effect | String |  |
-| Palette | terrain | String |  |
-| InitialSmudges |  | Dictionary with Key: 2D Cell Position, Value: MapSmudge |  |
-
-### SpawnMapActors
-**Spawns the initial units for each player upon game start.**
-
-### SpawnStartingUnits
-**Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor.**
-###### Requires trait(s): [`StartingUnits`](#startingunits).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| StartingUnitsClass | none | String |  |
-| DropdownLabel | Starting Units | String | Descriptive label for the starting units option in the lobby. |
-| DropdownDescription | The units that players start the game with | String | Tooltip description for the starting units option in the lobby. |
-| DropdownLocked | False | Boolean | Prevent the starting units option from being changed in the lobby. |
-| DropdownVisible | True | Boolean | Whether to display the starting units option in the lobby. |
-| DropdownDisplayOrder | 0 | Integer | Display order for the starting units option in the lobby. |
-
-### StartGameNotification
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Notification | StartGame | String |  |
-| TextNotification |  | String |  |
-| LoadedNotification | GameLoaded | String |  |
-| LoadedTextNotification |  | String |  |
-| SavedNotification | GameSaved | String |  |
-| SavedTextNotification |  | String |  |
-
-### SubterraneanActorLayer
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| TerrainType | Subterranean | String | Terrain type of the underground layer. |
-| HeightOffset | -2c0 | 1D World Distance | Height offset relative to the smoothed terrain for movement. |
-| SmoothingRadius | 2 | Integer | Cell radius for smoothing adjacent cell heights. |
-
-### SubterraneanLocomotor
-**Used by Mobile. Required for subterranean actors. Attach these to the world actor. You can have multiple variants by adding @suffixes.**
-###### Inherits from: [`Locomotor`](#locomotor).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| SubterraneanTransitionCost | 0 | Int16 | Pathfinding cost for submerging or reemerging. |
-| SubterraneanTransitionTerrainTypes |  | Set of String | The terrain types that this actor can transition on. Leave empty to allow any. |
-| SubterraneanTransitionOnRamps | False | Boolean | Can this actor transition on slopes? |
-| SubterraneanTransitionDepth | -1c0 | 1D World Distance | Depth at which the subterranean condition is applied. |
-| Name | default | String | Locomotor ID. |
-| WaitAverage | 40 | Integer |  |
-| WaitSpread | 10 | Integer |  |
-| SharesCell | False | Boolean | Allow multiple (infantry) units in one cell. |
-| MoveIntoShroud | True | Boolean | Can the actor be ordered to move in to shroud? |
-| Crushes |  | Collection of CrushClass | e.g. crate, wall, infantry |
-| CrushDamageTypes |  | Collection of DamageType | Types of damage that are caused while crushing. Leave empty for no damage types. |
-| TerrainSpeeds |  | Dictionary with Key: String, Value: TerrainInfo | Lower the value on rough terrain. Leave out entries for impassable terrain. |
-
-### TerrainGeometryOverlay
-**Renders a debug overlay showing the terrain cells. Attach this to the world actor.**
-
-### TerrainLighting
-**Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Intensity | 1 | Real Number |  |
-| HeightStep | 0 | Real Number |  |
-| RedTint | 1 | Real Number |  |
-| GreenTint | 1 | Real Number |  |
-| BlueTint | 1 | Real Number |  |
-| BinSize | 10 | Integer | Size of light source partition bins (cells) |
-
-### TerrainRenderer
-
-### TerrainTunnel
-###### Requires trait(s): [`TerrainTunnelLayer`](#terraintunnellayer).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Location | 0,0 | 2D Cell Position | Location of the tunnel |
-| Height | 0 | Byte | Height of the tunnel floor in map height steps. |
-| Dimensions | 0,0 | 2D Cell Vector | Size of the tunnel footprint |
-| Footprint | *(required)* | String | Tunnel footprint. _ is passable, x is blocked, and o are tunnel portals. |
-| TerrainType | *(required)* | String | Terrain type of the tunnel floor. |
-
-### TerrainTunnelLayer
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ImpassableTerrainType | Impassable | String | Terrain type used by cells outside any tunnel footprint. |
-
-### TimeLimitManager
-**This trait allows setting a time limit on matches. Attach this to the World actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| TimeLimitLabel | Time Limit | String | Label that will be shown for the time limit option in the lobby. |
-| TimeLimitDescription | Player or team with the highest score after this time wins | String | Tooltip description that will be shown for the time limit option in the lobby. |
-| TimeLimitOptions | 0, 10, 20, 30, 40, 60, 90 | Collection of Integer | Time Limit options that will be shown in the lobby dropdown. Values are in minutes. |
-| TimeLimitWarnings | 1: 
-
-2: 
-
-3: 
-
-4: 
-
-5: 
-
-10: 
-
- | Dictionary with Key: Integer, Value: String | List of remaining minutes of game time when a text and optional speech notification should be made to players. |
-| TimeLimitDefault | 0 | Integer | Default selection for the time limit option in the lobby. Needs to use one of the TimeLimitOptions. |
-| TimeLimitLocked | False | Boolean | Prevent the time limit option from being changed in the lobby. |
-| TimeLimitDropdownVisible | True | Boolean | Whether to display the options dropdown in the lobby. |
-| TimeLimitDisplayOrder | 0 | Integer | Display order for the time limit dropdown in the lobby. |
-| Notification | {0} minute{1} remaining. | String | Notification text for time limit warnings. The string '{0}' will be replaced by the remaining time in minutes, '{1}' is used for the plural form. |
-| CountdownLabel |  | String | ID of the LabelWidget used to display a text ingame that will be updated every second. |
-| CountdownText |  | String | Text to be shown using the CountdownLabel. The string '{0}' will be replaced by the time in hh:mm:ss format. |
-| SkipTimeRemainingNotifications | False | Boolean | Will prevent showing/playing the built-in time limit warnings when set to true. |
-| SkipTimerExpiredNotification | False | Boolean | Will prevent showing/playing the built-in timer expired notification when set to true. |
-
-### ValidateOrder
-**Used to detect exploits. Attach this to the world actor.**
-
 ### WarheadDebugOverlay
 **Part of the combat overlay from `DeveloperMode`. Attach this to the world actor.**
 
@@ -5854,6 +5845,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SwingAmplitude | 1, 1.5 | Collection of Real Number | The value range that can be swung to the left or right. SwingAmplitude min. and max. value in px/tick. |
 | ParticleColors | ECECEC, E4E4E4, D0D0D0, BCBCBC | Collection of Color (RRGGBB[AA] notation) | The randomly selected rgb(a) hex colors for the particles. Use this order: rrggbb[aa], rrggbb[aa], ... |
 | LineTailAlphaValue | 200 | Byte | Works only with line enabled and can be used to fade out the tail of the line like a contrail. |
+
+### WithColoredOverlay
+**Display a colored overlay when a timed condition is active.**
+###### Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Color | 80000080 | Color (RRGGBB[AA] notation) | Color to overlay. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ## OpenRA.Mods.Common.Traits.Conditions
 
@@ -6007,8 +6007,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Color of the border. |
 | BorderWidth | 3 | Real Number | Range circle border width. |
 
-### RenderSprites
-**Render trait fundament that won't work without additional With* render traits.**
+### RenderSpritesEditorOnly
+**Invisible during games.**
+###### Inherits from: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6017,9 +6018,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Palette |  | String | Custom palette name |
 | PlayerPalette | player | String | Custom PlayerColorPalette: BaseName |
 
-### RenderSpritesEditorOnly
-**Invisible during games.**
-###### Inherits from: [`RenderSprites`](#rendersprites).
+### RenderSprites
+**Render trait fundament that won't work without additional With* render traits.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6083,7 +6083,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithAimAnimation
 ###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`, [`WithSpriteBody`](#withspritebody).
+###### Requires trait(s): [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6131,7 +6131,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithAttackAnimation
 ###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), `AttackBase`, [`WithSpriteBody`](#withspritebody).
+###### Requires trait(s): [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6550,7 +6550,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithMuzzleOverlay
 **Renders the MuzzleSequence from the Armament trait.**
 ###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): [`Armament`](#armament), `AttackBase`, [`RenderSprites`](#rendersprites).
+###### Requires trait(s): [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6847,7 +6847,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithTurretAimAnimation
 ###### Inherits from: `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`, [`WithSpriteTurret`](#withspriteturret).
+###### Requires trait(s): [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7054,6 +7054,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Range |  | Collection of 1D World Distance | Ranges at which each Falloff step is defined. Overrides Spread. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### BuildableTerrainLayer
+**Attach this to the world actor. Required for LaysTerrain to work.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Palette | terrain | String | Palette to render the layer sprites in. |
+| MaxStrength | 9000 | Integer | The hitpoints, which can be reduced by the DamagesConcreteWarhead. |
+
 ### D2kActorPreviewPlaceBuildingPreview
 **Creates a building placement preview based on the map editor actor preview.**
 ###### Inherits from: [`ActorPreviewPlaceBuildingPreview`](#actorpreviewplacebuildingpreview), [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
@@ -7074,12 +7082,39 @@ Related types with their possible values are listed [at the bottom](#related-val
 | FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
 
+### D2kFogPalette
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | *(required)* | String | Internal palette name |
+| BasePalette | *(required)* | String | The name of the shroud palette to base off. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
+### D2kResourceRenderer
+**Used to render spice with round borders. Attach this to the world actor**
+###### Inherits from: [`ResourceRenderer`](#resourcerenderer).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
+
 ### HarvesterInsurance
 **A player with this trait will receive a free harvester when his last one gets eaten by a sandworm, provided he has at least one refinery.**
 
+### PaletteFromScaledPalette
+**Create a palette by applying a scale and offset to the colors in another palette.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | *(required)* | String | Internal palette name |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
+| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+| Scale | 1 | Real Number | Amount to scale the base palette colors by. |
+| Offset | 0 | Integer | Amount to offset the base palette colors by. |
+
 ### Sandworm
 ###### Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
-###### Requires trait(s): `AttackBase`, [`Mobile`](#mobile).
+###### Requires trait(s): [`Mobile`](#mobile), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7108,41 +7143,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Weapon |  | String | The weapon to use for spice creation. |
 | Pieces | 2, 12 | Collection of Integer | The amount of spice to expel. |
 | Range | 5 | Integer | The maximum distance in cells that spice may be expelled. |
-
-### BuildableTerrainLayer
-**Attach this to the world actor. Required for LaysTerrain to work.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Palette | terrain | String | Palette to render the layer sprites in. |
-| MaxStrength | 9000 | Integer | The hitpoints, which can be reduced by the DamagesConcreteWarhead. |
-
-### D2kFogPalette
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | *(required)* | String | Internal palette name |
-| BasePalette | *(required)* | String | The name of the shroud palette to base off. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-
-### D2kResourceRenderer
-**Used to render spice with round borders. Attach this to the world actor**
-###### Inherits from: [`ResourceRenderer`](#resourcerenderer).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
-
-### PaletteFromScaledPalette
-**Create a palette by applying a scale and offset to the colors in another palette.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name | *(required)* | String | Internal palette name |
-| BasePalette | *(required)* | String | The name of the palette to base off. |
-| AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
-| Scale | 1 | Real Number | Amount to scale the base palette colors by. |
-| Offset | 0 | Integer | Amount to offset the base palette colors by. |
 
 ## OpenRA.Mods.D2k.Traits.Buildings
 
@@ -7205,6 +7205,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### DebugPauseState
 **Checks for pause related desyncs. Attach this to the world actor.**
 
+### DebugVisualizations
+**Enables visualization commands. Attach this to the world actor.**
+
+### Faction
+**Attach this to the `World` actor.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name |  | String | This is the name exposed to the players. |
+| InternalName |  | String | This is the internal name for owner checks. |
+| RandomFactionMembers |  | Set of String | Pick a random faction as the player's faction out of this list. |
+| Side |  | String | The side that the faction belongs to. For example, England belongs to the 'Allies' side. |
+| Description |  | String |  |
+| Selectable | True | Boolean |  |
+
 ### FrozenActorLayer
 **Required for FrozenUnderFog to work. Attach this to the player actor.**
 ###### Requires trait(s): [`Shroud`](#shroud).
@@ -7212,6 +7227,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | BinSize | 10 | Integer | Size of partition bins (cells) |
+
+### ScreenMap
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BinSize | 250 | Integer | Size of partition bins (world pixels) |
+
+### ScreenShaker
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| MinMultiplier | -3,-3 | 2D Real Number |  |
+| MaxMultiplier | 3,3 | 2D Real Number |  |
 
 ### Shroud
 **Required for shroud and fog visibility checks. Add this to the player actor.**
@@ -7231,40 +7259,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExploredMapCheckboxVisible | True | Boolean | Whether to display the explore map checkbox in the lobby. |
 | ExploredMapCheckboxDisplayOrder | 0 | Integer | Display order for the explore map checkbox in the lobby. |
 
-### DebugVisualizations
-**Enables visualization commands. Attach this to the world actor.**
-
-### Faction
-**Attach this to the `World` actor.**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Name |  | String | This is the name exposed to the players. |
-| InternalName |  | String | This is the internal name for owner checks. |
-| RandomFactionMembers |  | Set of String | Pick a random faction as the player's faction out of this list. |
-| Side |  | String | The side that the faction belongs to. For example, England belongs to the 'Allies' side. |
-| Description |  | String |  |
-| Selectable | True | Boolean |  |
-
-### ScreenMap
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| BinSize | 250 | Integer | Size of partition bins (world pixels) |
-
-### ScreenShaker
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| MinMultiplier | -3,-3 | 2D Real Number |  |
-| MaxMultiplier | 3,3 | 2D Real Number |  |
-
 # Related value types (enums):
 
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`Gate`](#gate), [`CreatesShroud`](#createsshroud), [`AttackOrderPower`](#attackorderpower), [`Capturable`](#capturable), [`VoiceAnnouncement`](#voiceannouncement), [`RevealsShroud`](#revealsshroud), [`DropPodsPower`](#droppodspower), [`FrozenUnderFog`](#frozenunderfog), [`RevealsMap`](#revealsmap), [`WithBuildingRepairDecoration`](#withbuildingrepairdecoration), [`Disguise`](#disguise), [`Infiltrates`](#infiltrates), [`Tooltip`](#tooltip), [`HiddenUnderFog`](#hiddenunderfog), [`GrantPrerequisiteChargeDrainPower`](#grantprerequisitechargedrainpower), [`AcceptsDeliveredCash`](#acceptsdeliveredcash), [`RevealOnDeath`](#revealondeath), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealOnFire`](#revealonfire), [`WithTextDecoration`](#withtextdecoration), [`ParatroopersPower`](#paratrooperspower), [`EngineerRepair`](#engineerrepair), [`WithAmmoPipsDecoration`](#withammopipsdecoration), [`ChronoshiftPower`](#chronoshiftpower), [`GivesBounty`](#givesbounty), [`DisguiseTooltip`](#disguisetooltip), [`IonCannonPower`](#ioncannonpower), [`AutoTargetPriority`](#autotargetpriority), [`Captures`](#captures), [`GivesExperience`](#givesexperience), [`CaptureManagerBotModule`](#capturemanagerbotmodule), [`BlocksProjectiles`](#blocksprojectiles), [`NukePower`](#nukepower), [`WithRangeCircle`](#withrangecircle), [`ProduceActorPower`](#produceactorpower), [`SupportPowerChargeBar`](#supportpowerchargebar), [`CashTricklerBar`](#cashtricklerbar), [`WithCargoPipsDecoration`](#withcargopipsdecoration), [`AirstrikePower`](#airstrikepower), [`InfiltrateForDecoration`](#infiltratefordecoration), [`WithNameTagDecoration`](#withnametagdecoration), [`GpsPower`](#gpspower), [`WithDecoration`](#withdecoration), [`JamsMissiles`](#jamsmissiles), [`AppearsOnRadar`](#appearsonradar), [`WithHarvesterPipsDecoration`](#withharvesterpipsdecoration), [`Demolition`](#demolition), [`SpawnActorPower`](#spawnactorpower), [`ProximityExternalCondition`](#proximityexternalcondition), [`TooltipDescription`](#tooltipdescription), [`AcceptsDeliveredExperience`](#acceptsdeliveredexperience), [`Armament`](#armament), [`GrantExternalConditionPower`](#grantexternalconditionpower), [`WithResourceStoragePipsDecoration`](#withresourcestoragepipsdecoration)
+Referenced by: [`AcceptsDeliveredCash`](#acceptsdeliveredcash), [`AcceptsDeliveredExperience`](#acceptsdeliveredexperience), [`AirstrikePower`](#airstrikepower), [`AppearsOnRadar`](#appearsonradar), [`Armament`](#armament), [`AttackOrderPower`](#attackorderpower), [`AutoTargetPriority`](#autotargetpriority), [`BlocksProjectiles`](#blocksprojectiles), [`Capturable`](#capturable), [`CaptureManagerBotModule`](#capturemanagerbotmodule), [`Captures`](#captures), [`CashTricklerBar`](#cashtricklerbar), [`ChronoshiftPower`](#chronoshiftpower), [`CreatesShroud`](#createsshroud), [`Demolition`](#demolition), [`Disguise`](#disguise), [`DisguiseTooltip`](#disguisetooltip), [`DropPodsPower`](#droppodspower), [`EngineerRepair`](#engineerrepair), [`FrozenUnderFog`](#frozenunderfog), [`Gate`](#gate), [`GivesBounty`](#givesbounty), [`GivesExperience`](#givesexperience), [`GpsPower`](#gpspower), [`GrantExternalConditionPower`](#grantexternalconditionpower), [`GrantPrerequisiteChargeDrainPower`](#grantprerequisitechargedrainpower), [`HiddenUnderFog`](#hiddenunderfog), [`HiddenUnderShroud`](#hiddenundershroud), [`InfiltrateForDecoration`](#infiltratefordecoration), [`Infiltrates`](#infiltrates), [`IonCannonPower`](#ioncannonpower), [`JamsMissiles`](#jamsmissiles), [`NukePower`](#nukepower), [`ParatroopersPower`](#paratrooperspower), [`ProduceActorPower`](#produceactorpower), [`ProximityExternalCondition`](#proximityexternalcondition), [`RevealOnDeath`](#revealondeath), [`RevealOnFire`](#revealonfire), [`RevealsMap`](#revealsmap), [`RevealsShroud`](#revealsshroud), [`SpawnActorPower`](#spawnactorpower), [`SupportPowerChargeBar`](#supportpowerchargebar), [`Tooltip`](#tooltip), [`TooltipDescription`](#tooltipdescription), [`VoiceAnnouncement`](#voiceannouncement), [`WithAmmoPipsDecoration`](#withammopipsdecoration), [`WithBuildingRepairDecoration`](#withbuildingrepairdecoration), [`WithCargoPipsDecoration`](#withcargopipsdecoration), [`WithDecoration`](#withdecoration), [`WithHarvesterPipsDecoration`](#withharvesterpipsdecoration), [`WithNameTagDecoration`](#withnametagdecoration), [`WithRangeCircle`](#withrangecircle), [`WithResourceStoragePipsDecoration`](#withresourcestoragepipsdecoration), [`WithTextDecoration`](#withtextdecoration)
 
 ### RevealDisguiseType
 Possible values: `None`, `Attack`, `Damaged`, `Unload`, `Infiltrate`, `Demolish`, `Move`
@@ -7274,12 +7274,17 @@ Referenced by: [`Disguise`](#disguise)
 ### EnterBehaviour
 Possible values: `Exit`, `Suicide`, `Dispose`
 
-Referenced by: [`RepairsBridges`](#repairsbridges), [`EngineerRepair`](#engineerrepair), [`Infiltrates`](#infiltrates), [`Demolition`](#demolition)
+Referenced by: [`Demolition`](#demolition), [`EngineerRepair`](#engineerrepair), [`Infiltrates`](#infiltrates), [`RepairsBridges`](#repairsbridges)
 
 ### NormalType
 Possible values: `TiberianSun`, `RedAlert2`
 
 Referenced by: [`VoxelNormalsPalette`](#voxelnormalspalette)
+
+### PlaceBuildingCellType
+Possible values: `None`, `Valid`, `Invalid`, `LineBuild`
+
+Referenced by: [`ActorPreviewPlaceBuildingPreview`](#actorpreviewplacebuildingpreview), [`D2kActorPreviewPlaceBuildingPreview`](#d2kactorpreviewplacebuildingpreview), [`SequencePlaceBuildingPreview`](#sequenceplacebuildingpreview)
 
 ### IdleBehaviorType
 Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`
@@ -7296,20 +7301,35 @@ Possible values: `HoldFire`, `ReturnFire`, `Defend`, `AttackAnything`
 
 Referenced by: [`AutoTarget`](#autotarget)
 
-### PlaceBuildingCellType
-Possible values: `None`, `Valid`, `Invalid`, `LineBuild`
-
-Referenced by: [`D2kActorPreviewPlaceBuildingPreview`](#d2kactorpreviewplacebuildingpreview), [`SequencePlaceBuildingPreview`](#sequenceplacebuildingpreview), [`ActorPreviewPlaceBuildingPreview`](#actorpreviewplacebuildingpreview)
-
 ### DamageState
 Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
 
-Referenced by: [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`BridgePlaceholder`](#bridgeplaceholder), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`WithDamageOverlay`](#withdamageoverlay)
+Referenced by: [`BridgePlaceholder`](#bridgeplaceholder), [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`WithDamageOverlay`](#withdamageoverlay)
 
 ### UncloakType
 Possible values: `None`, `Attack`, `Move`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`
 
 Referenced by: [`Cloak`](#cloak)
+
+### VisibilityType
+Possible values: `Footprint`, `CenterPosition`, `GroundPosition`
+
+Referenced by: [`CreatesShroud`](#createsshroud), [`HiddenUnderFog`](#hiddenunderfog), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealsShroud`](#revealsshroud)
+
+### ElevatedBridgePlaceholderOrientation
+Possible values: `X`, `Y`
+
+Referenced by: [`ElevatedBridgePlaceholder`](#elevatedbridgeplaceholder)
+
+### DamageSource
+Possible values: `Self`, `Killer`
+
+Referenced by: [`Explodes`](#explodes)
+
+### ExplosionType
+Possible values: `Footprint`, `CenterPosition`
+
+Referenced by: [`Explodes`](#explodes)
 
 ### LineBuildDirection
 Possible values: `Unset`, `X`, `Y`
@@ -7326,55 +7346,35 @@ Possible values: `Normal`, `Low`, `Critical`
 
 Referenced by: [`GrantConditionOnPowerState`](#grantconditiononpowerstate)
 
-### VisibilityType
-Possible values: `Footprint`, `CenterPosition`, `GroundPosition`
-
-Referenced by: [`CreatesShroud`](#createsshroud), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealsShroud`](#revealsshroud), [`HiddenUnderFog`](#hiddenunderfog)
-
-### DamageSource
-Possible values: `Self`, `Killer`
-
-Referenced by: [`Explodes`](#explodes)
-
-### ExplosionType
-Possible values: `Footprint`, `CenterPosition`
-
-Referenced by: [`Explodes`](#explodes)
-
 ### SelectionPriorityModifiers
 Possible values: `None`, `Ctrl`, `Alt`
 
 Referenced by: [`IsometricSelectable`](#isometricselectable), [`Selectable`](#selectable)
-
-### OwnerLostActionType
-Possible values: `ChangeOwner`, `Dispose`, `Kill`
-
-Referenced by: [`OwnerLostAction`](#ownerlostaction)
 
 ### EffectType
 Possible values: `None`, `Black`, `Desaturated`
 
 Referenced by: [`MenuPaletteEffect`](#menupaletteeffect)
 
-### OwnerType
-Possible values: `Victim`, `Killer`, `InternalName`
-
-Referenced by: [`SpawnActorOnDeath`](#spawnactorondeath)
-
-### ElevatedBridgePlaceholderOrientation
-Possible values: `X`, `Y`
-
-Referenced by: [`ElevatedBridgePlaceholder`](#elevatedbridgeplaceholder)
-
 ### ActorFlashType
 Possible values: `Overlay`, `Tint`
 
 Referenced by: [`OrderEffects`](#ordereffects)
 
+### OwnerLostActionType
+Possible values: `ChangeOwner`, `Dispose`, `Kill`
+
+Referenced by: [`OwnerLostAction`](#ownerlostaction)
+
 ### BlendMode
 Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 
 Referenced by: [`ShroudRenderer`](#shroudrenderer)
+
+### OwnerType
+Possible values: `Victim`, `Killer`, `InternalName`
+
+Referenced by: [`SpawnActorOnDeath`](#spawnactorondeath)
 
 ### TrailType
 Possible values: `Cell`, `CenterPosition`
@@ -7394,7 +7394,7 @@ Referenced by: [`RenderRangeCircle`](#renderrangecircle)
 ### AttackDelayType
 Possible values: `Preparation`, `Attack`
 
-Referenced by: [`WithAttackOverlay`](#withattackoverlay), [`AttackSounds`](#attacksounds), [`WithTurretAttackAnimation`](#withturretattackanimation), [`WithAttackAnimation`](#withattackanimation)
+Referenced by: [`AttackSounds`](#attacksounds), [`WithAttackAnimation`](#withattackanimation), [`WithAttackOverlay`](#withattackoverlay), [`WithTurretAttackAnimation`](#withturretattackanimation)
 
 ### RangeCircleVisibility
 Possible values: `Always`, `WhenSelected`
