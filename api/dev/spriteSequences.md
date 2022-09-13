@@ -1,7 +1,7 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220912` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220913` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
-Related enums with their possible values are listed ([at the bottom](#related-enums)).
+Related enums with their possible values are listed [at the bottom](#related-enums).
 
 ## OpenRA.Mods.Cnc.Graphics
 
@@ -69,8 +69,8 @@ Related enums with their possible values are listed ([at the bottom](#related-en
 | AddExtension | True | Boolean | Append a tileset-specific extension to the file name - either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) or the default hardcoded one for this sequence type (.shp). |
 | UseTilesetExtension | False | Boolean | Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name. |
 
-# Related enums:
+# Related value types:
 
-#### BlendMode
-None, Alpha, Additive, Subtractive, Multiply, Multiplicative, DoubleMultiplicative, LowAdditive, Screen, Translucent
+### BlendMode
+Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 

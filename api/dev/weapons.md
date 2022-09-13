@@ -1,7 +1,7 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220912` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220913` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
-Related enums with their possible values are listed ([at the bottom](#related-enums)).
+Related enums with their possible values are listed [at the bottom](#related-enums).
 
 ## OpenRA.GameRules
 
@@ -463,17 +463,17 @@ Related enums with their possible values are listed ([at the bottom](#related-en
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
-# Related enums:
+# Related value types:
 
-#### BeamRenderableShape
-Cylindrical, Flat
+### BeamRenderableShape
+Possible values: `Cylindrical`, `Flat`
 
-#### InaccuracyType
-Maximum, PerCellIncrement, Absolute
+### InaccuracyType
+Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
 
-#### PlayerRelationship
-None, Enemy, Neutral, Ally
+### PlayerRelationship
+Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-#### DamageCalculationType
-HitShape, ClosestTargetablePosition, CenterPosition
+### DamageCalculationType
+Possible values: `HitShape`, `ClosestTargetablePosition`, `CenterPosition`
 

@@ -1,7 +1,7 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220912` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `dev-20220913` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
-Related enums with their possible values are listed ([at the bottom](#related-enums)).
+Related enums with their possible values are listed [at the bottom](#related-enums).
 
 ## OpenRA.Mods.Cnc.Traits
 
@@ -7257,92 +7257,92 @@ Related enums with their possible values are listed ([at the bottom](#related-en
 | MinMultiplier | -3,-3 | 2D Real Number |  |
 | MaxMultiplier | 3,3 | 2D Real Number |  |
 
-# Related enums:
+# Related value types:
 
-#### PlayerRelationship
-None, Enemy, Neutral, Ally
+### PlayerRelationship
+Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-#### RevealDisguiseType
-None, Attack, Damaged, Unload, Infiltrate, Demolish, Move
+### RevealDisguiseType
+Possible values: `None`, `Attack`, `Damaged`, `Unload`, `Infiltrate`, `Demolish`, `Move`
 
-#### EnterBehaviour
-Exit, Suicide, Dispose
+### EnterBehaviour
+Possible values: `Exit`, `Suicide`, `Dispose`
 
-#### NormalType
-TiberianSun, RedAlert2
+### NormalType
+Possible values: `TiberianSun`, `RedAlert2`
 
-#### IdleBehaviorType
-None, Land, ReturnToBase, LeaveMap, LeaveMapAtClosestEdge
+### IdleBehaviorType
+Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`
 
-#### AirAttackType
-Default, Hover, Strafe
+### AirAttackType
+Possible values: `Default`, `Hover`, `Strafe`
 
-#### UnitStance
-HoldFire, ReturnFire, Defend, AttackAnything
+### UnitStance
+Possible values: `HoldFire`, `ReturnFire`, `Defend`, `AttackAnything`
 
-#### PlaceBuildingCellType
-None, Valid, Invalid, LineBuild
+### PlaceBuildingCellType
+Possible values: `None`, `Valid`, `Invalid`, `LineBuild`
 
-#### DamageState
-Undamaged, Light, Medium, Heavy, Critical, Dead
+### DamageState
+Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
 
-#### UncloakType
-None, Attack, Move, Unload, Infiltrate, Demolish, Damage, Heal, SelfHeal, Dock
+### UncloakType
+Possible values: `None`, `Attack`, `Move`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`
 
-#### LineBuildDirection
-Unset, X, Y
+### LineBuildDirection
+Possible values: `Unset`, `X`, `Y`
 
-#### MovementType
-None, Horizontal, Vertical, Turn
+### MovementType
+Possible values: `None`, `Horizontal`, `Vertical`, `Turn`
 
-#### PowerState
-Normal, Low, Critical
+### PowerState
+Possible values: `Normal`, `Low`, `Critical`
 
-#### VisibilityType
-Footprint, CenterPosition, GroundPosition
+### VisibilityType
+Possible values: `Footprint`, `CenterPosition`, `GroundPosition`
 
-#### DamageSource
-Self, Killer
+### DamageSource
+Possible values: `Self`, `Killer`
 
-#### ExplosionType
-Footprint, CenterPosition
+### ExplosionType
+Possible values: `Footprint`, `CenterPosition`
 
-#### SelectionPriorityModifiers
-None, Ctrl, Alt
+### SelectionPriorityModifiers
+Possible values: `None`, `Ctrl`, `Alt`
 
-#### OwnerLostActionType
-ChangeOwner, Dispose, Kill
+### OwnerLostActionType
+Possible values: `ChangeOwner`, `Dispose`, `Kill`
 
-#### EffectType
-None, Black, Desaturated
+### EffectType
+Possible values: `None`, `Black`, `Desaturated`
 
-#### OwnerType
-Victim, Killer, InternalName
+### OwnerType
+Possible values: `Victim`, `Killer`, `InternalName`
 
-#### ElevatedBridgePlaceholderOrientation
-X, Y
+### ElevatedBridgePlaceholderOrientation
+Possible values: `X`, `Y`
 
-#### ActorFlashType
-Overlay, Tint
+### ActorFlashType
+Possible values: `Overlay`, `Tint`
 
-#### BlendMode
-None, Alpha, Additive, Subtractive, Multiply, Multiplicative, DoubleMultiplicative, LowAdditive, Screen, Translucent
+### BlendMode
+Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 
-#### TrailType
-Cell, CenterPosition
+### TrailType
+Possible values: `Cell`, `CenterPosition`
 
-#### DetectionCircleVisibility
-Always, WhenSelected
+### DetectionCircleVisibility
+Possible values: `Always`, `WhenSelected`
 
-#### RangeCircleMode
-Maximum, Minimum
+### RangeCircleMode
+Possible values: `Maximum`, `Minimum`
 
-#### AttackDelayType
-Preparation, Attack
+### AttackDelayType
+Possible values: `Preparation`, `Attack`
 
-#### RangeCircleVisibility
-Always, WhenSelected
+### RangeCircleVisibility
+Possible values: `Always`, `WhenSelected`
 
-#### ResupplyType
-None, Rearm, Repair
+### ResupplyType
+Possible values: `None`, `Rearm`, `Repair`
 
