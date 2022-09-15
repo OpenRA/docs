@@ -1,9 +1,9 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220913` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+# Weapons
+
+This documentation is aimed at modders and has been automatically generated for version `dev-20220915` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
-
-# Weapons:
 
 ## OpenRA.GameRules
 
@@ -472,6 +472,11 @@ Possible values: `Cylindrical`, `Flat`
 
 Referenced by: [`AreaBeam`](#areabeam), [`LaserZap`](#laserzap), [`Railgun`](#railgun)
 
+### DamageCalculationType
+Possible values: `HitShape`, `ClosestTargetablePosition`, `CenterPosition`
+
+Referenced by: [`SpreadDamageWarhead`](#spreaddamagewarhead)
+
 ### InaccuracyType
 Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
 
@@ -481,9 +486,4 @@ Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#ins
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
 Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DamagesConcreteWarhead`](#damagesconcretewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FlashPaletteEffectWarhead`](#flashpaletteeffectwarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead)
-
-### DamageCalculationType
-Possible values: `HitShape`, `ClosestTargetablePosition`, `CenterPosition`
-
-Referenced by: [`SpreadDamageWarhead`](#spreaddamagewarhead)
 

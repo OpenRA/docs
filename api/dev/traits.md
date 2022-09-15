@@ -1,9 +1,9 @@
-This documentation is aimed at modders and has been automatically generated for version `dev-20220913` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+# Traits
+
+This documentation is aimed at modders and has been automatically generated for version `dev-20220915` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
-
-# Traits:
 
 ## OpenRA.Mods.Cnc.Traits
 
@@ -2606,6 +2606,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Length | 0 | Integer | Length of the bridge |
 | Height | 0 | Byte | Height of the bridge in map height steps. |
 | TerrainType | Road | String | Terrain type of the bridge. |
+
+### Encyclopedia
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Description |  | String | Explains the purpose in the in-game encyclopedia. |
+| Order | 0 | Integer | Number for ordering the list. |
+| Category |  | String | Group under this heading. |
 
 ### EnemyWatcher
 **Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
@@ -7261,75 +7269,65 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 # Related value types (enums):
 
-### PlayerRelationship
-Possible values: `None`, `Enemy`, `Neutral`, `Ally`
+### ActorFlashType
+Possible values: `Overlay`, `Tint`
 
-Referenced by: [`AcceptsDeliveredCash`](#acceptsdeliveredcash), [`AcceptsDeliveredExperience`](#acceptsdeliveredexperience), [`AirstrikePower`](#airstrikepower), [`AppearsOnRadar`](#appearsonradar), [`Armament`](#armament), [`AttackOrderPower`](#attackorderpower), [`AutoTargetPriority`](#autotargetpriority), [`BlocksProjectiles`](#blocksprojectiles), [`Capturable`](#capturable), [`CaptureManagerBotModule`](#capturemanagerbotmodule), [`Captures`](#captures), [`CashTricklerBar`](#cashtricklerbar), [`ChronoshiftPower`](#chronoshiftpower), [`CreatesShroud`](#createsshroud), [`Demolition`](#demolition), [`Disguise`](#disguise), [`DisguiseTooltip`](#disguisetooltip), [`DropPodsPower`](#droppodspower), [`EngineerRepair`](#engineerrepair), [`FrozenUnderFog`](#frozenunderfog), [`Gate`](#gate), [`GivesBounty`](#givesbounty), [`GivesExperience`](#givesexperience), [`GpsPower`](#gpspower), [`GrantExternalConditionPower`](#grantexternalconditionpower), [`GrantPrerequisiteChargeDrainPower`](#grantprerequisitechargedrainpower), [`HiddenUnderFog`](#hiddenunderfog), [`HiddenUnderShroud`](#hiddenundershroud), [`InfiltrateForDecoration`](#infiltratefordecoration), [`Infiltrates`](#infiltrates), [`IonCannonPower`](#ioncannonpower), [`JamsMissiles`](#jamsmissiles), [`NukePower`](#nukepower), [`ParatroopersPower`](#paratrooperspower), [`ProduceActorPower`](#produceactorpower), [`ProximityExternalCondition`](#proximityexternalcondition), [`RevealOnDeath`](#revealondeath), [`RevealOnFire`](#revealonfire), [`RevealsMap`](#revealsmap), [`RevealsShroud`](#revealsshroud), [`SpawnActorPower`](#spawnactorpower), [`SupportPowerChargeBar`](#supportpowerchargebar), [`Tooltip`](#tooltip), [`TooltipDescription`](#tooltipdescription), [`VoiceAnnouncement`](#voiceannouncement), [`WithAmmoPipsDecoration`](#withammopipsdecoration), [`WithBuildingRepairDecoration`](#withbuildingrepairdecoration), [`WithCargoPipsDecoration`](#withcargopipsdecoration), [`WithDecoration`](#withdecoration), [`WithHarvesterPipsDecoration`](#withharvesterpipsdecoration), [`WithNameTagDecoration`](#withnametagdecoration), [`WithRangeCircle`](#withrangecircle), [`WithResourceStoragePipsDecoration`](#withresourcestoragepipsdecoration), [`WithTextDecoration`](#withtextdecoration)
-
-### RevealDisguiseType
-Possible values: `None`, `Attack`, `Damaged`, `Unload`, `Infiltrate`, `Demolish`, `Move`
-
-Referenced by: [`Disguise`](#disguise)
-
-### EnterBehaviour
-Possible values: `Exit`, `Suicide`, `Dispose`
-
-Referenced by: [`Demolition`](#demolition), [`EngineerRepair`](#engineerrepair), [`Infiltrates`](#infiltrates), [`RepairsBridges`](#repairsbridges)
-
-### NormalType
-Possible values: `TiberianSun`, `RedAlert2`
-
-Referenced by: [`VoxelNormalsPalette`](#voxelnormalspalette)
-
-### PlaceBuildingCellType
-Possible values: `None`, `Valid`, `Invalid`, `LineBuild`
-
-Referenced by: [`ActorPreviewPlaceBuildingPreview`](#actorpreviewplacebuildingpreview), [`D2kActorPreviewPlaceBuildingPreview`](#d2kactorpreviewplacebuildingpreview), [`SequencePlaceBuildingPreview`](#sequenceplacebuildingpreview)
-
-### IdleBehaviorType
-Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`
-
-Referenced by: [`Aircraft`](#aircraft)
+Referenced by: [`OrderEffects`](#ordereffects)
 
 ### AirAttackType
 Possible values: `Default`, `Hover`, `Strafe`
 
 Referenced by: [`AttackAircraft`](#attackaircraft)
 
-### UnitStance
-Possible values: `HoldFire`, `ReturnFire`, `Defend`, `AttackAnything`
+### AttackDelayType
+Possible values: `Preparation`, `Attack`
 
-Referenced by: [`AutoTarget`](#autotarget)
+Referenced by: [`AttackSounds`](#attacksounds), [`WithAttackAnimation`](#withattackanimation), [`WithAttackOverlay`](#withattackoverlay), [`WithTurretAttackAnimation`](#withturretattackanimation)
 
-### DamageState
-Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
+### BlendMode
+Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 
-Referenced by: [`BridgePlaceholder`](#bridgeplaceholder), [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`WithDamageOverlay`](#withdamageoverlay)
-
-### UncloakType
-Possible values: `None`, `Attack`, `Move`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`
-
-Referenced by: [`Cloak`](#cloak)
-
-### VisibilityType
-Possible values: `Footprint`, `CenterPosition`, `GroundPosition`
-
-Referenced by: [`CreatesShroud`](#createsshroud), [`HiddenUnderFog`](#hiddenunderfog), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealsShroud`](#revealsshroud)
-
-### ElevatedBridgePlaceholderOrientation
-Possible values: `X`, `Y`
-
-Referenced by: [`ElevatedBridgePlaceholder`](#elevatedbridgeplaceholder)
+Referenced by: [`ShroudRenderer`](#shroudrenderer)
 
 ### DamageSource
 Possible values: `Self`, `Killer`
 
 Referenced by: [`Explodes`](#explodes)
 
+### DamageState
+Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
+
+Referenced by: [`BridgePlaceholder`](#bridgeplaceholder), [`ExplosionOnDamageTransition`](#explosionondamagetransition), [`GrantConditionOnDamageState`](#grantconditionondamagestate), [`WithDamageOverlay`](#withdamageoverlay)
+
+### DetectionCircleVisibility
+Possible values: `Always`, `WhenSelected`
+
+Referenced by: [`RenderDetectionCircle`](#renderdetectioncircle)
+
+### EffectType
+Possible values: `None`, `Black`, `Desaturated`
+
+Referenced by: [`MenuPaletteEffect`](#menupaletteeffect)
+
+### ElevatedBridgePlaceholderOrientation
+Possible values: `X`, `Y`
+
+Referenced by: [`ElevatedBridgePlaceholder`](#elevatedbridgeplaceholder)
+
+### EnterBehaviour
+Possible values: `Exit`, `Suicide`, `Dispose`
+
+Referenced by: [`Demolition`](#demolition), [`EngineerRepair`](#engineerrepair), [`Infiltrates`](#infiltrates), [`RepairsBridges`](#repairsbridges)
+
 ### ExplosionType
 Possible values: `Footprint`, `CenterPosition`
 
 Referenced by: [`Explodes`](#explodes)
+
+### IdleBehaviorType
+Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`
+
+Referenced by: [`Aircraft`](#aircraft)
 
 ### LineBuildDirection
 Possible values: `Unset`, `X`, `Y`
@@ -7341,60 +7339,40 @@ Possible values: `None`, `Horizontal`, `Vertical`, `Turn`
 
 Referenced by: [`GrantConditionOnMovement`](#grantconditiononmovement), [`WithMoveAnimation`](#withmoveanimation)
 
-### PowerState
-Possible values: `Normal`, `Low`, `Critical`
+### NormalType
+Possible values: `TiberianSun`, `RedAlert2`
 
-Referenced by: [`GrantConditionOnPowerState`](#grantconditiononpowerstate)
-
-### SelectionPriorityModifiers
-Possible values: `None`, `Ctrl`, `Alt`
-
-Referenced by: [`IsometricSelectable`](#isometricselectable), [`Selectable`](#selectable)
-
-### EffectType
-Possible values: `None`, `Black`, `Desaturated`
-
-Referenced by: [`MenuPaletteEffect`](#menupaletteeffect)
-
-### ActorFlashType
-Possible values: `Overlay`, `Tint`
-
-Referenced by: [`OrderEffects`](#ordereffects)
+Referenced by: [`VoxelNormalsPalette`](#voxelnormalspalette)
 
 ### OwnerLostActionType
 Possible values: `ChangeOwner`, `Dispose`, `Kill`
 
 Referenced by: [`OwnerLostAction`](#ownerlostaction)
 
-### BlendMode
-Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
-
-Referenced by: [`ShroudRenderer`](#shroudrenderer)
-
 ### OwnerType
 Possible values: `Victim`, `Killer`, `InternalName`
 
 Referenced by: [`SpawnActorOnDeath`](#spawnactorondeath)
 
-### TrailType
-Possible values: `Cell`, `CenterPosition`
+### PlaceBuildingCellType
+Possible values: `None`, `Valid`, `Invalid`, `LineBuild`
 
-Referenced by: [`LeavesTrails`](#leavestrails)
+Referenced by: [`ActorPreviewPlaceBuildingPreview`](#actorpreviewplacebuildingpreview), [`D2kActorPreviewPlaceBuildingPreview`](#d2kactorpreviewplacebuildingpreview), [`SequencePlaceBuildingPreview`](#sequenceplacebuildingpreview)
 
-### DetectionCircleVisibility
-Possible values: `Always`, `WhenSelected`
+### PlayerRelationship
+Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`RenderDetectionCircle`](#renderdetectioncircle)
+Referenced by: [`AcceptsDeliveredCash`](#acceptsdeliveredcash), [`AcceptsDeliveredExperience`](#acceptsdeliveredexperience), [`AirstrikePower`](#airstrikepower), [`AppearsOnRadar`](#appearsonradar), [`Armament`](#armament), [`AttackOrderPower`](#attackorderpower), [`AutoTargetPriority`](#autotargetpriority), [`BlocksProjectiles`](#blocksprojectiles), [`Capturable`](#capturable), [`CaptureManagerBotModule`](#capturemanagerbotmodule), [`Captures`](#captures), [`CashTricklerBar`](#cashtricklerbar), [`ChronoshiftPower`](#chronoshiftpower), [`CreatesShroud`](#createsshroud), [`Demolition`](#demolition), [`Disguise`](#disguise), [`DisguiseTooltip`](#disguisetooltip), [`DropPodsPower`](#droppodspower), [`EngineerRepair`](#engineerrepair), [`FrozenUnderFog`](#frozenunderfog), [`Gate`](#gate), [`GivesBounty`](#givesbounty), [`GivesExperience`](#givesexperience), [`GpsPower`](#gpspower), [`GrantExternalConditionPower`](#grantexternalconditionpower), [`GrantPrerequisiteChargeDrainPower`](#grantprerequisitechargedrainpower), [`HiddenUnderFog`](#hiddenunderfog), [`HiddenUnderShroud`](#hiddenundershroud), [`InfiltrateForDecoration`](#infiltratefordecoration), [`Infiltrates`](#infiltrates), [`IonCannonPower`](#ioncannonpower), [`JamsMissiles`](#jamsmissiles), [`NukePower`](#nukepower), [`ParatroopersPower`](#paratrooperspower), [`ProduceActorPower`](#produceactorpower), [`ProximityExternalCondition`](#proximityexternalcondition), [`RevealOnDeath`](#revealondeath), [`RevealOnFire`](#revealonfire), [`RevealsMap`](#revealsmap), [`RevealsShroud`](#revealsshroud), [`SpawnActorPower`](#spawnactorpower), [`SupportPowerChargeBar`](#supportpowerchargebar), [`Tooltip`](#tooltip), [`TooltipDescription`](#tooltipdescription), [`VoiceAnnouncement`](#voiceannouncement), [`WithAmmoPipsDecoration`](#withammopipsdecoration), [`WithBuildingRepairDecoration`](#withbuildingrepairdecoration), [`WithCargoPipsDecoration`](#withcargopipsdecoration), [`WithDecoration`](#withdecoration), [`WithHarvesterPipsDecoration`](#withharvesterpipsdecoration), [`WithNameTagDecoration`](#withnametagdecoration), [`WithRangeCircle`](#withrangecircle), [`WithResourceStoragePipsDecoration`](#withresourcestoragepipsdecoration), [`WithTextDecoration`](#withtextdecoration)
+
+### PowerState
+Possible values: `Normal`, `Low`, `Critical`
+
+Referenced by: [`GrantConditionOnPowerState`](#grantconditiononpowerstate)
 
 ### RangeCircleMode
 Possible values: `Maximum`, `Minimum`
 
 Referenced by: [`RenderRangeCircle`](#renderrangecircle)
-
-### AttackDelayType
-Possible values: `Preparation`, `Attack`
-
-Referenced by: [`AttackSounds`](#attacksounds), [`WithAttackAnimation`](#withattackanimation), [`WithAttackOverlay`](#withattackoverlay), [`WithTurretAttackAnimation`](#withturretattackanimation)
 
 ### RangeCircleVisibility
 Possible values: `Always`, `WhenSelected`
@@ -7405,4 +7383,34 @@ Referenced by: [`WithRangeCircle`](#withrangecircle)
 Possible values: `None`, `Rearm`, `Repair`
 
 Referenced by: [`WithResupplyAnimation`](#withresupplyanimation)
+
+### RevealDisguiseType
+Possible values: `None`, `Attack`, `Damaged`, `Unload`, `Infiltrate`, `Demolish`, `Move`
+
+Referenced by: [`Disguise`](#disguise)
+
+### SelectionPriorityModifiers
+Possible values: `None`, `Ctrl`, `Alt`
+
+Referenced by: [`IsometricSelectable`](#isometricselectable), [`Selectable`](#selectable)
+
+### TrailType
+Possible values: `Cell`, `CenterPosition`
+
+Referenced by: [`LeavesTrails`](#leavestrails)
+
+### UncloakType
+Possible values: `None`, `Attack`, `Move`, `Unload`, `Infiltrate`, `Demolish`, `Damage`, `Heal`, `SelfHeal`, `Dock`
+
+Referenced by: [`Cloak`](#cloak)
+
+### UnitStance
+Possible values: `HoldFire`, `ReturnFire`, `Defend`, `AttackAnything`
+
+Referenced by: [`AutoTarget`](#autotarget)
+
+### VisibilityType
+Possible values: `Footprint`, `CenterPosition`, `GroundPosition`
+
+Referenced by: [`CreatesShroud`](#createsshroud), [`HiddenUnderFog`](#hiddenunderfog), [`HiddenUnderShroud`](#hiddenundershroud), [`RevealsShroud`](#revealsshroud)
 
