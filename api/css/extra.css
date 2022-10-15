@@ -2,7 +2,7 @@ body > div.container {
     width: 85%;
 }
 
-.bg-primary {
+.navbar {
     background-image: repeating-linear-gradient(114deg, #0d0d10 0%, #1b1b21 22%, #0d0d10 64%, #111115 100%);
 }
 
