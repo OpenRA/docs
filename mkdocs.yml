@@ -3,3 +3,12 @@ site_description: Trait description and Lua API documentation
 docs_dir: api
 extra_css:
     - css/extra.css
+nav:
+    - 'index.md'
+    - 'lua.md'
+    - 'sprite-sequences.md'
+    - 'traits.md'
+    - 'weapons.md'
+    - 'Version':
+        - 'Release': 'https://docs.openra.net/en/release/'
+        - 'Playtest': 'https://docs.openra.net/en/playtest/'
