@@ -6,6 +6,10 @@ body > div.container {
     background-image: repeating-linear-gradient(114deg, #0d0d10 0%, #1b1b21 22%, #0d0d10 64%, #111115 100%);
 }
 
+.btn-primary {
+    background-image: repeating-linear-gradient(114deg, #0d0d10 0%, #1b1b21 22%, #0d0d10 64%, #111115 100%);
+}
+
 a, a:hover, a code, a code:hover, .btn-link, .btn-link:hover, .page-link:hover {
     color: #ff1111;
 }
