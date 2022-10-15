@@ -13,3 +13,7 @@ a, a:hover, a code, a code:hover, .btn-link, .btn-link:hover, .page-link:hover {
 .dropdown-item:hover, .dropdown-item:focus, .dropdown-item.active, .dropdown-item:active, .custom-control-label::before {
     background-color:#ff1111
 }
+
+.bs-sidebar {
+    font-size: 0.8rem;
+}
