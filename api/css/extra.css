@@ -21,3 +21,7 @@ a, a:hover, a code, a code:hover, .btn-link, .btn-link:hover, .page-link:hover {
 .nav-link {
     overflow-wrap: anywhere;
 }
+
+.bs-sidebar .nav > li > a.active, .bs-sidebar .nav > li > a.active:hover, .bs-sidebar .nav > li > a.active:focus {
+    font-weight: bold;
+}
