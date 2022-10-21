@@ -1,3 +1,17 @@
 site_name: OpenRA
 site_description: Trait description and Lua API documentation
 docs_dir: api
+extra_css:
+    - css/extra.css
+theme:
+    name: mkdocs
+    navigation_depth: 3
+nav:
+    - 'index.md'
+    - 'lua.md'
+    - 'traits.md'
+    - 'weapons.md'
+    - 'Version':
+        - 'Release': 'https://docs.openra.net/en/release/'
+        - 'Playtest': 'https://docs.openra.net/en/playtest/'
+
