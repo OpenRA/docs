@@ -9,6 +9,7 @@ theme:
 nav:
     - 'index.md'
     - 'lua.md'
+    - 'sprite-sequences.md'
     - 'traits.md'
     - 'weapons.md'
     - 'Version':
