@@ -1,6 +1,6 @@
 # Traits
 
-This documentation is aimed at modders and has been automatically generated for version `playtest-20221203` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `playtest-20221223` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all traits with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -114,7 +114,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
 | RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -141,7 +140,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
 | RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -1523,10 +1521,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | AttackType | Default | [`AirAttackType`](#airattacktype) | Attack behavior. Currently supported types are: Default: Attack while following the default movement rules. Hover: Hover, even if the Aircraft can't hover while idle. Strafe: Perform a fixed-length attack run on the target. |
 | StrafeRunLength | 0c0 | 1D World Distance | Distance the strafing aircraft makes to a target before turning for another pass. When set to WDist.Zero this defaults to the maximum armament range. |
+| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
 | RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -1593,7 +1591,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
 | RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -1643,7 +1640,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
 | RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -1704,7 +1700,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OpportunityFire | True | Boolean | Automatically acquire and fire on targets of opportunity when not actively attacking. |
 | PersistentTargeting | True | Boolean | Keep firing on targets even after attack order is cancelled |
 | RangeMargin | 1c0 | 1D World Distance | Range to stay away from min and max ranges to give some leeway if the target starts moving. |
-| AbortOnResupply | True | Boolean | Does this actor cancel its attack activity when it needs to resupply? Setting this to 'false' will make the actor resume attack after reloading. |
 | Armaments | primary, secondary | Collection of String | Armament names |
 | Cursor |  | String | Cursor to display when hovering over a valid target. |
 | OutsideRangeCursor |  | String | Cursor to display when hovering over a valid target that is outside of range. |
@@ -4225,7 +4220,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ActorFlashType | Overlay | [`ActorFlashType`](#actorflashtype) | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
 | ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
 | ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
-| ActorFlashTint | 1,4,1,4,1,4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashTint | 1.4,1.4,1.4 | float3 | The tint to apply when ActorFlashType is Tint. |
 | ActorFlashCount | 2 | Integer | Number of times to flash (frozen) actors. |
 | ActorFlashInterval | 2 | Integer | Number of ticks between (frozen) actor flashes. |
 

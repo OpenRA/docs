@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version playtest-20221203 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version playtest-20221223 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -166,8 +166,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void Debug(string text)** | Displays a debug message to the player, if "Show Map Debug Messages" is checked in the settings. |
-| **void DisplayMessage(string text, string prefix = Mission, Color? color = nil)** | Display a text message to all players. |
-| **void DisplayMessageToPlayer(Player player, string text, string prefix = Mission, Color? color = nil)** | Display a text message to the player. |
+| **void DisplayMessage(string text, string prefix = Mission, Color? color = nil)** | Display a text message to the player. |
 | **void DisplaySystemMessage(string text, string prefix = nil)** | Display a system message to the player. If 'prefix' is nil the default system prefix is used. |
 | **void FloatingText(string text, WPos position, int duration = 30, Color? color = nil)** | Display a text message at the specified location. |
 | **void PlayMovieFullscreen(string movie, LuaFunction func = nil)** | Play a VQA video fullscreen. File name has to include the file extension. |
@@ -243,7 +242,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void SetMissionText(string text, Color? color = nil)** | Displays a text message at the top center of the screen. |
-| **string Translate(string text, LuaTable table = nil)** |  |
+| **string Translate(string text)** |  |
 
 ### Utils
 

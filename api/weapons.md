@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `playtest-20221203` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `playtest-20221223` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -20,7 +20,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterFireSoundDelay | 0 | Integer | Delay in ticks to play reloading sound. |
 | ReloadDelay | 1 | Integer | Delay in ticks between reloading ammo magazines. |
 | Burst | 1 | Integer | Number of shots in a single ammo magazine. |
-| CanTargetSelf | False | Boolean | Can this weapon target the attacker itself? |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | AirThreshold | 0c128 | 1D World Distance | If weapon is not directly targeting an actor and targeted position is above this altitude, the weapon will ignore terrain target types and only check TargetTypeAir for validity. |
