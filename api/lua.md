@@ -146,7 +146,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **Actor[] ActorsInCircle(WPos location, WDist radius, LuaFunction filter = nil)** | Returns a table of all actors within the requested region, filtered using the specified function. |
 | **Actor[] ActorsInWorld { get; }** | Returns a table of all the actors that are currently on the map/in the world. |
 | **Actor[] ActorsWithTag(string tag)** | Returns a table of all actors tagged with the given string. |
-| **WPos BottomRight { get; }** | Returns the location of the bottom-right corner of the map (assuming zero terrain height). |
+| **<s>WPos BottomRight { get; }</s>** | Returns the location of the bottom-right corner of the map (assuming zero terrain height).<br />**Deprecated: This function will be removed in future versions. Use Map.ActorsInWorld instead.** |
 | **WPos CenterOfCell(CPos cell)** | Returns the center of a cell in world coordinates. |
 | **CPos ClosestEdgeCell(CPos givenCell)** | Returns the closest cell on the visible border of the map from the given cell. |
 | **CPos ClosestMatchingEdgeCell(CPos givenCell, LuaFunction filter)** | Returns the first cell on the visible border of the map from the given cell,<br />matching the filter function called as function(CPos cell). |
@@ -160,7 +160,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **CPos RandomCell()** | Returns a random cell inside the visible region of the map. |
 | **CPos RandomEdgeCell()** | Returns a random cell on the visible border of the map. |
 | **string TerrainType(CPos cell)** | Returns the type of the terrain at the target cell. |
-| **WPos TopLeft { get; }** | Returns the location of the top-left corner of the map (assuming zero terrain height). |
+| **<s>WPos TopLeft { get; }</s>** | Returns the location of the top-left corner of the map (assuming zero terrain height).<br />**Deprecated: This function will be removed in future versions. Use Map.ActorsInWorld instead.** |
 
 ### Media
 
