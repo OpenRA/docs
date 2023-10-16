@@ -1,6 +1,6 @@
 # Sprite sequences
 
-This documentation is aimed at modders and has been automatically generated for version `release-20230225` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `release-20231010` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -23,10 +23,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TilesetOverrides |  | Dictionary with Key: String, Value: String | Dictionary of <string: string> with tileset name to override -> tileset name to use instead. |
-| UseTilesetCode | False | Boolean | Use `TilesetCodes` as defined in `mod.yaml` to add a letter as a second character into the sprite filename like the Westwood 2.5D titles did for tileset-specific variants. |
-| AddExtension | True | Boolean | Append a tileset-specific extension to the file name - either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) or the default hardcoded one for this sequence type (.shp). |
-| UseTilesetExtension | False | Boolean | Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name. |
+| TilesetFilenames |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: filename to override the Filename key. |
 
 ## OpenRA.Mods.Common.Graphics
 
@@ -35,11 +32,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| Filename |  | String | File name of the sprite to use for this sequence. |
 | Start | 0 | Integer | Frame index to start from. |
 | Length | 1 | Integer | Number of frames to use. Does not have to be the total amount the sprite sheet has. |
 | Stride | -1 | Integer | Overrides Length if a different number of frames is defined between facings. |
-| Facings | 1 | Integer | The amount of directions the unit faces. Use negative values to rotate counter-clockwise. |
-| InterpolatedFacings | 1 | Integer | The amount of directions the unit faces. Use negative values to rotate counter-clockwise. |
+| Facings | 1 | Integer | The number of facings that are provided by sprite frames. Use negative values to rotate counter-clockwise. |
+| InterpolatedFacings |  | Integer (optional) | The total number of facings for the sequence. If >Facings, the closest facing sprite will be rotated to match. Use negative values to rotate counter-clockwise. |
 | Tick | 40 | Integer | Time (in milliseconds at default game speed) to wait until playing the next frame in the animation. |
 | ZOffset | 0c0 | 1D World Distance | Value controlling the Z-order. A higher values means rendering on top of other sprites at the same position. Use power of 2 values to avoid glitches. |
 | ZRamp | 0 | Integer | Additional sprite depth Z offset to apply as a function of sprite Y (0: vertical, 1: flat on terrain) |
@@ -54,13 +52,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | FlipY | False | Boolean | Mirror on the Y axis. |
 | Offset | 0,0,0 | float3 | Change the position in-game on X, Y, Z. |
 | BlendMode | Alpha | [`BlendMode`](#blendmode) | Apply an OpenGL/Photoshop inspired blend mode. |
-| Combine |  | MiniYaml | Allows to append multiple sequence definitions which are indented below this node like when offsets differ per frame or a sequence is spread across individual files. |
+| Combine |  | MiniYaml | Create a virtual sprite file by concatenating one or more frames from multiple files, with optional transformations applied. All defined frames will be loaded into memory, even if unused, so use this property with care. |
 | Alpha |  | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
 | AlphaFade | False | Boolean | Fade the animation from fully opaque on the first frame to fully transparent after the last frame. |
 | DepthSprite |  | String | Name of the file containing the depth data sprite. |
 | DepthSpriteFrame | 0 | Integer | Frame index containing the depth data. |
 | DepthSpriteOffset | 0,0 | 2D Real Number | X, Y offset to apply to the depth sprite. |
-| HasEmbeddedPalette | False | Boolean | Make a custom palette embedded in the sprite available to the PaletteFromEmbeddedSpritePalette trait. |
 
 ### TilesetSpecificSpriteSequence
 **A sprite sequence that can have tileset-specific variants.**
@@ -69,10 +66,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| TilesetOverrides |  | Dictionary with Key: String, Value: String | Dictionary of <string: string> with tileset name to override -> tileset name to use instead. |
-| UseTilesetCode | False | Boolean | Use `TilesetCodes` as defined in `mod.yaml` to add a letter as a second character into the sprite filename like the Westwood 2.5D titles did for tileset-specific variants. |
-| AddExtension | True | Boolean | Append a tileset-specific extension to the file name - either as defined in `mod.yaml`'s `TilesetExtensions` (if `UseTilesetExtension` is used) or the default hardcoded one for this sequence type (.shp). |
-| UseTilesetExtension | False | Boolean | Whether `mod.yaml`'s `TilesetExtensions` should be used with the sequence's file name. |
+| TilesetFilenames |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: filename to override the Filename key. |
 
 # Related value types (enums):
 
