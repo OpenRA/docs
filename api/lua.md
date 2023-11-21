@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version dev-20221016 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version bleed of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -121,8 +121,14 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 
 | Function | Description |
 |---------:|-------------|
+| **int CurrentDay { get; }** |  |
+| **int CurrentHour { get; }** |  |
+| **int CurrentMinute { get; }** |  |
+| **int CurrentMonth { get; }** |  |
+| **int CurrentSecond { get; }** |  |
+| **int CurrentYear { get; }** |  |
 | **int GameTime { get; }** | Get the current game time (in ticks). |
-| **bool IsHalloween { get; }** | True on the 31st of October. |
+| **<s>bool IsHalloween { get; }</s>** | True on the 31st of October.<br />**Deprecated: Use CurrentMonth and CurrentDay instead.** |
 | **int Minutes(int minutes)** | Converts the number of minutes into game time (ticks). |
 | **int Seconds(int seconds)** | Converts the number of seconds into game time (ticks). |
 | **int TimeLimit { get; set; }** | Return or set the time limit (in ticks). When setting, the time limit will count from now. Setting the time limit to 0 will disable it. |
@@ -134,7 +140,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 |---------:|-------------|
 | **Double Ambient { get; set; }** |  |
 | **Double Blue { get; set; }** |  |
-| **void Flash(string type = nil, int ticks = -1)** | Controls the `FlashPaletteEffect` trait. |
+| **void Flash(string type = nil, int ticks = -1)** | Controls the `FlashPostProcessEffect` trait. |
 | **Double Green { get; set; }** |  |
 | **Double Red { get; set; }** |  |
 
@@ -146,7 +152,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **Actor[] ActorsInCircle(WPos location, WDist radius, LuaFunction filter = nil)** | Returns a table of all actors within the requested region, filtered using the specified function. |
 | **Actor[] ActorsInWorld { get; }** | Returns a table of all the actors that are currently on the map/in the world. |
 | **Actor[] ActorsWithTag(string tag)** | Returns a table of all actors tagged with the given string. |
-| **WPos BottomRight { get; }** | Returns the location of the bottom-right corner of the map (assuming zero terrain height). |
+| **<s>WPos BottomRight { get; }</s>** | Returns the location of the bottom-right corner of the map (assuming zero terrain height).<br />**Deprecated: This function will be removed in future versions. Use Map.ActorsInWorld instead.** |
 | **WPos CenterOfCell(CPos cell)** | Returns the center of a cell in world coordinates. |
 | **CPos ClosestEdgeCell(CPos givenCell)** | Returns the closest cell on the visible border of the map from the given cell. |
 | **CPos ClosestMatchingEdgeCell(CPos givenCell, LuaFunction filter)** | Returns the first cell on the visible border of the map from the given cell,<br />matching the filter function called as function(CPos cell). |
@@ -154,24 +160,26 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool IsPausedShellmap { get; }** | Returns true if this is a shellmap and the player has paused animations. |
 | **bool IsSinglePlayer { get; }** | Returns true if there is only one human player. |
 | **LuaValue LobbyOption(string id)** | Returns the value of a `ScriptLobbyDropdown` selected in the game lobby. |
+| **LuaValue LobbyOptionOrDefault(string id, string fallback)** | Returns the value of a `ScriptLobbyDropdown` selected in the game lobby or fallback to a default value. |
 | **Actor NamedActor(string actorName)** | Returns the actor that was specified with a given name in the map file (or nil, if the actor is dead or not found). |
 | **Actor[] NamedActors { get; }** | Returns a table of all the actors that were specified in the map file. |
 | **CPos RandomCell()** | Returns a random cell inside the visible region of the map. |
 | **CPos RandomEdgeCell()** | Returns a random cell on the visible border of the map. |
 | **string TerrainType(CPos cell)** | Returns the type of the terrain at the target cell. |
-| **WPos TopLeft { get; }** | Returns the location of the top-left corner of the map (assuming zero terrain height). |
+| **<s>WPos TopLeft { get; }</s>** | Returns the location of the top-left corner of the map (assuming zero terrain height).<br />**Deprecated: This function will be removed in future versions. Use Map.ActorsInWorld instead.** |
 
 ### Media
 
 | Function | Description |
 |---------:|-------------|
-| **void Debug(string text)** | Displays a debug message to the player, if "Show Map Debug Messages" is checked in the settings. |
-| **void DisplayMessage(string text, string prefix = Mission, Color? color = nil)** | Display a text message to the player. |
+| **void Debug(string format)** | Displays a debug message to the player, if "Show Map Debug Messages" is checked in the settings. |
+| **void DisplayMessage(string text, string prefix = Mission, Color? color = nil)** | Display a text message to all players. |
+| **void DisplayMessageToPlayer(Player player, string text, string prefix = Mission, Color? color = nil)** | Display a text message only to this player. |
 | **void DisplaySystemMessage(string text, string prefix = nil)** | Display a system message to the player. If 'prefix' is nil the default system prefix is used. |
 | **void FloatingText(string text, WPos position, int duration = 30, Color? color = nil)** | Display a text message at the specified location. |
-| **void PlayMovieFullscreen(string movie, LuaFunction func = nil)** | Play a VQA video fullscreen. File name has to include the file extension. |
-| **bool PlayMovieInRadar(string movie, LuaFunction playComplete = nil)** | Play a VQA video in the radar window. File name has to include the file extension. Returns true on success, if the movie wasn't found the function returns false and the callback is executed. |
-| **void PlayMusic(string track = nil, LuaFunction func = nil)** | Play track defined in music.yaml or map.yaml, or keep track empty for playing a random song. |
+| **void PlayMovieFullscreen(string videoFileName, LuaFunction onPlayComplete = nil)** | Play a video fullscreen. File name has to include the file extension. |
+| **void PlayMovieInRadar(string videoFileName, LuaFunction onPlayComplete = nil)** | Play a video in the radar window. File name has to include the file extension. |
+| **void PlayMusic(string track = nil, LuaFunction onPlayComplete = nil)** | Play track defined in music.yaml or map.yaml, or keep track empty for playing a random song. |
 | **void PlaySound(string file)** | Play a sound file |
 | **void PlaySoundNotification(Player player, string notification)** | Play a sound listed in notifications.yaml |
 | **void PlaySpeechNotification(Player player, string notification)** | Play an announcer voice listed in notifications.yaml |
@@ -203,36 +211,36 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void AfterDelay(int delay, LuaFunction func)** | Call a function after a specified delay. The callback function will be called as func(). |
-| **void Clear(Actor a, string triggerName)** | Removes the specified trigger from this actor. Note that the removal will only take effect at the end of a tick, so you must not add new triggers at the same time that you are calling this function. |
-| **void ClearAll(Actor a)** | Removes all triggers from this actor. Note that the removal will only take effect at the end of a tick, so you must not add new triggers at the same time that you are calling this function. |
-| **void OnAddedToWorld(Actor a, LuaFunction func)** | Call a function when this actor is added to the world. The callback function will be called as func(Actor self). |
+| **void Clear(Actor actor, string triggerName)** | Removes the specified trigger from this actor. Note that the removal will only take effect at the end of a tick, so you must not add new triggers at the same time that you are calling this function. |
+| **void ClearAll(Actor actor)** | Removes all triggers from this actor. Note that the removal will only take effect at the end of a tick, so you must not add new triggers at the same time that you are calling this function. |
+| **void OnAddedToWorld(Actor actor, LuaFunction func)** | Call a function when this actor is added to the world. The callback function will be called as func(Actor self). |
 | **void OnAllKilled(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group are killed. The callback function will be called as func(). |
 | **void OnAllKilledOrCaptured(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been killed or captured. The callback function will be called as func(). |
 | **void OnAllRemovedFromWorld(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been removed from the world. The callback function will be called as func(). |
 | **void OnAnyKilled(Actor[] actors, LuaFunction func)** | Call a function when one of the actors in a group is killed. The callback function will be called as func(Actor killed). |
 | **void OnAnyProduction(LuaFunction func)** | Call a function when any actor produces another actor. The callback function will be called as func(Actor producer, Actor produced, string productionType). |
-| **void OnCapture(Actor a, LuaFunction func)** | Call a function when this actor is captured. The callback function will be called as func(Actor self, Actor captor, Player oldOwner, Player newOwner). |
-| **void OnDamaged(Actor a, LuaFunction func)** | Call a function when the actor is damaged. The callback function will be called as func(Actor self, Actor attacker, int damage). |
-| **void OnDiscovered(Actor a, LuaFunction func)** | Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(Actor discovered, Player discoverer). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
+| **void OnCapture(Actor actors, LuaFunction func)** | Call a function when this actor is captured. The callback function will be called as func(Actor self, Actor captor, Player oldOwner, Player newOwner). |
+| **void OnDamaged(Actor actor, LuaFunction func)** | Call a function when the actor is damaged. The callback function will be called as func(Actor self, Actor attacker, int damage). |
+| **void OnDiscovered(Actor actor, LuaFunction func)** | Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(Actor discovered, Player discoverer). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
 | **int OnEnteredFootprint(CPos[] cells, LuaFunction func)** | Call a function when a ground-based actor enters this cell footprint. Returns the trigger id for later removal using RemoveFootprintTrigger(int id). The callback function will be called as func(Actor a, int id). |
 | **int OnEnteredProximityTrigger(WPos pos, WDist range, LuaFunction func)** | Call a function when an actor enters this range. Returns the trigger id for later removal using RemoveProximityTrigger(int id). The callback function will be called as func(Actor a, int id). |
 | **int OnExitedFootprint(CPos[] cells, LuaFunction func)** | Call a function when a ground-based actor leaves this cell footprint. Returns the trigger id for later removal using RemoveFootprintTrigger(int id). The callback function will be called as func(Actor a, int id). |
 | **int OnExitedProximityTrigger(WPos pos, WDist range, LuaFunction func)** | Call a function when an actor leaves this range. Returns the trigger id for later removal using RemoveProximityTrigger(int id). The callback function will be called as func(Actor a, int id). |
-| **void OnIdle(Actor a, LuaFunction func)** | Call a function each tick that the actor is idle. The callback function will be called as func(Actor self). |
-| **void OnInfiltrated(Actor a, LuaFunction func)** | Call a function when this actor is infiltrated. The callback function will be called as func(Actor self, Actor infiltrator). |
-| **void OnKilled(Actor a, LuaFunction func)** | Call a function when the actor is killed. The callback function will be called as func(Actor self, Actor killer). |
-| **void OnKilledOrCaptured(Actor a, LuaFunction func)** | Call a function when this actor is killed or captured. The callback function will be called as func(). |
+| **void OnIdle(Actor actor, LuaFunction func)** | Call a function each tick that the actor is idle. The callback function will be called as func(Actor self). |
+| **void OnInfiltrated(Actor actor, LuaFunction func)** | Call a function when this actor is infiltrated. The callback function will be called as func(Actor self, Actor infiltrator). |
+| **void OnKilled(Actor actor, LuaFunction func)** | Call a function when the actor is killed. The callback function will be called as func(Actor self, Actor killer). |
+| **void OnKilledOrCaptured(Actor actor, LuaFunction func)** | Call a function when this actor is killed or captured. The callback function will be called as func(). |
 | **void OnObjectiveAdded(Player player, LuaFunction func)** | Call a function when this player is assigned a new objective. The callback function will be called as func(Player player, int objectiveID). |
 | **void OnObjectiveCompleted(Player player, LuaFunction func)** | Call a function when this player completes an objective. The callback function will be called as func(Player player, int objectiveID). |
 | **void OnObjectiveFailed(Player player, LuaFunction func)** | Call a function when this player fails an objective. The callback function will be called as func(Player player, int objectiveID). |
-| **void OnPassengerEntered(Actor a, LuaFunction func)** | Call a function for each passenger when it enters a transport. The callback function will be called as func(Actor transport, Actor passenger). |
-| **void OnPassengerExited(Actor a, LuaFunction func)** | Call a function for each passenger when it exits a transport. The callback function will be called as func(Actor transport, Actor passenger). |
+| **void OnPassengerEntered(Actor actor, LuaFunction func)** | Call a function for each passenger when it enters a transport. The callback function will be called as func(Actor transport, Actor passenger). |
+| **void OnPassengerExited(Actor actor, LuaFunction func)** | Call a function for each passenger when it exits a transport. The callback function will be called as func(Actor transport, Actor passenger). |
 | **void OnPlayerDiscovered(Player discovered, LuaFunction func)** | Call a function when this player is discovered by an enemy or neutral player. The callback function will be called as func(Player discovered, Player discoverer, Actor discoveredActor).The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
 | **void OnPlayerLost(Player player, LuaFunction func)** | Call a function when this player fails any primary objective. The callback function will be called as func(Player player). |
 | **void OnPlayerWon(Player player, LuaFunction func)** | Call a function when this player completes all primary objectives. The callback function will be called as func(Player player). |
-| **void OnProduction(Actor a, LuaFunction func)** | Call a function when this actor produces another actor. The callback function will be called as func(Actor producer, Actor produced). |
-| **void OnRemovedFromWorld(Actor a, LuaFunction func)** | Call a function when this actor is removed from the world. The callback function will be called as func(Actor self). |
-| **void OnSold(Actor a, LuaFunction func)** | Call a function when this actor is sold. The callback function will be called as func(Actor self). |
+| **void OnProduction(Actor actors, LuaFunction func)** | Call a function when this actor produces another actor. The callback function will be called as func(Actor producer, Actor produced). |
+| **void OnRemovedFromWorld(Actor actor, LuaFunction func)** | Call a function when this actor is removed from the world. The callback function will be called as func(Actor self). |
+| **void OnSold(Actor actor, LuaFunction func)** | Call a function when this actor is sold. The callback function will be called as func(Actor self). |
 | **void OnTimerExpired(LuaFunction func)** | Call a function when the game timer expires. The callback function will be called as func(). |
 | **void RemoveFootprintTrigger(int id)** | Removes a previously created footprint trigger. |
 | **void RemoveProximityTrigger(int id)** | Removes a previously created proximity trigger. |
@@ -242,7 +250,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void SetMissionText(string text, Color? color = nil)** | Displays a text message at the top center of the screen. |
-| **string Translate(string text)** |  |
+| **string Translate(string text, LuaTable table = nil)** |  |
 
 ### Utils
 
@@ -250,6 +258,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 |---------:|-------------|
 | **bool All(LuaValue[] collection, LuaFunction func)** | Returns true if func returns true for all elements in a collection. |
 | **bool Any(LuaValue[] collection, LuaFunction func)** | Returns true if func returns true for any element in a collection. |
+| **LuaTable Concat(LuaValue[] firstCollection, LuaValue[] secondCollection)** | Concatenates two Lua tables into a single table. |
 | **void Do(LuaValue[] collection, LuaFunction func)** | Calls a function on every element in a collection. |
 | **CPos[] ExpandFootprint(CPos[] footprint, bool allowDiagonal)** | Expands the given footprint one step along the coordinate axes, and (if requested) diagonals. |
 | **string FormatTime(int ticks, bool leadingMinuteZero = True)** | Returns the ticks formatted to HH:MM:SS. |
@@ -287,6 +296,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 
 | Function | Description |
 |---------:|-------------|
+| **bool CanCapture(Actor target)** | Checks if the target actor can be captured.<br />**Requires Trait:** CaptureManager |
 | **void Capture(Actor target)** | Captures the target actor.<br />**Requires Trait:** CaptureManager |
 | **void DeliverCarryable(CPos target)**<br />*Queued Activity* | Drop the actor being carried at the target location.<br />**Requires Trait:** Carryall |
 | **void DeliverCash(Actor target)**<br />*Queued Activity* | Deliver cash to the target actor.<br />**Requires Traits:** IMove, DeliversCash |
@@ -294,6 +304,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void DisguiseAs(Actor target)** | Disguises as the target actor.<br />**Requires Trait:** Disguise |
 | **void DisguiseAsType(string actorType, Player newOwner)** | Disguises as the target type with the specified owner.<br />**Requires Trait:** Disguise |
 | **void Infiltrate(Actor target)** | Infiltrate the target actor.<br />**Requires Trait:** Infiltrates |
+| **void InstantlyRepair(Actor target)**<br />*Queued Activity* | Enter the target actor to repair it instantly.<br />**Requires Traits:** IMove, InstantlyRepairs |
 | **void PickupCarryable(Actor target)**<br />*Queued Activity* | Pick up the target actor.<br />**Requires Trait:** Carryall |
 
 ### AmmoPool
@@ -319,7 +330,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool CanTarget(Actor targetActor)** | Checks if the targeted actor is a valid target for this actor.<br />**Requires Trait:** AttackBase |
 | **void Demolish(Actor target)**<br />*Queued Activity* | Demolish the target actor.<br />**Requires Traits:** IMove, Demolition |
 | **void Guard(Actor targetActor)**<br />*Queued Activity* | Guard the target actor.<br />**Requires Traits:** Guard, IMove |
-| **void Hunt()**<br />*Queued Activity* | Seek out and attack nearby targets.<br />**Requires Traits:** AttackBase, IMove |
+| **void Hunt()**<br />*Queued Activity* | Ignoring visibility, find the closest hostile target and attack move to within 2 cells of it.<br />**Requires Traits:** AttackBase, IMove |
 | **void Patrol(CPos[] waypoints, bool loop = True, int wait = 0)**<br />*Queued Activity* | Patrol along a set of given waypoints. The action is repeated by default, and the actor will wait for `wait` ticks at each waypoint.<br />**Requires Traits:** AttackBase, IMove |
 | **void PatrolUntil(CPos[] waypoints, LuaFunction func, int wait = 0)**<br />*Queued Activity* | Patrol along a set of given waypoints until a condition becomes true. The actor will wait for `wait` ticks at each waypoint.<br />**Requires Traits:** AttackBase, IMove |
 
@@ -487,6 +498,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 
 | Function | Description |
 |---------:|-------------|
+| **bool PlayLowPowerNotification { get; set; }** | Whether the player should receive a notification when low on power.<br />**Requires Trait:** PowerManager |
 | **int PowerDrained { get; }** | Returns the power used by the player.<br />**Requires Trait:** PowerManager |
 | **int PowerProvided { get; }** | Returns the total of the power the player has.<br />**Requires Trait:** PowerManager |
 | **string PowerState { get; }** | Returns the player's power state ("Normal", "Low" or "Critical").<br />**Requires Trait:** PowerManager |

@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `dev-20221016` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `bleed` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -20,6 +20,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterFireSoundDelay | 0 | Integer | Delay in ticks to play reloading sound. |
 | ReloadDelay | 1 | Integer | Delay in ticks between reloading ammo magazines. |
 | Burst | 1 | Integer | Number of shots in a single ammo magazine. |
+| CanTargetSelf | False | Boolean | Can this weapon target the attacker itself? |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | AirThreshold | 0c128 | 1D World Distance | If weapon is not directly targeting an actor and targeted position is above this altitude, the weapon will ignore terrain target types and only check TargetTypeAir for validity. |
@@ -59,6 +60,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Width | 0c512 | 1D World Distance | The width of the beam. |
 | Shape | Cylindrical | [`BeamRenderableShape`](#beamrenderableshape) | The shape of the beam.  Accepts values Cylindrical or Flat. |
 | BeyondTargetRange | 0c0 | 1D World Distance | How far beyond the target the projectile keeps on travelling. |
+| MinDistance | 0c0 | 1D World Distance | The minimum distance the beam travels. |
 | Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
 | Range | 0c0, 2097151c1023 | Collection of 1D World Distance | Ranges at which each Falloff step is defined. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
@@ -102,11 +104,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ContrailLength | 0 | Integer | When set, display a line behind the actor. Length is measured in ticks after appearing. |
 | ContrailDelay | 1 | Integer | Time (in ticks) after which the line should appear. Controls the distance to the actor. |
 | ContrailZOffset | 2047 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
-| ContrailWidth | 0c64 | 1D World Distance | Thickness of the emitted line. |
+| ContrailStartWidth | 0c64 | 1D World Distance | Thickness of the emitted line at the start of the contrail. |
+| ContrailEndWidth |  | 1D World Distance (optional) | Thickness of the emitted line at the end of the contrail. Will default to ContrailStartWidth if left undefined |
 | ContrailStartColor | FFFFFF | Color (RRGGBB[AA] notation) | RGB color at the contrail start. |
 | ContrailStartColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail the start. |
 | ContrailStartColorAlpha | 255 | Integer | The alpha value [from 0 to 255] of color at the contrail the start. |
-| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Set to start color if undefined |
+| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Will default to ContrailStartColor if left undefined |
 | ContrailEndColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail end. |
 | ContrailEndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 
@@ -208,11 +211,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ContrailLength | 0 | Integer | When set, display a line behind the actor. Length is measured in ticks after appearing. |
 | ContrailDelay | 1 | Integer | Time (in ticks) after which the line should appear. Controls the distance to the actor. |
 | ContrailZOffset | 2047 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
-| ContrailWidth | 0c64 | 1D World Distance | Thickness of the emitted line. |
+| ContrailStartWidth | 0c64 | 1D World Distance | Thickness of the emitted line at the start of the contrail. |
+| ContrailEndWidth |  | 1D World Distance (optional) | Thickness of the emitted line at the end of the contrail. Will default to ContrailStartWidth if left undefined |
 | ContrailStartColor | FFFFFF | Color (RRGGBB[AA] notation) | RGB color at the contrail start. |
 | ContrailStartColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail the start. |
 | ContrailStartColorAlpha | 255 | Integer | The alpha value [from 0 to 255] of color at the contrail the start. |
-| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Set to start color if undefined |
+| ContrailEndColor |  | Color (RRGGBB[AA] notation) (optional) | RGB color at the contrail end. Will default to ContrailStartColor if left undefined |
 | ContrailEndColorUsePlayerColor | False | Boolean | Use player remap color instead of a custom color at the contrail end. |
 | ContrailEndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 | Jammable | True | Boolean | Should missile targeting be thrown off by nearby actors with JamsMissiles. |
@@ -253,7 +257,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Common.Warheads
 
 ### ChangeOwnerWarhead
-**Interacts with the TemporaryOwnerManager trait.**
+**Interacts with the `TemporaryOwnerManager` trait.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -337,13 +341,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
-### FlashPaletteEffectWarhead
-**Used to trigger a FlashPaletteEffect trait on the world actor.**
+### FlashEffectWarhead
+**Used to trigger a FlashPostProcessEffect trait on the world actor.**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| FlashType |  | String | Corresponds to `Type` from `FlashPaletteEffect` on the world actor. |
-| Duration | 0 | Integer | Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPaletteEffect`. |
+| FlashType |  | String | Corresponds to `Type` from `FlashPostProcessEffect` on the world actor. |
+| Duration | 0 | Integer | Duration of the flashing, measured in ticks. Set to -1 to default to the `Length` of the `FlashPostProcessEffect`. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
 | ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
@@ -496,5 +500,5 @@ Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#ins
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DamagesConcreteWarhead`](#damagesconcretewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FlashPaletteEffectWarhead`](#flashpaletteeffectwarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead)
+Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DamagesConcreteWarhead`](#damagesconcretewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead)
 
