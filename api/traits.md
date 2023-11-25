@@ -350,9 +350,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | GenericName |  | String | An optional generic name (i.e. "Soldier" or "Structure")to be shown to chosen players. |
 | GenericStancePrefix | True | Boolean | Prefix generic tooltip name with 'Ally/Neutral/EnemyPrefix'. |
-| AllyPrefix | Allied | String | Prefix to display in the tooltip for allied units. |
+| AllyPrefix | label-tooltip-prefix.ally | String | Prefix to display in the tooltip for allied units. |
 | NeutralPrefix |  | String | Prefix to display in the tooltip for neutral units. |
-| EnemyPrefix | Enemy | String | Prefix to display in the tooltip for enemy units. |
+| EnemyPrefix | label-tooltip-prefix.enemy | String | Prefix to display in the tooltip for enemy units. |
 | GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
 | Name |  | String |  |
@@ -6101,9 +6101,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | GenericName |  | String | An optional generic name (i.e. "Soldier" or "Structure")to be shown to chosen players. |
 | GenericStancePrefix | True | Boolean | Prefix generic tooltip name with 'Ally/Neutral/EnemyPrefix'. |
-| AllyPrefix | Allied | String | Prefix to display in the tooltip for allied units. |
+| AllyPrefix | label-tooltip-prefix.ally | String | Prefix to display in the tooltip for allied units. |
 | NeutralPrefix |  | String | Prefix to display in the tooltip for neutral units. |
-| EnemyPrefix | Enemy | String | Prefix to display in the tooltip for enemy units. |
+| EnemyPrefix | label-tooltip-prefix.enemy | String | Prefix to display in the tooltip for enemy units. |
 | GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
 | Name |  | String |  |
