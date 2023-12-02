@@ -1356,6 +1356,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Minimum | 0 | Integer | Minimum number of actors. |
 | Maximum | 4 | Integer | Maximum number of actors. |
+| InitialDelay | 0 | Integer | Initial delay before first actor is spawn |
 | SpawnInterval | 6000 | Collection of Integer | Time (in ticks) between actor spawn. Supports 1 or 2 values. If 2 values are provided they are used as a range from which a value is randomly selected. |
 | Actors | *(required)* | Collection of String | Name of the actor that will be randomly picked to spawn. |
 | Owner | Creeps | String |  |
