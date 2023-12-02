@@ -3736,8 +3736,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `DockClientBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`DockClientManager`](#dockclientmanager), [`Mobile`](#mobile).
-
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Type | Unload | Collection of DockType | Docking type |
@@ -6169,6 +6167,22 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnterCursor | enter | String | Cursor to display when able to land at target building. |
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to land at target building. |
 | TargetLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line for regular move orders. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### TransformsIntoDockClient
+**Add to a building to expose a move cursor that triggers Transforms and issues a dock order to the transformed actor.**
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`Transforms`](#transforms).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| EnterCursor | enter | String | Cursor to display when able to dock at target actor. |
+| EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to dock at target actor. |
+| Voice | Action | String | Voice. |
+| DockLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line of docking orders. |
+| RequiresForceMove | False | Boolean | Require the force-move modifier to display the dock cursor. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformsIntoEntersTunnels
