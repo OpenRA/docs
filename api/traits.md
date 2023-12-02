@@ -2420,6 +2420,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### CloakPaletteEffect
 
+### ColorPickerColorShift
+**Create a color picker palette from another palette.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
+| MinHue | 0.29 | Real Number | Hues between this and MaxHue will be shifted. |
+| MaxHue | 0.37 | Real Number | Hues between MinHue and this will be shifted. |
+| ReferenceHue | 0.33 | Real Number | Hue reference for the color shift. |
+| ReferenceSaturation | 0.925 | Real Number | Saturation reference for the color shift. |
+| ReferenceValue | 0.95 | Real Number | Value reference for the color shift. |
+
 ### ColorPickerManager
 **Configuration options for the lobby player color picker. Attach this to the world actor.**
 
@@ -3053,6 +3065,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RemapIndex |  | Collection of Integer | Remap these indices to pre-defined colors. |
 | Color | 00000000 | Color (RRGGBB[AA] notation) | The fixed color to remap. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
+### FixedPlayerColorShift
+**Add fixed color shifts to player palettes. Use to add RGBA compatibility to IndexedPlayerPalette.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
+| PlayerIndex |  | Dictionary with Key: String, Value: Collection of Real Number |  |
 
 ### FlashPostProcessEffect
 **Used for bursted one-colored whole screen effects. Add this to the world actor.**
@@ -4751,6 +4771,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BaseName | player | String | The prefix for the resulting player palettes |
 | RemapIndex |  | Collection of Integer | Remap these indices to player colors. |
 | AllowModifiers | True | Boolean | Allow palette modifiers to change the palette. |
+
+### PlayerColorShift
+**Add color shifts to player palettes. Use to add RGBA compatibility to PlayerColorPalette.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
+| MinHue | 0.29 | Real Number | Hues between this and MaxHue will be shifted. |
+| MaxHue | 0.37 | Real Number | Hues between MinHue and this will be shifted. |
+| ReferenceHue | 0.33 | Real Number | Hue reference for the color shift. |
+| ReferenceSaturation | 0.925 | Real Number | Saturation reference for the color shift. |
+| ReferenceValue | 0.95 | Real Number | Value reference for the color shift. |
 
 ### PlayerExperience
 **This trait can be used to track player experience based on units killed with the `GivesExperience` trait. It can also be used as a point score system in scripted maps, for example. Attach this to the player actor.**
@@ -7819,6 +7851,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+## OpenRA.Mods.Mobius.Traits
+
+### FixedColorShift
+**Apply a fixed color shift to a palette. Use this to add RGBA compatibility to FixedColorPalette.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| BasePalette | *(required)* | String | The name of the palette to base off. |
+| Color | 00000000 | Color (RRGGBB[AA] notation) | The fixed color to remap. |
+| MinHue | 0.29 | Real Number | Hues between this and MaxHue will be shifted. |
+| MaxHue | 0.37 | Real Number | Hues between MinHue and this will be shifted. |
+| ReferenceHue | 0.33 | Real Number | Hue reference for the color shift. |
+| ReferenceSaturation | 0.925 | Real Number | Saturation reference for the color shift. |
+| ReferenceValue | 0.95 | Real Number | Value reference for the color shift. |
 
 ## OpenRA.Traits
 
