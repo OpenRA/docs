@@ -5092,15 +5092,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Types | *(required)* | Collection of CaptureType |  |
 
 ### ProximityCapturable
-**Actor can be captured by units in a specified proximity.**
+**Actor can be captured by units within a certain range.**
+
+> Inherits from: `ProximityCapturableBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Range | 5c0 | 1D World Distance | Maximum range at which a ProximityCaptor actor can initiate the capture. |
 | CaptorTypes | Player, Vehicle, Tank, Infantry | Collection of CaptureType | Allowed ProximityCaptor actors to capture this actor. |
-| MustBeClear | False | Boolean | If set, the capturing process stops immediately after another player comes into Range. |
+| MustBeClear | False | Boolean | If set, the capturing process stops immediately after another player comes into range. |
 | Sticky | False | Boolean | If set, the ownership will not revert back when the captor leaves the area. |
 | Permanent | False | Boolean | If set, the actor can only be captured via this logic once. This option implies the `Sticky` behaviour as well. |
+| DrawDecoration | True | Boolean | If set, will draw a border in the owner's color around the capturable area. |
 
 ### ProximityExternalCondition
 **Applies a condition to actors within a specified range.**
@@ -5183,6 +5186,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DiscardExcessResources | False | Boolean | Discard resources once silo capacity has been reached. |
 | ShowTicks | True | Boolean |  |
 | TickRate | 10 | Integer |  |
+
+### RegionProximityCapturable
+**Actor can be captured by units entering a certain set of cells.**
+
+> Inherits from: `ProximityCapturableBase`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Region |  | Collection of 2D Cell Vector | Set of cell offsets (relative to the actor's Location) the ProximityCaptor needs to be in to initiate the capture.  A 'Region' ActorInit can be used to override this value per actor. If either is empty or non-existent,  the immediately neighboring cells of the actor will be used. |
+| CaptorTypes | Player, Vehicle, Tank, Infantry | Collection of CaptureType | Allowed ProximityCaptor actors to capture this actor. |
+| MustBeClear | False | Boolean | If set, the capturing process stops immediately after another player comes into range. |
+| Sticky | False | Boolean | If set, the ownership will not revert back when the captor leaves the area. |
+| Permanent | False | Boolean | If set, the actor can only be captured via this logic once. This option implies the `Sticky` behaviour as well. |
+| DrawDecoration | True | Boolean | If set, will draw a border in the owner's color around the capturable area. |
 
 ### RejectsOrders
 **Can be used to make a unit partly uncontrollable by the player.**
