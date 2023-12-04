@@ -2403,11 +2403,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UncloakOn | Attack, Unload, Infiltrate, Demolish, Dock | [`UncloakType`](#uncloaktype) | Events leading to the actor getting uncloaked. Possible values are: Attack, Move, Unload, Infiltrate, Demolish, Dock, Damage, Heal, SelfHeal and SupportPower. 'Dock' is triggered when docking to a refinery or resupplying. 'SupportPower' is triggered when using a support power. |
 | CloakSound |  | String |  |
 | UncloakSound |  | String |  |
-| Palette | cloak | String |  |
-| IsPlayerPalette | False | Boolean |  |
 | DetectionTypes | Cloak | Collection of DetectionType |  |
 | CloakedCondition |  | String | The condition to grant to self while cloaked. |
 | CloakType |  | String | The type of cloak. Same type of cloaks won't trigger cloaking and uncloaking sound and effect. |
+| CloakStyle | Alpha | [`CloakStyle`](#cloakstyle) | Render effect to use when cloaked. |
+| CloakedAlpha | 0.55 | Real Number | The alpha level to use when cloaked when using Alpha CloakStyle. |
+| CloakedColor | 0000008C | Color (RRGGBB[AA] notation) | The color to use when cloaked when using Color CloakStyle. |
+| CloakedPalette |  | String | The palette to use when cloaked when using Palette CloakStyle. |
+| IsPlayerPalette | False | Boolean | Indicates that CloakedPalette is a player palette when using Palette CloakStyle. |
 | EffectImage |  | String | Which image to use for the effect played when cloaking or uncloaking. |
 | CloakEffectSequence |  | String | Which effect sequence to play when cloaking. |
 | UncloakEffectSequence |  | String | Which effect sequence to play when uncloaking. |
@@ -7965,6 +7968,11 @@ Referenced by: [`AttackSounds`](#attacksounds), [`WithAttackAnimation`](#withatt
 Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 
 Referenced by: [`ShroudRenderer`](#shroudrenderer)
+
+### CloakStyle
+Possible values: `None`, `Alpha`, `Color`, `Palette`
+
+Referenced by: [`Cloak`](#cloak)
 
 ### DamageSource
 Possible values: `Self`, `Killer`
