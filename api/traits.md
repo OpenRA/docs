@@ -6140,7 +6140,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Description |  | String | Text shown in tooltip. |
+| Description | *(required)* | String | Text shown in tooltip. |
 | ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships who can view the description. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
