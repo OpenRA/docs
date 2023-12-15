@@ -3739,6 +3739,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
 | RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
 | RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| ExludeDamageTypes |  | Collection of DamageType | Exclude damage types (defined on the warheads) that trigger Notification. |
 | Notification | HarvesterAttack | String | Speech notification type to play. |
 | TextNotification |  | String | Text notification to display. |
 
