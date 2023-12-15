@@ -6429,6 +6429,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WeatherOverlay
 **Adds a particle-based overlay.**
 
+> Inherits from: `ConditionalTrait`.
+
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ParticleDensityFactor | 8 | Integer | Average number of particles per 100x100 px square. |
@@ -6445,6 +6447,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SwingAmplitude | 1, 1.5 | Collection of Real Number | The value range that can be swung to the left or right. SwingAmplitude min. and max. value in px/tick. |
 | ParticleColors | ECECEC, E4E4E4, D0D0D0, BCBCBC | Collection of Color (RRGGBB[AA] notation) | The randomly selected rgb(a) hex colors for the particles. Use this order: rrggbb[aa], rrggbb[aa], ... |
 | LineTailAlphaValue | 200 | Byte | Works only with line enabled and can be used to fade out the tail of the line like a contrail. |
+| FadeOutTicks | 1000 | Integer | Time to fade out once the trait becomes disabled. |
+| FadeInTicks | 1000 | Integer | Time to fade in once the trait becomes enabled. |
+| InitialParticlePercentage | 100 | Integer | Percentage of the initial particle when enabled and the game start. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithColoredOverlay
 **Display a colored overlay when a timed condition is active.**
