@@ -5214,6 +5214,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Reject |  | Set of String | Explicit list of rejected orders. Leave empty to reject all minus those listed under Except. |
 | Except |  | Set of String | List of orders that should *not* be rejected. Also overrides other instances of this trait's Reject fields. |
+| RemoveOrders | False | Boolean | Remove current and all queued orders from the actor when this trait is enabled. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ReloadAmmoDelayMultiplier
