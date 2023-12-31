@@ -356,6 +356,26 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
+### FlashTargetsInRadiusWarhead
+**Trigger a flash effect on the targeted actor, or actors within a circle.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
+| ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
+| ActorFlashTint | 1.4,1.4,1.4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashCount | 2 | Integer | Number of times to flash actors. |
+| ActorFlashInterval | 2 | Integer | Number of ticks between actor flashes. |
+| Radius | 0c0 | 1D World Distance | Radius of an area at which effect will be applied. If left default effect applies only to target actor. |
+| DamageCalculationType | HitShape | [`DamageCalculationType`](#damagecalculationtype) | Controls the way damage is calculated. Possible values are 'HitShape', 'ClosestTargetablePosition' and 'CenterPosition'. |
+| ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
+| InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
+| ValidRelationships | Enemy, Neutral, Ally | [`PlayerRelationship`](#playerrelationship) | What player relationships are affected. |
+| AffectsParent | False | Boolean | Can this warhead affect the actor that fired it. |
+| AirThreshold | 0c128 | 1D World Distance | If impact is above this altitude, warheads that would affect terrain ignore terrain target types (and either do nothing or perform their own checks). |
+| Delay | 0 | Integer | Delay in ticks before applying the warhead effect. 0 = instant (old model). |
+| DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
+
 ### GrantExternalConditionWarhead
 **Grant an external condition to hit actors.**
 
@@ -490,7 +510,7 @@ Referenced by: [`AreaBeam`](#areabeam), [`LaserZap`](#laserzap), [`Railgun`](#ra
 ### DamageCalculationType
 Possible values: `HitShape`, `ClosestTargetablePosition`, `CenterPosition`
 
-Referenced by: [`SpreadDamageWarhead`](#spreaddamagewarhead)
+Referenced by: [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead)
 
 ### InaccuracyType
 Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
@@ -500,5 +520,5 @@ Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#ins
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`
 
-Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DamagesConcreteWarhead`](#damagesconcretewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead)
+Referenced by: [`Bullet`](#bullet), [`ChangeOwnerWarhead`](#changeownerwarhead), [`CreateEffectWarhead`](#createeffectwarhead), [`CreateResourceWarhead`](#createresourcewarhead), [`DamagesConcreteWarhead`](#damagesconcretewarhead), [`DestroyResourceWarhead`](#destroyresourcewarhead), [`FireClusterWarhead`](#fireclusterwarhead), [`FlashEffectWarhead`](#flasheffectwarhead), [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`GrantExternalConditionWarhead`](#grantexternalconditionwarhead), [`HealthPercentageDamageWarhead`](#healthpercentagedamagewarhead), [`LeaveSmudgeWarhead`](#leavesmudgewarhead), [`ShakeScreenWarhead`](#shakescreenwarhead), [`SpreadDamageWarhead`](#spreaddamagewarhead), [`TargetDamageWarhead`](#targetdamagewarhead)
 
