@@ -5656,6 +5656,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Type | Scorch | String |  |
 | Sequence | scorch | String | Sprite sequence name |
 | SmokeChance | 0 | Integer | Chance of smoke rising from the ground |
+| MaxSmokeOffsetDistance | 0c0 | 1D World Distance | By how much (in each direction) can the smoke appearance offset stray from the center of the cell? Note: Limit this to half a cell for square and 1/3 a cell for isometric cells to avoid straying into neighbour cells. |
 | SmokeImage |  | String | Smoke sprite image name |
 | SmokeSequences |  | Collection of String | Smoke sprite sequences randomly chosen from |
 | SmokePalette | effect | String |  |
