@@ -2846,15 +2846,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
 
 ### EditorSelectionLayer
-**Required for the map editor to work. Attach this to the world actor.**
+**Renders the selection grid in the editor.**
+
+> Requires trait(s): [`LoadWidgetAtGameStart`](#loadwidgetatgamestart).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Palette | terrain | String | Palette to use for rendering the placement sprite. |
-| FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
-| Image | editor-overlay | String | Sequence image where the selection overlay types are defined. |
-| CopySequence | copy | String | Sequence to use for the copy overlay. |
-| PasteSequence | paste | String | Sequence to use for the paste overlay. |
+| MainColor | FFFFFF | Color (RRGGBB[AA] notation) | Main color of the selection grid. |
+| AltColor | 000000 | Color (RRGGBB[AA] notation) | Alternate color of the selection grid. |
+| PasteColor | 4CFF00 | Color (RRGGBB[AA] notation) | Main color of the paste grid. |
+| LineThickness | 1 | Integer | Thickness of the selection grid lines. |
+| AltPixelOffset | 1,1 | 2D Integer | Render offset of the secondary grid lines. |
 
 ### EjectOnDeath
 **Eject a ground soldier or a paratrooper while in the air.**
