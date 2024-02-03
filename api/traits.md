@@ -355,7 +355,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnemyPrefix | label-tooltip-prefix.enemy | String | Prefix to display in the tooltip for enemy units. |
 | GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
-| Name |  | String |  |
+| Name | *(required)* | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### DrainPrerequisitePowerOnDamage
@@ -2834,7 +2834,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name |  | String |  |
+| Name | *(required)* | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorResourceLayer
@@ -6162,7 +6162,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EnemyPrefix | label-tooltip-prefix.enemy | String | Prefix to display in the tooltip for enemy units. |
 | GenericVisibility | None | [`PlayerRelationship`](#playerrelationship) | Player stances that the generic name should be shown to. |
 | ShowOwnerRow | True | Boolean | Show the actor's owner and their faction flag |
-| Name |  | String |  |
+| Name | *(required)* | String |  |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TransformCrusherOnCrush
