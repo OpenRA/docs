@@ -4184,6 +4184,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SeparateTeamSpawnsCheckboxVisible | True | Boolean | Whether to display the spawn positions checkbox in the lobby. |
 | SeparateTeamSpawnsCheckboxDisplayOrder | 0 | Integer | Display order for the spawn positions checkbox in the lobby. |
 
+### MarkerLayerOverlay
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Colors | FF0000, FF7F00, FFEE46, 00FF21, 00FFFF, 002AFF, A500FF, FF00DC | Collection of Color (RRGGBB[AA] notation) | A list of colors to be used for drawing. |
+| Alpha | 85 | Integer | Default alpha blend. |
+| AxisAngleColor | DC143C | Color (RRGGBB[AA] notation) | Color of the axis angle display. |
+
 ### McvManagerBotModule
 **Manages AI MCVs.**
 
