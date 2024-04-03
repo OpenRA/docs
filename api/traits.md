@@ -4251,8 +4251,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### Minelayer
 
-> Requires trait(s): [`Rearmable`](#rearmable).
-
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Mine | minv | String |  |
