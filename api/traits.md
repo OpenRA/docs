@@ -6777,9 +6777,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| Armament |  | String | Armament that will play the animation. Set to null to allow all armaments. |
 | Sequence | *(required)* | String | Sequence name to use |
 | Palette |  | String | Custom palette name |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
+| IsDecoration | False | Boolean |  |
 | Delay | 0 | Integer | Delay in ticks before overlay starts, either relative to attack preparation or attack. |
 | DelayRelativeTo | Preparation | [`AttackDelayType`](#attackdelaytype) | Should the overlay be delayed relative to preparation or actual attack? |
 
