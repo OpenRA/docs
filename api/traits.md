@@ -55,6 +55,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -234,6 +235,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -396,6 +398,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -503,6 +506,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -577,6 +581,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -765,6 +770,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -1431,7 +1437,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### AirstrikePower
 
-> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+> Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1442,10 +1448,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Cordon | 5c0 | 1D World Distance |  |
 | CameraActor |  | String | Actor to spawn when the aircraft start attacking |
 | CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking |
+| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation |
 | UseDirectionalTarget | False | Boolean | Enables the player directional targeting |
+| Arrows | arrow-t, arrow-tl, arrow-l, arrow-bl, arrow-b, arrow-br, arrow-r, arrow-tr | Collection of String |  |
 | DirectionArrowAnimation |  | String | Animation used to render the direction arrows. |
 | DirectionArrowPalette | chrome | String | Palette for direction cursor animation. |
-| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -1455,6 +1462,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -3621,7 +3629,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OnFireSound |  | String | Sound to instantly play at the targeted area. |
 | ValidRelationships | Ally | [`PlayerRelationship`](#playerrelationship) | Player relationships which condition can be applied to. |
 | Sequence | active | String | Sequence to play for granting actor when activated. This requires the actor to have the WithSpriteBody trait or one of its derivatives. |
-| BlockedCursor | move-blocked | String | Cursor to display when there are no units to apply the condition in range. |
 | FootprintImage | overlay | String |  |
 | FootprintSequence | target-select | String |  |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
@@ -3633,6 +3640,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -4397,6 +4405,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -4631,7 +4640,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### ParatroopersPower
 
-> Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
+> Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4646,10 +4655,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowImpassableCells | False | Boolean | Risks stuck units when they don't have the Paratrooper trait. |
 | CameraActor |  | String | Actor to spawn when the paradrop starts. |
 | CameraRemoveDelay | 85 | Integer | Amount of time (in ticks) to keep the camera alive while the passengers drop. |
+| BeaconDistanceOffset | 4c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation. |
 | UseDirectionalTarget | False | Boolean | Enables the player directional targeting |
+| Arrows | arrow-t, arrow-tl, arrow-l, arrow-bl, arrow-b, arrow-br, arrow-r, arrow-tr | Collection of String |  |
 | DirectionArrowAnimation |  | String | Animation used to render the direction arrows. |
 | DirectionArrowPalette | chrome | String | Palette for direction cursor animation. |
-| BeaconDistanceOffset | 4c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -4659,6 +4669,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -4910,6 +4921,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
@@ -5705,7 +5717,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EffectImage |  | String |  |
 | EffectSequence |  | String |  |
 | EffectPalette |  | String |  |
-| BlockedCursor | move-blocked | String | Cursor to display when the location is unsuitable. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
@@ -5715,6 +5726,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AllowMultiple | False | Boolean | Allow multiple instances of the same support power. |
 | OneShot | False | Boolean | Allow this to be used only once. |
 | Cursor | ability | String | Cursor to display for using this support power. |
+| BlockedCursor | generic-blocked | String | Cursor when unable to activate on this position.  |
 | StartFullyCharged | False | Boolean | If set to true, the support power will be fully charged when it becomes available. Normal rules apply for subsequent charges. |
 | Prerequisites |  | Collection of String |  |
 | DetectedSound |  | String |  |
