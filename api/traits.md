@@ -7533,6 +7533,28 @@ Related types with their possible values are listed [at the bottom](#related-val
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### WithSwitchableOverlay
+**Renders a decorative animation on units and buildings. Overlay switching controlled by PauseOnCondition.**
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Image |  | String | Image used for this decoration. Defaults to the actor's type. |
+| SwitchingSequence |  | String | Animation to play when the trait is enabling and disabling. |
+| EnabledSequence |  | String | Animation to play when the trait is enabled |
+| DisabledSequence |  | String | Animation to play when the trait is disabled. |
+| Offset | 0,0,0 | 3D World Vector | Position relative to body |
+| Palette |  | String | Custom palette name |
+| IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName |
+| IsDecoration | False | Boolean |  |
+| SwitchingLevel | 20 | Integer | How long (1 level = 1 tick) should the switching animation play? |
+| SwitchingLevelOnSpawn | 20 | Integer | Levels when actor is spawned. |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### WithTextControlGroupDecoration
 **Renders Ctrl groups using typeface.**
 
