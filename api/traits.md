@@ -2336,6 +2336,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
 | Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| PayUpFront | False | Boolean | Player must pay for item upfront |
 | DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
 | BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
 | ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
@@ -2372,6 +2373,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
 | Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| PayUpFront | False | Boolean | Player must pay for item upfront |
 | DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
 | BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
 | ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
@@ -4618,6 +4620,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
 | Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| PayUpFront | False | Boolean | Player must pay for item upfront |
 | DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
 | BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
 | ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
@@ -5059,6 +5062,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Group |  | String | Group queues from separate buildings together into the same tab. |
 | Factions |  | Set of String | Only enable this queue for certain factions. |
 | Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| PayUpFront | False | Boolean | Player must pay for item upfront |
 | DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
 | BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
 | ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
