@@ -7861,12 +7861,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | GrowthSequences | grow1, grow2, grow3 | Collection of String |  |
 | SpurtSequence | spurt | String |  |
-| Lifetime | 1000, 3000 | Collection of Integer | The range of time (in ticks) that the spicebloom will take to grow until it blows up. |
+| Lifetime | 2000, 3000 | Collection of Integer | The range of time (in ticks) that the spicebloom will take to grow until it blows up. |
 | ResourceType | Spice | String |  |
 | GrowthTerrainTypes |  | Set of String | Spice blooms only grow on these terrain types. |
 | Weapon |  | String | The weapon to use for spice creation. |
-| Pieces | 2, 12 | Collection of Integer | The amount of spice to expel. |
-| Range | 5 | Integer | The maximum distance in cells that spice may be expelled. |
+| Bursts | 4, 12 | Collection of Integer | The number of times to fire Weapon at the minimum and maximum actor age. |
+| Range | 3, 5 | Collection of Integer | The minimum and maximum distance in cells that spice may be expelled. |
+| BurstInterval | 1 | Integer | Delay between each burst. (in Ticks) |
 
 ## OpenRA.Mods.D2k.Traits.Buildings
 
