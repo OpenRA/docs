@@ -7063,7 +7063,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### WithDockingAnimation
 
-> Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
+> Requires trait(s): [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
