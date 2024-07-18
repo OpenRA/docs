@@ -7962,7 +7962,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | InternalName |  | String | This is the internal name for owner checks. |
 | RandomFactionMembers |  | Set of String | Pick a random faction as the player's faction out of this list. |
 | Side |  | String | The side that the faction belongs to. For example, England belongs to the 'Allies' side. |
-| Description |  | String |  |
+| Description |  | String | This is shown in the lobby as a tooltip. |
 | Selectable | True | Boolean |  |
 
 ### FrozenActorLayer
