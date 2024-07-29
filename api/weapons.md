@@ -64,7 +64,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
 | Range | 0c0, 2097151c1023 | Collection of 1D World Distance | Ranges at which each Falloff step is defined. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. |
 | TrackTarget | False | Boolean | Does the beam follow the target. |
 | RenderBeam | True | Boolean | Should the beam be visually rendered? False = Beam is invisible. |
@@ -79,7 +79,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Speed | 0c17 | Collection of 1D World Distance | Projectile speed in WDist / tick, two values indicate variable velocity. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Image |  | String | Image to display. |
 | Sequences | idle | Collection of String | Loop a randomly chosen sequence of Image from this list while this projectile is moving. |
 | Palette | effect | String | The palette used to draw this projectile. |
@@ -134,7 +134,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Projectile can be blocked. |
 | Width | 0c1 | 1D World Distance | The width of the projectile. |
 | BlockerScanRadius | -0c1 | 1D World Distance | Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. |
@@ -154,7 +154,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Color | FF0000 | Color (RRGGBB[AA] notation) | Color of the beam. |
 | TrackTarget | True | Boolean | Beam follows the target. |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Beam can be blocked. |
 | SecondaryBeam | False | Boolean | Draw a second beam (for 'glow' effect). |
 | SecondaryBeamWidth | 0c86 | 1D World Distance | The width of the zap. |
@@ -191,7 +191,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TerrainHeightAware | False | Boolean | Is the missile aware of terrain height levels. Only needed for mods with real, non-visual height levels. |
 | Width | 0c1 | 1D World Distance | Width of projectile (used for finding blocking actors). |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Absolute | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Absolute | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | LockOnInaccuracy | -0c1 | 1D World Distance | Inaccuracy override when successfully locked onto target. Defaults to Inaccuracy if negative. |
 | LockOnProbability | 100 | Integer | Probability of locking onto and following target. |
 | HorizontalRateOfTurn | 20 | 1D World Angle | Horizontal rate of turn. |
@@ -232,7 +232,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | DamageActorsInLine | False | Boolean | Damage all units hit by the beam instead of just the target? |
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
-| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range and 'Absolute' - use set value regardless of range. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are 'Maximum' - scale from 0 to max with range, 'PerCellIncrement' - scale from 0 with range, 'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an IBlocksProjectiles trait. |
 | Duration | 15 | Integer | Duration of the beam and helix |
 | ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |

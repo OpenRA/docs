@@ -3433,7 +3433,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
 | InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
 | ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
-| ChargeThreshhold | -1 | Integer | The ammount of charge that needs to be present for deploy to be issued. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
+| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present for deploy to be issued. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
 | ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
 | CanCancelCondition | False | Boolean | Can DeployedCondition be canceled by followup deploy order? |
 | DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
