@@ -1953,6 +1953,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildingLimits |  | Dictionary with Key: String, Value: Integer | What buildings should the AI have a maximum limit to build. |
 | BuildingDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start building specific buildings. |
 | ProductionMinCashRequirement | 500 | Integer | Only queue construction of a new structure when above this requirement. |
+| AssignRallyPointsInterval | 100 | Integer | Delay (in ticks) between reassigning rally points. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseBuilding
