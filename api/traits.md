@@ -4339,7 +4339,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Type | *(required)* | String | Internal id for this bot. |
-| Name | Unnamed Bot | String | Human-readable name this bot uses. |
+| Name |  | String | Human-readable name this bot uses. |
 | MinOrderQuotientPerTick | 5 | Integer | Minimum portion of pending orders to issue each tick (e.g. 5 issues at least 1/5th of all pending orders). Excess orders remain queued for subsequent ticks. |
 
 ### MusicPlaylist
