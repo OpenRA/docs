@@ -44,8 +44,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CircleWidth | 1 | Real Number | Range circle line width. |
 | CircleBorderColor | 00000060 | Color (RRGGBB[AA] notation) | Range circle border color. |
 | CircleBorderWidth | 3 | Real Number | Range circle border width. |
-| SupportPowerTargetingCondition | support-targeting | String | Condition set to the unit that will execute the attack while the support power is in targeting mode. |
-| SupportPowerAttackingCondition | support-attacking | String | Condition set to the unit is executing the attack while the support power attack is in progress. |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
