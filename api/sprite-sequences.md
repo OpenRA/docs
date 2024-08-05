@@ -26,17 +26,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | TilesetFilenames |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: filename to override the Filename key. |
 | TilesetFilenamesPattern |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: <filename pattern> to override the FilenamePattern key. |
 
-### D2kSpriteSequence
-**A sprite sequence that understands how to apply colour remapping to D2k sprites.**
-
-> Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Remap | 00000000 | Color (RRGGBB[AA] notation) | Sets the player remap reference colour. |
-| UseShadow | True | Boolean | Remap embedded palette index 1 to shadow. |
-| ConvertShroudToFog | False | Boolean | Indicates that this is a fog sprite definition. |
-
 ## OpenRA.Mods.Common.Graphics
 
 ### DefaultSpriteSequence
@@ -81,6 +70,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | TilesetFilenames |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: filename to override the Filename key. |
 | TilesetFilenamesPattern |  | Dictionary with Key: String, Value: String | Dictionary of <tileset name>: <filename pattern> to override the FilenamePattern key. |
+
+## OpenRA.Mods.D2k.Graphics
+
+### D2kSpriteSequence
+**A sprite sequence that understands how to apply colour remapping to D2k sprites.**
+
+> Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Remap | 00000000 | Color (RRGGBB[AA] notation) | Sets the player remap reference colour. |
+| UseShadow | True | Boolean | Remap embedded palette index 1 to shadow. |
+| ConvertShroudToFog | False | Boolean | Indicates that this is a fog sprite definition. |
 
 # Related value types (enums):
 
