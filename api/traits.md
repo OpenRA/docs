@@ -3764,7 +3764,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HarvesterTypes |  | Set of String | Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. |
 | RefineryTypes |  | Set of String | Actor types that are counted as refineries. Currently only needed by harvester replacement system. |
 | ScanForIdleHarvestersInterval | 50 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
-| HarvesterEnemyAvoidanceRadius | 8c0 | 1D World Distance | Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. |
+| ScanIntervalMultiplerWhenNoResources | 5 | Integer | When an idle harvester cannot find resources, increase the wait to this many scan intervals. |
+| HarvesterEnemyAvoidanceRadius | 10c0 | 1D World Distance | Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. |
+| HarvesterEnemyAvoidanceCostMultipler | 20 | Integer | For each enemy within the threat radius, apply the following cost multiplier for every cell that needs to be moved through. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Harvester
