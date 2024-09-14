@@ -4995,6 +4995,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | WaitTickAfterProduce | 0 | Integer | Tick that aircraft should wait after producing. |
 | LandOffset | 0,0,0 | 3D World Vector | Offset the aircraft used for landing. |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -5015,6 +5016,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -5026,6 +5028,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
@@ -5043,6 +5046,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ReadyAudio |  | String | Speech notification to play when dropping the unit. |
 | ReadyTextNotification |  | String | Text notification to display when dropping the unit. |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
