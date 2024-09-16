@@ -2825,16 +2825,13 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| BinSize | 250 | Integer | Size of partition bins (world pixels) |
+| BinSize | 250 | Integer | Size of partition bins (world pixels). |
+| DefaultActorFacing | 384 | 1D World Angle | Facing of new actors. |
 
 ### EditorCursorLayer
 **Required for the map editor to work. Attach this to the world actor.**
 
 > Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| PreviewFacing | 384 | 1D World Angle |  |
 
 ### EditorOnlyTooltip
 **Shown in map editor.**
@@ -2853,19 +2850,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
-
-### EditorSelectionLayer
-**Renders the selection grid in the editor.**
-
-> Requires trait(s): [`LoadWidgetAtGameStart`](#loadwidgetatgamestart).
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| MainColor | FFFFFF | Color (RRGGBB[AA] notation) | Main color of the selection grid. |
-| AltColor | 000000 | Color (RRGGBB[AA] notation) | Alternate color of the selection grid. |
-| PasteColor | 4CFF00 | Color (RRGGBB[AA] notation) | Main color of the paste grid. |
-| LineThickness | 1 | Integer | Thickness of the selection grid lines. |
-| AltPixelOffset | 1,1 | 2D Integer | Render offset of the secondary grid lines. |
 
 ### EjectOnDeath
 **Eject a ground soldier or a paratrooper while in the air.**
