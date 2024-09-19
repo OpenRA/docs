@@ -850,7 +850,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### MadTank
 
-> Requires trait(s): [`Explodes`](#explodes), [`WithFacingSpriteBody`](#withfacingspritebody).
+> Requires trait(s): [`FireWarheadsOnDeath`](#firewarheadsondeath), [`WithFacingSpriteBody`](#withfacingspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1434,19 +1434,20 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AirstrikePower
+**Support power that spawns a group of aircraft and orders them to deliver an airstrike.**
 
 > Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| UnitType | badr.bomber | String |  |
-| SquadSize | 1 | Integer |  |
-| SquadOffset | -1536,1536,0 | 3D World Vector |  |
-| QuantizedFacings | 32 | Integer |  |
-| Cordon | 5c0 | 1D World Distance |  |
-| CameraActor |  | String | Actor to spawn when the aircraft start attacking |
-| CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking |
-| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation |
+| UnitType | badr.bomber | String | Aircraft used to deliver the airstrike. |
+| SquadSize | 1 | Integer | Number of aircraft to use in an airstrike formation. |
+| SquadOffset | -1536,1536,0 | 3D World Vector | Offset vector between the aircraft in a formation. |
+| QuantizedFacings | 32 | Integer | Number of different possible facings of the aircraft (used only for choosing a random direction to spawn from.) |
+| Cordon | 5c0 | 1D World Distance | Additional distance from the map edge to spawn the aircraft. |
+| CameraActor |  | String | Actor to spawn when the aircraft start attacking. |
+| CameraRemoveDelay | 25 | Integer | Amount of time to keep the camera alive after the aircraft have finished attacking. |
+| BeaconDistanceOffset | 6c0 | 1D World Distance | Weapon range offset to apply during the beacon clock calculation. |
 | UseDirectionalTarget | False | Boolean | Enables the player directional targeting |
 | Arrows | arrow-t, arrow-tl, arrow-l, arrow-bl, arrow-b, arrow-br, arrow-r, arrow-tr | Collection of String |  |
 | DirectionArrowAnimation |  | String | Animation used to render the direction arrows. |
@@ -2979,24 +2980,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### Explodes
-**This actor explodes when killed.**
-
-> Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
-| EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
-| LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
-| Chance | 100 | Integer | Chance that this actor will explode at all. |
-| DamageThreshold | 0 | Integer | Health level at which actor will explode. |
-| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
-| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
-| Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
 ### ExplosionOnDamageTransition
 **This actor triggers an explosion on itself when transitioning to a specific damage state.**
 
@@ -3040,6 +3023,18 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Modifier | 100 | Integer | Percentage modifier to apply. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### FireProjectilesOnDeath
+**Throws particles when the actor is destroyed that do damage on impact.**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
+| Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
+| Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### FireWarheads
 **Detonate defined warheads at the current location at a set interval.**
 
@@ -3051,6 +3046,24 @@ Related types with their possible values are listed [at the bottom](#related-val
 | StartCooldown | 0 | Integer | How long (in ticks) to wait before the first detonation. |
 | Interval | 1 | Integer | How long (in ticks) to wait after a detonation. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### FireWarheadsOnDeath
+**This actor fires warheads when killed.**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Weapon | *(required)* | String | Default weapon to use for explosion if ammo/payload is loaded. |
+| EmptyWeapon | UnitExplode | String | Fallback weapon to use for explosion if empty (no ammo/payload). |
+| LoadedChance | 100 | Integer | Chance that the explosion will use Weapon instead of EmptyWeapon when exploding, provided the actor has ammo/payload. |
+| Chance | 100 | Integer | Chance that this actor will explode at all. |
+| DamageThreshold | 0 | Integer | Health level at which actor will explode. |
+| DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
+| Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FixedColorPalette
@@ -4627,14 +4640,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
 ### ParatroopersPower
+**Support power that spawns and delivers units to the desired location via aircraft.**
 
 > Inherits from: `DirectionalSupportPower`, `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| UnitType | badr | String |  |
-| SquadSize | 1 | Integer |  |
-| SquadOffset | -1536,1536,0 | 3D World Vector |  |
+| UnitType | badr | String | Aircraft used to deliver the drop. |
+| SquadSize | 1 | Integer | Number of aircraft to use in the formation. |
+| SquadOffset | -1536,1536,0 | 3D World Vector | Distance between the aircraft in a formation. |
 | ReinforcementsArrivedSpeechNotification |  | String | Speech notification to play when entering the drop zone. |
 | ReinforcementsArrivedTextNotification |  | String | Text notification to display when entering the drop zone. |
 | QuantizedFacings | 32 | Integer | Number of facings that the delivery aircraft may approach from. |
@@ -6082,18 +6096,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaxThrowAngle | 170 | 1D World Angle | Maximum angle to throw the particle |
 | Velocity | 75 | Integer | Speed to throw the particle (horizontal WPos/tick) |
 | TurnSpeed | 60 | 1D World Angle | Speed at which the particle turns. |
-
-### ThrowsShrapnel
-**Throws particles when the actor is destroyed that do damage on impact.**
-
-> Inherits from: `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
-| Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
-| Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### TimeLimitManager
 **This trait allows setting a time limit on matches. Attach this to the World actor.**
@@ -8024,7 +8026,7 @@ Referenced by: [`Cloak`](#cloak)
 ### DamageSource
 Possible values: `Self`, `Killer`
 
-Referenced by: [`Explodes`](#explodes)
+Referenced by: [`FireWarheadsOnDeath`](#firewarheadsondeath)
 
 ### DamageState
 Possible values: `Undamaged`, `Light`, `Medium`, `Heavy`, `Critical`, `Dead`
@@ -8054,7 +8056,7 @@ Referenced by: [`Demolition`](#demolition), [`Infiltrates`](#infiltrates), [`Ins
 ### ExplosionType
 Possible values: `Footprint`, `CenterPosition`
 
-Referenced by: [`Explodes`](#explodes)
+Referenced by: [`FireWarheadsOnDeath`](#firewarheadsondeath)
 
 ### IdleBehaviorType
 Possible values: `None`, `Land`, `ReturnToBase`, `LeaveMap`, `LeaveMapAtClosestEdge`
