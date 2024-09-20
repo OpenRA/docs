@@ -3977,6 +3977,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
 | DecorationBounds |  | Collection of 1D World Distance | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead |
+| Polygon |  | Collection of 2D Integer | Defines a custom 2D polygon for mouse interaction with the actor. If null, Bounds will be used instead Each vertex has two components (so two numbers), which define an x and y offset from the actor center. |
 
 ### IsometricSelectable
 **This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers.**
@@ -5613,6 +5614,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Voice | Select | String |  |
 | Bounds |  | Collection of 1D World Distance | Defines a custom rectangle for mouse interaction with the actor. If null, the engine will guess an appropriate size based on the With*Body trait. The first two numbers define the width and height of the rectangle as a world distance. The (optional) second two numbers define an x and y offset from the actor center. |
 | DecorationBounds |  | Collection of 1D World Distance | Defines a custom rectangle for Decorations (e.g. the selection box). If null, Bounds will be used instead |
+| Polygon |  | Collection of 2D Integer | Defines a custom 2D polygon for mouse interaction with the actor. If null, Bounds will be used instead Each vertex has two components (so two numbers), which define an x and y offset from the actor center. |
 
 ### Selection
 
@@ -6629,6 +6631,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BorderColor | 00000060 | Color (RRGGBB[AA] notation) | Border color of the circle and scanner update line. |
 | BorderWidth | 3 | Real Number | Range circle border width. |
 | Visible | WhenSelected | [`DetectionCircleVisibility`](#detectioncirclevisibility) | When to show the detection circle. Valid values are `Always`, and `WhenSelected` |
+
+### RenderMouseBounds
+**Renders polygon for mouse bounds (usually defined by Interactable or Selectable). Put on actor for which the polygon should be rendered.**
+
+> Requires trait(s): [`Interactable`](#interactable).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| PolygonLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the polygon lines. |
 
 ### RenderRangeCircle
 **Draw a circle indicating my weapon's range.**
