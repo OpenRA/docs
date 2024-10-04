@@ -251,7 +251,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | Function | Description |
 |---------:|-------------|
 | **void SetMissionText(string text, Color? color = nil)** | Displays a text message at the top center of the screen. |
-| **string Translate(string translationKey, LuaTable args = nil)** | Translates text into the users language. The translation key must be added to the language files (*.ftl). Args can be passed to be substituted into the resulting message. |
+| **string Translate(string key, LuaTable args = nil)** | Formats a language string for a given string key defined in the language files (*.ftl). Args can be passed to be substituted into the resulting message. |
 
 ### Utils
 
