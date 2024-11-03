@@ -2894,6 +2894,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Description |  | String | Explains the purpose in the in-game encyclopedia. |
 | Order | 0 | Integer | Number for ordering the list. |
 | Category |  | String | Group under this heading. |
+| Scale | 1 | Real Number | Scale the actor preview. |
+| PreviewOwner |  | String | Sets the player color of the actor preview to a player defined in the shellmap. |
+| HideBuildable | False | Boolean | Ignore the Buildable trait when listing information. |
+| BuildableQueue |  | String | Specifies a production queue type if the actor can be built from multiple queues. |
 
 ### EnemyWatcher
 **Tracks neutral and enemy actors' visibility and notifies the player. Attach this to the player actor. The actors to track need the 'AnnounceOnSeen' trait.**
