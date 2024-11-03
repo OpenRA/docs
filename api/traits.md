@@ -5727,6 +5727,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EffectImage |  | String |  |
 | EffectSequence |  | String |  |
 | EffectPalette |  | String |  |
+| EffectPaletteIsPlayerPalette | False | Boolean |  |
 | ChargeInterval | 0 | Integer | Measured in ticks. |
 | IconImage | icon | String |  |
 | Icon |  | String | Icon sprite displayed in the support power palette. |
