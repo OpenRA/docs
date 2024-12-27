@@ -3337,6 +3337,32 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ExcludedActorTypes |  | Collection of String | Actor types that this crate action will not occur for. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### GrantChargedConditionOnToggle
+**Grant a condition via player orders for a specified amount of time.**
+
+> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ActivatedCondition | *(required)* | String | The condition to grant when enabled. |
+| ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
+| InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
+| ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
+| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present to turn on the condition. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
+| ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
+| CanCancelCondition | False | Boolean | Can ActivatedCondition be turned off manually? |
+| CancelsCurrentActivity | False | Boolean | Should we interrupt the current activity |
+| Cursor | deploy | String | Cursor to display when able to trigger a state change. |
+| BlockedCursor | deploy-blocked | String | Cursor to display when unable to trigger a state change. |
+| ActivationSounds |  | Collection of String | Play a randomly selected sound from this list when turning on. |
+| DeactivattionSounds |  | Collection of String | Play a randomly selected sound from this list when turning off. |
+| Voice | Action | String |  |
+| DeactivatedColor | FF00FF | Color (RRGGBB[AA] notation) | Color of the charge bar when deactivated. |
+| ActivatedColor | 8B008B | Color (RRGGBB[AA] notation) | Color of the charge bar  when activated. |
+| DisplayBarWhenEmpty | True | Boolean | Should the charge bar be displayed when not charged or the trait is disabled? |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### GrantCondition
 **Grants a condition while the trait is active.**
 
@@ -3420,30 +3446,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UndeployOnPickup | False | Boolean | Undeploy before the actor is picked up by a Carryall? |
 | Voice | Action | String |  |
 | EditorDeployedDisplayOrder | 4 | Integer | Display order for the deployed checkbox in the map editor |
-| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
-| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### GrantConditionOnDeployWithCharge
-**Allow deploying on specified charge to grant a condition for a specified duration.**
-
-> Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| DeployedCondition | *(required)* | String | The condition to grant after deploying. |
-| ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
-| InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
-| ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
-| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present for deploy to be issued. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
-| ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
-| CanCancelCondition | False | Boolean | Can DeployedCondition be canceled by followup deploy order? |
-| DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
-| DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to (un)deploy the actor. |
-| DeploySounds |  | Collection of String | Play a randomly selected sound from this list when deploying. |
-| UndeploySounds |  | Collection of String | Play a randomly selected sound from this list when undeploying. |
-| Voice | Action | String |  |
-| ChargingColor | FF00FF | Color (RRGGBB[AA] notation) |  |
-| DeployedColor | 8B008B | Color (RRGGBB[AA] notation) |  |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
