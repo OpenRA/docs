@@ -4186,6 +4186,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | GameSpeedDropdownLocked | False | Boolean | Prevent the game speed from being changed in the lobby. |
 | GameSpeedDropdownVisible | True | Boolean | Display the game speed option in the lobby. |
 | GameSpeedDropdownDisplayOrder | 0 | Integer | Display order for the game speed option in the lobby. |
+| ViewportHeight |  | 1D World Distance (optional) | If defined, overrides the viewport height for all players to this many world units. |
 
 ### MapStartingLocations
 **Allows the map to have working spawnpoints. Also controls the 'Separate Team Spawns' checkbox in the lobby options.**
