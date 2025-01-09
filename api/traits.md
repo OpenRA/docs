@@ -2394,6 +2394,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
+### ClearMapGenerator
+**A map generator that clears a map.**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Name | *(required)* | String | Human-readable name this generator uses. |
+| FluentReferences |  | Collection of String |  |
+| Type | *(required)* | String | Internal id for this map generator. |
+| Settings |  | MiniYaml |  |
+
 ### CliffBackImpassabilityLayer
 **Sets a custom terrain type for cells that are obscured by back-facing cliffs. This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini.**
 
@@ -5198,6 +5208,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Notification |  | String | Speech notification to play when setting a new rallypoint. |
 | TextNotification |  | String | Text notification to display when setting a new rallypoint. |
 | ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
+
+### RaMapGenerator
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| FluentReferences |  | Collection of String |  |
+| Settings |  | MiniYaml |  |
 
 ### RangeMultiplier
 **Modifies the range of weapons fired by this actor.**
