@@ -353,11 +353,11 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool AcceptsCondition(string condition)** | Check whether this actor accepts a specific external condition.<br />**Requires Trait:** ExternalCondition |
 | **bool AddTag(string tag)** | Add a tag to the actor. Returns true on success, false otherwise (for example the actor may already have the given tag). |
 | **void CallFunc(LuaFunction func)**<br />*Queued Activity* | Run an arbitrary Lua function. |
-| **WPos CenterPosition { get; }** | The actor position in world coordinates. |
+| **WPos CenterPosition { get; }** | The actor position in world coordinates.<br />**Requires Trait:** IOccupySpace |
 | **void Deploy()**<br />*Queued Activity* | Queue a new transformation.<br />**Requires Trait:** Transforms |
 | **void Destroy()**<br />*Queued Activity* | Remove the actor from the game, without triggering any death notification. |
 | **Player EffectiveOwner { get; }** | The effective owner of the actor. |
-| **WAngle Facing { get; }** | The direction that the actor is facing. |
+| **WAngle Facing { get; }** | The direction that the actor is facing.<br />**Requires Trait:** IFacing |
 | **void Flash(Color color, int count = 2, int interval = 2, int delay = 0)** | Render a target flash on the actor. |
 | **int GrantCondition(string condition, int duration = 0)** | Grant an external condition on this actor and return the revocation token.<br />Conditions must be defined on an ExternalConditions trait on the actor.<br />If duration > 0 the condition will be automatically revoked after the defined number of ticks.<br />**Requires Trait:** ExternalCondition |
 | **bool HasProperty(string name)** | Test whether an actor has a specific property. |
@@ -368,7 +368,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool IsInWorld { get; set; }** | Specifies whether the actor is in the world. |
 | **bool IsTaggable { get; }** | Specifies whether or not the actor supports 'tags'. |
 | **void Kill(Object damageTypes = nil)** | Kill the actor. damageTypes may be omitted, specified as a string, or as table of strings.<br />**Requires Trait:** IHealth |
-| **CPos Location { get; }** | The actor position in cell coordinates. |
+| **CPos Location { get; }** | The actor position in cell coordinates.<br />**Requires Trait:** IOccupySpace |
 | **int MaxHealth { get; }** | Maximum health of the actor.<br />**Requires Trait:** IHealth |
 | **Player Owner { get; set; }** | The player that owns the actor. |
 | **bool RemoveTag(string tag)** | Remove a tag from the actor. Returns true on success, false otherwise (tag was not present). |
