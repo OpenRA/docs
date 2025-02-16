@@ -161,7 +161,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AttackTesla
-**Implements the charge-then-burst attack logic specific to the RA tesla coil. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Attack/AttackTesla.cs)**
+**Implements the charge-then-burst attack logic specific to the RA Tesla coil. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Attack/AttackTesla.cs)**
 
 > Inherits from: `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
@@ -3414,7 +3414,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ChargedCondition |  | String | The condition to grant when charge is above ChargeThreshhold. |
 | InitialCharge | -1 | Integer | Charge to start with. If set to -1 the unit will start with full charge. |
 | ChargeDuration | 500 | Integer | Cooldown (in ticks) to reach full charge. |
-| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present to turn on the condition. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is percentally smaller. |
+| ChargeThreshhold | -1 | Integer | The amount of charge that needs to be present to turn on the condition. If set to -1, threshold is set to full charge. If activated without full charge ConditionDuration is proportionally smaller. |
 | ConditionDuration | 1 | Integer | How long (in ticks) should the condition stay active? |
 | CanCancelCondition | False | Boolean | Can ActivatedCondition be turned off manually? |
 | CancelsCurrentActivity | False | Boolean | Should we interrupt the current activity |
@@ -4348,7 +4348,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MineFieldRadius | 1 | Integer | Radius per mine laying order. |
 | AwayFromAlliedTargetTypes |  | Collection of TargetableType | Minefield location is cancelled if those whose target type belong to allied nearby. |
 | AwayFromEnemyTargetTypes |  | Collection of TargetableType | Minefield location is cancelled if those whose target type belong to enemy nearby. |
-| AwayFromCellDistance | 9 | Integer | Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype. In addition, if any emeny actor within this range and minefield location is not cancelled, minelayer will try lay mines at the 3/4 path to minefield location |
+| AwayFromCellDistance | 9 | Integer | Minefield location check distance to AwayFromAlliedTargettype and AwayFromEnemyTargettype. In addition, if any enemy actor within this range and minefield location is not cancelled, minelayer will try lay mines at the 3/4 path to minefield location |
 | FavoritePositionDistance | 6 | Integer | Merge conflict point minefield position to a favorite minefield position if within this range and closest. If favorite minefield positions is at the max of 5, we always merge it to closest regardless of this |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
