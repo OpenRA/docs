@@ -47,6 +47,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Duration | 2 | Integer | How long (in ticks) to play the sprite sequences. |
 | DamageDuration | 1 | Integer | How long (in ticks) until applying damage. Can't be longer than `Duration` |
 | TrackTarget | True | Boolean | Follow the targeted actor when it moves. |
+| ZOffset | 0 | Integer | Controls Z sorting. |
 
 ## OpenRA.Mods.Common.Projectiles
 
