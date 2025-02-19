@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version playtest-20241228 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version playtest-20250220 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -216,12 +216,12 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void ClearAll(Actor actor)** | Removes all triggers from this actor. Note that the removal will only take effect at the end of a tick, so you must not add new triggers at the same time that you are calling this function. |
 | **void OnAddedToWorld(Actor actor, LuaFunction func)** | Call a function when this actor is added to the world. The callback function will be called as func(self: actor). |
 | **void OnAllKilled(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group are killed. The callback function will be called as func(). |
-| **void OnAllKilledOrCaptured(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been killed or captured. The callback function will be called as func(). |
+| **void OnAllKilledOrCaptured(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been killed or captured. This trigger is only called once. The callback function will be called as func(). |
 | **void OnAllRemovedFromWorld(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been removed from the world. The callback function will be called as func(). |
-| **void OnAnyKilled(Actor[] actors, LuaFunction func)** | Call a function when one of the actors in a group is killed. The callback function will be called as func(killed: actor). |
+| **void OnAnyKilled(Actor[] actors, LuaFunction func)** | Call a function when one of the actors in a group is killed. This trigger is only called once. The callback function will be called as func(killed: actor). |
 | **void OnAnyProduction(LuaFunction func)** | Call a function when any actor produces another actor. The callback function will be called as func(producer: actor, produced: actor, productionType: string). |
-| **void OnCapture(Actor actors, LuaFunction func)** | Call a function when this actor is captured. The callback function will be called as func(self: actor, captor: actor, oldOwner: player, newOwner: player). |
-| **void OnDamaged(Actor actor, LuaFunction func)** | Call a function when the actor is damaged. The callback function will be called as func(self: actor, attacker: actor, damage: integer). |
+| **void OnCapture(Actor actor, LuaFunction func)** | Call a function when this actor is captured. The callback function will be called as func(self: actor, captor: actor, oldOwner: player, newOwner: player). |
+| **void OnDamaged(Actor actor, LuaFunction func)** | Call a function when the actor is damaged. Repairs or other negative damage can activate this trigger. The callback function will be called as func(self: actor, attacker: actor, damage: integer). |
 | **void OnDiscovered(Actor actor, LuaFunction func)** | Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(discovered: actor, discoverer: player). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
 | **int OnEnteredFootprint(CPos[] cells, LuaFunction func)** | Call a function when a ground-based actor enters this cell footprint. Returns the trigger ID for later removal using RemoveFootprintTrigger(id: integer). The callback function will be called as func(a: actor, id: integer). |
 | **int OnEnteredProximityTrigger(WPos pos, WDist range, LuaFunction func)** | Call a function when an actor enters this range. Returns the trigger ID for later removal using RemoveProximityTrigger(id: integer). The callback function will be called as func(a: actor, id: integer). |
@@ -230,7 +230,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void OnIdle(Actor actor, LuaFunction func)** | Call a function each tick that the actor is idle. The callback function will be called as func(self: actor). |
 | **void OnInfiltrated(Actor actor, LuaFunction func)** | Call a function when this actor is infiltrated. The callback function will be called as func(self: actor, infiltrator: actor). |
 | **void OnKilled(Actor actor, LuaFunction func)** | Call a function when the actor is killed. The callback function will be called as func(self: actor, killer: actor). |
-| **void OnKilledOrCaptured(Actor actor, LuaFunction func)** | Call a function when this actor is killed or captured. The callback function will be called as func(). |
+| **void OnKilledOrCaptured(Actor actor, LuaFunction func)** | Call a function when this actor is killed or captured. This trigger is only called once. The callback function will be called as func(). |
 | **void OnObjectiveAdded(Player player, LuaFunction func)** | Call a function when this player is assigned a new objective. The callback function will be called as func(p: player, objectiveId: integer). |
 | **void OnObjectiveCompleted(Player player, LuaFunction func)** | Call a function when this player completes an objective. The callback function will be called as func(p: player, objectiveId: integer). |
 | **void OnObjectiveFailed(Player player, LuaFunction func)** | Call a function when this player fails an objective. The callback function will be called as func(p: player, objectiveId: integer). |
@@ -239,7 +239,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void OnPlayerDiscovered(Player discovered, LuaFunction func)** | Call a function when this player is discovered by an enemy or neutral player. The callback function will be called as func(discovered: player, discoverer: player, discoveredActor: actor).The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
 | **void OnPlayerLost(Player player, LuaFunction func)** | Call a function when this player fails any primary objective. The callback function will be called as func(p: player). |
 | **void OnPlayerWon(Player player, LuaFunction func)** | Call a function when this player completes all primary objectives. The callback function will be called as func(p: player). |
-| **void OnProduction(Actor actors, LuaFunction func)** | Call a function when this actor produces another actor. The callback function will be called as func(producer: actor, produced: actor). |
+| **void OnProduction(Actor actor, LuaFunction func)** | Call a function when this actor produces another actor. The callback function will be called as func(producer: actor, produced: actor). |
 | **void OnRemovedFromWorld(Actor actor, LuaFunction func)** | Call a function when this actor is removed from the world. The callback function will be called as func(self: actor). |
 | **void OnSold(Actor actor, LuaFunction func)** | Call a function when this actor is sold. The callback function will be called as func(self: actor). |
 | **void OnTimerExpired(LuaFunction func)** | Call a function when the game timer expires. The callback function will be called as func(). |
@@ -353,11 +353,11 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool AcceptsCondition(string condition)** | Check whether this actor accepts a specific external condition.<br />**Requires Trait:** ExternalCondition |
 | **bool AddTag(string tag)** | Add a tag to the actor. Returns true on success, false otherwise (for example the actor may already have the given tag). |
 | **void CallFunc(LuaFunction func)**<br />*Queued Activity* | Run an arbitrary Lua function. |
-| **WPos CenterPosition { get; }** | The actor position in world coordinates. |
+| **WPos CenterPosition { get; }** | The actor position in world coordinates.<br />**Requires Trait:** IOccupySpace |
 | **void Deploy()**<br />*Queued Activity* | Queue a new transformation.<br />**Requires Trait:** Transforms |
 | **void Destroy()**<br />*Queued Activity* | Remove the actor from the game, without triggering any death notification. |
-| **Player EffectiveOwner { get; }** | The effective owner of the actor. |
-| **WAngle Facing { get; }** | The direction that the actor is facing. |
+| **Player EffectiveOwner { get; }** | The effective (displayed) owner of the actor. This may differ from the true owner in some cases, such as disguised actors. |
+| **WAngle Facing { get; }** | The direction that the actor is facing.<br />**Requires Trait:** IFacing |
 | **void Flash(Color color, int count = 2, int interval = 2, int delay = 0)** | Render a target flash on the actor. |
 | **int GrantCondition(string condition, int duration = 0)** | Grant an external condition on this actor and return the revocation token.<br />Conditions must be defined on an ExternalConditions trait on the actor.<br />If duration > 0 the condition will be automatically revoked after the defined number of ticks.<br />**Requires Trait:** ExternalCondition |
 | **bool HasProperty(string name)** | Test whether an actor has a specific property. |
@@ -368,7 +368,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool IsInWorld { get; set; }** | Specifies whether the actor is in the world. |
 | **bool IsTaggable { get; }** | Specifies whether or not the actor supports 'tags'. |
 | **void Kill(Object damageTypes = nil)** | Kill the actor. damageTypes may be omitted, specified as a string, or as table of strings.<br />**Requires Trait:** IHealth |
-| **CPos Location { get; }** | The actor position in cell coordinates. |
+| **CPos Location { get; }** | The actor position in cell coordinates.<br />**Requires Trait:** IOccupySpace |
 | **int MaxHealth { get; }** | Maximum health of the actor.<br />**Requires Trait:** IHealth |
 | **Player Owner { get; set; }** | The player that owns the actor. |
 | **bool RemoveTag(string tag)** | Remove a tag from the actor. Returns true on success, false otherwise (tag was not present). |
@@ -422,7 +422,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 |---------:|-------------|
 | **void ActivateIonCannon(CPos target)** | Activate the actor's IonCannonPower.<br />**Requires Trait:** IonCannonPower |
 | **void ActivateNukePower(CPos target)** | Activate the actor's NukePower.<br />**Requires Trait:** NukePower |
-| **void Chronoshift(LuaTable unitLocationPairs, int duration = 0, bool killCargo = False)** | Chronoshift a group of actors. A duration of 0 will teleport the actors permanently.<br />**Requires Trait:** ChronoshiftPower |
+| **void Chronoshift(LuaTable unitLocationPairs, int duration = 0, bool killCargo = False)** | Chronoshift a group of actors. A duration of 0 will teleport the actors permanently. If a given cell is unexplored for this power's owner, the closest valid cell will be used instead.<br />**Requires Trait:** ChronoshiftPower |
 | **Actor[] TargetAirstrike(WPos target, WAngle? facing = nil)** | Activate the actor's Airstrike Power. Returns the aircraft that will attack.<br />**Requires Trait:** AirstrikePower |
 | **Actor[] TargetParatroopers(WPos target, WAngle? facing = nil)** | Activate the actor's Paratroopers Power. Returns the aircraft that will drop the reinforcements.<br />**Requires Trait:** ParatroopersPower |
 
@@ -460,7 +460,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **bool IsObjectiveCompleted(int id)**<br />*Queued Activity* | Returns true if the objective has been successfully completed, false otherwise.<br />**Requires Trait:** MissionObjectives |
 | **bool IsObjectiveFailed(int id)**<br />*Queued Activity* | Returns true if the objective has been failed, false otherwise.<br />**Requires Trait:** MissionObjectives |
 | **void MarkCompletedObjective(int id)**<br />*Queued Activity* | Mark an objective as completed.  This needs the objective ID returned by AddObjective as argument.  When this player has completed all primary objectives, (s)he has won the game.<br />**Requires Trait:** MissionObjectives |
-| **void MarkFailedObjective(int id)**<br />*Queued Activity* | Mark an objective as failed.  This needs the objective ID returned by AddObjective as argument.  Secondary objectives do not have any influence whatsoever on the outcome of the game.<br />**Requires Trait:** MissionObjectives |
+| **void MarkFailedObjective(int id)**<br />*Queued Activity* | Mark an objective as failed.  This needs the objective ID returned by AddObjective as argument.  Secondary objectives do not have any influence whatsoever on the outcome of the game. It is possible to mark a completed objective as a failure.<br />**Requires Trait:** MissionObjectives |
 
 
 ### Player
