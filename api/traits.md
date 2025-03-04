@@ -3030,6 +3030,16 @@ Related types with their possible values are listed [at the bottom](#related-val
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### ExperimentalMapGenerator
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ExperimentalMapGenerator.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| FluentReferences |  | Collection of String |  |
+| Settings |  | MiniYaml |  |
+
 ### ExplodeCrateAction
 **Fires a weapon at the location when collected. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Crates/ExplodeCrateAction.cs)**
 
@@ -5298,16 +5308,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Notification |  | String | Speech notification to play when setting a new rallypoint. |
 | TextNotification |  | String | Text notification to display when setting a new rallypoint. |
 | ForceSetType |  | String | Used to group equivalent actors to allow force-setting a rallypoint (e.g. for Primary production). |
-
-### RaMapGenerator
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/RaMapGenerator.cs)**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Type | *(required)* | String |  |
-| Name | *(required)* | String |  |
-| FluentReferences |  | Collection of String |  |
-| Settings |  | MiniYaml |  |
 
 ### RangeMultiplier
 **Modifies the range of weapons fired by this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Multipliers/RangeMultiplier.cs)**
