@@ -265,7 +265,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Speed | 0c128 | Collection of 1D World Distance | Projectile speed in WDist / tick, two values indicate a randomly picked velocity per blast. |
 | DamageInterval | 1 | Integer | The number of ticks between the blast causing warhead impacts in its area of effect. |
-| ZOffset | 0 | Integer | Equivalent to sequence ZOffset. Controls Z sorting. |
 | MinDistance | 0c0 | 1D World Distance | The minimum distance the blast travels. |
 | Width | 0c650 | 1D World Distance | Width of projectile (used for finding blocking actors). |
 | Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
@@ -273,7 +272,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
 | InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are'Maximum' - scale from 0 to max with range,'PerCellIncrement' - scale from 0 with range'Absolute' - use set value regardless of range. |
 | Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an nameof(BlocksProjectiles) trait. |
-| Color | 87CEEB | Color (RRGGBB[AA] notation) | Color of the blast. |
 
 ## OpenRA.Mods.Common.Warheads
 

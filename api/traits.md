@@ -8016,6 +8016,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AvoidTerrainTypes |  | Set of String | The terrain types that this actor should avoid wandering on to. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### SonicBlastRenderer
+**Renders sonic blasts [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/SonicBlastRenderer.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Size | 16 | Integer | Diameter of the sonic effect circle. |
+| Zoom | 2.5 | Real Number | Amount to scale the visuals within the effect circle. |
+
 ### SpiceBloom
 **Seeds resources by explosive eruptions after accumulation times. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/SpiceBloom.cs)**
 
