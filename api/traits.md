@@ -2171,6 +2171,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Interval | 50 | Integer | Number of ticks to wait between repeating blinks. |
+| Sound |  | String | Sound to play at the same time the actor blinks. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CaptureManagerBotModule
