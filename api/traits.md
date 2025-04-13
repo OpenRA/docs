@@ -288,7 +288,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. |
+| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. 0 disables quantization. |
 | CameraPitch | 113 | 1D World Angle | Camera pitch for rotation calculations. |
 | UseClassicPerspectiveFudge | True | Boolean | Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. |
 
@@ -2028,7 +2028,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. |
+| QuantizedFacings | -1 | Integer | Number of facings for gameplay calculations. -1 indicates auto-detection from another trait. 0 disables quantization. |
 | CameraPitch | 113 | 1D World Angle | Camera pitch for rotation calculations. |
 | UseClassicPerspectiveFudge | True | Boolean | Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. |
 
