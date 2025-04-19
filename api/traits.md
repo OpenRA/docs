@@ -2854,7 +2854,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | Unnamed Bot | String | Human-readable name this bot uses. |
+| Name | *(required)* | String | Human-readable name this bot uses. |
 | Type | *(required)* | String | Internal id for this bot. |
 
 ### DuplicateUnitCrateAction
