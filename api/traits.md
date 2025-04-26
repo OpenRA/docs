@@ -4333,8 +4333,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| FadeInLength | 10 | Integer |  |
 | FadeLength | 10 | Integer | Time (in ticks) to fade between states |
 | Effect | None | [`EffectType`](#effecttype) | Effect style to fade to during gameplay. Accepts values of None or Desaturated. |
+| GameStartEffect | Black | [`EffectType`](#effecttype) | Effect style to fade from when starting the game. Accepts values of None, Black or Desaturated. |
+| GameExitEffect | Black | [`EffectType`](#effecttype) | Effect style to fade to when exiting the game. Accepts values of None, Black or Desaturated. |
 | MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
 ### MineImmune
