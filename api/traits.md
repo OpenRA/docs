@@ -2445,6 +2445,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Name | *(required)* | String | Human-readable name this generator uses. |
 | Type | *(required)* | String | Internal id for this map generator. |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
 | MapTitle | label-random-map | String | The title to use for generated maps. |
 | PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
 | FluentReferences |  | Collection of String |  |
@@ -3040,6 +3041,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Type | *(required)* | String |  |
 | Name | *(required)* | String |  |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
 | MapTitle | label-random-map | String | The title to use for generated maps. |
 | PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
 | FluentReferences |  | Collection of String |  |
