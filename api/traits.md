@@ -1931,19 +1931,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Priority | 1 | Integer | ValidTargets with larger priorities will be AutoTargeted before lower priorities. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
-### BaseAttackNotifier
-**Plays an audio notification and shows a radar ping when a building is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/BaseAttackNotifier.cs)**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. |
-| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
-| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
-| Notification | BaseAttack | String | Speech notification type to play. |
-| TextNotification |  | String | Text notification to display. |
-| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
-| AllyTextNotification |  | String | Text notification to display to allies when under attack. |
-
 ### BaseBuilderBotModule
 **Manages AI base construction. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/BotModules/BaseBuilderBotModule.cs)**
 
@@ -2708,6 +2695,21 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Modifier | 100 | Integer | Percentage modifier to apply. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### DamageNotifier
+**Plays an audio notification and shows a radar ping when attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/DamgeNotifier.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValidTargets |  | Collection of TargetableType | Target types to notify about. Leave empty to notify about all target types. |
+| InvalidTargets |  | Collection of TargetableType | Target types to ignore. This overrides ValidTargets. Leave empty to notify about all target types. |
+| NotifyInterval | 30000 | Integer | Minimum duration (in milliseconds) between notification events. Set to -1 to make notifications to play only once. |
+| RadarPingColor | FF0000 | Color (RRGGBB[AA] notation) |  |
+| RadarPingDuration | 250 | Integer | Length of time (in ticks) to display a location ping in the minimap. |
+| Notification |  | String | Speech notification type to play. |
+| TextNotification |  | String | Text notification to display. |
+| AllyNotification |  | String | Speech notification to play to allies when under attack. Won't play a notification to allies if this is null. |
+| AllyTextNotification |  | String | Text notification to display to allies when under attack. |
 
 ### DeliversCash
 **Donate money to actors with the `AcceptsDeliveredCash` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/DeliversCash.cs)**
