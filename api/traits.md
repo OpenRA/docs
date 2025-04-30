@@ -2816,7 +2816,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | SearchForDockDelay | 125 | Integer | How long (in ticks) to wait until (re-)checking for a nearby available DockHost. |
 | OccupancyCostModifier | 12 | Integer | The pathfinding cost penalty applied for each dock client waiting to unload at a DockHost. |
 | RequireForceMoveCondition |  | BooleanExpression | Boolean expression defining the condition under which the regular (non-force) enter cursor is disabled. |
-| EnterCursor | enter | String | Cursor to display when able to dock at target actor. |
+| EnterCursor | enter | String | Default cursor to display when able to dock at target actor. Can be overriden using EnterCursorOverrides. |
+| EnterCursorOverrides |  | Dictionary with Key: String, Value: String | Cursor to display when able to dock at target actor. Overrides the default cursor specified in EnterCursor A dictionary of [DockType]: [cursor name]. |
 | EnterBlockedCursor | enter-blocked | String | Cursor to display when unable to dock at target actor. |
 | Voice | Action | String | Voice to be played when ordered to dock. |
 | DockLineColor | 008000 | Color (RRGGBB[AA] notation) | Color to use for the target line of docking orders. |
