@@ -6252,6 +6252,15 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Velocity | 75 | Integer | Speed to throw the particle (horizontal WPos/tick) |
 | TurnSpeed | 60 | 1D World Angle | Speed at which the particle turns. |
 
+### TilingPathTool
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TilingPathTool.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| DefaultStart |  | Collection of String | The preferred defaults for the start type. |
+| DefaultInner |  | Collection of String | The preferred defaults for the inner type. |
+| DefaultEnd |  | Collection of String | The preferred defaults for the end type. |
+
 ### TimeLimitManager
 **This trait allows setting a time limit on matches. Attach this to the World actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TimeLimitManager.cs)**
 
