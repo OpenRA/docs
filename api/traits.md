@@ -3121,6 +3121,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Weapons | *(required)* | Collection of String | The weapons used for shrapnel. |
+| DeathTypes |  | Collection of DamageType | What damage type needs to kill the actor to trigger the firing of projectiles? Leave empty to ignore damage types. |
+| MinimumDamage | 0 | Integer | The minimal amount of health loss required to trigger projectiles. |
+| MaximumDamage | 2147483647 | Integer | The maximum amount of health loss required to trigger projectiles. |
 | Pieces | 3, 10 | Collection of Integer | The amount of pieces of shrapnel to expel. Two values indicate a range. |
 | Range | 2c0, 5c0 | Collection of 1D World Distance | The minimum and maximum distances the shrapnel may travel. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
