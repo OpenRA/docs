@@ -3151,7 +3151,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Chance | 100 | Integer | Chance that this actor will explode at all. |
 | DamageThreshold | 0 | Integer | Health level at which actor will explode. |
 | DeathTypes |  | Collection of DamageType | DeathType(s) that trigger the explosion. Leave empty to always trigger an explosion. |
-| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self and Killer. |
+| DamageSource | Self | [`DamageSource`](#damagesource) | Who is counted as source of damage for explosion. Possible values are Self, Parent and Killer. |
 | Type | CenterPosition | [`ExplosionType`](#explosiontype) | Possible values are CenterPosition (explosion at the actors' center) and  Footprint (explosion on each occupied cell). |
 | Offset | 0,0,0 | 3D World Vector | Offset of the explosion from the center of the exploding actor (or cell). |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
@@ -8232,7 +8232,7 @@ Possible values: `None`, `Alpha`, `Color`, `Palette`
 Referenced by: [`Cloak`](#cloak)
 
 ### DamageSource
-Possible values: `Self`, `Killer`
+Possible values: `Self`, `Parent`, `Killer`
 
 Referenced by: [`FireWarheadsOnDeath`](#firewarheadsondeath)
 
