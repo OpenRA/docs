@@ -2123,6 +2123,47 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
+### BulkProductionQueue
+**Attach this to the player actor (not a building!) to define a new shared build queue. Allows you to build multiple actors before delivery Will work together with the `ProductionBulkAirDrop` trait on the actor that actually does the production. You will also want to add `PrimaryBuilding` to let the user choose where new units should exit. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/BulkProductionQueue.cs)**
+
+> Inherits from: [`ProductionQueue`](#productionqueue).
+
+> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| MaxCapacity | 6 | Integer | Maximum order capacity. |
+| DeliveryDelay | 1500 | Integer | Delivery delay in ticks. |
+| StartDeliveryNotification |  | String | Notification played when the delivery started. |
+| RefundUndeliveredActors | True | Boolean | Return funds if the delivery fails. |
+| StartDeliveryTextNotification |  | String | Notification displayed when the delivery started. |
+| DeliveryProgressNotifications |  | Collection of String | Notifications to play when the delivery actor is on its way. Last notification is played when the actors to deliver are spawned on the map. |
+| Type | *(required)* | String | What kind of production will be added (e.g. Building, Infantry, Vehicle, ...) |
+| DisplayOrder | 0 | Integer | The value used when ordering this for display (e.g. in the Spectator UI). |
+| Group |  | String | Group queues from separate buildings together into the same tab. |
+| Factions |  | Set of String | Only enable this queue for certain factions. |
+| Sticky | True | Boolean | Should the prerequisite remain enabled if the owner changes? |
+| PayUpFront | False | Boolean | Player must pay for item upfront |
+| DisallowPaused | False | Boolean | Should right clicking on the icon instantly cancel the production instead of putting it on hold? |
+| BuildDurationModifier | 100 | Integer | This percentage value is multiplied with actor cost to translate into build time (lower means faster). |
+| ItemLimit | 999 | Integer | Maximum number of a single actor type that can be queued (0 = infinite). |
+| QueueLimit | 0 | Integer | Maximum number of items that can be queued across all actor types (0 = infinite). |
+| LowPowerModifier | 100 | Integer | The build time is multiplied with this percentage on low power. |
+| InfiniteBuildLimit | -1 | Integer | Production items that have more than this many items in the queue will be produced in a loop. |
+| ReadyAudio |  | String | Notification played when production is complete. The filename of the audio is defined per faction in notifications.yaml. |
+| ReadyTextNotification |  | String | Notification displayed when production is complete. |
+| BlockedAudio |  | String | Notification played when you can't train another actor when the build limit exceeded or the exit is jammed. The filename of the audio is defined per faction in notifications.yaml. |
+| BlockedTextNotification |  | String | Notification displayed when you can't train another actor when the build limit exceeded or the exit is jammed. |
+| LimitedAudio |  | String | Notification played when you can't queue another actor when the queue length limit is exceeded. The filename of the audio is defined per faction in notifications.yaml. |
+| LimitedTextNotification |  | String | Notification displayed when you can't queue another actor when the queue length limit is exceeded. |
+| CannotPlaceAudio |  | String | Notification played when you can't place a building. Overrides PlaceBuilding.CannotPlaceNotification for this queue. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedAudio |  | String | Notification played when user clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| QueuedTextNotification |  | String | Notification displayed when user clicks on the build palette icon. |
+| OnHoldAudio |  | String | Notification played when player right-clicks on the build palette icon. The filename of the audio is defined per faction in notifications.yaml. |
+| OnHoldTextNotification |  | String | Notification displayed when player right-clicks on the build palette icon. |
+| CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
+| CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
+
 ### Capturable
 **This actor can be captured by a unit with Captures: trait. This trait should not be disabled if the actor also uses FrozenUnderFog. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Capturable.cs)**
 
@@ -2241,6 +2282,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterLoadDelay | 8 | Integer | Delay (in ticks) before continuing after loading a passenger. |
 | BeforeUnloadDelay | 8 | Integer | Delay (in ticks) before unloading the first passenger. |
 | AfterUnloadDelay | 25 | Integer | Delay (in ticks) before continuing after unloading a passenger. |
+| BetweenUnloadDelay | 0 | Integer | Delay (in ticks) before each passenger is unloaded. |
 | UnloadCursor | deploy | String | Cursor to display when able to unload the passengers. |
 | UnloadBlockedCursor | deploy-blocked | String | Cursor to display when unable to unload the passengers. |
 | LoadingCondition |  | String | The condition to grant to self while waiting for cargo to load. |
@@ -5124,6 +5166,23 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
 | WaitTickBeforeProduce | 0 | Integer | Tick that aircraft should wait before producing. |
 | WaitTickAfterProduce | 0 | Integer | Tick that aircraft should wait after producing. |
+| LandOffset | 0,0,0 | 3D World Vector | Offset the aircraft used for landing. |
+| Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
+| UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
+| PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
+### ProductionBulkAirdrop
+**Deliver multiple units via skylift. Works with BulkProductionQueue [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ProductionBulkAirDrop.cs)**
+
+> Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ReadyNotification | Reinforce | String | Speech notification to play when a unit is delivered. |
+| ReadyTextNotification |  | String | Text notification to display when a unit is delivered. |
+| ActorType | *(required)* | String | Cargo aircraft used for delivery. Must have the `Aircraft` trait. |
+| Facing | 256 | 1D World Angle | Direction the aircraft should face to land. |
 | LandOffset | 0,0,0 | 3D World Vector | Offset the aircraft used for landing. |
 | Produces | *(required)* | Collection of String | e.g. Infantry, Vehicles, Aircraft, Buildings |
 | UpdateFactionOnOwnerChange | False | Boolean | When owner is changed, should the Faction be updated to the new owner's faction? |
