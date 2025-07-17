@@ -8068,6 +8068,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 | FootprintAlpha | 1 | Real Number | Custom opacity to apply to the placement sprite. |
 | LineBuildFootprintAlpha | 1 | Real Number | Custom opacity to apply to the line-build placement sprite. |
 
+### D2kMapGenerator
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/D2kMapGenerator.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
+| MapTitle | label-random-map | String | The title to use for generated maps. |
+| PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
+| FluentReferences |  | Collection of String |  |
+| Settings |  | MiniYaml |  |
+
 ### D2kResourceRenderer
 **Used to render spice with round borders. Attach this to the world actor [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/D2kResourceRenderer.cs)**
 
