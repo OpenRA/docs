@@ -5791,6 +5791,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ScriptTags
 **Allows this actor to be 'tagged' with arbitrary strings. Tags must be unique or they will be rejected. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ScriptTags.cs)**
 
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| EditorScriptTagsDisplayOrder | 5 | Integer | Display order for the script tags text field in the map editor |
+
 ### SeedsResource
 **Lets the actor spread resources around it in a circle. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/SeedsResource.cs)**
 
