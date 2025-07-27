@@ -3567,6 +3567,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DeployedCondition | *(required)* | String | The condition to grant after deploying and revoke before undeploying. |
 | AllowedTerrainTypes |  | Set of String | The terrain types that this actor can deploy on. Leave empty to allow any. |
 | CanDeployOnRamps | False | Boolean | Can this actor deploy on slopes? |
+| SmartDeploy | False | Boolean | Does this actor need to synchronize its deployment with other actors? |
 | DeployCursor | deploy | String | Cursor to display when able to (un)deploy the actor. |
 | DeployBlockedCursor | deploy-blocked | String | Cursor to display when unable to (un)deploy the actor. |
 | Facing |  | 1D World Angle (optional) | Facing that the actor must face before deploying. Leave undefined to deploy regardless of facing. |
