@@ -3236,6 +3236,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | Lifetime | *(required)* | Collection of Integer | The time between individual particle creation. Two values mean actual lifetime will vary between them. |
 | Duration | -1 | Integer | The time in ticks until stop spawning. -1 means forever. |
+| ResetOnDamaged | True | Boolean | Should the duration been reset when taken damage |
 | Offset | 0,0,0 | Collection of 3D World Vector | Randomised offset for the particle emitter. |
 | Speed | 0c0 | Collection of 1D World Distance | Randomized particle forward movement. |
 | Gravity | 0c0 | Collection of 1D World Distance | Randomized particle gravity. |
