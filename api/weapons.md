@@ -333,7 +333,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Size | 0, 0 | Collection of Integer | Size of the area. The resources are removed within this area. Provide 2 values for a ring effect (outer/inner). |
-| ResourceAmount | 0 | Integer | Amount of resources to be removed. If negative or zero, all resources within the area will be removed. |
+| ResourceAmount | 0 | Byte | Amount of resources to be removed. If zero, all resources within the area will be removed. |
 | ResourceTypes |  | Set of String | Resource types to remove with this warhead. If empty, all resource types will be removed. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |

@@ -957,7 +957,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Offset | 0,0 | 2D Cell Vector |  |
 | SkipMakeAnims | False | Boolean | Don't render the make animation. |
 | Type | *(required)* | String | Resource type which triggers the transformation. |
-| Density | 1 | Integer | Resource density threshold which is required. |
+| Density | 1 | Byte | Resource density threshold which is required. |
 | Adjacency | 1 | Integer | This many adjacent resource tiles are required. |
 | Delay | 1000, 3000 | Collection of Integer | The range of time (in ticks) until the transformation starts. |
 
