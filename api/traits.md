@@ -1295,19 +1295,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Common.Commands
 
 ### ChatCommands
-**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### DebugVisualizationCommands
-**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### DevCommands
-**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### HelpCommand
-**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### PlayerCommands
-**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ## OpenRA.Mods.Common.Scripting
 
@@ -1534,10 +1534,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AllyRepair
-**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
-
-### AlwaysVisible
-**The actor is always considered visible for targeting and rendering purposes. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### AmmoPool
 **Actor has a limited amount of ammo, after using it all the actor must reload in some way. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/AmmoPool.cs)**
@@ -1554,7 +1551,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AmmoCondition |  | String | The condition to grant to self for each ammo point in this pool. |
 
 ### AppearsOnMapPreview
-**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1978,7 +1975,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseBuilding
-**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### BaseProvider
 **Limits the zone where buildings can be constructed to a radius around this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/BaseProvider.cs)**
@@ -2516,7 +2513,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CloakPaletteEffect
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### ColorPickerColorShift
 **Create a color picker palette from another palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Palettes/ColorPickerColorShift.cs)**
@@ -2659,7 +2656,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
 
 ### CreateMapPlayers
-**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### CreatesShroud
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/CreatesShroud.cs)**
@@ -2700,7 +2697,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CustomSellValue
-**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2929,7 +2926,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorActionManager
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### EditorActorLayer
 **Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/EditorActorLayer.cs)**
@@ -2940,7 +2937,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DefaultActorFacing | 384 | 1D World Angle | Facing of new actors. |
 
 ### EditorCursorLayer
-**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 > Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
 
@@ -3886,7 +3883,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 **Modifies the damage applied by this actor based on the owner's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Multipliers/HandicapFirepowerMultiplier.cs)**
 
 ### HandicapProductionTimeMultiplier
-**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### HarvesterAttackNotifier
 **Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/HarvesterAttackNotifier.cs)**
@@ -4039,7 +4036,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Huntable
-**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### Husk
 **Spawns remains of a husk actor with the correct facing. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Husk.cs)**
@@ -4051,10 +4048,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Locomotor |  | String | Used to define crushes. Locomotor must be defined on the World actor. |
 
 ### IgnoresCloak
-**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### IgnoresDisguise
-**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### Immobile
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Immobile.cs)**
@@ -4304,7 +4301,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CheckboxDisplayOrder | 0 | Integer | Display order for the creeps checkbox in the lobby. |
 
 ### MapEditorData
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4391,7 +4388,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
 ### MineImmune
-**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### Mine
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Mine.cs)**
@@ -4444,7 +4441,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AfterLayingDelay | 20 | Integer | Number of ticks for the minelayer to wait after laying a mine. The wait can be interrupted by a player order. |
 
 ### MissionData
-**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5022,7 +5019,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | EditorDisplayOrder | 5 | Integer | Display order for the dropdown in the map editor |
 
 ### Plug
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5311,7 +5308,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Prerequisites |  | Collection of String | Prerequisites to grant when this tech level is active. |
 
 ### ProximityCaptor
-**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5615,10 +5612,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
 
 ### Reservable
-**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### ResourceClaimLayer
-**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### ResourceLayer
 **Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ResourceLayer.cs)**
@@ -6005,7 +6002,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnMapActors
-**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### SpawnStartingUnits
 **Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
@@ -6118,7 +6115,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Resources |  | Collection of String | Which resources can be stored. |
 
 ### StrategicPoint
-**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### StrategicVictoryConditions
 **Allows King of the Hill (KotH) style gameplay. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
@@ -6246,7 +6243,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BarColor | FFA500 | Color (RRGGBB[AA] notation) |  |
 
 ### TerrainGeometryOverlay
-**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### TerrainLighting
 **Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TerrainLighting.cs)**
@@ -6622,7 +6619,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### UpdatesDerrickCount
-**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### UpdatesPlayerStatistics
 **Attach this to a unit to update observer stats. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/PlayerStatistics.cs)**
@@ -6634,10 +6631,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | OverrideActor |  | String | Count this actor as a different type in the spectator army display. |
 
 ### ValidateOrder
-**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 ### Valued
-**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/RLEZerosCompression.cs)**
+**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
