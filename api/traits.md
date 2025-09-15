@@ -5033,6 +5033,18 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | -------- | ------------- | ---- | ----------- |
 | Type | *(required)* | String | Plug type (matched against Conditions in Pluggable) |
 
+### PowerDownBotModule
+**Manages AI powerdown. You need to use PowerMultiplier on toggle control only on related buildings, for calculation of this bot module [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/BotModules/PowerDownBotManager.cs)**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Interval | 150 | Integer | Delay (in ticks) between two action on toggling powerdown. |
+| PowerDownTypes |  | Set of String | Actors that allow this module to toggle |
+| PowerDownOrder | PowerDown | String | Order used by ToggleConditionOnOrderInfo for powerdown on toggled actor. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### Power
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Power/Power.cs)**
 
