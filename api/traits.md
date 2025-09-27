@@ -2159,6 +2159,9 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CancelledAudio |  | String | Notification played when player right-clicks on a build palette icon that is already on hold. The filename of the audio is defined per faction in notifications.yaml. |
 | CancelledTextNotification |  | String | Notification displayed when player right-clicks on a build palette icon that is already on hold. |
 
+### CameraOvalMover
+**Moves the camera in an oval pattern around its starting position. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/CameraMover.cs)**
+
 ### Capturable
 **This actor can be captured by a unit with Captures: trait. This trait should not be disabled if the actor also uses FrozenUnderFog. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Capturable.cs)**
 
