@@ -1295,19 +1295,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Common.Commands
 
 ### ChatCommands
-**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### DebugVisualizationCommands
-**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### DevCommands
-**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### HelpCommand
-**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### PlayerCommands
-**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ## OpenRA.Mods.Common.Scripting
 
@@ -1534,7 +1534,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AllyRepair
-**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### AmmoPool
 **Actor has a limited amount of ammo, after using it all the actor must reload in some way. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/AmmoPool.cs)**
@@ -1551,7 +1551,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AmmoCondition |  | String | The condition to grant to self for each ammo point in this pool. |
 
 ### AppearsOnMapPreview
-**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1935,11 +1935,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | ConstructionYardTypes |  | Set of String | Tells the AI what building types are considered construction yards. |
-| VehiclesFactoryTypes |  | Set of String | Tells the AI what building types are considered vehicle production facilities. |
 | RefineryTypes |  | Set of String | Tells the AI what building types are considered refineries. |
 | PowerTypes |  | Set of String | Tells the AI what building types are considered power plants. |
-| BarracksTypes |  | Set of String | Tells the AI what building types are considered infantry production facilities. |
 | ProductionTypes |  | Set of String | Tells the AI what building types are considered production facilities. |
+| TechTypes |  | Set of String | Tells the AI what building types are considered tech buildings. |
 | NavalProductionTypes |  | Set of String | Tells the AI what building types are considered naval production facilities. |
 | SiloTypes |  | Set of String | Tells the AI what building types are considered silos (resource storage). |
 | DefenseTypes |  | Set of String | Tells the AI what building types are considered defenses. |
@@ -1951,8 +1950,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaximumExcessPower | 0 | Integer | The targeted excess power the AI tries to maintain cannot rise above this. |
 | ExcessPowerIncrement | 0 | Integer | Increase maintained excess power by this amount for every ExcessPowerIncreaseThreshold of base buildings. |
 | ExcessPowerIncreaseThreshold | 1 | Integer | Increase maintained excess power by ExcessPowerIncrement for every N base buildings. |
-| InititalMinimumRefineryCount | 1 | Integer | Number of refineries to build before building a barracks. |
-| AdditionalMinimumRefineryCount | 1 | Integer | Number of refineries to build additionally after building a barracks. |
+| InititalMinimumRefineryCount | 1 | Integer | Number of refineries to build before building any production building. |
+| AdditionalMinimumRefineryCount | 1 | Integer | Number of refineries to build additionally after building any production building. |
 | StructureProductionInactiveDelay | 125 | Integer | Additional delay (in ticks) between structure production checks when there is no active production. StructureProductionRandomBonusDelay is added to this. |
 | StructureProductionActiveDelay | 25 | Integer | Additional delay (in ticks) added between structure production checks when actively building things. Note: this should be at least as large as the typical order latency to avoid duplicated build choices. |
 | StructureProductionRandomBonusDelay | 10 | Integer | A random delay (in ticks) of up to this is added to active/inactive production delays. |
@@ -1972,10 +1971,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BuildingDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start building specific buildings. |
 | ProductionMinCashRequirement | 500 | Integer | Only queue construction of a new structure when above this requirement. |
 | AssignRallyPointsInterval | 100 | Integer | Delay (in ticks) between reassigning rally points. |
+| CheckBestResourceLocationInterval | 151 | Integer | Delay (in ticks) for finding a good resource to place a refinery next to. |
+| SellRefineryInterval | 5000 | Integer | Interval (in ticks) between checking whether to sell a redundant refinery. Set to -1 to disable. |
+| SellRefineryTooCloseCellDistance | 6 | Integer | Distance (in cells) for refineries finding redundant refineries. |
+| SellRefineryNoResourceDistance | 12 | Integer | Maximum distance (in cells) from resources before refineries are eligible to be sold. |
+| MaxRefineryPerIndice | 2 | Integer | Maximum refinery count per area. Area size is defined in ResourceMapBotModule. |
+| ExpansionTolerate | 0, 1 | Collection of Integer | AI will move mcv when those numbers of refinery <= productions + tech - ExpansionTolerate. |
+| ForceExpansionTolerate | 2, 3 | Collection of Integer | AI will move the only mcv when those numbers of refinery <= productions + tech - ForceExpansionTolerate. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseBuilding
-**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### BaseProvider
 **Limits the zone where buildings can be constructed to a radius around this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/BaseProvider.cs)**
@@ -2516,7 +2522,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CloakPaletteEffect
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### ColorPickerColorShift
 **Create a color picker palette from another palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Palettes/ColorPickerColorShift.cs)**
@@ -2659,7 +2665,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
 
 ### CreateMapPlayers
-**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### CreatesShroud
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/CreatesShroud.cs)**
@@ -2700,7 +2706,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CustomSellValue
-**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2929,7 +2935,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorActionManager
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### EditorActorLayer
 **Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/EditorActorLayer.cs)**
@@ -2940,7 +2946,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DefaultActorFacing | 384 | 1D World Angle | Facing of new actors. |
 
 ### EditorCursorLayer
-**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 > Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
 
@@ -3886,7 +3892,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 **Modifies the damage applied by this actor based on the owner's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Multipliers/HandicapFirepowerMultiplier.cs)**
 
 ### HandicapProductionTimeMultiplier
-**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### HarvesterAttackNotifier
 **Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/HarvesterAttackNotifier.cs)**
@@ -3910,9 +3916,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HarvesterTypes |  | Set of String | Actor types that are considered harvesters. If harvester count drops below RefineryTypes count, a new harvester is built. Leave empty to disable harvester replacement. Currently only needed by harvester replacement system. |
 | RefineryTypes |  | Set of String | Actor types that are counted as refineries. Currently only needed by harvester replacement system. |
 | ScanForIdleHarvestersInterval | 50 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
+| ScanForLowEffectHarvestersInterval | 433 | Integer | Interval (in ticks) between giving out orders to idle harvesters. |
 | ScanIntervalMultiplerWhenNoResources | 5 | Integer | When an idle harvester cannot find resources, increase the wait to this many scan intervals. |
 | HarvesterEnemyAvoidanceRadius | 10c0 | 1D World Distance | Avoid enemy actors nearby when searching for a new resource patch. Should be somewhere near the max weapon range. |
 | HarvesterEnemyAvoidanceCostMultipler | 20 | Integer | For each enemy within the threat radius, apply the following cost multiplier for every cell that needs to be moved through. |
+| ResourceCellsPerHarvester | 4 | Integer | How many resource cells should a harvester response for. |
+| InitialHarvesters | 4 | Integer | How many harvester should player owned at least. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Harvester
@@ -4039,7 +4048,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Huntable
-**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### Husk
 **Spawns remains of a husk actor with the correct facing. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Husk.cs)**
@@ -4051,10 +4060,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Locomotor |  | String | Used to define crushes. Locomotor must be defined on the World actor. |
 
 ### IgnoresCloak
-**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### IgnoresDisguise
-**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### Immobile
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Immobile.cs)**
@@ -4304,7 +4313,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CheckboxDisplayOrder | 0 | Integer | Display order for the creeps checkbox in the lobby. |
 
 ### MapEditorData
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4369,6 +4378,36 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Alpha | 85 | Integer | Default alpha blend. |
 | AxisAngleColor | DC143C | Color (RRGGBB[AA] notation) | Color of the axis angle display. |
 
+### McvExpansionManagerBotModule
+**Manages AI MCVs and expansion. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/BotModules/McvExpansionManagerBotModule.cs)**
+
+> Inherits from: `ConditionalTrait`.
+
+> Requires trait(s): [`ResourceMapBotModule`](#resourcemapbotmodule).
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| McvTypes |  | Set of String | Actor types that are considered MCVs (deploy into base builders). |
+| ConstructionYardTypes |  | Set of String | Actor types that are considered construction yards (base builders). |
+| McvFactoryTypes |  | Set of String | Actor types that are able to produce MCVs. |
+| MinimumConstructionYardCount | 1 | Integer | Try to maintain at least this many ConstructionYardTypes, build an MCV if number is below this. |
+| AdditionalConstructionYardCount | 0 | Integer | Try to maintain at additional this many ConstructionYardTypes. |
+| BuildAdditionalMCVCashAmount | 5000 | Integer | Build additional MCV if cash is above this. |
+| ScanForNewMcvInterval | 20 | Integer | Delay (in ticks) for giving orders to idle MCVs. |
+| BuildMcvInterval | 101 | Integer | Delay (in ticks) for checking and building a MCV. |
+| MoveConyardTick | 4000 | Integer | Delay (in ticks) for moving a conyard to better expansion. Only work with more than 1 conyard. |
+| MoveOldConyardFirst |  | Boolean (optional) | Should moving the oldest or newest conyard be preferred? Random ordering if unset. |
+| InitialExpansionMode | CheckResource | [`BotMcvExpansionMode`](#botmcvexpansionmode) | Initial expansion mode chosen by AI. |
+| ExpansionModeAutoSwitch | True | Boolean | Allow the bot to switch expansion mode automatically on enough failure or successful attempts. |
+| CRmodeMinDeployRadius | 2 | Integer | Minimum distance (in cells) from the found resource creator location when checking for MCV deployment location. |
+| CRmodeMaxDeployRadius | 20 | Integer | Maximum distance (in cells) the found resource creator location when checking for MCV deployment location. |
+| CRmodeTryMaintainRange | 8 | Integer | When moving to a resource, what distance (in cells) to resource should we attempt to maintain? |
+| CRmodeFriendlyConyardDislikeRange | 14 | Integer | Distance (in cells) to avoid a friendly conyard when choosing an expansion location. Recommended to set it equal or larger than ResourceMapStrideRadius. |
+| CRmodeFriendlyRefineryDislikeRange | 14 | Integer | Distance (in cells) to avoid a friendly refinery when choosing an expansion location. Recommended to set it equal or larger than ResourceMapStrideRadius. |
+| CBmodeMinDeployRadius | 2 | Integer | Minimum distance (in cells) from center of the base expansion when checking for MCV deployment location. |
+| CBmodeMaxDeployRadius | 20 | Integer | Maximum distance (in cells) from center of the base expansion when checking for MCV deployment location. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
+
 ### McvManagerBotModule
 **Manages AI MCVs. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/BotModules/McvManagerBotModule.cs)**
 
@@ -4399,7 +4438,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
 ### MineImmune
-**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### Mine
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Mine.cs)**
@@ -4452,7 +4491,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | AfterLayingDelay | 20 | Integer | Number of ticks for the minelayer to wait after laying a mine. The wait can be interrupted by a player order. |
 
 ### MissionData
-**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5030,7 +5069,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | EditorDisplayOrder | 5 | Integer | Display order for the dropdown in the map editor |
 
 ### Plug
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5331,7 +5370,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Prerequisites |  | Collection of String | Prerequisites to grant when this tech level is active. |
 
 ### ProximityCaptor
-**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5635,10 +5674,10 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
 
 ### Reservable
-**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### ResourceClaimLayer
-**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### ResourceLayer
 **Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ResourceLayer.cs)**
@@ -5649,6 +5688,22 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | -------- | ------------- | ---- | ----------- |
 | ResourceTypes |  | Dictionary with Key: String, Value: ResourceTypeInfo |  |
 | RecalculateResourceDensity | False | Boolean | Override the density saved in maps with values calculated based on the number of neighbouring resource cells. |
+
+### ResourceMapBotModule
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/BotModules/ResourceMapBotModule.cs)**
+
+> Inherits from: `ConditionalTrait`.
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| ValuableResourceTypes |  | Set of String | Harvestable and valuable resource types. |
+| ResourceCreatorTypes |  | Set of String | Tells the AI what types are considered resource creator. |
+| RefineryTypes |  | Set of String | Actor types that are considered refineries for HarvesterTypes. |
+| HarvesterTypes |  | Set of String | Actor types that are considered harvesters for ValuableResourceTypes. |
+| EnemyBaseBuildingTypes |  | Set of String | Actor types that are considered to be the base building for expansion. Other enemy units will also be recorded Defence and production building is suggested |
+| UpdateResourceMapInverval | 67 | Integer | Delay (in ticks) for updating the indicies. |
+| ResourceMapStrideRadius | 12 | Integer | The size (in cells) of half of the side length of the indice (in square). |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ResourceRenderer
 **Visualizes the state of the `ResourceLayer`.  Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ResourceRenderer.cs)**
@@ -6025,7 +6080,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnMapActors
-**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### SpawnStartingUnits
 **Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
@@ -6138,7 +6193,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Resources |  | Collection of String | Which resources can be stored. |
 
 ### StrategicPoint
-**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### StrategicVictoryConditions
 **Allows King of the Hill (KotH) style gameplay. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
@@ -6266,7 +6321,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | BarColor | FFA500 | Color (RRGGBB[AA] notation) |  |
 
 ### TerrainGeometryOverlay
-**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### TerrainLighting
 **Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TerrainLighting.cs)**
@@ -6642,7 +6697,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### UpdatesDerrickCount
-**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### UpdatesPlayerStatistics
 **Attach this to a unit to update observer stats. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/PlayerStatistics.cs)**
@@ -6654,10 +6709,10 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | OverrideActor |  | String | Count this actor as a different type in the spectator army display. |
 
 ### ValidateOrder
-**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 ### Valued
-**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/InstallShieldCABCompression.cs)**
+**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8323,6 +8378,11 @@ Referenced by: [`AttackSounds`](#attacksounds), [`WithAttackAnimation`](#withatt
 Possible values: `None`, `Alpha`, `Additive`, `Subtractive`, `Multiply`, `Multiplicative`, `DoubleMultiplicative`, `LowAdditive`, `Screen`, `Translucent`
 
 Referenced by: [`ShroudRenderer`](#shroudrenderer)
+
+### BotMcvExpansionMode
+Possible values: `CheckResource`, `CheckBase`, `CheckCurrentLocation`
+
+Referenced by: [`McvExpansionManagerBotModule`](#mcvexpansionmanagerbotmodule)
 
 ### CloakStyle
 Possible values: `None`, `Alpha`, `Color`, `Palette`
