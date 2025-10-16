@@ -7265,20 +7265,25 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithDamageOverlay
 **Renders an overlay when the actor is taking heavy damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithDamageOverlay.cs)**
 
+> Inherits from: `ConditionalTrait`.
+
 > Requires trait(s): [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Image | smoke_m | String |  |
-| IdleSequence | idle | String |  |
+| StartSequence |  | String |  |
 | LoopSequence | loop | String |  |
-| EndSequence | end | String |  |
+| EndSequence |  | String |  |
 | Offset | 0,0,0 | 3D World Vector | Position relative to the body orientation. |
+| LoopCount | 1, 3 | Collection of Integer | How many times should LoopSequence  be played? A range can be provided to be randomly chosen from. |
+| InitialDelay | 0 | Collection of Integer | Initial delay before animation is enabled Two values indicate a random delay range. |
 | Palette |  | String | Custom palette name. |
 | IsPlayerPalette | False | Boolean | Custom palette is a player palette BaseName. |
 | DamageTypes |  | Collection of DamageType | Damage types that this should be used for (defined on the warheads). Leave empty to disable all filtering. |
 | MinimumDamageState | Heavy | [`DamageState`](#damagestate) | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
-| MaximumDamageState | Dead | [`DamageState`](#damagestate) |  |
+| MaximumDamageState | Dead | [`DamageState`](#damagestate) | Trigger when Undamaged, Light, Medium, Heavy, Critical or Dead. |
+| RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### WithDeadBridgeSpriteBody
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithDeadBridgeSpriteBody.cs)**
