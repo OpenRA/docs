@@ -1351,6 +1351,11 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | BinSize | 10 | Integer | Size of partition bins (cells) |
 
+### ActorMapOverlay
+**Renders a debug overlay showing the actor influence map. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/IniFile.cs)**
+
+> Requires trait(s): [`ActorMap`](#actormap).
+
 ### ActorPreviewPlaceBuildingPreview
 **Creates a building placement preview based on the map editor actor preview. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/ActorPreviewPlaceBuildingPreview.cs)**
 
