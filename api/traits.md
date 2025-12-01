@@ -2127,6 +2127,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
+| RepairAllBuildingsCoolDown | 107 | Integer | A delay (in ticks) of repair all actors with RepairableBuilding periodically. Set it to -1 to disable it. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BulkProductionQueue
