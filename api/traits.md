@@ -1968,6 +1968,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MinimumDefenseRadius | 5 | Integer | Minimum range at which to build defensive structures near a combat hotspot. |
 | MaximumDefenseRadius | 20 | Integer | Maximum range at which to build defensive structures near a combat hotspot. |
 | NewProductionCashThreshold | 5000 | Integer | Try to build another production building if there is too much cash. |
+| NewProductionChance | 50 | Integer | Chance to build another production building if there is too much cash. |
 | RallyPointScanRadius | 8 | Integer | Radius in cells around a factory scanned for rally points by the AI. |
 | CheckForWaterRadius | 8 | Integer | Radius in cells around each building with ProvideBuildableArea to check for a 3x3 area of water where naval structures can be built. Should match maximum adjacency of naval structures. |
 | WaterTerrainTypes | Water | Set of String | Terrain types which are considered water for base building purposes. |
