@@ -45,7 +45,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ZRamp | 0 | Integer | Additional sprite depth Z offset to apply as a function of sprite Y (0: vertical, 1: flat on terrain) |
 | ShadowStart | -1 | Integer | If the shadow is not part of the sprite, but baked into the same sprite sheet at a fixed offset, set this to the frame index where it starts. |
 | ShadowZOffset | -0c5 | 1D World Distance | Set Z-Offset for the separate shadow. Used by the later Westwood 2.5D titles. |
-| Frames |  | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
+| Frames | System.Collections.Immutable.ImmutableArray`1[System.Int32] | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
 | IgnoreWorldTint | False | Boolean | Don't apply terrain lighting or colored overlays. |
 | Scale | 1 | Real Number | Adjusts the rendered size of the sprite |
 | Reverses | False | Boolean | Play the sprite sequence back and forth. |
@@ -55,7 +55,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Offset | 0,0,0 | float3 | Change the position in-game on X, Y, Z. |
 | BlendMode | Alpha | [`BlendMode`](#blendmode) | Apply an OpenGL/Photoshop inspired blend mode. |
 | Combine |  | MiniYaml | Create a virtual sprite file by concatenating one or more frames from multiple files, with optional transformations applied. All defined frames will be loaded into memory, even if unused, so use this property with care. |
-| Alpha |  | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
+| Alpha | System.Collections.Immutable.ImmutableArray`1[System.Single] | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
 | AlphaFade | False | Boolean | Fade the animation from fully opaque on the first frame to fully transparent after the last frame. |
 | DepthSprite |  | String | Name of the file containing the depth data sprite. |
 | DepthSpriteFrame | 0 | Integer | Frame index containing the depth data. |

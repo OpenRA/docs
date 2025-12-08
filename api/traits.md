@@ -1173,7 +1173,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| OpenTerrainTypes | Clear | Set of String |  |
+| OpenTerrainTypes | (Collection) | Set of String |  |
 | OpenSequence | open | String |  |
 | CloseSequence | close | String |  |
 | UnloadSequence | unload | String |  |
@@ -1947,8 +1947,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | NavalProductionTypes |  | Set of String | Tells the AI what building types are considered naval production facilities. |
 | SiloTypes |  | Set of String | Tells the AI what building types are considered silos (resource storage). |
 | DefenseTypes |  | Set of String | Tells the AI what building types are considered defenses. |
-| BuildingQueues | Building | Set of String | Production queues AI uses for buildings. |
-| DefenseQueues | Defense | Set of String | Production queues AI uses for defenses. |
+| BuildingQueues | (Collection) | Set of String | Production queues AI uses for buildings. |
+| DefenseQueues | (Collection) | Set of String | Production queues AI uses for defenses. |
 | MinBaseRadius | 2 | Integer | Minimum distance in cells from center of the base when checking for building placement. |
 | MaxBaseRadius | 20 | Integer | Radius in cells around the center of the base to expand. |
 | MinimumExcessPower | 0 | Integer | Minimum excess power the AI should try to maintain. |
@@ -1971,7 +1971,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | NewProductionChance | 50 | Integer | Chance to build another production building if there is too much cash. |
 | RallyPointScanRadius | 8 | Integer | Radius in cells around a factory scanned for rally points by the AI. |
 | CheckForWaterRadius | 8 | Integer | Radius in cells around each building with ProvideBuildableArea to check for a 3x3 area of water where naval structures can be built. Should match maximum adjacency of naval structures. |
-| WaterTerrainTypes | Water | Set of String | Terrain types which are considered water for base building purposes. |
+| WaterTerrainTypes | (Collection) | Set of String | Terrain types which are considered water for base building purposes. |
 | BuildingFractions |  | Dictionary with Key: String, Value: Integer | What buildings to the AI should build. What integer percentage of the total base must be this type of building. |
 | BuildingLimits |  | Dictionary with Key: String, Value: Integer | What buildings should the AI have a maximum limit to build. |
 | BuildingDelays |  | Dictionary with Key: String, Value: Integer | When should the AI start building specific buildings. |
@@ -2662,8 +2662,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Maximum | 255 | Integer | Maximum number of crates. |
 | SpawnInterval | 4500 | Integer | Average time (ticks) between crate spawn. |
 | InitialSpawnDelay | 0 | Integer | Delay (in ticks) before the first crate spawns. |
-| ValidGround | Clear, Rough, Road, Ore, Beach | Set of String | Which terrain types can we drop on? |
-| ValidWater | Water | Set of String | Which terrain types count as water? |
+| ValidGround | (Collection) | Set of String | Which terrain types can we drop on? |
+| ValidWater | (Collection) | Set of String | Which terrain types count as water? |
 | WaterChance | 20 | Integer | Chance of generating a water crate instead of a land crate. |
 | CrateActors | crate | Collection of String | Crate actors to drop. |
 | CrateActorShares | 10 | Collection of Integer | Chance of each crate actor spawning. |
@@ -3525,7 +3525,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Condition | *(required)* | String | The condition type to grant. |
-| ArmamentNames | primary | Set of String | Name of the armaments that grant this condition. |
+| ArmamentNames | (Collection) | Set of String | Name of the armaments that grant this condition. |
 | RequiredShotsPerInstance | 1 | Collection of Integer | Shots required to apply an instance of the condition. If there are more instances of the condition granted than values listed, the last value is used for all following instances beyond the defined range. |
 | MaximumInstances | 1 | Integer | Maximum instances of the condition to grant. |
 | IsCyclic | False | Boolean | Should all instances reset if the actor passes the final stage? |
@@ -4226,7 +4226,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Range | 5 | Integer | The maximum allowed length of the line. |
-| NodeTypes | wall | Set of String | LineBuildNode 'Types' to attach to. |
+| NodeTypes | (Collection) | Set of String | LineBuildNode 'Types' to attach to. |
 | SegmentType |  | String | Actor type for line-built segments (defaults to same actor). |
 | SegmentsRequireNode | False | Boolean | Delete generated segments when destroyed or sold. |
 
@@ -4235,7 +4235,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Types | wall | Set of String | This actor is of LineBuild 'NodeType'... |
+| Types | (Collection) | Set of String | This actor is of LineBuild 'NodeType'... |
 | Connections | 1,0, 0,1, -1,0, 0,-1 | Collection of 2D Cell Vector | Cells (outside the footprint) that contain cells that can connect to this actor. |
 
 ### LineBuildSegmentExternalCondition
@@ -4814,7 +4814,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | GroundImpactSound |  | String |  |
 | WaterCorpseSequence |  | String |  |
 | WaterCorpsePalette | effect | String |  |
-| WaterTerrainTypes | Water | Set of String | Terrain types on which to display WaterCorpseSequence. |
+| WaterTerrainTypes | (Collection) | Set of String | Terrain types on which to display WaterCorpseSequence. |
 | WaterImpactSound |  | String |  |
 | FallRate | 13 | Integer |  |
 | ParachutingCondition |  | String | The condition to grant to self while parachuting. |
@@ -5468,7 +5468,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | RearmActors | *(required)* | Set of String | Actors that this actor can dock to and get rearmed by. |
-| AmmoPools | primary | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
+| AmmoPools | (Collection) | Set of String | Name(s) of AmmoPool(s) that use this trait to rearm. |
 
 ### Refinery
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/Refinery.cs)**
@@ -7264,7 +7264,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | XmasImages |  | Collection of String | Easteregg sequences to use in December. |
-| WaterTerrainTypes | Water | Set of String | Terrain types on which to display WaterSequence. |
+| WaterTerrainTypes | (Collection) | Set of String | Terrain types on which to display WaterSequence. |
 | IdleSequence | idle | String |  |
 | WaterSequence |  | String |  |
 | LandSequence |  | String |  |
@@ -8146,7 +8146,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| UnsafeTerrainTypes | Rock | Set of String | Terrain types that should show the 'unsafe' footprint tile. |
+| UnsafeTerrainTypes | (Collection) | Set of String | Terrain types that should show the 'unsafe' footprint tile. |
 | RequiresPrerequisites |  | Collection of String | Only check for 'unsafe' footprint tiles when you have these prerequisites. |
 | Image | overlay | String | Sprite image to use for the overlay. |
 | TileValidName | build-valid | String | Sprite overlay to use for valid cells. |
