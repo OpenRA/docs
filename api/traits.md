@@ -883,6 +883,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ModelRenderer
 **Render voxels [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/World/ModelRenderer.cs)**
 
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| RenderBufferSize | 2048 | Integer |  |
+
 ### PortableChrono
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/PortableChrono.cs)**
 
@@ -1023,6 +1027,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 ### VoxelCache
 **Loads voxel models. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/World/VoxelCache.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| SheetSize | 2048 | Integer |  |
 
 ### VoxelNormalsPalette
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/World/VoxelNormalsPalette.cs)**
