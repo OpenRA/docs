@@ -12,7 +12,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`AttackFrontal`](#attackfrontal), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Mobile`](#mobile).
+> Requires: [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -37,7 +37,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `SupportPower`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -102,7 +102,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`AttackTurreted`](#attackturreted), [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Building`](#building), [`Turreted`](#turreted), [`WithEmbeddedTurretSpriteBody`](#withembeddedturretspritebody).
+> Requires: [`Building`](#building), [`Turreted`](#turreted), [`WithEmbeddedTurretSpriteBody`](#withembeddedturretspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -137,7 +137,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`AttackTurreted`](#attackturreted), [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`TDGunboat`](#tdgunboat), [`Turreted`](#turreted).
+> Requires: [`TDGunboat`](#tdgunboat), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -304,7 +304,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Exit`](#exit), [`Production`](#production).
+> Requires: [`Exit`](#exit), [`Production`](#production).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -315,7 +315,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ConyardChronoReturn
 **Implements the special case handling for the Chronoshiftable return on a construction yard. If ReturnOriginalActorOnCondition evaluates true and the actor is not being sold then OriginalActor will be returned to the origin. Otherwise, a vortex animation is played and damage is dealt each tick, ignoring modifiers. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/ConyardChronoReturn.cs)**
 
-> Requires trait(s): [`Health`](#health), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Health`](#health), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -346,7 +346,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`Tooltip`](#tooltip), `TooltipInfoBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`Disguise`](#disguise).
+> Requires: [`Disguise`](#disguise).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -469,7 +469,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### FrozenUnderFogUpdatedByGps
 **Updates frozen actors of actors that change owners, are sold or die whilst having an active GPS power. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/FrozenUnderFogUpdatedByGps.cs)**
 
-> Requires trait(s): [`FrozenUnderFog`](#frozenunderfog).
+> Requires: [`FrozenUnderFog`](#frozenunderfog).
 
 ### GpsDot
 **Show an indicator revealing the actor underneath the fog when a GPSWatcher is activated. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/GpsDot.cs)**
@@ -628,7 +628,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### HarvesterHuskModifier
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/HarvesterHuskModifier.cs)**
 
-> Requires trait(s): [`Harvester`](#harvester).
+> Requires: [`Harvester`](#harvester).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -861,7 +861,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### MadTank
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/MadTank.cs)**
 
-> Requires trait(s): [`FireWarheadsOnDeath`](#firewarheadsondeath), [`WithFacingSpriteBody`](#withfacingspritebody).
+> Requires: [`FireWarheadsOnDeath`](#firewarheadsondeath), [`WithFacingSpriteBody`](#withfacingspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -946,7 +946,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### TransferTimedExternalConditionOnTransform
 **A special case trait that re-grants a timed external condition when this actor transforms. This trait does not work with permanently granted external conditions. This trait changes the external condition source, so cannot be used for conditions that may later be revoked [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/TransferTimedExternalConditionOnTransform.cs)**
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -970,7 +970,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`EditorResourceLayer`](#editorresourcelayer).
 
-> Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
+> Requires: [`EditorActorLayer`](#editoractorlayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -984,7 +984,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`ResourceLayer`](#resourcelayer).
 
-> Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
+> Requires: [`BuildingInfluence`](#buildinginfluence).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1043,7 +1043,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithBuildingBib
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/WithBuildingBib.cs)**
 
-> Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
+> Requires: [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1068,7 +1068,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### RenderVoxels
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/RenderVoxels.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1086,7 +1086,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithCargo
 **Renders the cargo loaded into the unit. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/WithCargo.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Cargo`](#cargo).
+> Requires: [`BodyOrientation`](#bodyorientation), [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1098,7 +1098,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`WithInfantryBody`](#withinfantrybody), `ConditionalTrait`.
 
-> Requires trait(s): [`Disguise`](#disguise), [`RenderSprites`](#rendersprites).
+> Requires: [`Disguise`](#disguise), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1118,7 +1118,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1137,7 +1137,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1160,7 +1160,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`WithFacingSpriteBody`](#withfacingspritebody), [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Harvester`](#harvester), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`Harvester`](#harvester), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1177,7 +1177,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithLandingCraftAnimation
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/WithLandingCraftAnimation.cs)**
 
-> Requires trait(s): [`Cargo`](#cargo), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Cargo`](#cargo), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1192,7 +1192,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`WithInfantryBody`](#withinfantrybody), `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1212,7 +1212,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithTeslaChargeAnimation
 **This actor displays a charge-up animation before firing. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/WithTeslaChargeAnimation.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1222,7 +1222,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithTeslaChargeOverlay
 **Rendered together with AttackCharge. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/WithTeslaChargeOverlay.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1235,7 +1235,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
+> Requires: [`Armament`](#armament), [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1251,7 +1251,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderVoxels`](#rendervoxels).
+> Requires: [`RenderVoxels`](#rendervoxels).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1265,7 +1265,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
+> Requires: [`RenderVoxels`](#rendervoxels), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1277,7 +1277,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### WithVoxelUnloadBody
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Render/WithVoxelUnloadBody.cs)**
 
-> Requires trait(s): [`RenderVoxels`](#rendervoxels).
+> Requires: [`RenderVoxels`](#rendervoxels).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1290,7 +1290,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderVoxels`](#rendervoxels).
+> Requires: [`RenderVoxels`](#rendervoxels).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1322,7 +1322,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### LuaScript
 **Part of the new Lua API. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Scripting/LuaScript.cs)**
 
-> Requires trait(s): [`SpawnMapActors`](#spawnmapactors).
+> Requires: [`SpawnMapActors`](#spawnmapactors).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1345,7 +1345,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### AcceptsDeliveredExperience
 **Tag trait for actors with `DeliversExperience`. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/AcceptsDeliveredExperience.cs)**
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1362,7 +1362,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ActorMapOverlay
 **Renders a debug overlay showing the actor influence map. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
 
-> Requires trait(s): [`ActorMap`](#actormap).
+> Requires: [`ActorMap`](#actormap).
 
 ### ActorPreviewPlaceBuildingPreview
 **Creates a building placement preview based on the map editor actor preview. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/ActorPreviewPlaceBuildingPreview.cs)**
@@ -1395,7 +1395,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`MapCreeps`](#mapcreeps).
+> Requires: [`MapCreeps`](#mapcreeps).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1576,7 +1576,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1614,7 +1614,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Aircraft`](#aircraft).
+> Requires: [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1735,7 +1735,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Cargo`](#cargo).
+> Requires: [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1802,7 +1802,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`AttackFollow`](#attackfollow), `AttackBase`, `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Turreted`](#turreted).
+> Requires: [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1830,7 +1830,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
 
-> Requires trait(s): [`AttackMove`](#attackmove).
+> Requires: [`AttackMove`](#attackmove).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1860,7 +1860,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`Carryall`](#carryall), `ConditionalTrait`.
 
-> Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
+> Requires: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1905,7 +1905,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1930,7 +1930,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`AutoTarget`](#autotarget).
+> Requires: [`AutoTarget`](#autotarget).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2049,7 +2049,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### Bridge
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/Bridge.cs)**
 
-> Requires trait(s): [`Building`](#building), [`Health`](#health).
+> Requires: [`Building`](#building), [`Health`](#health).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2144,7 +2144,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`ProductionQueue`](#productionqueue).
 
-> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+> Requires: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2188,7 +2188,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`CaptureManager`](#capturemanager).
+> Requires: [`CaptureManager`](#capturemanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2201,7 +2201,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Capturable`](#capturable).
+> Requires: [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2213,7 +2213,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Capturable`](#capturable).
+> Requires: [`Capturable`](#capturable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2250,7 +2250,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Captures`](#captures).
+> Requires: [`Captures`](#captures).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2262,7 +2262,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`CaptureManager`](#capturemanager).
+> Requires: [`CaptureManager`](#capturemanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2330,7 +2330,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
+> Requires: [`Aircraft`](#aircraft), [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2372,7 +2372,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`CashTrickler`](#cashtrickler).
+> Requires: [`CashTrickler`](#cashtrickler).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2405,7 +2405,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ChangesTerrain
 **Modifies the terrain type underneath the actors location. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ChangesTerrain.cs)**
 
-> Requires trait(s): [`Immobile`](#immobile).
+> Requires: [`Immobile`](#immobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2416,7 +2416,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`ProductionQueue`](#productionqueue).
 
-> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+> Requires: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2454,7 +2454,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: [`ProductionQueue`](#productionqueue).
 
-> Requires trait(s): [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
+> Requires: [`PlayerResources`](#playerresources), [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2587,7 +2587,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ConquestVictoryConditions
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/ConquestVictoryConditions.cs)**
 
-> Requires trait(s): [`MissionObjectives`](#missionobjectives).
+> Requires: [`MissionObjectives`](#missionobjectives).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2600,7 +2600,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2647,7 +2647,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### Crate
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Crates/Crate.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2788,7 +2788,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### DeliversExperience
 **This actor can grant experience levels equal to it's own current level via entering to other actors with the `AcceptsDeliveredExperience` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/DeliversExperience.cs)**
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2963,7 +2963,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### EditorCursorLayer
 **Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
 
-> Requires trait(s): [`EditorActorLayer`](#editoractorlayer).
+> Requires: [`EditorActorLayer`](#editoractorlayer).
 
 ### EditorOnlyTooltip
 **Shown in map editor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Tooltip.cs)**
@@ -3008,7 +3008,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ElevatedBridgePlaceholder
 **Placeholder to make static elevated bridges work. Define individual trait instances for each elevated bridge footprint in the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ElevatedBridgePlaceholder.cs)**
 
-> Requires trait(s): [`ElevatedBridgeLayer`](#elevatedbridgelayer).
+> Requires: [`ElevatedBridgeLayer`](#elevatedbridgelayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3068,7 +3068,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ExitsDebugOverlay
 **Displays `Exit` data for factories. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ExitsDebugOverlay.cs)**
 
-> Requires trait(s): [`Exit`](#exit).
+> Requires: [`Exit`](#exit).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3088,7 +3088,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3155,7 +3155,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### FallsToEarth
 **Causes aircraft husks that are spawned in the air to crash to the ground. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Air/FallsToEarth.cs)**
 
-> Requires trait(s): [`Aircraft`](#aircraft).
+> Requires: [`Aircraft`](#aircraft).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3315,7 +3315,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### FrozenUnderFog
 **This actor will remain visible (but not updated visually) under fog, once discovered. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Modifiers/FrozenUnderFog.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3353,7 +3353,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3639,7 +3639,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### GrantConditionOnLineBuildDirection
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnLineBuildDirection.cs)**
 
-> Requires trait(s): [`LineBuild`](#linebuild).
+> Requires: [`LineBuild`](#linebuild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3651,7 +3651,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Minelayer`](#minelayer).
+> Requires: [`Minelayer`](#minelayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -3699,7 +3699,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### GrantConditionOnPrerequisiteManager
 **Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/GrantConditionOnPrerequisiteManager.cs)**
 
-> Requires trait(s): [`TechTree`](#techtree).
+> Requires: [`TechTree`](#techtree).
 
 ### GrantConditionOnProduction
 **Grants a condition when this actor produces a specific actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Conditions/GrantConditionOnProduction.cs)**
@@ -3875,7 +3875,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### GroundLevelBridge
 **Bridge actor that can't be passed underneath. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/GroundLevelBridge.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4036,7 +4036,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### HierarchicalPathFinderOverlay
 **Renders a debug overlay showing the abstract graph of the hierarchical pathfinder. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/HierarchicalPathFinderOverlay.cs)**
 
-> Requires trait(s): [`PathFinder`](#pathfinder).
+> Requires: [`PathFinder`](#pathfinder).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4051,7 +4051,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4158,7 +4158,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### IsometricSelectable
 **This actor is selectable. Defines bounds of selectable area, selection class, selection priority and selection priority modifiers. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/IsometricSelectable.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4251,7 +4251,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`LineBuild`](#linebuild).
+> Requires: [`LineBuild`](#linebuild).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4398,7 +4398,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`ResourceMapBotModule`](#resourcemapbotmodule).
+> Requires: [`ResourceMapBotModule`](#resourcemapbotmodule).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4830,7 +4830,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ParaDrop
 **This unit can spawn and eject other actors while flying. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ParaDrop.cs)**
 
-> Requires trait(s): [`Cargo`](#cargo).
+> Requires: [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4965,12 +4965,12 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### PathFinder
 **Calculates routes for mobile actors with locomotors based on the A* search algorithm.  Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/PathFinder.cs)**
 
-> Requires trait(s): [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
+> Requires: [`ActorMap`](#actormap), [`Locomotor`](#locomotor).
 
 ### PathFinderOverlay
 **Renders a visualization overlay showing how the pathfinder searches for paths. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/PathFinderOverlay.cs)**
 
-> Requires trait(s): [`PathFinder`](#pathfinder).
+> Requires: [`PathFinder`](#pathfinder).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5012,7 +5012,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### PlaceBuildingVariants
 **Place a different building when PlaceBuilding's ToggleVariantKey hotkey is pressed while the PlaceBuildingOrderGenerator is active. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/PlaceBuildingVariants.cs)**
 
-> Requires trait(s): [`Buildable`](#buildable), [`Building`](#building).
+> Requires: [`Buildable`](#buildable), [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5047,7 +5047,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### PlayerRadarTerrain
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/PlayerRadarTerrain.cs)**
 
-> Requires trait(s): [`Shroud`](#shroud).
+> Requires: [`Shroud`](#shroud).
 
 ### PlayerResources
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/PlayerResources.cs)**
@@ -5115,7 +5115,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### PowerManager
 **Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Power/Player/PowerManager.cs)**
 
-> Requires trait(s): [`DeveloperMode`](#developermode).
+> Requires: [`DeveloperMode`](#developermode).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5218,7 +5218,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ProducibleWithLevel
 **Actors possessing this trait should define the GainsExperience trait. When the prerequisites are fulfilled,  this trait grants a level-up to newly spawned actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ProducibleWithLevel.cs)**
 
-> Requires trait(s): [`GainsExperience`](#gainsexperience).
+> Requires: [`GainsExperience`](#gainsexperience).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5301,7 +5301,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`Production`](#production), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Exit`](#exit).
+> Requires: [`Exit`](#exit).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5426,7 +5426,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5481,7 +5481,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### Refinery
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/Refinery.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5674,7 +5674,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### RequiresBuildableArea
 **This actor requires another actor with 'GivesBuildableArea' trait around to be placed. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/RequiresBuildableArea.cs)**
 
-> Requires trait(s): [`Building`](#building).
+> Requires: [`Building`](#building).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5697,7 +5697,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ResourceLayer
 **Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ResourceLayer.cs)**
 
-> Requires trait(s): [`BuildingInfluence`](#buildinginfluence).
+> Requires: [`BuildingInfluence`](#buildinginfluence).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5730,7 +5730,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ResourceStorageWarning
 **Provides the player with an audible warning when their storage is nearing full. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/ResourceStorageWarning.cs)**
 
-> Requires trait(s): [`PlayerResources`](#playerresources).
+> Requires: [`PlayerResources`](#playerresources).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5850,12 +5850,12 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ScalePowerWithHealth
 **Scale power amount with the current health. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Power/ScalePowerWithHealth.cs)**
 
-> Requires trait(s): [`Power`](#power).
+> Requires: [`Power`](#power).
 
 ### ScaredyCat
 **Makes the unit automatically run around when taking damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Infantry/ScaredyCat.cs)**
 
-> Requires trait(s): [`Mobile`](#mobile).
+> Requires: [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5939,7 +5939,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`FootprintPlaceBuildingPreview`](#footprintplacebuildingpreview).
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6100,7 +6100,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### SpawnStartingUnits
 **Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
 
-> Requires trait(s): [`StartingUnits`](#startingunits).
+> Requires: [`StartingUnits`](#startingunits).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6213,7 +6213,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### StrategicVictoryConditions
 **Allows King of the Hill (KotH) style gameplay. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
 
-> Requires trait(s): [`MissionObjectives`](#missionobjectives).
+> Requires: [`MissionObjectives`](#missionobjectives).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6258,7 +6258,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`SupportPowerManager`](#supportpowermanager).
+> Requires: [`SupportPowerManager`](#supportpowermanager).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6288,14 +6288,14 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### SupportPowerManager
 **Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/SupportPowers/SupportPowerManager.cs)**
 
-> Requires trait(s): [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
+> Requires: [`DeveloperMode`](#developermode), [`TechTree`](#techtree).
 
 ### TakeCover
 **Make the unit go prone when under attack, in an attempt to reduce damage. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Infantry/TakeCover.cs)**
 
 > Inherits from: [`Turreted`](#turreted), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6375,7 +6375,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### TerrainTunnel
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TerrainTunnel.cs)**
 
-> Requires trait(s): [`TerrainTunnelLayer`](#terraintunnellayer).
+> Requires: [`TerrainTunnelLayer`](#terraintunnellayer).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6395,7 +6395,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ThrowsParticle
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ThrowsParticle.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
+> Requires: [`BodyOrientation`](#bodyorientation), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6544,7 +6544,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6564,7 +6564,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6580,7 +6580,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6596,7 +6596,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6614,7 +6614,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6632,7 +6632,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6649,7 +6649,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Transforms`](#transforms).
+> Requires: [`Transforms`](#transforms).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6670,7 +6670,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Mobile`](#mobile).
+> Requires: [`Mobile`](#mobile).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6683,7 +6683,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation).
+> Requires: [`BodyOrientation`](#bodyorientation).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6844,7 +6844,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### CashTricklerBar
 **Display the time remaining until the next cash is given by actor's CashTrickler trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/CashTricklerBar.cs)**
 
-> Requires trait(s): [`CashTrickler`](#cashtrickler).
+> Requires: [`CashTrickler`](#cashtrickler).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6871,7 +6871,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `SelectionDecorationsBase`.
 
-> Requires trait(s): [`IsometricSelectable`](#isometricselectable).
+> Requires: [`IsometricSelectable`](#isometricselectable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6904,7 +6904,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Production`](#production).
+> Requires: [`Production`](#production).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6915,7 +6915,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### ProductionIconOverlayManager
 **Attach this to the player actor. Required for WithProductionIconOverlay trait on actors to work. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/ProductionIconOverlayManager.cs)**
 
-> Requires trait(s): [`TechTree`](#techtree).
+> Requires: [`TechTree`](#techtree).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6942,7 +6942,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### RenderDetectionCircle
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/RenderDetectionCircle.cs)**
 
-> Requires trait(s): [`DetectCloaked`](#detectcloaked).
+> Requires: [`DetectCloaked`](#detectcloaked).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6957,7 +6957,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### RenderMouseBounds
 **Renders polygon for mouse bounds (usually defined by Interactable or Selectable). Put on actor for which the polygon should be rendered. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/RenderMouseBounds.cs)**
 
-> Requires trait(s): [`Interactable`](#interactable).
+> Requires: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -6966,7 +6966,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### RenderRangeCircle
 **Draw a circle indicating my weapon's range. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/RenderRangeCircle.cs)**
 
-> Requires trait(s): `AttackBase`.
+> Requires: `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7005,7 +7005,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `SelectionDecorationsBase`.
 
-> Requires trait(s): [`Interactable`](#interactable).
+> Requires: [`Interactable`](#interactable).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7035,7 +7035,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7048,7 +7048,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody), `AttackBase`.
+> Requires: [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7077,7 +7077,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`AmmoPool`](#ammopool).
+> Requires: [`AmmoPool`](#ammopool).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7103,7 +7103,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
+> Requires: [`Armament`](#armament), [`WithSpriteBody`](#withspritebody), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7117,7 +7117,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithAttackOverlay
 **Rendered together with an attack. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithAttackOverlay.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7134,7 +7134,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7159,7 +7159,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7172,7 +7172,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7187,7 +7187,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithDecoration`](#withdecoration), `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`RepairableBuilding`](#repairablebuilding).
+> Requires: [`RepairableBuilding`](#repairablebuilding).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7210,7 +7210,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `WithDecorationBase`, `ConditionalTrait`.
 
-> Requires trait(s): [`Cargo`](#cargo).
+> Requires: [`Cargo`](#cargo).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7236,7 +7236,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7251,7 +7251,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`AttackCharges`](#attackcharges), [`RenderSprites`](#rendersprites).
+> Requires: [`AttackCharges`](#attackcharges), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7267,7 +7267,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithCrateBody
 **Renders crates with both water and land variants. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithCrateBody.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7282,7 +7282,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7305,7 +7305,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7331,7 +7331,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7373,7 +7373,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7386,7 +7386,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7400,7 +7400,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithDockingAnimation
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithDockingAnimation.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7412,7 +7412,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7428,7 +7428,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7446,7 +7446,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Gate`](#gate), [`RenderSprites`](#rendersprites).
+> Requires: [`Gate`](#gate), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7465,7 +7465,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithHarvestAnimation
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithHarvestAnimation.cs)**
 
-> Requires trait(s): [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
+> Requires: [`Harvester`](#harvester), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7475,7 +7475,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithHarvestOverlay
 **Displays an overlay whenever resources are harvested by the actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithHarvestOverlay.cs)**
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7488,7 +7488,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7502,7 +7502,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7521,7 +7521,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7539,7 +7539,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### WithMakeAnimation
 **Replaces the sprite during construction/deploy/undeploy. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Render/WithMakeAnimation.cs)**
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7561,7 +7561,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7575,7 +7575,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
+> Requires: [`Armament`](#armament), [`RenderSprites`](#rendersprites), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7608,7 +7608,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7631,7 +7631,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Building`](#building), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7651,7 +7651,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`Production`](#production), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7686,7 +7686,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7704,7 +7704,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
+> Requires: [`RenderSprites`](#rendersprites), [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7718,7 +7718,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7760,7 +7760,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7786,7 +7786,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+> Requires: [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7800,7 +7800,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7829,7 +7829,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
+> Requires: [`Armament`](#armament), [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites), [`Turreted`](#turreted).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7869,7 +7869,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteBody`](#withspritebody).
+> Requires: [`WithSpriteBody`](#withspritebody).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7882,7 +7882,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7897,7 +7897,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7951,7 +7951,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
+> Requires: [`WithSpriteTurret`](#withspriteturret), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7965,7 +7965,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`Armament`](#armament), [`WithSpriteTurret`](#withspriteturret).
+> Requires: [`Armament`](#armament), [`WithSpriteTurret`](#withspriteturret).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -7981,7 +7981,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`WithSpriteBody`](#withspritebody), `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`Building`](#building), [`RenderSprites`](#rendersprites).
+> Requires: [`Building`](#building), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8199,7 +8199,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: [`Wanders`](#wanders), `ConditionalTrait`.
 
-> Requires trait(s): [`Mobile`](#mobile), `AttackBase`.
+> Requires: [`Mobile`](#mobile), `AttackBase`.
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8225,7 +8225,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### SpiceBloom
 **Seeds resources by explosive eruptions after accumulation times. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/SpiceBloom.cs)**
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8275,7 +8275,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `ConditionalTrait`.
 
-> Requires trait(s): [`RenderSprites`](#rendersprites).
+> Requires: [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8289,7 +8289,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 
 > Inherits from: `PausableConditionalTrait`, `ConditionalTrait`.
 
-> Requires trait(s): [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
+> Requires: [`BodyOrientation`](#bodyorientation), [`RenderSprites`](#rendersprites).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8338,7 +8338,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### FrozenActorLayer
 **Required for FrozenUnderFog to work. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Game/Traits/Player/FrozenActorLayer.cs)**
 
-> Requires trait(s): [`Shroud`](#shroud).
+> Requires: [`Shroud`](#shroud).
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
