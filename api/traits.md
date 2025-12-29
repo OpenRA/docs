@@ -5056,7 +5056,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | -------- | ------------- | ---- | ----------- |
 | DefaultCashDropdownLabel | Starting Cash | String | Descriptive label for the starting cash option in the lobby. |
 | DefaultCashDropdownDescription | The amount of cash that players start with | String | Tooltip description for the starting cash option in the lobby. |
-| SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. |
+| SelectableCash | 2500, 5000, 10000, 20000 | Collection of Integer | Starting cash options that are available in the lobby options. DefaultCash will be included if not specified. |
 | DefaultCash | 5000 | Integer | Default starting cash option: should be one of the SelectableCash options. |
 | DefaultCashDropdownLocked | False | Boolean | Force the DefaultCash option by disabling changes in the lobby. |
 | DefaultCashDropdownVisible | True | Boolean | Whether to display the DefaultCash option in the lobby. |
