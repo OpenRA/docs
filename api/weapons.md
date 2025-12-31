@@ -412,7 +412,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### HealthPercentageDamageWarhead
-**Apply damage based on the target's health. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Warheads/DamageWarhead.cs)**
+**Apply damage based on the target's health. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Warheads/HealthPercentageDamageWarhead.cs)**
 
 > Inherits from: [`TargetDamageWarhead`](#targetdamagewarhead), `DamageWarhead`.
 

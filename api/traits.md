@@ -293,7 +293,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UseClassicPerspectiveFudge | True | Boolean | Fudge the coordinate system angles to simulate non-top-down perspective in mods with square cells. |
 
 ### Cloneable
-**Actors with the "ClonesProducedUnits" trait will produce a free duplicate of me. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/(unknown))**
+**Actors with the "ClonesProducedUnits" trait will produce a free duplicate of me. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/Cloneable.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -443,7 +443,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EdibleByLeap
-**Allows this actor to be the target of an attack leap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/(unknown))**
+**Allows this actor to be the target of an attack leap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/EdibleByLeap.cs)**
 
 ### EnergyWall
 **Will open and be passable for actors that appear friendly when there are no enemies in range. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/EnergyWall.cs)**
@@ -1303,19 +1303,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Common.Commands
 
 ### ChatCommands
-**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Enables commands triggered by typing them into the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Commands/ChatCommands.cs)**
 
 ### DebugVisualizationCommands
-**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Enables visualization commands via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Commands/DebugVisualizationCommands.cs)**
 
 ### DevCommands
-**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Enables developer cheats via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Commands/DevCommands.cs)**
 
 ### HelpCommand
-**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Shows a list of available commands in the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Commands/HelpCommand.cs)**
 
 ### PlayerCommands
-**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Allows the player to pause or surrender the game via the chatbox. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Commands/PlayerCommands.cs)**
 
 ## OpenRA.Mods.Common.Scripting
 
@@ -1360,7 +1360,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BinSize | 10 | Integer | Size of partition bins (cells) |
 
 ### ActorMapOverlay
-**Renders a debug overlay showing the actor influence map. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Renders a debug overlay showing the actor influence map. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ActorMapOverlay.cs)**
 
 > Requires: [`ActorMap`](#actormap).
 
@@ -1547,7 +1547,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### AllyRepair
-**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Attach this to the player actor to allow building repair by team mates. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/AllyRepair.cs)**
 
 ### AmmoPool
 **Actor has a limited amount of ammo, after using it all the actor must reload in some way. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/AmmoPool.cs)**
@@ -1564,7 +1564,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | AmmoCondition |  | String | The condition to grant to self for each ammo point in this pool. |
 
 ### AppearsOnMapPreview
-**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Render this actor when creating the minimap while saving the map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/AppearsOnMapPreview.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -1995,7 +1995,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseBuilding
-**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Tag trait for construction yard and MCVs. Used by the cycle bases hotkey to identify actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/BaseBuilding.cs)**
 
 ### BaseProvider
 **Limits the zone where buildings can be constructed to a radius around this actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/BaseProvider.cs)**
@@ -2537,7 +2537,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CloakPaletteEffect
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/PaletteEffects/CloakPaletteEffect.cs)**
 
 ### ColorPickerColorShift
 **Create a color picker palette from another palette. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Palettes/ColorPickerColorShift.cs)**
@@ -2680,7 +2680,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Cordon | 5c0 | 1D World Distance | Spawn and remove the plane this far outside the map. |
 
 ### CreateMapPlayers
-**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/CreateMapPlayers.cs)**
 
 ### CreatesShroud
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/CreatesShroud.cs)**
@@ -2721,7 +2721,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### CustomSellValue
-**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Allow a non-standard sell/repair value to avoid buy-sell exploits. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/CustomSellValue.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -2950,7 +2950,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### EditorActionManager
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/EditorActionManager.cs)**
 
 ### EditorActorLayer
 **Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/EditorActorLayer.cs)**
@@ -2961,7 +2961,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DefaultActorFacing | 384 | 1D World Angle | Facing of new actors. |
 
 ### EditorCursorLayer
-**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Required for the map editor to work. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/EditorCursorLayer.cs)**
 
 > Requires: [`EditorActorLayer`](#editoractorlayer).
 
@@ -3203,7 +3203,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### FireWarheadsOnDeath
-**This actor fires warheads when killed. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/FireWarheadOnDeath.cs)**
+**This actor fires warheads when killed. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/FireWarheadsOnDeath.cs)**
 
 > Inherits from: `ConditionalTrait`.
 
@@ -3367,7 +3367,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### GiveBaseBuilderCrateAction
-**Spawns units when collected. Adjust selection shares when player has no base. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Crates/GiveMcvCrateAction.cs)**
+**Spawns units when collected. Adjust selection shares when player has no base. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Crates/GiveBaseBuilderCrateAction.cs)**
 
 > Inherits from: [`GiveUnitCrateAction`](#giveunitcrateaction), [`CrateAction`](#crateaction), `ConditionalTrait`.
 
@@ -3907,7 +3907,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 **Modifies the damage applied by this actor based on the owner's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Multipliers/HandicapFirepowerMultiplier.cs)**
 
 ### HandicapProductionTimeMultiplier
-**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Modifies the production time of this actor based on the producer's handicap. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Multipliers/HandicapProductionTimeMultiplier.cs)**
 
 ### HarvesterAttackNotifier
 **Plays an audio notification and shows a radar ping when a harvester is attacked. Attach this to the player actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/HarvesterAttackNotifier.cs)**
@@ -4063,7 +4063,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### Huntable
-**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**This actor can be targeted by the Hunt activity. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Huntable.cs)**
 
 ### Husk
 **Spawns remains of a husk actor with the correct facing. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Husk.cs)**
@@ -4075,10 +4075,10 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Locomotor |  | String | Used to define crushes. Locomotor must be defined on the World actor. |
 
 ### IgnoresCloak
-**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**This actor does not care about any type of cloak its targets might have, regardless of distance. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/IgnoresCloak.cs)**
 
 ### IgnoresDisguise
-**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Allows automatic targeting of disguised actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/IgnoresDisguise.cs)**
 
 ### Immobile
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Immobile.cs)**
@@ -4328,7 +4328,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CheckboxDisplayOrder | 0 | Integer | Display order for the creeps checkbox in the lobby. |
 
 ### MapEditorData
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/MapEditorData.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -4453,7 +4453,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | MenuEffect | None | [`EffectType`](#effecttype) | Effect style to fade to when opening the in-game menu. Accepts values of None, Black or Desaturated. |
 
 ### MineImmune
-**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Tag trait for stuff that should not trigger mines. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Mine.cs)**
 
 ### Mine
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Mine.cs)**
@@ -4506,7 +4506,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | AfterLayingDelay | 20 | Integer | Number of ticks for the minelayer to wait after laying a mine. The wait can be interrupted by a player order. |
 
 ### MissionData
-**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Defines the FMVs that can be played by missions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/MissionData.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5084,7 +5084,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | EditorDisplayOrder | 5 | Integer | Display order for the dropdown in the map editor |
 
 ### Plug
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Plug.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5385,7 +5385,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Prerequisites |  | Collection of String | Prerequisites to grant when this tech level is active. |
 
 ### ProximityCaptor
-**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Actor can capture ProximityCapturable actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ProximityCaptor.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -5689,10 +5689,10 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | ValidOwnerNames | *(required)* | Set of String | Only allow players listed here as owners. |
 
 ### Reservable
-**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Reserve landing places for aircraft. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Buildings/Reservable.cs)**
 
 ### ResourceClaimLayer
-**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Allows harvesters to coordinate their operations. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ResourceClaimLayer.cs)**
 
 ### ResourceLayer
 **Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ResourceLayer.cs)**
@@ -6095,7 +6095,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### SpawnMapActors
-**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnMapActors.cs)**
 
 ### SpawnStartingUnits
 **Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
@@ -6208,7 +6208,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | Resources |  | Collection of String | Which resources can be stored. |
 
 ### StrategicPoint
-**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Used to mark a place that needs to be in possession for StrategicVictoryConditions. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
 
 ### StrategicVictoryConditions
 **Allows King of the Hill (KotH) style gameplay. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/StrategicVictoryConditions.cs)**
@@ -6336,7 +6336,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | BarColor | FFA500 | Color (RRGGBB[AA] notation) |  |
 
 ### TerrainGeometryOverlay
-**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Renders a debug overlay showing the terrain cells. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TerrainGeometryOverlay.cs)**
 
 ### TerrainLighting
 **Add to the world actor to apply a global lighting tint and allow actors using the TerrainLightSource to add localised lighting. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/TerrainLighting.cs)**
@@ -6712,7 +6712,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### UpdatesDerrickCount
-**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Tag trait for updating the 'Oil Derrick' count economy statistic. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/UpdatesDerrickCount.cs)**
 
 ### UpdatesPlayerStatistics
 **Attach this to a unit to update observer stats. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/PlayerStatistics.cs)**
@@ -6724,10 +6724,10 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | OverrideActor |  | String | Count this actor as a different type in the spectator army display. |
 
 ### ValidateOrder
-**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**Used to detect exploits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ValidateOrder.cs)**
 
 ### Valued
-**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/FileFormats/Blast.cs)**
+**How much the unit is worth. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Valued.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -8321,7 +8321,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 **Checks for pause related desyncs. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Game/Traits/DebugPauseState.cs)**
 
 ### DebugVisualizations
-**Enables visualization commands. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Game/Traits/TraitsInterfaces.cs)**
+**Enables visualization commands. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Game/Traits/World/DebugVisualizations.cs)**
 
 ### Faction
 **Attach this to the `World` actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Game/Traits/World/Faction.cs)**
