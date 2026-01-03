@@ -1992,6 +1992,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaxRefineryPerIndice | 2 | Integer | Maximum refinery count per area. Area size is defined in ResourceMapBotModule. |
 | ExpansionTolerate | 0, 1 | Collection of Integer | AI will move mcv when those numbers of refinery <= productions + tech - ExpansionTolerate. |
 | ForceExpansionTolerate | 2, 3 | Collection of Integer | AI will move the only mcv when those numbers of refinery <= productions + tech - ForceExpansionTolerate. |
+| PerExpansionTolerateOnCash | 12000 | Integer | Decrease the expansion tolerate by Cash / this. Used to prevent AI from expanding when it has enough cash. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BaseBuilding
@@ -4410,7 +4411,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | BuildAdditionalMCVCashAmount | 5000 | Integer | Build additional MCV if cash is above this. |
 | ScanForNewMcvInterval | 20 | Integer | Delay (in ticks) for giving orders to idle MCVs. |
 | BuildMcvInterval | 101 | Integer | Delay (in ticks) for checking and building a MCV. |
-| MoveConyardTick | 4000 | Integer | Delay (in ticks) for moving a conyard to better expansion. Only work with more than 1 conyard. |
+| MoveConyardTick | 5700 | Integer | Delay (in ticks) for moving a conyard to better expansion. Only work with more than 1 conyard. |
 | MoveOldConyardFirst |  | Boolean (optional) | Should moving the oldest or newest conyard be preferred? Random ordering if unset. |
 | InitialExpansionMode | CheckResource | [`BotMcvExpansionMode`](#botmcvexpansionmode) | Initial expansion mode chosen by AI. |
 | ExpansionModeAutoSwitch | True | Boolean | Allow the bot to switch expansion mode automatically on enough failure or successful attempts. |
