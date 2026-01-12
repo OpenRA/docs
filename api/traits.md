@@ -2412,6 +2412,19 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | TerrainType | *(required)* | String |  |
 
+### ClassicMapGenerator
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ClassicMapGenerator.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
+| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
+| MapTitle | label-random-map | String | The title to use for generated maps. |
+| PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
+| FluentReferences |  | Collection of String |  |
+| Settings |  | MiniYaml |  |
+
 ### ClassicParallelProductionQueue
 **Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/ClassicParallelProductionQueue.cs)**
 
@@ -3098,19 +3111,6 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Amount | 15 | Integer | Amount of experience to give each time. |
 | PauseOnCondition |  | BooleanExpression | Boolean expression defining the condition to pause this trait. |
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
-
-### ExperimentalMapGenerator
-** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ExperimentalMapGenerator.cs)**
-
-| Property | Default Value | Type | Description |
-| -------- | ------------- | ---- | ----------- |
-| Type | *(required)* | String |  |
-| Name | *(required)* | String |  |
-| Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
-| MapTitle | label-random-map | String | The title to use for generated maps. |
-| PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
-| FluentReferences |  | Collection of String |  |
-| Settings |  | MiniYaml |  |
 
 ### ExplodeCrateAction
 **Fires a weapon at the location when collected. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Crates/ExplodeCrateAction.cs)**
