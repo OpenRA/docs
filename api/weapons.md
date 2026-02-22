@@ -1,6 +1,6 @@
 # Weapons
 
-This documentation is aimed at modders and has been automatically generated for version `playtest-20250220` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `playtest-20260222` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are a template for weapon definitions and the types it can use (warheads and projectiles) with default values and developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -8,6 +8,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.GameRules
 
 ### Weapon
+** [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Game/GameRules/WeaponInfo.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -33,7 +34,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Cnc.Projectiles
 
 ### TeslaZap
-**Instant-hit projectile used to create electricity-like effects.**
+**Instant-hit projectile used to create electricity-like effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Cnc/Projectiles/TeslaZap.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -46,11 +47,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Duration | 2 | Integer | How long (in ticks) to play the sprite sequences. |
 | DamageDuration | 1 | Integer | How long (in ticks) until applying damage. Can't be longer than `Duration` |
 | TrackTarget | True | Boolean | Follow the targeted actor when it moves. |
+| ZOffset | 0 | Integer | Controls Z sorting. |
 
 ## OpenRA.Mods.Common.Projectiles
 
 ### AreaBeam
-**Beam projectile that travels in a straight line.**
+**Beam projectile that travels in a straight line. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/AreaBeam.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -73,7 +75,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UsePlayerColor | False | Boolean | Beam color is the player's color. |
 
 ### Bullet
-**Projectile that travels in a straight line or arc.**
+**Projectile that travels in a straight line or arc. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/Bullet.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -114,7 +116,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ContrailEndColorAlpha | 0 | Integer | The alpha value [from 0 to 255] of color at the contrail end. |
 
 ### GravityBomb
-**Projectile with customisable acceleration vector.**
+**Projectile with customisable acceleration vector. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/GravityBomb.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -129,7 +131,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Acceleration | 0,0,-15 | 3D World Vector | Value added to Velocity every tick. |
 
 ### InstantHit
-**Instant, invisible, usually direct-on-target projectile.**
+**Instant, invisible, usually direct-on-target projectile. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/InstantHit.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -140,7 +142,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | BlockerScanRadius | -0c1 | 1D World Distance | Scan radius for actors with projectile-blocking trait. If set to a negative value (default), it will automatically scale to the blocker with the largest health shape. Only set custom values if you know what you're doing. |
 
 ### LaserZap
-**Not a sprite, but an engine effect.**
+**Not a sprite, but an engine effect. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/LaserZap.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -170,7 +172,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | LaunchEffectPalette | effect | String | Palette to use for launch effect. |
 
 ### Missile
-**Projectile with smart tracking.**
+**Projectile with smart tracking. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/Missile.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -226,7 +228,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | CloseEnough | 0c298 | 1D World Distance | Explodes when inside this proximity radius to target. Note: If this value is lower than the missile speed, this check might not trigger fast enough, causing the missile to fly past the target. |
 
 ### Railgun
-**Laser effect with helix coiling around.**
+**Laser effect with helix coiling around. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Projectiles/Railgun.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -254,10 +256,27 @@ Related types with their possible values are listed [at the bottom](#related-val
 | HitAnimSequence | idle | String | Sequence of impact animation to use. |
 | HitAnimPalette | effect | String |  |
 
+## OpenRA.Mods.D2k.Projectiles
+
+### SonicBlast
+**Blast projectile that travels in a straight line. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.D2k/Projectiles/SonicBlast.cs)**
+
+| Property | Default Value | Type | Description |
+| -------- | ------------- | ---- | ----------- |
+| Speed | 0c128 | Collection of 1D World Distance | Projectile speed in WDist / tick, two values indicate a randomly picked velocity per blast. |
+| DamageInterval | 1 | Integer | The number of ticks between the blast causing warhead impacts in its area of effect. |
+| MinDistance | 0c0 | 1D World Distance | The minimum distance the blast travels. |
+| Width | 0c650 | 1D World Distance | Width of projectile (used for finding blocking actors). |
+| Falloff | 100, 100 | Collection of Integer | Damage modifier applied at each range step. |
+| Range | 0c0, 2097151c1023 | Collection of 1D World Distance | Ranges at which each Falloff step is defined. |
+| Inaccuracy | 0c0 | 1D World Distance | The maximum/constant/incremental inaccuracy used in conjunction with the InaccuracyType property. |
+| InaccuracyType | Maximum | [`InaccuracyType`](#inaccuracytype) | Controls the way inaccuracy is calculated. Possible values are'Maximum' - scale from 0 to max with range,'PerCellIncrement' - scale from 0 with range'Absolute' - use set value regardless of range. |
+| Blockable | False | Boolean | Can this projectile be blocked when hitting actors with an nameof(BlocksProjectiles) trait. |
+
 ## OpenRA.Mods.Common.Warheads
 
 ### ChangeOwnerWarhead
-**Interacts with the `TemporaryOwnerManager` trait.**
+**Interacts with the `TemporaryOwnerManager` trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/ChangeOwnerWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -272,7 +291,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### CreateEffectWarhead
-**Spawn a sprite with sound.**
+**Spawn a sprite with sound. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/CreateEffectWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -294,7 +313,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### CreateResourceWarhead
-**Creates resources in a circle.**
+**Creates resources in a circle. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/CreateResourceWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -309,12 +328,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### DestroyResourceWarhead
-**Destroys resources in a circle.**
+**Destroys resources in a circle. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/DestroyResourceWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Size | 0, 0 | Collection of Integer | Size of the area. The resources are removed within this area. Provide 2 values for a ring effect (outer/inner). |
-| ResourceAmount | 0 | Integer | Amount of resources to be removed. If negative or zero, all resources within the area will be removed. |
+| ResourceAmount | 0 | Byte | Amount of resources to be removed. If zero, all resources within the area will be removed. |
 | ResourceTypes |  | Set of String | Resource types to remove with this warhead. If empty, all resource types will be removed. |
 | ValidTargets | Ground, Water | Collection of TargetableType | What types of targets are affected. |
 | InvalidTargets |  | Collection of TargetableType | What types of targets are unaffected. Overrules ValidTargets. |
@@ -325,7 +344,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### FireClusterWarhead
-**Fires weapons from the point of impact.**
+**Fires weapons from the point of impact. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/FireClusterWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -342,7 +361,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### FlashEffectWarhead
-**Used to trigger a FlashPostProcessEffect trait on the world actor.**
+**Used to trigger a FlashPostProcessEffect trait on the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/FlashEffectWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -357,7 +376,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### FlashTargetsInRadiusWarhead
-**Trigger a flash effect on the targeted actor, or actors within a circle.**
+**Trigger a flash effect on the targeted actor, or actors within a circle. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/FlashTargetsInRadiusWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -377,7 +396,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### GrantExternalConditionWarhead
-**Grant an external condition to hit actors.**
+**Grant an external condition to hit actors. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/GrantExternalConditionWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -393,7 +412,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### HealthPercentageDamageWarhead
-**Apply damage based on the target's health.**
+**Apply damage based on the target's health. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/HealthPercentageDamageWarhead.cs)**
 
 > Inherits from: [`TargetDamageWarhead`](#targetdamagewarhead), `DamageWarhead`.
 
@@ -412,7 +431,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### LeaveSmudgeWarhead
-**Creates a smudge in `SmudgeLayer`.**
+**Creates a smudge in `SmudgeLayer`. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/LeaveSmudgeWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -428,7 +447,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### ShakeScreenWarhead
-**Makes the screen shake.**
+**Makes the screen shake. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/ShakeScreenWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -444,7 +463,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### SpreadDamageWarhead
-**Apply damage in a specified range.**
+**Apply damage in a specified range. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/SpreadDamageWarhead.cs)**
 
 > Inherits from: `DamageWarhead`.
 
@@ -466,7 +485,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | DebugOverlayColor | FF0000 | Color (RRGGBB[AA] notation) | The color used for this warhead's visualization in the world's `WarheadDebugOverlay` trait. |
 
 ### TargetDamageWarhead
-**Apply damage to the targeted actor.**
+**Apply damage to the targeted actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Warheads/TargetDamageWarhead.cs)**
 
 > Inherits from: `DamageWarhead`.
 
@@ -487,7 +506,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.D2k.Warheads
 
 ### DamagesConcreteWarhead
-**Interacts with the BuildableTerrainLayer trait.**
+**Interacts with the BuildableTerrainLayer trait. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.D2k/Warheads/DamagesConcreteWarhead.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -515,7 +534,7 @@ Referenced by: [`FlashTargetsInRadiusWarhead`](#flashtargetsinradiuswarhead), [`
 ### InaccuracyType
 Possible values: `Maximum`, `PerCellIncrement`, `Absolute`
 
-Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#instanthit), [`LaserZap`](#laserzap), [`Missile`](#missile), [`Railgun`](#railgun)
+Referenced by: [`AreaBeam`](#areabeam), [`Bullet`](#bullet), [`InstantHit`](#instanthit), [`LaserZap`](#laserzap), [`Missile`](#missile), [`Railgun`](#railgun), [`SonicBlast`](#sonicblast)
 
 ### PlayerRelationship
 Possible values: `None`, `Enemy`, `Neutral`, `Ally`

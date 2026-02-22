@@ -1,6 +1,6 @@
 # Sprite sequences
 
-This documentation is aimed at modders and has been automatically generated for version `playtest-20250220` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
+This documentation is aimed at modders and has been automatically generated for version `playtest-20260222` of OpenRA. Please do not edit it directly, but instead add new `[Desc("String")]` tags to the source code.
 
 Listed below are all sprite sequence types with their properties and their default values plus developer commentary.
 Related types with their possible values are listed [at the bottom](#related-value-types-enums).
@@ -8,7 +8,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Cnc.Graphics
 
 ### ClassicSpriteSequence
-**A sprite sequence that has the oddities that come with first-generation Westwood titles.**
+**A sprite sequence that has the oddities that come with first-generation Westwood titles. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Cnc/Graphics/ClassicSpriteSequence.cs)**
 
 > Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
 
@@ -17,7 +17,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | UseClassicFacings | False | Boolean | Incorporate a compensation factor for the rotational distortion present in the first-generation Westwood games. |
 
 ### ClassicTilesetSpecificSpriteSequence
-**A sprite sequence that can have tileset-specific variants and has the oddities that come with first-generation Westwood titles.**
+**A sprite sequence that can have tileset-specific variants and has the oddities that come with first-generation Westwood titles. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Cnc/Graphics/ClassicTilesetSpecificSpriteSequence.cs)**
 
 > Inherits from: [`ClassicSpriteSequence`](#classicspritesequence), [`DefaultSpriteSequence`](#defaultspritesequence).
 
@@ -29,7 +29,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.Common.Graphics
 
 ### DefaultSpriteSequence
-**Generic sprite sequence implementation, mostly unencumbered with game- or artwork-specific logic.**
+**Generic sprite sequence implementation, mostly unencumbered with game- or artwork-specific logic. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Graphics/DefaultSpriteSequence.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
@@ -45,7 +45,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | ZRamp | 0 | Integer | Additional sprite depth Z offset to apply as a function of sprite Y (0: vertical, 1: flat on terrain) |
 | ShadowStart | -1 | Integer | If the shadow is not part of the sprite, but baked into the same sprite sheet at a fixed offset, set this to the frame index where it starts. |
 | ShadowZOffset | -0c5 | 1D World Distance | Set Z-Offset for the separate shadow. Used by the later Westwood 2.5D titles. |
-| Frames |  | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
+| Frames | System.Collections.Immutable.ImmutableArray`1[System.Int32] | Collection of Integer | The individual frames to play instead of going through them sequentially from the `Start`. |
 | IgnoreWorldTint | False | Boolean | Don't apply terrain lighting or colored overlays. |
 | Scale | 1 | Real Number | Adjusts the rendered size of the sprite |
 | Reverses | False | Boolean | Play the sprite sequence back and forth. |
@@ -55,14 +55,14 @@ Related types with their possible values are listed [at the bottom](#related-val
 | Offset | 0,0,0 | float3 | Change the position in-game on X, Y, Z. |
 | BlendMode | Alpha | [`BlendMode`](#blendmode) | Apply an OpenGL/Photoshop inspired blend mode. |
 | Combine |  | MiniYaml | Create a virtual sprite file by concatenating one or more frames from multiple files, with optional transformations applied. All defined frames will be loaded into memory, even if unused, so use this property with care. |
-| Alpha |  | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
+| Alpha | System.Collections.Immutable.ImmutableArray`1[System.Single] | Collection of Real Number | Sets transparency - use one value to set for all frames or provide a value for each frame. |
 | AlphaFade | False | Boolean | Fade the animation from fully opaque on the first frame to fully transparent after the last frame. |
 | DepthSprite |  | String | Name of the file containing the depth data sprite. |
 | DepthSpriteFrame | 0 | Integer | Frame index containing the depth data. |
 | DepthSpriteOffset | 0,0 | 2D Real Number | X, Y offset to apply to the depth sprite. |
 
 ### TilesetSpecificSpriteSequence
-**A sprite sequence that can have tileset-specific variants.**
+**A sprite sequence that can have tileset-specific variants. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.Common/Graphics/TilesetSpecificSpriteSequence.cs)**
 
 > Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
 
@@ -74,7 +74,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 ## OpenRA.Mods.D2k.Graphics
 
 ### D2kSpriteSequence
-**A sprite sequence that understands how to apply colour remapping to D2k sprites.**
+**A sprite sequence that understands how to apply colour remapping to D2k sprites. [GitHub](https://github.com/OpenRA/OpenRA/blob/playtest-20260222/OpenRA.Mods.D2k/Graphics/D2kSpriteSequence.cs)**
 
 > Inherits from: [`DefaultSpriteSequence`](#defaultspritesequence).
 

@@ -1,4 +1,4 @@
-This is an automatically generated listing of the Lua map scripting API for version playtest-20250220 of OpenRA.
+This is an automatically generated listing of the Lua map scripting API for version playtest-20260222 of OpenRA.
 
 OpenRA allows custom maps and missions to be scripted using Lua 5.1.
 These scripts run in a sandbox that prevents access to unsafe functions (e.g. OS or file access), and limits the memory and CPU usage of the scripts.
@@ -220,6 +220,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void OnAllRemovedFromWorld(Actor[] actors, LuaFunction func)** | Call a function when all of the actors in a group have been removed from the world. The callback function will be called as func(). |
 | **void OnAnyKilled(Actor[] actors, LuaFunction func)** | Call a function when one of the actors in a group is killed. This trigger is only called once. The callback function will be called as func(killed: actor). |
 | **void OnAnyProduction(LuaFunction func)** | Call a function when any actor produces another actor. The callback function will be called as func(producer: actor, produced: actor, productionType: string). |
+| **void OnBuildingPlaced(Player player, LuaFunction func)** | Call a function when this player places a building. The callback function will be called as func(p: player, placed: actor). |
 | **void OnCapture(Actor actor, LuaFunction func)** | Call a function when this actor is captured. The callback function will be called as func(self: actor, captor: actor, oldOwner: player, newOwner: player). |
 | **void OnDamaged(Actor actor, LuaFunction func)** | Call a function when the actor is damaged. Repairs or other negative damage can activate this trigger. The callback function will be called as func(self: actor, attacker: actor, damage: integer). |
 | **void OnDiscovered(Actor actor, LuaFunction func)** | Call a function when this actor is discovered by an enemy or a player with a Neutral stance. The callback function will be called as func(discovered: actor, discoverer: player). The player actor needs the 'EnemyWatcher' trait. The actors to discover need the 'AnnounceOnSeen' trait. |
