@@ -2404,13 +2404,12 @@ Related types with their possible values are listed [at the bottom](#related-val
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### ChangesTerrain
-**Modifies the terrain type underneath the actors location. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ChangesTerrain.cs)**
-
-> Requires: [`Immobile`](#immobile).
+**Modifies the terrain type underneath the actor's location. Make sure that the actor doesn't move, as the terrain is changed only on actor creation. In other words using Mobile, Aircraft nor any other IMove-based trait is supported and can cause unintended side effects. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/ChangesTerrain.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | TerrainType | *(required)* | String |  |
+| TerrainTypes |  | Set of String | Only change terrain, if the cell's original terrain type is in this list. By default, the terrain type is changed regardless of the original terrain type. |
 
 ### ClassicMapGenerator
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ClassicMapGenerator.cs)**
