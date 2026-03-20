@@ -6098,7 +6098,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 **Spawns the initial units for each player upon game start. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnMapActors.cs)**
 
 ### SpawnStartingUnits
-**Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at MPStartUnits. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
+**Spawn base actor at the spawnpoint and support units in an annulus around the base actor. Both are defined at `StartingUnits`. Attach this to the world actor. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/SpawnStartingUnits.cs)**
 
 > Requires: [`StartingUnits`](#startingunits).
 
@@ -8140,7 +8140,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | RequiresCondition |  | BooleanExpression | Boolean expression defining the condition to enable this trait. |
 
 ### BuildableTerrainLayer
-**Attach this to the world actor. Required for LaysTerrain to work. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/BuildableTerrainLayer.cs)**
+**Attach this to the world actor. Required for `D2kBuilding` to work. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/BuildableTerrainLayer.cs)**
 
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
