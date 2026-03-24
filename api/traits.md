@@ -1973,8 +1973,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MaxResourceCellsToCheck | 3 | Integer | How many randomly chosen cells with resources to check when deciding refinery placement. |
 | CheckForNewBasesDelay | 1500 | Integer | Delay (in ticks) until rechecking for new BaseProviders. |
 | PlaceDefenseTowardsEnemyChance | 100 | Integer | Chance that the AI will place the defenses in the direction of the closest enemy building. |
-| MinimumDefenseRadius | 5 | Integer | Minimum range at which to build defensive structures near a combat hotspot. |
-| MaximumDefenseRadius | 20 | Integer | Maximum range at which to build defensive structures near a combat hotspot. |
+| TryMaintainDefenseRange | 5 | Integer | Desired range at which to build defensive structures near a combat hotspot if possible. |
 | NewProductionCashThreshold | 5000 | Integer | Try to build another production building if there is too much cash. |
 | NewProductionChance | 50 | Integer | Chance to build another production building if there is too much cash. |
 | RallyPointScanRadius | 8 | Integer | Radius in cells around a factory scanned for rally points by the AI. |
