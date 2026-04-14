@@ -504,7 +504,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **int PowerDrained { get; }** | Returns the power used by the player.<br />**Requires Trait:** PowerManager |
 | **int PowerProvided { get; }** | Returns the total of the power the player has.<br />**Requires Trait:** PowerManager |
 | **string PowerState { get; }** | Returns the player's power state ("Normal", "Low" or "Critical").<br />**Requires Trait:** PowerManager |
-| **void TriggerPowerOutage(int ticks)** | Triggers low power for the chosen amount of ticks.<br />**Requires Trait:** PowerManager |
+| **void TriggerPowerOutage(int ticks)** | Triggers an outage for the chosen amount of ticks. Of this player's actors, only those with the `AffectedByPowerOutage` trait are affected.<br />**Requires Trait:** PowerManager |
 
 
 ### Production
