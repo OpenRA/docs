@@ -982,15 +982,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### TSMapGenerator
 **A purpose-built Tiberian Sun map generator. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/World/TSMapGenerator.cs)**
 
+> Inherits from: `MapGeneratorBase`.
+
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | *(required)* | String | Human-readable name this generator uses. |
-| Type | *(required)* | String | Internal id for this map generator. |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
 | Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
 | MapTitle | label-random-map | String | The title to use for generated maps. |
 | PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
 | FluentReferences |  | Collection of String |  |
-| Settings |  | MiniYaml |  |
+| Options |  | Collection of MapGeneratorOption |  |
 
 ### TSResourceLayer
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Cnc/Traits/World/TSResourceLayer.cs)**
@@ -2426,6 +2428,8 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ClassicMapGenerator
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ClassicMapGenerator.cs)**
 
+> Inherits from: `MapGeneratorBase`.
+
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Type | *(required)* | String |  |
@@ -2434,7 +2438,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | MapTitle | label-random-map | String | The title to use for generated maps. |
 | PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
 | FluentReferences |  | Collection of String |  |
-| Settings |  | MiniYaml |  |
+| Options |  | Collection of MapGeneratorOption |  |
 
 ### ClassicParallelProductionQueue
 **Attach this to the player actor (not a building!) to define a new shared build queue. Will only work together with the Production: trait on the actor that actually does the production. You will also want to add PrimaryBuildings: to let the user choose where new units should exit. The production speed depends on the number of production buildings and units queued at the same time. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/Player/ClassicParallelProductionQueue.cs)**
@@ -2514,15 +2518,17 @@ Related types with their possible values are listed [at the bottom](#related-val
 ### ClearMapGenerator
 **A map generator that clears a map. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/ClearMapGenerator.cs)**
 
+> Inherits from: `MapGeneratorBase`.
+
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
-| Name | *(required)* | String | Human-readable name this generator uses. |
-| Type | *(required)* | String | Internal id for this map generator. |
+| Type | *(required)* | String |  |
+| Name | *(required)* | String |  |
 | Tilesets | *(required)* | Collection of String | Tilesets that are compatible with this map generator. |
 | MapTitle | label-random-map | String | The title to use for generated maps. |
 | PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
 | FluentReferences |  | Collection of String |  |
-| Settings |  | MiniYaml |  |
+| Options |  | Collection of MapGeneratorOption |  |
 
 ### CliffBackImpassabilityLayer
 **Sets a custom terrain type for cells that are obscured by back-facing cliffs. This trait replicates the default CliffBackImpassability=2 behaviour from the TS/RA2 rules.ini. [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.Common/Traits/World/CliffBackImpassabilityLayer.cs)**
@@ -8184,6 +8190,8 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 ### D2kMapGenerator
 ** [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/D2kMapGenerator.cs)**
 
+> Inherits from: `MapGeneratorBase`.
+
 | Property | Default Value | Type | Description |
 | -------- | ------------- | ---- | ----------- |
 | Type | *(required)* | String |  |
@@ -8192,7 +8200,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | MapTitle | label-random-map | String | The title to use for generated maps. |
 | PanelWidget | MAP_GENERATOR_TOOL_PANEL | String | The widget tree to open when the tool is selected. |
 | FluentReferences |  | Collection of String |  |
-| Settings |  | MiniYaml |  |
+| Options |  | Collection of MapGeneratorOption |  |
 
 ### D2kResourceRenderer
 **Used to render spice with round borders. Attach this to the world actor [GitHub](https://github.com/OpenRA/OpenRA/blob/bleed/OpenRA.Mods.D2k/Traits/World/D2kResourceRenderer.cs)**
