@@ -382,7 +382,7 @@ Related types with their possible values are listed [at the bottom](#related-val
 | -------- | ------------- | ---- | ----------- |
 | ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
 | ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
-| ActorFlashTint | 1.4,1.4,1.4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashTint | 1.4,1.4,1.4 | 3D Real Number | The tint to apply when ActorFlashType is Tint. |
 | ActorFlashCount | 2 | Integer | Number of times to flash actors. |
 | ActorFlashInterval | 2 | Integer | Number of ticks between actor flashes. |
 | Radius | 0c0 | 1D World Distance | Radius of an area at which effect will be applied. If left default effect applies only to target actor. |

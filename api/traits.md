@@ -4715,7 +4715,7 @@ notification-added-marker-tiles-markers.magenta: FF00DC
 | ActorFlashType | Overlay | [`ActorFlashType`](#actorflashtype) | The type of effect to apply to targeted (frozen) actors. Accepts values Overlay and Tint. |
 | ActorFlashOverlayColor | FFFFFF | Color (RRGGBB[AA] notation) | The overlay color to display when ActorFlashType is Overlay. |
 | ActorFlashOverlayAlpha | 0.5 | Real Number | The overlay transparency to display when ActorFlashType is Overlay. |
-| ActorFlashTint | 1.4,1.4,1.4 | float3 | The tint to apply when ActorFlashType is Tint. |
+| ActorFlashTint | 1.4,1.4,1.4 | 3D Real Number | The tint to apply when ActorFlashType is Tint. |
 | ActorFlashCount | 2 | Integer | Number of times to flash (frozen) actors. |
 | ActorFlashInterval | 2 | Integer | Number of ticks between (frozen) actor flashes. |
 
