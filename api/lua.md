@@ -243,6 +243,7 @@ For a basic guide about map scripts see the [`Map Scripting` wiki page](https://
 | **void OnProduction(Actor actor, LuaFunction func)** | Call a function when this actor produces another actor. The callback function will be called as func(producer: actor, produced: actor). |
 | **void OnRemovedFromWorld(Actor actor, LuaFunction func)** | Call a function when this actor is removed from the world. The callback function will be called as func(self: actor). |
 | **void OnSold(Actor actor, LuaFunction func)** | Call a function when this actor is sold. The callback function will be called as func(self: actor). |
+| **void OnSupportPowerActivated(Actor actor, LuaFunction func)** | Call a function when a Support Power is activated by this actor. The callback function will be called as func(self: actor, orderName: string). |
 | **void OnTimerExpired(LuaFunction func)** | Call a function when the game timer expires. The callback function will be called as func(). |
 | **void RemoveFootprintTrigger(int id)** | Removes a previously created footprint trigger. |
 | **void RemoveProximityTrigger(int id)** | Removes a previously created proximity trigger. |
